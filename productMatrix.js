@@ -3,7 +3,16 @@
  Add this file as a directive file override and to the index.html file
 
  Remove the <addtoorderspecs ng-show="allowAddToOrder"></addtoorderspecs> line, as well as the entire <div> below it from <div class="form-group" ng-show="allowAddToOrder"> to </div>
- Add <productmatrix /> in its place
+ Add the following code in its place:
+
+ <div id="451_list_vspec">
+ <div class="form-group" ng-repeat="s in LineItem.Specs | DefinesVariant | onproperty:[{Property: 'CanSetForLineItem', Value: true}, {Property: 'DefinesVariant', Value: true}]">
+ <customfilefield customfield="s" ng-if="s.ControlType == 'File'"></customfilefield>
+ <customtextfield customfield="s" ng-if="s.ControlType == 'Text'"></customtextfield>
+ <customselectionfield change="specChanged" customfield="s" ng-if="s.ControlType == 'Selection'"></customselectionfield>
+ </div>
+ </div>
+ <productmatrix />
 
  Product must have VBOSS variants created with either 1 or 2 defining specs
 
@@ -164,15 +173,24 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
         _then(success, qtyError);
     }
 
-    var _addToOrder = function(matrix, product, success) {
+    var _addToOrder = function(matrix, product, extraSpecs, success) {
         var lineItems = [];
         angular.forEach(matrix, function(group) {
             angular.forEach(group, function(item) {
                 if (item.Quantity > 0) {
                     var liSpecs = {};
                     for (var spec in product.Specs) {
-                        liSpecs[spec] = angular.copy(product.Specs[spec]);
-                        liSpecs[spec].Value = item.tempSpecs[spec].Value;
+                        if(item.tempSpecs[spec] != undefined){
+                            liSpecs[spec] = angular.copy(product.Specs[spec]);
+                            liSpecs[spec].Value = item.tempSpecs[spec].Value;
+                        }
+                        else {
+                            angular.forEach(extraSpecs, function(sp){
+                                if(!sp.DefinesVariant){
+                                    liSpecs[sp.Name] = angular.copy(sp);
+                                }
+                            });
+                        }
                     }
                     var li = {
                         "PriceSchedule":product.StandardPriceSchedule,
@@ -302,7 +320,7 @@ four51.app.controller('ProductMatrixCtrl', ['$scope', '$routeParams', '$route', 
                 $scope.currentOrder = {};
                 $scope.currentOrder.LineItems = [];
             }
-            ProductMatrix.addToOrder($scope.comboVariants, $scope.product, function(lineItems) {
+            ProductMatrix.addToOrder($scope.comboVariants, $scope.product, $scope.$parent.LineItem.Specs, function(lineItems) {
                 $scope.addToOrderIndicator = true;
                 angular.forEach(lineItems, function(li) {
                     $scope.currentOrder.LineItems.push(li);
@@ -323,6 +341,18 @@ four51.app.controller('ProductMatrixCtrl', ['$scope', '$routeParams', '$route', 
                 );
             });
         };
+        $scope.isInPath = function(path) {
+            var cur_path = $location.path().replace('/', '');
+            var result = false;
+
+            if(cur_path.indexOf(path) > -1) {
+                result = true;
+            }
+            else {
+                result = false;
+            }
+            return result;
+        };
     }]);
 
 four51.app.filter('orderobjectby', function() {
@@ -337,4 +367,15 @@ four51.app.filter('orderobjectby', function() {
         if(reverse) filtered.reverse();
         return filtered;
     };
+});
+
+four51.app.filter('DefinesVariant', function() {
+    return function(value) {
+        var output = [];
+        angular.forEach(value, function(s) {
+            if (s.DefinesVariant == false || s.ControlType == 'Text')
+                output.push(s);
+        });
+        return output;
+    }
 });
