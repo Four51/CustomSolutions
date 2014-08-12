@@ -104,7 +104,7 @@ four51.app.directive('largebillingaddresslist', function() {
 			'<div ng-show="(addresses | filter:{IsBilling:true}).length > 0" style="margin: 35px 0 0;">' +
 			'<label ng-class="{required: !currentOrder.IsMultipleShip()}" ng-show="currentOrder.ShipAddressID || !currentOrder.IsMultipleShip()">{{\'Billing\' | r}} {{\'Address\' | r}}</label>' +
 			'<input type="text" ng-model="currentOrder.BillAddress" placeholder="{{orderBillAddress ? orderBillAddress.AddressName : \'Search for Billing Address\' | r}}"' +
-			'typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \'' +  '\' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in addresses | largeaddress:$viewValue | filter:{IsBilling:true}"' +
+			'typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \' \' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in addresses | largeaddress:$viewValue | filter:{IsBilling:true}"' +
 			'class="form-control"><i class="fa fa-map-marker"></i></div>',
 		controller: ['$scope', function($scope) {
 			$scope.$watch('currentOrder.BillAddress', function(newValue) {
