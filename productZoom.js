@@ -1,8 +1,8 @@
 //Directive: productZoom
-
+//
 //Functionality:
 //Allows a product image to be magnified via a lens superimposed on the image.
-
+//
 //Product Configuration:
 //Static specs will have to be added to the respective product. Certain "default" specs, which are specified below, need to be included, or the plugin will not work.
 //If not using a VBOSS product, the plugin uses the large image and thumbnail image for the product, so appropriate sized images should be used for best results.
