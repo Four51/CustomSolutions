@@ -5,7 +5,7 @@
 
 //Product Configuration:
 //Static specs will have to be added to the respective product. Certain "default" specs, which are specified below, need to be included, or the plugin will not work.
-//The plugin uses the large image and thumbnail image for the product, so appropriate sized images should be used for best results.
+//If not using a VBOSS product, the plugin uses the large image and thumbnail image for the product, so appropriate sized images should be used for best results.
 //
 //The following properties are available. (Default values are provided, but they can be changed for customization purposes):
 //
@@ -17,11 +17,17 @@
 //AutoCircle	     ProductZoom       autoCircle	    autoCircle (any string is fine, delete spec to disable)
 //InnerZoom	         ProductZoom       iZoom		    iZoom (any string is fine, delete spec to disable)
 //
-//Additional Setup:
-//User will have to create a new Product Detail Template and reference the directive within the "figure" tags: <productzoom product="LineItem.Product"></productzoom>
-//The plugin license file will also have to be included within the same path as the directive file
+//If Using a VBOSS Product:
+//You will need to do the following in addition to the normal setup.
+//Extra static specs containing an image for the thumbnail variations will be needed.
+//For example if you are varying your images based on the color, then you would create a variable spec called "Variation" with a label of "color", and then give it the respective color options.
+//Note, your static spec group name needs to be called "Variation", and the static spec names need to match the option values you set up in your variable spec. (in this example, Red, Blue, etc.)
+//Also, you will need to make sure that the images you upload within each variant are larger than the images you uploaded in your static specs.
 //
-//Edit:
+//Additional Setup:
+//User will have to create a new Product Detail Template and reference the directive within the "figure" tags: <productzoom lineitem="LineItem"></productzoom>
+//
+//Note:
 //The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com". If using this on TEST/QA/STAGING, it will still work, but will show as an "unlicensed JetZoom Product".
 //If a new domain needs to set up for this plugin, it can be done from Four51's Star Plugins Account.
 
@@ -30,31 +36,37 @@ four51.app.directive('productzoom', function(){
     var obj = {
         restrict: 'E',
         scope: {
-            product: "="
+            lineitem: "="
         },
         template: '<style>.jetzoom-lens{border:none;width:80%;height:80%;border-radius:20px;box-shadow:0 0 10px rgba(0,0,0,.4);cursor:none}.jetzoom-blank{background-color:rgba(0,0,0,.01);)}.jetzoom-ajax-loader{background-image:url(images/ajax-loader.gif);width:32px;height:32px}.jetzoom-container img:not(.jetzoom){display:inline-block;cursor:pointer}.jetzoom{margin:0 auto}</style>'+
             '<div>'+
             '<img class="jetzoom"/>'+
             '</div>',
         link: function($scope) {
-            $scope.$watch('product', function(product){
-                if(product) {
+            $scope.$watch('lineitem', function(lineitem){
+                if(lineitem.Product) {
                     var options = {
-                        tintColor: product.StaticSpecGroups.ProductZoom.Specs.tintClr.Value,
-                        tintOpacity: product.StaticSpecGroups.ProductZoom.Specs.tintOpcty.Value,
-                        fadeTime: product.StaticSpecGroups.ProductZoom.Specs.fadeTm.Value,
+                        tintColor: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintClr.Value,
+                        tintOpacity: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintOpcty.Value,
+                        fadeTime: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.fadeTm.Value,
                         lensClass: "jetzoom-lens",
                         lensProportions: "",
-                        lensAutoCircle: product.StaticSpecGroups.ProductZoom.Specs.autoCircle,
-                        innerZoom: product.StaticSpecGroups.ProductZoom.Specs.iZoom
+                        lensAutoCircle: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.autoCircle,
+                        innerZoom: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.iZoom
                     };
                     var jetZoomInstance = new JetZoom($('.jetzoom'), options);
-                    jetZoomInstance.loadImage(product.SmallImageUrl, product.LargeImageUrl);
+                    if(lineitem.Variant){
+                        var staticSpec = lineitem.Specs.Variation.Value;
+                        var smallImageobj = lineitem['Product']['StaticSpecGroups']['Variation']['Specs'][staticSpec]['FileURL'];
+                        jetZoomInstance.loadImage(smallImageobj, lineitem.Variant.PreviewUrl || lineitem.Variant.LargeImageUrl);
+                    }
+                    else{
+                        jetZoomInstance.loadImage(lineitem.Product.SmallImageUrl, lineitem.Product.LargeImageUrl);
+                    }
                 };
             }, true);
 
 //            Plugin Code:
-
             /*
              Jet Zoom Application License (JZ01-APP).
              Version 1.1 rev 1406062037
