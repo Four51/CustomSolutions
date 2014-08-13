@@ -1,6 +1,7 @@
 /* 
-- Modification of largeAddressCustomization.js (which utilizes a type ahead input field) for use on spec forms.
-- Should be used for prepopulation of spec form address fields based on user login. 
+- Modification of largeAddressCustomization.js (which utilizes a type ahead input field on billing and shipping address
+fields for buyers with 100+ addresses) updated for spec forms.
+- Should be used for prepopulation of spec form address fields based on user login addresses. 
 - The selection on the customaddresslist directive will populate the variable spec address fields for optional editing 
 and saving.
 - Searches both billing and shipping addresses.
