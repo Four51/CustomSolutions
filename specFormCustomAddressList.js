@@ -6,20 +6,20 @@ CustomAddressList.getall(function(list) {
 	
 	
 $scope.populateAddress = function(address) {
-		$scope.Variant.Specs.City.Value = address.City;
-		$scope.Variant.Specs.State.Value = address.State;
-		$scope.Variant.Specs.Zip.Value = address.Zip;
-		
-		if ($scope.Variant.Specs.Address2) {
-		$scope.Variant.Specs.Address.Value = address.Street1;
-		$scope.Variant.Specs.Address2.Value = address.Street2;
-		}
-		else if (address.Street2) {
-		$scope.Variant.Specs.Address.Value = address.Street1 + ' ' + address.Street2;
-		}
-		else {
-		$scope.Variant.Specs.Address.Value = address.Street1;
-		}
+    $scope.Variant.Specs.City.Value = address.City;
+    $scope.Variant.Specs.State.Value = address.State;
+    $scope.Variant.Specs.Zip.Value = address.Zip;
+	
+    if ($scope.Variant.Specs.Address2) {
+        $scope.Variant.Specs.Address.Value = address.Street1;
+        $scope.Variant.Specs.Address2.Value = address.Street2;
+    }
+    else if (address.Street2) {
+	$scope.Variant.Specs.Address.Value = address.Street1 + ' ' + address.Street2;
+    }
+    else {
+	$scope.Variant.Specs.Address.Value = address.Street1;
+    }
 }
 
 
