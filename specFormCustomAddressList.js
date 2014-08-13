@@ -1,11 +1,11 @@
 /* 
 - Modification of largeAddressCustomization.js (which utilizes a type ahead input field on billing and shipping address
-fields for buyers with 100+ addresses) updated for spec forms.
-- Should be used for prepopulation of spec form address fields based on user login addresses. 
+fields attached to an order for buyers with 100+ addresses) updated for spec forms.
+- Searches both billing and shipping addresses.
+- Should be used for prepopulation of product variant spec form address fields based on user login addresses. 
 - The selection on the customaddresslist directive will populate the variable spec address fields for optional editing 
 and saving.
-- Searches both billing and shipping addresses.
-- A prepopulated address that is modified will not update that address in the address book. 
+- A prepopulated address that is modified will not update that address in the user address book. 
 */
 
 
