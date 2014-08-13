@@ -34,7 +34,8 @@ $scope.populateAddress = function(address) {
 }
 
 
-/* 
+/*
+=================================================================================
 - Add to js/services/specFormCustomAddressList.js 
 - Inject 'SpecFormCustomAddressList' service into specFormCtrl.js
 - Add to index.html 
