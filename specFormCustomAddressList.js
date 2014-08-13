@@ -3,8 +3,8 @@
 fields attached to an order for buyers with 100+ addresses) updated for spec forms.
 - Searches both billing and shipping addresses.
 - Should be used for prepopulation of product variant spec form address fields based on user login addresses. 
-- The selection on the customaddresslist directive will populate the variable spec address fields for optional editing 
-and saving.
+- The selection on the customaddresslist directive will populate the variable spec address fields (on "blur"-aka 
+click out of field) for optional editing and saving.
 - A prepopulated address that is modified will not update that address in the user address book. 
 */
 
