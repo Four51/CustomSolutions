@@ -35,10 +35,10 @@ $scope.populateAddress = function(address) {
 
 
 /* 
-add to js/services/specFormCustomAddressList.js 
-inject SpecFormCustomAddressList service into specFormCtrl.js
-add to index.html 
-add <largeaddresslist></largeaddresslist> directive to spec form and include view-form-icon class on div
+- Add to js/services/specFormCustomAddressList.js 
+- Inject 'SpecFormCustomAddressList' service into specFormCtrl.js
+- Add to index.html 
+- Add <largeaddresslist></largeaddresslist> directive to spec form and include class="view-form-icon" on div
 */
 
 four51.app.factory('SpecFormCustomAddressList', ['$q', '$resource', '$451', function($q, $resource, $451) {
