@@ -15,7 +15,6 @@ CustomAddressList.getall(function(list) {
     $scope.addresses = list;
 });
 	
-	
 $scope.populateAddress = function(address) {
     $scope.Variant.Specs.City.Value = address.City;
     $scope.Variant.Specs.State.Value = address.State;
