@@ -32,7 +32,6 @@ $scope.populateAddress = function(address) {
     }
 }
 
-
 /*
 =================================================================================
 - Add to js/services/specFormCustomAddressList.js 
