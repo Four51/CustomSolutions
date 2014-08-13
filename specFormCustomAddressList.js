@@ -1,4 +1,15 @@
-// add to specFormCtrl.js and modify Variant Spec names to match Variable Specs
+/* 
+- Modification of largeAddressCustomization.js (which utilizes a type ahead input field) for use on spec forms.
+- Should be used for prepopulation of spec form address fields based on user login. 
+- The selection on the customaddresslist directive will populate the variable spec address fields for optional editing 
+and saving.
+- Searches both billing and shipping addresses.
+- A prepopulated address that is modified will not update that address in the address book. 
+*/
+
+
+
+/* add to specFormCtrl.js and modify Variant Spec names to match Variable Specs */
 
 CustomAddressList.getall(function(list) {
     $scope.addresses = list;
@@ -23,10 +34,12 @@ $scope.populateAddress = function(address) {
 }
 
 
-// add to js/services/specFormCustomAddressList.js 
-// inject SpecFormCustomAddressList service into specFormCtrl.js
-// add to index.html 
-// add <largeaddresslist></largeaddresslist> directive to spec form and include view-form-icon class on div
+/* 
+add to js/services/specFormCustomAddressList.js 
+inject SpecFormCustomAddressList service into specFormCtrl.js
+add to index.html 
+add <largeaddresslist></largeaddresslist> directive to spec form and include view-form-icon class on div
+*/
 
 four51.app.factory('SpecFormCustomAddressList', ['$q', '$resource', '$451', function($q, $resource, $451) {
 	function _then(fn, data, count) {
