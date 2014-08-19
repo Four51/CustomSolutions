@@ -48,14 +48,14 @@ four51.app.directive('rnCarouselAutoSlide', ['$timeout', function($timeout) {
             if(!scope.carouselExposedIndex){
                 scope.carouselExposedIndex = 0;
             }
-            stopAutoplay = function () {
+            var stopAutoplay = function () {
                 if (angular.isDefined(timer)) {
                     $timeout.cancel(timer);
                 }
                 timer = undefined;
             };
 
-            increment = function () {
+            var increment = function () {
                 if (scope.carouselExposedIndex < slidesCount - 1) {
                     scope.carouselExposedIndex = scope.carouselExposedIndex + 1;
                 } else {
@@ -63,7 +63,7 @@ four51.app.directive('rnCarouselAutoSlide', ['$timeout', function($timeout) {
                 }
             };
 
-            restartTimer = function (){
+            var restartTimer = function (){
                 stopAutoplay();
                 timer = $timeout(increment, delay);
             };
