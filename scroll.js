@@ -1,5 +1,6 @@
 /* 
 - Using $anchorScroll for anchor links in Angular. 
+- based on example fiddle source: http://jsfiddle.net/brettdewoody/y65G5/
 =================================================================================
 */
 
