@@ -1,6 +1,8 @@
 /* 
 - Using $anchorScroll for anchor links in Angular. 
-- based on example fiddle source: http://jsfiddle.net/brettdewoody/y65G5/
+- based on example plunker source: https://docs.angularjs.org/api/ng/service/$anchorScroll
+- additional source for smoothScroll working on implementation for back to top arrow: 
+  http://jsfiddle.net/brettdewoody/y65G5/
 =================================================================================
 */
 
