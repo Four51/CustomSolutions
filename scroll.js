@@ -32,8 +32,8 @@ angular.module('anchorScrollExample', [])
 <section>
 <div id="scrollArea" ng-controller="ScrollController">
 <a ng-click="goto[LinkID]()"></a> 
-</div>
 
 <a id="[LinkID]"></a>
+</div>
 </section>
 
