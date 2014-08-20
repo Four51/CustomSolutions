@@ -7,9 +7,10 @@
 /* 
 - add to lib/angular/plugins/scroll.js 
 - add lib/angular/plugins/scroll/js to index.html 
+- inject into app.js 'anchorScroll'
 */
 
-angular.module('anchorScrollExample', [])
+angular.module('anchorScroll', [])
   .controller('ScrollController', ['$scope', '$location', '$anchorScroll',
     function ($scope, $location, $anchorScroll) {
 	
