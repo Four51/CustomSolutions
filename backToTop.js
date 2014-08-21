@@ -3,10 +3,12 @@
 - sources: 
   http://www.developerdrive.com/2013/07/using-jquery-to-add-a-dynamic-back-to-top-floating-button-with-smooth-scroll/
   https://gist.github.com/srfrnk/8887352
+=================================================================================
 */
 
 
 /*
+=================================================================================
 - add js/directives/backToTop.js file override
 - add js/directives/backToTop.js to index.html
 */
@@ -44,6 +46,7 @@ four51.app.directive("backToTop", ["$window", function ($window) {
 }]);
 
 /*
+=================================================================================
 - add to custom.css
 */
 
@@ -63,7 +66,10 @@ a.back-to-top:hover {
      background-color: #fff;
  }
  
- /* html usage */
+ /* 
+ =================================================================================
+ - add to index.html 
+ */
  
  <back-to-top duration="700" title="Back To Top" offset="600">
     <span class="fa fa-chevron-circle-up"></span>
