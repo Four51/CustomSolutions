@@ -1,3 +1,11 @@
+/* 
+- adds a floating back to top button that will appear on bottom right of window when user scrolls down. 
+- sources: 
+  http://www.developerdrive.com/2013/07/using-jquery-to-add-a-dynamic-back-to-top-floating-button-with-smooth-scroll/
+  https://gist.github.com/srfrnk/8887352
+*/
+
+
 /*
 - add js/directives/backToTop.js file override
 - add js/directives/backToTop.js to index.html
