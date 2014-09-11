@@ -1,23 +1,29 @@
 four51.app.directive('favoriteproduct', ['FavoriteProductService', function(FavoriteProductService) {
     var obj = {
         restrict: 'E',
-        scope: {
-            lineitem: '='
-        },
-        template: '<style>favoriteproduct{cursor:pointer;position:absolute;z-index:1000;left:20px;top:15px;font-size:2em;}</style><i class="fa" ng-class="{\'fa-heart-o text-muted\':!isFavorite(), \'fa-heart text-danger\':isFavorite()}" ng-click="toggle()"></i>',
-        link: function(scope) {
-            scope.toggle = _toggle;
-            scope.isFavorite = _is;
+        template: '<style>favoriteproduct{cursor:pointer;position:absolute;z-index:1000;left:20px;top:15px;font-size:2em;}</style><i class="fa" ng-class="{\'fa-heart-o text-muted\':!isFavorite, \'fa-heart text-danger\':isFavorite}" ng-click="toggle()"></i>',
+        controller: ['$scope', function($scope) {
 
-            FavoriteProductService.get();
+            $scope.$watch('LineItem.Product', init);
 
-            function _is() {
-                return FavoriteProductService.contains(scope.lineitem.Product);
+            function init(product) {
+                if (!product) {
+                    FavoriteProductService.get();
+                    return;
+                }
+                $scope.isFavorite = FavoriteProductService.contains(product);
             }
+
+            $scope.toggle = _toggle;
+
             function _toggle() {
-                FavoriteProductService.save(scope.lineitem.Product);
+                FavoriteProductService.save($scope.LineItem.Product, success);
+
+                function success() {
+                    $scope.isFavorite = FavoriteProductService.contains($scope.LineItem.Product);
+                }
             }
-        }
+        }]
     };
     return obj;
 }]);
@@ -55,10 +61,10 @@ four51.app.factory('FavoriteProductService', ['Error', 'User', function(Error, U
         return favorites.indexOf(product.InteropID) > -1;
     }
 
-    function _save(product) {
-        User.get(success, error);
+    function _save(product, success) {
+        User.get(getSuccess, getError);
 
-        function success(user) {
+        function getSuccess(user) {
             if (favorites.indexOf(product.InteropID) > -1) { // removing
                 favorites.splice(favorites.indexOf(product.InteropID), 1);
                 angular.forEach(user.CustomFields, function (field) {
@@ -80,9 +86,9 @@ four51.app.factory('FavoriteProductService', ['Error', 'User', function(Error, U
                     }
                 });
             }
-            User.save(user, function(user) {}, function(ex) {});
+            User.save(user, success);
         }
-        function error(ex) {
+        function getError(ex) {
             error(ex);
         }
     }
