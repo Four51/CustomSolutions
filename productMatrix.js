@@ -16,6 +16,11 @@
 
  Product must have VBOSS variants created with either 1 or 2 defining specs
 
+ Optional Total Min and Total Max Static Specs can be created for the product. These will only be considered if the product does not have a min and/or max quantity set within the price schedule.
+ Custom Static Text Specs should be created under a spec group named "Matrix". For total min quantity, name the spec "MinQty". For total max quantity, name the spec "MaxQty".
+ If the price schedule has a min or max quantity assigned, a quantity greated than/less than that value will be required for each variant within the product. However, if those values are not assigned
+ and the custom static specs described above exist, the user must fill out a TOTAL quantity greater than or less than the MinQty or MaxQty.
+
  */
 
 four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($resource, $451, Variant) {
@@ -23,6 +28,15 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
         if (angular.isFunction(fn))
             fn(data, count, s1, s2);
     }
+
+    var _getMinMaxTotalQty = function(product) {
+        if (product.StaticSpecGroups && product.StaticSpecGroups.Matrix) {
+            product.MinTotalQty = (product.StaticSpecGroups.Matrix.Specs.MinQty && product.StandardPriceSchedule.MinQuantity == 1) ? +(product.StaticSpecGroups.Matrix.Specs.MinQty.Value) : null;
+            product.MaxTotalQty = (product.StaticSpecGroups.Matrix.Specs.MaxQty && !product.StandardPriceSchedule.MaxQuantity) ? +(product.StaticSpecGroups.Matrix.Specs.MaxQty.Value) : null;
+        }
+
+        return product;
+    };
 
     var _build = function(product, order, success) {
         var specCombos = {};
@@ -138,20 +152,23 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
                     comboCount--;
                 });
         }
-    }
+    };
 
     var _validateQty = function(matrix, product, success) {
         var qtyError = "";
         var priceSchedule = product.StandardPriceSchedule;
+        var totalQty = 0;
         angular.forEach(matrix, function(group) {
             angular.forEach(group, function(variant) {
                 var qty = variant.Quantity;
                 variant.QtyError = false;
                 if (variant.Quantity) {
-                    if(!$451.isPositiveInteger(qty))
-                    {
+                    if(!$451.isPositiveInteger(qty)) {
                         qtyError += "<p>Please select a valid quantity for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
                         variant.QtyError = true;
+                    }
+                    else {
+                        totalQty += +(variant.Quantity);
                     }
                 }
                 if(priceSchedule.MinQuantity > qty && qty != 0){
@@ -170,8 +187,16 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
             });
         });
 
+        if (!product.RestrictedQuantity && product.MinTotalQty && totalQty < product.MinTotalQty) {
+            qtyError += "Total quantity must be equal or greater than " + product.MinTotalQty + " for " + (product.Name ? product.Name : product.ExternalID);
+        }
+
+        if (!product.RestrictedQuantity && product.MaxTotalQty && totalQty > product.MaxTotalQty) {
+            qtyError += "Total quantity must be equal or less than " + product.MaxTotalQty + " for " + (product.Name ? product.Name : product.ExternalID);
+        }
+
         _then(success, qtyError);
-    }
+    };
 
     var _addToOrder = function(matrix, product, extraSpecs, success) {
         var lineItems = [];
@@ -205,12 +230,13 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
             });
         });
         _then(success, lineItems);
-    }
+    };
 
     return {
         build: _build,
         validateQuantity: _validateQty,
-        addToOrder: _addToOrder
+        addToOrder: _addToOrder,
+        getMinMaxTotalQty: _getMinMaxTotalQty
     }
 }]);
 
@@ -279,6 +305,7 @@ four51.app.controller('ProductMatrixCtrl', ['$scope', '$routeParams', '$route', 
         function init(searchTerm) {
             ProductDisplayService.getProductAndVariant($routeParams.productInteropID, $routeParams.variantInteropID, function (data) {
                 $scope.product = data.product;
+                ProductMatrix.getMinMaxTotalQty($scope.product);
                 if ($scope.product.IsVBOSS) {
                     $scope.matrixLoadingIndicator = true;
                     ProductMatrix.build($scope.product, $scope.currentOrder, function(matrix, specCount, spec1Name, spec2Name) {
