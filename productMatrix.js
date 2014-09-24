@@ -251,6 +251,7 @@ four51.app.directive('productmatrix', function() {
         },
         template: "<style>.matrix-grid > div {padding: 0px;}.matrix-grid > div > div {text-align: center;height: 50px;padding: 10px 5px;}.matrix-grid > div > div:nth-of-type(even) {background-color: #f5f5f5;}.matrix-grid > div:last-of-type > div {padding: 5px;}.matrix-grid > div:last-of-type > div input {text-align: center;}.qty-invalid{border-color: #d9534f;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);color: #ccc;}</style>" +
             "<div>" +
+            "<loadingindicator ng-show=\"matrixLoadingIndicator\" />" +
             "    <div ng-repeat=\"group in comboVariants\"  ng-show=\"specCount == 2\">" +
             "        <h3>{{group.DisplayName}}</h3>" +
             "        <div class=\"row matrix-grid\">" +
