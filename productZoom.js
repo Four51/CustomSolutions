@@ -56,11 +56,11 @@ four51.app.directive('productzoom', function(){
                     };
                     var jetZoomInstance = new JetZoom($('.jetzoom'), options);
                     if(lineitem.Variant){
-						if(lineitem.Specs.Variation){
-							var staticSpec = lineitem.Specs.Variation.Value;
-							var smallImageobj = lineitem['Product']['StaticSpecGroups']['Variation']['Specs'][staticSpec]['FileURL'];
-							jetZoomInstance.loadImage(smallImageobj, lineitem.Variant.PreviewUrl || lineitem.Variant.LargeImageUrl);
-						}
+			if(lineitem.Specs.Variation){
+				var staticSpec = lineitem.Specs.Variation.Value;
+				var smallImageobj = lineitem['Product']['StaticSpecGroups']['Variation']['Specs'][staticSpec]['FileURL'];
+				jetZoomInstance.loadImage(smallImageobj, lineitem.Variant.PreviewUrl || lineitem.Variant.LargeImageUrl);
+			}
                     }
                     else{
                         jetZoomInstance.loadImage(lineitem.Product.SmallImageUrl, lineitem.Product.LargeImageUrl);
