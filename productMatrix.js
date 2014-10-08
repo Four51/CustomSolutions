@@ -14,7 +14,8 @@
  </div>
  <productmatrix />
 
- Product must have VBOSS variants created with either 1 or 2 defining specs
+ Product must have VBOSS variants created with either 1 or 2 defining specs. If a min qty is set in ADMIN, the min qty will be applied  per variant.
+ If a min or max qty should apply to all variants, reference the next paragraph and do not set a min qty in ADMIN.
 
  Optional Total Min and Total Max Static Specs can be created for the product. These will only be considered if the product does not have a min and/or max quantity set within the price schedule.
  Custom Static Text Specs should be created under a spec group named "Matrix". For total min quantity, name the spec "MinQty". For total max quantity, name the spec "MaxQty".
@@ -136,6 +137,7 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
                         comboVariants[group].QuantityAvailable = variant.QuantityAvailable;
                         comboVariants[group].OrderQuantity = variant.OrderQuantity;
                         comboVariants[group].ListOrder = variant.ListOrder;
+                        comboVariants[group].Markup = variant.Markup;
                     }
                     comboVariants[group].push(variant);
                     if (variantCount == comboCount) {
