@@ -22,6 +22,6 @@ angular.module('module-name')
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
-            when('/parthname', { templateUrl: 'moduleView.html', controller: 'ModuleCtrl' })
+            when('/pathname', { templateUrl: 'moduleView.html', controller: 'ModuleCtrl' })
     }])
 ;
