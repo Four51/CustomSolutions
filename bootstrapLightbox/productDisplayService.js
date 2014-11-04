@@ -1,4 +1,5 @@
-/*Add the below snippet to js/services/productDisplayService.js within function productViewScope(scope){} and after the scope.setAddToOrderErrors = function(){}*/
+/*Add the below snippet to js/services/productDisplayService.js within function productViewScope(scope){} 
+and after the scope.setAddToOrderErrors = function(){}*/
 	
 	//scope.imageLoaded = false;
 	    if (scope.LineItem.Product.StaticSpecGroups) {
