@@ -1,5 +1,8 @@
-/*Add the below snippet to js/services/productDisplayService.js within function productViewScope(scope){} 
-and after the scope.setAddToOrderErrors = function(){}*/
+/***  
+js/services/productDisplayService.js Rev: 10/8/14 
+Add the below snippet within function productViewScope(scope){} 
+and after the scope.setAddToOrderErrors = function(){}
+***/
 	
 if (scope.LineItem.Product.StaticSpecGroups) {
 
