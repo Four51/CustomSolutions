@@ -1,7 +1,6 @@
 /*Add the below snippet to js/services/productDisplayService.js within function productViewScope(scope){} 
 and after the scope.setAddToOrderErrors = function(){}*/
 	
-	//scope.imageLoaded = false;
 	    if (scope.LineItem.Product.StaticSpecGroups) {
 		
 			if (scope.LineItem.Product.StaticSpecGroups.GalleryImages) {
@@ -47,6 +46,5 @@ and after the scope.setAddToOrderErrors = function(){}*/
 			}
 		}
 
-        //console.dir(scope.LineItem.images);
         //trigger the click for the first image (gives the large image)
         scope.index = 0;
