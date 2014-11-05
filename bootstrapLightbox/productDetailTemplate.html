@@ -1,0 +1,25 @@
+<!-- PRODUCT IMAGE PANEL!-->
+    <div class="col-md-4 col-collapse">
+        <div class="panel panel-default">
+            <div class="panel-body">
+				<!-- lightbox -->
+				<div class="galleryImages">
+					<li ng-repeat="image in LineItem.images">
+						<a ng-click="openLightboxModal($index)" ng-class="{active: $index==$parent.index}">
+							<img ng-src="{{image.url}}" class="product-image-large img-responsive" />
+						</a>
+					</li>
+				</div>
+            </div>
+			<div class="panel-footer">
+				<ul class="galleryThumbs">
+				  <li ng-repeat="image in LineItem.images">
+					<a ng-click="$parent.index=$index" ng-class="{active: $index==$parent.index}">
+					  <img ng-src="{{image.thumbUrl}}" class="img-thumbnail img-responsive" />
+					</a>
+				  </li>
+				</ul>
+			</div>
+			<!-- lightbox -->
+        </div>
+	</div>	
