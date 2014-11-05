@@ -1,3 +1,6 @@
+/*The module . add file and add reference to index.html*/
+
+
 angular.module('bootstrapLightbox', [
   'ngTouch',
   'ui.bootstrap',
