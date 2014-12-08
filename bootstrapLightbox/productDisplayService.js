@@ -1,5 +1,5 @@
 /***  
-js/services/productDisplayService.js Rev: 10/8/14 
+js/services/productDisplayService.js Rev: 12/8/14 
 Add the below snippet within function productViewScope(scope){} 
 and after the scope.setAddToOrderErrors = function(){}
 ***/
@@ -22,7 +22,7 @@ if (scope.LineItem.Product.StaticSpecGroups) {
 	}
 }
 
-if (scope.LineItem.Specs) {
+if (scope.LineItem.Specs && scope.LineItem.Product.StaticSpecGroups) {
 
 	if (scope.LineItem.Specs.Color) {
 		 
