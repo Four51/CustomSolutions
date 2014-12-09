@@ -43,9 +43,20 @@
             }
             params.key = this.apikey;
             params = JSON.stringify(params);
-            req = new XMLHttpRequest();
+
+            if (navigator.userAgent.indexOf('MSIE 9') < 0) {
+                req = new XMLHttpRequest();
+            }
+            else {
+                req = new XDomainRequest();
+            }
+
             req.open('POST', "" + ROOT + uri + ".json");
-            req.setRequestHeader('Content-Type', 'application/json');
+
+            if (navigator.userAgent.indexOf('MSIE 9') < 0) {
+                req.setRequestHeader('Content-Type', 'application/json');
+            }
+
             if (this.debug) {
                 console.log("Mandrill: Opening request to " + ROOT + uri + ".json");
             }
