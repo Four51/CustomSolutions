@@ -15,7 +15,9 @@ By default, the image slider is set up to work with images 1168px wide and 523px
 
 ###2. Bring in the three relevant files.
 Place the `angular-carousel.js` file within the lib/angular/plugins directory.
+
 The `ffoCarousel.html` (the carousel template) goes in the partials/controls directory.
+
 Lastly, the `ffoCarousel.js` file goes in the js/directives directory.
 
 **Be sure to reference both of the JS files in the `index.html`**
