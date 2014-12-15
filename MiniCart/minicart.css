@@ -1,0 +1,77 @@
+.minicart {
+    padding: 7px 15px 15px;
+    border: 1px solid #ddd;
+    float: right;
+    cursor: pointer;
+    margin-bottom: 40px;
+    color: #999999;
+}
+.minicart .fa-shopping-cart {
+    position: relative;
+    top: 3px;
+    padding-right: 5px;
+}
+.minicart .label.label-default {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #50acdb;
+}
+.minicart:active .minicart-detail,
+.minicart:focus .minicart-detail,
+.minicart:hover .minicart-detail {
+    display: block;
+}
+.minicart .minicart-detail {
+    display: none;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -webkit-box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 20;
+}
+.minicart .minicart-detail .fa-caret-up {
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    color: #fff;
+}
+.minicart .minicart-detail .row:not(.lineitem-row) {
+    padding: 10px 0;
+}
+.minicart .minicart-detail .row:not(.lineitem-row):not(.top-item) {
+    border-top: 1px dashed #ddd;
+}
+.minicart .minicart-detail .row.lineitem-row {
+    font-size: 0.8em;
+}
+.minicart .minicart-detail .row.lineitem-row i.fa-times {
+    font-size: 1.3em;
+}
+.minicart .minicart-detail a {
+    display: block;
+}
+.minicart .minicart-detail figure {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+.minicart .minicart-detail figure img {
+    max-width: 100%;
+}
+.minicart .minicart-detail .confirm-delete {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+}
