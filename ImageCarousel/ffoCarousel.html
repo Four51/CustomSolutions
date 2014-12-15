@@ -1,0 +1,129 @@
+<ul rn-carousel rn-carousel-auto-slide="timeout" ng-show="Slides" rn-carousel-index="carouselIndex" rn-carousel-controls ng-class="{'hide-controls': !controls}">
+    <li ng-repeat="slide in Slides">
+        <div class="layer">
+            <a ng-if="slide.linkUrl && slide.externalLink" target="_blank" ng-href="{{slide.linkUrl}}">
+                <img ng-src="{{slide.imageUrl}}" />
+            </a>
+            <a ng-if="slide.linkUrl && !slide.externalLink" ng-href="{{slide.linkUrl}}">
+                <img ng-src="{{slide.imageUrl}}" />
+            </a>
+        </div>
+    </li>
+    <div rn-carousel-indicators ng-if="Slides.length > 1 && indicators" slides="Slides" rn-carousel-index="carouselIndex"></div>
+</ul>
+<style>
+    ul[rn-carousel] {
+        /*DIMENSIONS OF CAROUSEL IMAGES FOR XS*/
+        height: 127.61558219px;
+        max-width: 285px;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 0;
+        white-space: nowrap;
+        position: relative;
+        -webkit-perspective: 1000px;
+        -ms-perspective: 1000px;
+        perspective: 1000px;
+        -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    }
+    ul[rn-carousel] > li {
+        color: black;
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: visible;
+        vertical-align: top;
+        position: absolute;
+        left: 0;
+        right: 0;
+        white-space: normal;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+    ul[rn-carousel] img {
+        max-height: none;
+        margin-bottom: 0;
+    }
+    /* prevent flickering when moving buffer */
+    ul[rn-carousel-buffered] > li {
+        display: none;
+    }
+    ul[rn-carousel-transition="hexagon"] {
+        overflow: visible;
+    }
+    /* indicators */
+    div[rn-carousel-indicators] {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 15px;
+        text-align: center;
+    }
+    div.rn-carousel-indicator span {
+        display: inline;
+        cursor: pointer;
+        color: #666;
+    }
+    div.rn-carousel-indicator span.active {
+        color: white;
+    }
+    /* prev/next controls */
+    ul[rn-carousel].hide-controls > .rn-carousel-controls {
+        display:none;
+    }
+    .rn-carousel-controls {
+        top: 40%;
+    }
+    .rn-carousel-control {
+        font-family: FontAwesome;
+        -webkit-transition: opacity 0.2s ease-out;
+        transition: opacity 0.2s ease-out;
+        font-size: 2rem;
+        position: absolute;
+        top: 40%;
+        opacity: 0.75;
+        cursor: pointer;
+    }
+    .rn-carousel-control:hover {
+        opacity: 1;
+    }
+    .rn-carousel-control.rn-carousel-control-prev {
+        left: 0.5em;
+    }
+    .rn-carousel-control.rn-carousel-control-prev:before {
+        content: "\f060";
+    }
+    .rn-carousel-control.rn-carousel-control-next {
+        right: 0.5em;
+    }
+    .rn-carousel-control.rn-carousel-control-next:before {
+        content: "\f061";
+    }
+    /*DIMENSIONS OF CAROUSEL IMAGES FOR SM*/
+    @media (min-width: 768px) and (max-width: 991px) {
+        ul[rn-carousel] {
+            height: 310.30736301px;
+            max-width: 693px;
+        }
+    }
+    /*DIMENSIONS OF CAROUSEL IMAGES FOR MD*/
+    @media (min-width: 992px) and (max-width: 1199px) {
+        ul[rn-carousel] {
+            height: 410.60873288px;
+            max-width: 917px;
+        }
+    }
+    /*DIMENSIONS OF CAROUSEL IMAGES*/
+    @media (min-width: 1200px) {
+        ul[rn-carousel] {
+            height: 523px;
+            max-width: 1168px;
+        }
+    }
+
+</style>
