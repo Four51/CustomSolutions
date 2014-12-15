@@ -11,7 +11,7 @@ In order for the directive to find the right images to pull in, you must create 
 
 The user field should be a **File** type.
 
-By default, the image slider is set up to work with images 1168px wide and 523px tall.  If you want a different size image slider, you will need to adjust the CSS in the carousel template accordingly.
+By default, the carousel is set up to work with images 1168px wide and 523px tall.  If you want a different size carousel, you will need to adjust the CSS in the carousel's template accordingly.
 
 ###2. Bring in the three relevant files.
 Place the `angular-carousel.js` file within the lib/angular/plugins directory.
@@ -35,7 +35,7 @@ four51.app = angular.module('451order', ['ngResource', 'ngRoute', 'ngAnimate', '
 ###4. Place the carousel directive
 By adding `<ffo-carousel></ffo-carousel>` anywhere* in the application the image slider will render.
 
-	* It should be noted that the carousel works best when it is the full width of the application on a "contained" layout.
+*It should be noted that the carousel works best when it is the full width of the application on a "contained" layout.
 
 You will have to also include the settings (as attributes) you would like for the 3 configurable pieces:
 * **timeout**: how long each slide (in seconds) should last
