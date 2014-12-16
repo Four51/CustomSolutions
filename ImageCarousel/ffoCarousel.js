@@ -7,7 +7,7 @@ four51.app
 				controls: '='
 			},
 			restrict: 'E',
-			templateUrl: 'partials/ffoCarousel.html',
+			templateUrl: 'partials/controls/ffoCarousel.html',
 			controller: 'ffoCarouselCtrl'
 		}
 	})
