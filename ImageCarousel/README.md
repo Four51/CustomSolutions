@@ -23,7 +23,7 @@ Lastly, the `ffoCarousel.js` file goes in the js/directives directory.
 **Be sure to reference both of the JS files in the `index.html`**
 
 ###3. Load the module into the application.
-Add a dependency for `angular-carousel` to the Four51.app module.
+Add a dependency for `angular-carousel` to the Four51.app module inside the `js/app.js` file.
 
 ```javascript
 'use strict';
