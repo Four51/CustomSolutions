@@ -32,8 +32,8 @@ var four51 = {};
 four51.app = angular.module('451order', ['ngResource', 'ngRoute', 'ngAnimate', 'ngSanitize', 'ngCookies', 'ngTouch', 'ui.validate', 'ui.mask', 'headroom', 'ui.bootstrap', 'angulartics', 'angulartics.google.analytics', 'ngAutocomplete', 'angular-carousel']);
 ```
 
-###4. Place the carousel directive
-By adding `<ffo-carousel></ffo-carousel>` anywhere* in the application the image slider will render.
+###4. Place the carousel directive.
+By adding `<ffo-carousel></ffo-carousel>` anywhere* in the application the image carousel will render.
 
 *It should be noted that the carousel works best when it is the full width of the application on a "contained" layout.
 
