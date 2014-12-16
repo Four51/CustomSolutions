@@ -7,6 +7,7 @@
             <a ng-if="slide.linkUrl && !slide.externalLink" ng-href="{{slide.linkUrl}}">
                 <img ng-src="{{slide.imageUrl}}" />
             </a>
+            <img ng-if="!slide.linkUrl" ng-src="{{slide.imageUrl}}"/>
         </div>
     </li>
     <div rn-carousel-indicators ng-if="Slides.length > 1 && indicators" slides="Slides" rn-carousel-index="carouselIndex"></div>
