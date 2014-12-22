@@ -7,7 +7,7 @@ These are the pieces necessary to create a simple, responsive image slider on an
 In order for the directive to find the right images to pull in, you must create at least 1 custom user field with the following conventions:
 
 * **Name**: ex. 'carouselImage[n]' where [n] is some iterator that differentiates the user fields from themselves (image number)
-* **Label**: the label field is where you can put in an URL to an external site (must include http or https) or internal link (catalog/CategotyInteropID)
+* **Label**: the label field is where you can put in an URL to an external site (must include http or https) or internal link (catalog/CategotyInteropID). **If you do not want a link, enter "None" here.**
 
 The user field should be a **File** type.
 
