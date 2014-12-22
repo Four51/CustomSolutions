@@ -11,14 +11,18 @@ In order for the directive to find the right images to pull in, you must create 
 
 The user field should be a **File** type.
 
-By default, the image slider is set up to work with images 1168px wide and 523px tall.  If you want a different size image slider, you will need to adjust the CSS in the carousel template accordingly.
-
 ###2. Bring in the three relevant files.
-Place the `angular-carousel.js` file within the lib/angular/plugins directory.
-The `ffoCarousel.html` (the carousel template) goes in the partials/controls directory.
-Lastly, the `ffoCarousel.js` file goes in the js/directives directory.
+* **`angular-carousel.js`** into the lib/angular/plugins directory.
+* **`ffoCarousel.js`** into the js/directives directory.
 
-**Be sure to reference both of the JS files in the `index.html`**
+**Be sure to reference both of these JS files in the `index.html`**
+
+**You have a choice between two templates**
+
+* **`ffoCarousel.html`** - this template is for clients who want to explicitly control the carousel's size on each viewport. By default, the image carousel is set up to work with images `1168px wide and 523px tall`.  If you want to work with different image sizes/aspect ratios, you will need to adjust the CSS in the template accordingly.
+* **`ffoCarouselFull.html`** - this template is for clients who want their images to drive the carousel size.  Typically for full-width carousels; however, it can be used at any size. The reason for this second template is to allow for a workaround associated with a bug in [angular-carousel](https://github.com/revolunet/angular-carousel/issues/224). **You must rename this file to `ffoCarousel.html` when you bring it into your project**
+
+Whichever template you choose, it should reside in the partials/controls directory **AND BE NAMED `ffoCarousel.html`**.
 
 ###3. Load the module into the application.
 Add a dependency for `angular-carousel` to the Four51.app module.
@@ -31,9 +35,7 @@ four51.app = angular.module('451order', ['ngResource', 'ngRoute', 'ngAnimate', '
 ```
 
 ###4. Place the slider directive
-By adding `<ffo-carousel></ffo-carousel>` anywhere* in the application the image slider will render.
-
-	* It should be noted that the carousel works best when it is the full width of the application on a "contained" layout.
+By adding `<ffo-carousel></ffo-carousel>` anywhere in the application the carousel will render.
 
 You will have to also include the settings (as attributes) you would like for the 3 configurable pieces:
 * **timeout**: how long each slide (in seconds) should last

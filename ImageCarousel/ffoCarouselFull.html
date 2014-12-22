@@ -1,4 +1,12 @@
+<!--
+
+This template is a workaround for the carousel not having any height by default - we insert the first slide image into the carousel <ul> and hide it from the user in order to give the <ul> something to base it's height off of.
+
+As of right now, this is the only way to achieve a fully responsive image carousel.
+
+-->
 <ul rn-carousel rn-carousel-auto-slide="timeout" ng-show="Slides" rn-carousel-index="carouselIndex" rn-carousel-controls ng-class="{'hide-controls': !controls}">
+    <img style="float:left; opacity:0;" ng-src="{{Slides[0].imageUrl}}"/>
     <li ng-repeat="slide in Slides">
         <div class="layer">
             <a ng-if="slide.linkUrl && slide.externalLink" target="_blank" ng-href="{{slide.linkUrl}}">
@@ -14,9 +22,6 @@
 </ul>
 <style>
     ul[rn-carousel] {
-        /*DIMENSIONS OF CAROUSEL IMAGES FOR XS*/
-        height: 127.61558219px;
-        max-width: 285px;
         margin: 0 auto;
         overflow: hidden;
         padding: 0;
@@ -52,7 +57,7 @@
     ul[rn-carousel] img {
         max-height: none;
         max-width: 100%;
-        margin-bottom: 0;
+        margin: 0 auto;
     }
     /* prevent flickering when moving buffer */
     ul[rn-carousel-buffered] > li {
@@ -82,6 +87,9 @@
         display:none;
     }
     .rn-carousel-controls {
+        position:absolute;
+        left:0;
+        right:0;
         top: 40%;
     }
     .rn-carousel-control {
@@ -90,7 +98,6 @@
         transition: opacity 0.2s ease-out;
         font-size: 2rem;
         position: absolute;
-        top: 40%;
         opacity: 0.75;
         cursor: pointer;
     }
@@ -109,26 +116,4 @@
     .rn-carousel-control.rn-carousel-control-next:before {
         content: "\f061";
     }
-    /*DIMENSIONS OF CAROUSEL IMAGES FOR SM*/
-    @media (min-width: 768px) and (max-width: 991px) {
-        ul[rn-carousel] {
-            height: 310.30736301px;
-            max-width: 693px;
-        }
-    }
-    /*DIMENSIONS OF CAROUSEL IMAGES FOR MD*/
-    @media (min-width: 992px) and (max-width: 1199px) {
-        ul[rn-carousel] {
-            height: 410.60873288px;
-            max-width: 917px;
-        }
-    }
-    /*DIMENSIONS OF CAROUSEL IMAGES*/
-    @media (min-width: 1200px) {
-        ul[rn-carousel] {
-            height: 523px;
-            max-width: 1168px;
-        }
-    }
-
 </style>

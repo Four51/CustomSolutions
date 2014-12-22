@@ -7,7 +7,7 @@ four51.app
 				controls: '='
 			},
 			restrict: 'E',
-			templateUrl: 'partials/ffoCarousel.html',
+			templateUrl: 'partials/controls/ffoCarousel.html',
 			controller: 'ffoCarouselCtrl'
 		}
 	})
@@ -18,7 +18,7 @@ four51.app
 				if (f.Name.indexOf('carouselImage') > -1) {
 					var s = {
 						'imageUrl': f.File.Url,
-						'linkUrl': f.Label,
+						'linkUrl': f.Label == 'None' ? null : f.Label,
 						'externalLink': f.Label.indexOf('http') > -1
 					};
 					$scope.Slides.push(s);
