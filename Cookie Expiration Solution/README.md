@@ -1,6 +1,7 @@
 #Cookie Store Expiration
 
 Useful when you need to control the expiration of the user cookie to control session timeouts for 2.0 applications.
+
 ---
 
 Load the [ipCookie module](https://github.com/ivpusic/angular-cookie) into `js/app.js`.  Be sure to reference it in the `index.html`.
