@@ -25,7 +25,15 @@
 //Also, you will need to make sure that the images you upload within each variant are larger than the images you uploaded in your static specs.
 //
 //Additional Setup:
-//User will have to create a new Product Detail Template and reference the directive within the "figure" tags: <productzoom lineitem="LineItem"></productzoom>
+//User will have to create a new Product Detail Template and reference the directive within the "figure" tags and comment out or remove
+the regular <img> tag as shown below: 
+
+<figure>
+	<!--<img id="451_img_prod_lg" class="product-image-large img-responsive" 
+	ng-src="{{LineItem.Variant.PreviewUrl || LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl}}" 
+	imageonload />-->
+	<productzoom lineitem="LineItem"></productzoom>
+</figure>
 //
 //Note:
 //The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com". If using this on TEST/QA/STAGING, it will still work, but will show as an "unlicensed JetZoom Product".
