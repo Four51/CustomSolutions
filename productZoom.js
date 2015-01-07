@@ -1,32 +1,33 @@
-//Directive: productZoom
-//
-//Functionality:
-//Allows a product image to be magnified via a lens superimposed on the image.
-//
-//Product Configuration:
-//Static specs will have to be added to the respective product. Certain "default" specs, which are specified below, need to be included, or the plugin will not work.
-//If not using a VBOSS product, the plugin uses the large image and thumbnail image for the product, so appropriate sized images should be used for best results.
-//
-//The following properties are available. (Default values are provided, but they can be changed for customization purposes):
-//
-// Functionality     Spec Group        Spec Name        Spec Value
-//-------------------------------------------------------------------------------------------------
-//Tint color 	     ProductZoom       tintClr		    black  (string, required spec)
-//Tint opacity	     ProductZoom       tintOpcty	    .025  (decimal number between 0-1, required spec)
-//Fade time	         ProductZoom       fadeTm		    750 (number in milliseconds, required spec)
-//AutoCircle	     ProductZoom       autoCircle	    autoCircle (any string is fine, delete spec to disable)
-//InnerZoom	         ProductZoom       iZoom		    iZoom (any string is fine, delete spec to disable)
-//
-//If Using a VBOSS Product:
-//You will need to do the following in addition to the normal setup.
-//Extra static specs containing an image for the thumbnail variations will be needed.
-//For example if you are varying your images based on the color, then you would create a variable spec called "Variation" with a label of "color", and then give it the respective color options.
-//Note, your static spec group name needs to be called "Variation", and the static spec names need to match the option values you set up in your variable spec. (in this example, Red, Blue, etc.)
-//Also, you will need to make sure that the images you upload within each variant are larger than the images you uploaded in your static specs.
-//
-//Additional Setup:
-//User will have to create a new Product Detail Template and reference the directive within the "figure" tags and comment out or remove
-the regular <img> tag as shown below: 
+/*
+Directive: productZoom
+
+Functionality:
+Allows a product image to be magnified via a lens superimposed on the image.
+
+Product Configuration:
+Static specs will have to be added to the respective product. Certain "default" specs, which are specified below, need to be included, or the plugin will not work.
+If not using a VBOSS product, the plugin uses the large image and thumbnail image for the product, so appropriate sized images should be used for best results.
+
+The following properties are available. (Default values are provided, but they can be changed for customization purposes):
+
+Functionality     Spec Group        Spec Name        Spec Value
+-------------------------------------------------------------------------------------------------
+Tint color 	     ProductZoom       tintClr		black  (string, *required)
+Tint opacity	     ProductZoom       tintOpcty	.025  (decimal number between 0-1, required)
+Fade time	     ProductZoom       fadeTm		750 (number in milliseconds, *required)
+AutoCircle	     ProductZoom       autoCircle	autoCircle (any string is fine, delete spec to disable *optional)
+InnerZoom	     ProductZoom       iZoom		iZoom (any string is fine, delete spec to disable *optional)
+
+If Using a VBOSS Product:
+You will need to do the following in addition to the normal setup.
+Extra static specs containing an image for the thumbnail variations will be needed.
+For example if you are varying your images based on the color, then you would create a variable spec called "Variation" with a label of "color", and then give it the respective color options.
+Note, your static spec group name needs to be called "Variation", and the static spec names need to match the option values you set up in your variable spec. (in this example, Red, Blue, etc.)
+Also, you will need to make sure that the images you upload within each variant are larger than the images you uploaded in your static specs.
+
+Additional Setup:
+User will have to create a new Product Detail Template and reference the directive within the "figure" tags and comment out or remove
+the regular <img> tag as shown below:
 
 <figure>
 	<!--<img id="451_img_prod_lg" class="product-image-large img-responsive" 
@@ -34,10 +35,11 @@ the regular <img> tag as shown below:
 	imageonload />-->
 	<productzoom lineitem="LineItem"></productzoom>
 </figure>
-//
-//Note:
-//The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com". If using this on TEST/QA/STAGING, it will still work, but will show as an "unlicensed JetZoom Product".
-//If a new domain needs to set up for this plugin, it can be done from Four51's Star Plugins Account.
+
+Note:
+The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com". If using this on TEST/QA/STAGING, it will still work, but will show as an "unlicensed JetZoom Product".
+If a new domain needs to set up for this plugin, it can be done from Four51's Star Plugins Account.
+*/
 
 
 four51.app.directive('productzoom', function(){
