@@ -27,12 +27,13 @@ Also, you will need to make sure that the images you upload within each variant 
 
 Additional Setup:
 User will have to create a new Product Detail Template. In the OrderCloud 2.0 tab (html), reference the directive within the 
-"figure" tags and comment out or remove the regular <img> tag as shown below:
+"figure" tags and add the ng-show to the <img> tag as shown below:
 
 <figure>
-	<!--<img id="451_img_prod_lg" class="product-image-large img-responsive" 
+	<img ng-show="LineItem.Product.Type=='VariableText' && LineItem.Variant" id="451_img_prod_lg" 
+	class="product-image-large img-responsive" 
 	ng-src="{{LineItem.Variant.PreviewUrl || LineItem.Variant.LargeImageUrl || LineItem.Product.LargeImageUrl}}" 
-	imageonload />-->
+	imageonload />
 	<productzoom lineitem="LineItem"></productzoom>
 </figure>
 
