@@ -1,4 +1,4 @@
-/*The module . add file and add reference to index.html*/
+/*The module . add file as lib/angular/plugins/bootstrapLightbox.js and add reference to index.html*/
 
 
 angular.module('bootstrapLightbox', [
