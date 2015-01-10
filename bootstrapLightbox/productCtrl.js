@@ -2,7 +2,6 @@
 	
 	
 	$scope.$watch('LineItem.Specs.Color.Value', function(n,o){
-		//if ( n!= o && $scope.imageLoaded == 'true') {
 		if ( n!= o) {
 			ProductDisplayService.setProductViewScope($scope);
 			Lightbox.setImages($scope.LineItem.images);
