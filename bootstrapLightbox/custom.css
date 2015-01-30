@@ -18,6 +18,8 @@
 
 .galleryThumbs .img-thumbnail {
   border:1px solid #ccc;
+  max-height:50px;
+  max-width:50px;
 }
 
 .galleryThumbs .active .img-thumbnail {

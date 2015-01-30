@@ -1,5 +1,7 @@
-/*The module . add file and add reference to index.html*/
-
+/*
+The module . add file override as lib/angular/plugins/bootstrapLightbox.js and add script below to index.html
+<script src="lib/angular/plugins/bootstrapLightbox.js" data-group="cdn"></script>
+*/
 
 angular.module('bootstrapLightbox', [
   'ngTouch',
