@@ -1,0 +1,74 @@
+<div style="float: left;width:400px;">[[OrderType]]<br />
+    <br />
+    <strong>Order ID:</strong> [[OrderID]]<br />
+    <strong>Date Received:</strong> [[Date Submitted]]<br />
+    <strong>Buyer:</strong> [[FromCompany]]<br />
+    <strong>Created By:</strong> [[BuyerName]]<br />
+    <strong>Comments:</strong> [[Comments]]<br />
+    <strong>Payment Method:</strong> [[PaymentMethod]]<br />
+    [[start collection OrderFields]] <strong>[[Label]]:</strong> [[Value]]<br />
+    [[end collection OrderFields]]</div>
+&nbsp;
+
+<div style="float: left;"><strong>Bill To:&nbsp;</strong><br />
+    [[BillAddress.AddressName]]<br />
+    [[BillAddress.Html]]</div>
+&nbsp;
+
+<table cellpadding="1" cellspacing="1" style="border:1px dotted #ababab;border-collapse:collapse;width: 600px;table-layout: fixed;">
+    <tbody>
+    <tr>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;"><strong>Product ID</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;"><strong>Product Name</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;"><strong>Specifications</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;"><strong>Unit Price</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;"><strong>Qty</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;"><strong>Ship To</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;"><strong>Total Price</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;"><strong>Date Needed</strong></td>
+    </tr>
+    </tbody>
+</table>
+[[start collection lineitems]]
+
+<table cellpadding="1" cellspacing="1" style="border:1px dotted #ababab;border-collapse:collapse;width: 600px;table-layout: fixed;">
+    <tbody>
+    <tr>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;">[[ProductIDText]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;">[[Product.Name]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;">[[start child collection Specs]][[Name]]: [[Value]][[end child collection Specs]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;">[[UnitPrice]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;">[[Quantity]] x [[Product.QuantityMultiplier]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:100px;word-wrap: break-all;">[[ShipAddress.AddressName]]<br />
+            [[ShipAddress.Html]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;">[[LineTotal]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:50px;word-wrap: break-all;"><span style="font-family: Tahoma; font-size: small;">[[DateNeeded]]</span></td>
+    </tr>
+    </tbody>
+</table>
+[[end collection lineitems]]<br />
+Subtotal: [[Subtotal]]<br />
+Shipping &amp; Handling: [[Shipping]]<br />
+Sales Tax: [[Tax]]<br />
+<strong>Total: </strong> [[OrderTotal]]<br />
+&nbsp;
+<table cellpadding="1" cellspacing="1" style="border:1px dotted #ababab;border-collapse: collapse;width: 600px;table-layout: fixed;">
+    <tbody>
+    <tr>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:200px;word-wrap: break-all;"><strong>Designated Approver</strong></td>
+        <td scope="col" style="border:1px dotted #ababab;border-collapse:collapse;width:400px;word-wrap: break-all;"><strong>Approval Comments</strong></td>
+    </tr>
+    </tbody>
+</table>
+
+<table cellpadding="1" cellspacing="1" style="border:1px dotted #ababab;border-collapse:collapse;width: 600px;table-layout: fixed;">
+    <tbody>
+    <tr>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:200px;word-wrap: break-all;">[[ApproverName]]</td>
+        <td style="border:1px dotted #ababab;border-collapse:collapse;width:400px;word-wrap: break-all;">[[ApprovalComments]]</td>
+    </tr>
+    </tbody>
+</table>
+<br />
+<br />
+Please log on to&nbsp;<a href="http://www.four51.com/UI/Logon.aspx" target="_blank">http://www.four51.com/UI/Logon.aspx</a>&nbsp;to process this order.
