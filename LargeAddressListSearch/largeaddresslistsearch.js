@@ -113,9 +113,9 @@ angular.module('OrderCloud-LargeAddressListSearch')
         return obj;
     }
 
-    largeaddressbillingctrl.$inject = ['$scope', 'LargeAddress'];
+    largeaddressbillingctrl.$inject = ['$scope', 'LargeAddress', 'Address'];
 
-    function largeaddressbillingctrl($scope, LargeAddress) {
+    function largeaddressbillingctrl($scope, LargeAddress, Address) {
         $scope.$watch('BillAddress', function(newValue) {
             if (!newValue || !newValue.ID) return;
             $scope.orderBillAddress = newValue;
