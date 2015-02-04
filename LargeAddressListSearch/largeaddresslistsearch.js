@@ -54,6 +54,7 @@ angular.module('OrderCloud-LargeAddressListSearch')
     function largeaddressshippingctrl($scope, LargeAddress, Address) {
         $scope.$watch('ShipAddress', function(newValue) {
             if (!newValue || !newValue.ID) return;
+            if (newValue.ID == oldValue.ID) return;
             $scope.orderShipAddress = newValue;
             $scope.currentOrder.ShipAddress = newValue;
             if ($scope.currentOrder) {
