@@ -13,7 +13,7 @@ If you are using file overrides, create a new file override named **`lib/product
 **Be sure to reference both of these JS files in the `index.html` file**
 
 ###2. Load the module into the application.
-Add a dependency for `OrderCloud-ProductReport` to the Four51.app module.
+Add a dependency for `OrderCloud-ProductReport` to the Four51.app module in the **`js/app.js`** file.
 
 ##Usage
 ###1. Inject `ProductReport` into your controller
