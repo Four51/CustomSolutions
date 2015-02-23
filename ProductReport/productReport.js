@@ -2,7 +2,11 @@ angular.module('OrderCloud-ProductReport', []);
 
 angular.module('OrderCloud-ProductReport')
 
-    .factory('ProductReport', ['$resource', '$451', 'Report', function($resource, $451, Report) {
+    .factory('ProductReport', ProductReport)
+    .filter('hiddenreports', hiddenReports);
+
+    ProductReport.$inject = ['$resource', '$451', 'Report'];
+    function ProductReport($resource, $451, Report) {
         var service = {
             getOrderQuantity: _getOrderQuantity
         };
@@ -72,5 +76,17 @@ angular.module('OrderCloud-ProductReport')
                 }
             );
         }
-    }])
-;
+    }
+
+    function hiddenReports() {
+        return function(reports) {
+            var results = [];
+
+            angular.forEach(reports, function(report) {
+                if (report.Name.indexOf('hidden_') == -1) {
+                    results.push(report);
+                }
+            });
+            return results;
+        }
+    }
