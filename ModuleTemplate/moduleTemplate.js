@@ -17,7 +17,7 @@ angular.module('module-name')
         return service;
 
         function method() {
-            
+
         }
     }
 

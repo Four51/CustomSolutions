@@ -1,6 +1,6 @@
 #Mandrill for OrderCloud
 
-This is an overview of how to implement Mandrill's Transactional Email Service for an OrderCloud 2.0 site.
+This module provides an overview of how to implement Mandrill's Transactional Email Service for an OrderCloud 2.0 site.
 
 ##Setup
 ###1. Add mandrill.js file to your project.
@@ -10,12 +10,15 @@ If you are using a repository for your project, add this file to the /lib direct
 
 If you are using file overrides for your project, create a new file override named **`lib/mandrill.js`**, add this file as the content for that file, then add the reference to the **`index.html`** file override.
 
-###2. Add mandrillTemplate.js to your project.
-**`mandrillTemplate.js`** contains the Email service, which will be used within your controller(s) in order to send a transactional email using Mandrill. 
+###2. Add mandrillTemplate.js module to your project.
+**`mandrillTemplate.js`** contains an AngularJS module with an Email service, which will be used within your controller(s) in order to send a transactional email using Mandrill. 
 
 Similar to the **`mandrill.js`** file, add this file to your project as well as to the **`index.html`** file.
 
-###3. Customize your Email service.
+###3. Load the module into the application.
+Add a dependency for `OrderCloud-Mandrill` to the Four51.app module in the **`js/app.js`** file.
+
+###4. Customize your Email service.
 Replace mandrillAPIKey, template_name, template_content, subject, from_email, from_name, 'to' objects, and Reply-To with your data, obtained from both Mandrill and your particular solution requirements.
 
 **`template_name`** matches up to your Mandrill template's slug value, which can be found when editing your Mandrill Outbound Template
