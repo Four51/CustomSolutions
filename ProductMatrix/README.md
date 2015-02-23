@@ -10,7 +10,7 @@ If you are using a repository, add this file to the **`/lib`** directory.
 
 If you are using file overrides, create a new file override named **`lib/productMatrix.js`** and add this file as the content for that file.
 
-**Be sure to reference both of these JS files in the `index.html` file**
+**Be sure to reference both of this JS file in the `index.html` file**
 
 ###2. Load the module into the application.
 Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the **`js/app.js`** file.

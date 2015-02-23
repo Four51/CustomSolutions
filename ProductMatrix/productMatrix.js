@@ -241,7 +241,7 @@ angular.module('OrderCloud-ProductMatrix')
             },
             template: template,
             controller: ProductMatrixCtrl
-        }
+        };
         return directive;
 
         function template() {
