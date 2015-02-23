@@ -15,24 +15,17 @@ angular.module('OrderCloud-ProductReport')
         function _getOrderQuantity(productID, success) {
             var report;
             Report.query(function(list) {
-                if (list.length == 0) {
+                var report = null;
+                angular.forEach(list, function(r) {
+                    report = (r.Type == 'LineItem' && r.Name == ('hidden_' + productID)) ? r : report;
+                });
+                if (!report) {
                     createReport(productID, function(result) {
                         getResult(result);
                     });
                 }
                 else {
-                    var report = null;
-                    angular.forEach(list, function(r) {
-                        report = (r.Type == 'LineItem' && r.Name == ('hidden_' + productID)) ? r : report;
-                    });
-                    if (!report) {
-                        createReport(productID, function(result) {
-                            getResult(result);
-                        });
-                    }
-                    else {
-                        getResult(report);
-                    }
+                    getResult(report);
                 }
             });
 
