@@ -8,11 +8,8 @@ This module provides an overview of how to implement CKEditor for an OrderCloud 
 CKEditor provides code located within the ckeditor folder.
 Add this to the lib directory of your project.
 
-###2. Add ckeditor.js to your project.
-In the index:
-```html
-<script src="lib/ckeditor/ckeditor.js"></script>
-```
+###2. Add ck.js as a dependency to your project.
+In the app.js file add 'ck' to the array of dependencies
 
 ###3. Add the ck.js module to your project.
 I usually add it under /lib/angular/plugins/
