@@ -8,9 +8,12 @@ angular.module('carousel')
 
 function customCarouselController($scope, $animate, $filter) {
     $animate.enabled(false);
-    $scope.myInterval = ($filter('intervalFilter')($scope.user.CustomFields, 'interval') * 1000) || 5000;
     $scope.slides = [];
-    $scope.slides = $scope.slides.concat($filter('carouselFilter')($scope.user.CustomFields, 'carouselImage'));
+    $scope.$watch('user.CustomFields', function(newVal){
+        if (!newVal) return;
+        $scope.myInterval = ($filter('intervalFilter')($scope.user.CustomFields, 'interval') * 1000) || 5000;
+        $scope.slides = $scope.slides.concat($filter('carouselFilter')($scope.user.CustomFields, 'carouselImage'));
+    });
 }
 customCarouselController.$inject = ['$scope', '$animate', '$filter'];
 
