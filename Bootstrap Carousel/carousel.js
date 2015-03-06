@@ -18,7 +18,7 @@ customCarouselController.$inject = ['$scope', '$animate', '$filter'];
 function CarouselDirective() {
     return {
         restrict: 'E',
-        templateUrl: 'partials/carousel.html',
+        templateUrl: 'partials/controls/carousel.html',
         controller: customCarouselController
     };
 }
