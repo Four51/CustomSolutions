@@ -1,10 +1,11 @@
 .minicart {
     padding: 7px 15px 15px;
-    border: 1px solid #ddd;
     float: right;
     cursor: pointer;
-    margin-bottom: 40px;
-    color: #999999;
+    color: #000000;
+}
+.text-muted {
+    color: #000000;
 }
 .minicart .fa-shopping-cart {
     position: relative;
@@ -16,7 +17,7 @@
     border-top-left-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    background-color: #50acdb;
+    background-color: transparent;
 }
 .minicart:active .minicart-detail,
 .minicart:focus .minicart-detail,
