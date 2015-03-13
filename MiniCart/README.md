@@ -28,5 +28,21 @@ In the index file add the following under the title tag
 
 ###4. Adding the directive to your project
 The `<minicart></minicart>` directive can be used anywhere in the app.
+One example we recommend is in the nav html file like so, with an overwrite to the default cart icon:
+```html
+<ul class="pull-right hidden-xs hidden-sm">
+      <minicart></minicart>
+  </ul>
+  <ul style="margin-bottom: 0;" class="visible-sm visible-xs nav navbar-nav pull-right">
+      <li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
+          <a id="451qa_cart_link" ng-show="cartCount && user.CurrentOrderID" class="cart" href="cart">
+              <span ng-bind="cartCount" class="badge"></span>
+              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-caret-down"></i>
+          </a>
+      </li>
+  </ul>
+```
+This will allow for resizing on mobile screens
 
 It is expected that this directive will be customized.  It will likely not be perfect for your solution as is.
