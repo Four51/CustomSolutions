@@ -25,7 +25,7 @@ For the **`before`** constant, enter the route string for when to redirect the u
 For the **`after`** constant, enter the route string for where to redirect the user once they have created a profile.
 **Note: If you attempt to send the user to 'checkout' and they do not have an order open, the user will be directed to the 'catalog' route.
 
-###2. Apply Product Detail Template to product(s)
+###2. Update UserEdit Controller
 
 Add the following to the **`js/controllers/userEditController.js`** file if it is not there already. **The OrderCloud Storefront application will have this by default, but it is possible a file override has been created, or a custom repository was created before this update was made.
 
