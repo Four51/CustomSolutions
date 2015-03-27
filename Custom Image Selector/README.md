@@ -1,3 +1,22 @@
+#Custom Image Selector for OrderCloud
+
+This module provides the user with the ability to add a custom image selector to a page.
+
+##Setup
+###1. Add module file to your project.
+Add the **`customImageSelector.js`** file to your project.
+
+If you are using a repository, add this file to the **`/lib`** directory.
+
+If you are using file overrides, create a new file override named **`lib/customImageSelector.js`** and add this file as the content for that file.
+
+**Be sure to reference the JS file in the `index.html` file**
+
+###2. Load the module into the application.
+Add a dependency for `OrderCloud-CustomImageSelector` to the Four51.app module in the **`js/app.js`** file.
+
+##Usage
+
 USE IN A REPEAT:
 A is the name of the spec you are replacing.
 B is the name of the static spec group where your images are stored.
