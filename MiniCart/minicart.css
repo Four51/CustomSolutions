@@ -17,7 +17,7 @@
     border-top-left-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    background-color: transparent;
+    background-color: #000000;
 }
 .minicart:active .minicart-detail,
 .minicart:focus .minicart-detail,
