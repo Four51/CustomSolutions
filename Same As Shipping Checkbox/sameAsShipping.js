@@ -11,7 +11,6 @@ angular.module('OrderCloud-SameAsShipping')
 function OrderShipping(){
     return {
         restrict: 'AE',
-        priority: 1000,
         templateUrl: 'partials/controls/orderShipping.html',
         controller: 'orderShippingCtrl'
     };
