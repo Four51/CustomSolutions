@@ -9,8 +9,8 @@ function minicartDirective() {
     return {
         restrict: 'E',
         transclude: true,
-        templateUrl: 'partials/controls/minicart.html',
-        controller: template
+        template: template,
+        controller: 'minicartCtrl'
     };
 }
 
@@ -106,7 +106,6 @@ function template(){
         '        </div>',
         '    </div>',
         '    <div style="clear:both;"></div>',
-        '</div>',
-
+        '</div>'
     ].join('');
 }
