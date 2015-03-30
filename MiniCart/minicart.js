@@ -14,8 +14,8 @@ function minicartDirective() {
     };
 }
 
-minicartController.$inject = ['$scope', '$location', 'Order', 'User'];
-function minicartController($scope, $location, Order, User) {
+minicartController.$inject = ['$scope', '$location', 'Order', 'OrderConfig', 'User'];
+function minicartController($scope, $location, Order, OrderConfig, User) {
     $scope.removeItem = function(item, override) {
         if (override || confirm('Are you sure you wish to remove this item from your cart?') == true) {
             Order.deletelineitem($scope.currentOrder.ID, item.ID,
@@ -37,6 +37,22 @@ function minicartController($scope, $location, Order, User) {
                 }
             );
         }
+    };
+    $scope.cartCheckOut = function() {
+        $scope.displayLoadingIndicator = true;
+        if (!$scope.isEditforApproval)
+            OrderConfig.address($scope.currentOrder, $scope.user);
+        Order.save($scope.currentOrder,
+            function(data) {
+                $scope.currentOrder = data;
+                $location.path($scope.isEditforApproval ? 'checkout/' + $routeParams.id : 'checkout');
+                $scope.displayLoadingIndicator = false;
+            },
+            function(ex) {
+                $scope.errorMessage = ex.Message;
+                $scope.displayLoadingIndicator = false;
+            }
+        );
     };
 }
 
@@ -100,7 +116,7 @@ function template(){
         '                    <a class="btn btn-default btn-block" href="cart">View Cart</a>',
         '                </div>',
         '                <div class="col-xs-6">',
-        '                    <a class="btn btn-default btn-block" href="suggestions">Checkout</a>',
+        '                    <a class="btn btn-default btn-block" ng-click="cartCheckOut()">Checkout</a>',
         '                </div>',
         '            </div>',
         '        </div>',
