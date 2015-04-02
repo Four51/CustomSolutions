@@ -38,6 +38,7 @@ function minicartController($scope, $location, Order, OrderConfig, User) {
             );
         }
     };
+
     $scope.cartCheckOut = function() {
         $scope.displayLoadingIndicator = true;
         if (!$scope.isEditforApproval)
@@ -54,11 +55,15 @@ function minicartController($scope, $location, Order, OrderConfig, User) {
             }
         );
     };
+
+    $scope.$on('event:orderUpdate', function(event, order){
+        $scope.currentOrder = order ? (order.Status === 'Unsubmitted') ? order : null : null;
+    })
 }
 
 function template(){
     return [
-        '<div ng-show="currentOrder">',
+        '<div ng-show="currentOrder && cartCount">',
         '    <div class="minicart">',
         '        <i class="fa fa-shopping-cart fa-2x"></i> SHOPPING CART <span class="label label-default">{{cartCount + \' ITEM(S)\'}}</span> - {{currentOrder.Total | currency }} <i class="fa fa-caret-down text-muted"></i>',
         '        <div class="minicart-detail">',
