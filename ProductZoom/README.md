@@ -18,7 +18,9 @@ Add a dependency for `OrderCloud-ProductZoom` to the Four51.app module in the **
 ##Usage
 ###1. Create a Static Spec Group named "ProductZoom" with the following required specs:
 fadeTM    750
+
 tintClr   black
+
 tintOpcty .025
 
 Additional optional specs:
