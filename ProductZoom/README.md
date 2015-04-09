@@ -16,7 +16,16 @@ If you are using file overrides, create a new file override named **`lib/oc/prod
 Add a dependency for `OrderCloud-ProductZoom` to the Four51.app module in the **`js/app.js`** file.
 
 ##Usage
-###1. Create a new Product Detail Template within the admin interface
+###1. Create a Static Spec Group named "ProductZoom" with the following required specs:
+fadeTM    750
+tintClr   black
+tintOpcty .025
+
+Additional optional specs:
+autoCircle: autoCircle 
+iZoom: iZoom
+
+###2. Create a new Product Detail Template within the admin interface
 
 Once created, navigate to the OrderCloud 2.0 tab. Replace this section:
 
@@ -29,7 +38,8 @@ with the following:
 ```html
     <productzoom lineitem="LineItem"></productzoom>
 ```
+Your newly created Product Detail Template can be assigned to any products requiring Product Zoom.
 
-###2. Apply Product Detail Template to product(s)
+###3. Apply Product Detail Template to product(s)
 
 Your newly created Product Detail Template can be assigned to any products requiring Product Zoom.
