@@ -23,8 +23,10 @@ tintClr   black
 
 tintOpcty .025
 
-Additional optional specs:
+##### Additional optional specs:
+
 autoCircle: autoCircle 
+
 iZoom: iZoom
 
 ###2. Create a new Product Detail Template within the admin interface
