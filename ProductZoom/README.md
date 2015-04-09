@@ -17,11 +17,11 @@ Add a dependency for `OrderCloud-ProductZoom` to the Four51.app module in the **
 
 ##Usage
 ###1. Create a Static Spec Group named "ProductZoom" with the following required specs:
-fadeTm    750
+fadeTm: 750
 
-tintClr   black
+tintClr: black
 
-tintOpcty .025
+tintOpcty: .025
 
 ##### Additional optional specs:
 
@@ -47,3 +47,5 @@ Your newly created Product Detail Template can be assigned to any products requi
 ###3. Apply Product Detail Template to product(s)
 
 Your newly created Product Detail Template can be assigned to any products requiring Product Zoom.
+
+>**Note:** The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com". If using this on TEST/QA/STAGING, it will still work, but will show as an "unlicensed JetZoom Product". If a new domain needs to set up for this plugin, it can be done from Four51's Star Plugins Account.
