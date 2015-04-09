@@ -2,13 +2,15 @@
 
 This module provides the user the ability to create a hover zoom image on a product.
 
+>**Note:** The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com". If using this on TEST/QA/STAGING, it will still work, but will show as an "unlicensed JetZoom Product". If a new domain needs to set up for this plugin, it can be done from Four51's Star Plugins Account.
+
 ##Setup
 ###1. Add module file to your project.
 Add the **`productZoom.js`** file to your project.
 
-If you are using a repository, add this file to the **`/lib`** directory.
+If you are using a repository, add this file to the **`/lib/oc`** directory.
 
-If you are using file overrides, create a new file override named **`lib/productZoom.js`** and add this file as the content for that file.
+If you are using file overrides, create a new file override named **`lib/oc/productZoom.js`** and add this file as the content for that file.
 
 **Be sure to reference the JS file in the `index.html` file**
 
@@ -16,7 +18,20 @@ If you are using file overrides, create a new file override named **`lib/product
 Add a dependency for `OrderCloud-ProductZoom` to the Four51.app module in the **`js/app.js`** file.
 
 ##Usage
-###1. Create a new Product Detail Template within the admin interface
+###1. Create a Static Spec Group named "ProductZoom" with the following required specs:
+fadeTm: 750
+
+tintClr: black
+
+tintOpcty: .025
+
+##### Additional optional specs:
+
+autoCircle: autoCircle 
+
+iZoom: iZoom
+
+###2. Create a new Product Detail Template within the admin interface
 
 Once created, navigate to the OrderCloud 2.0 tab. Replace this section:
 
@@ -29,7 +44,8 @@ with the following:
 ```html
     <productzoom lineitem="LineItem"></productzoom>
 ```
+Your newly created Product Detail Template can be assigned to any products requiring Product Zoom.
 
-###2. Apply Product Detail Template to product(s)
+###3. Apply Product Detail Template to product(s)
 
 Your newly created Product Detail Template can be assigned to any products requiring Product Zoom.
