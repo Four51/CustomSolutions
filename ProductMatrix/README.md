@@ -6,9 +6,9 @@ This module provides a matrix type layout for ordering VBOSS static products. Pr
 ###1. Add module file to your project.
 Add the **`productMatrix.js`** file to your project.
 
-If you are using a repository, add this file to the **`/lib`** directory.
+If you are using a repository, add this file to the **`/lib/oc`** directory.
 
-If you are using file overrides, create a new file override named **`lib/productMatrix.js`** and add this file as the content for that file.
+If you are using file overrides, create a new file override named **`lib/oc/productMatrix.js`** and add this file as the content for that file.
 
 **Be sure to reference both of this JS file in the `index.html` file**
 
