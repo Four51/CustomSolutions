@@ -193,7 +193,7 @@ function ProductMatrixFactory($resource, $451, Variant) {
                     var liSpecs = {};
                     for (var spec in product.Specs) {
                         liSpecs[spec] = angular.copy(product.Specs[spec]);
-                        liSpecs[spec].Value = item.tempSpecs[spec].Value;
+                        liSpecs[spec].Value = item.tempSpecs[spec] ? item.tempSpecs[spec].Value : null;
                     }
                     var li = {
                         "PriceSchedule":product.StandardPriceSchedule,
