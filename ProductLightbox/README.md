@@ -4,9 +4,9 @@ This module provides the user the ability to create a gallery of lightbox images
 
 A visual example is available at: https://jenras.four51ordercloud.com/albumArt/
 
-Login: four51jen
+Login: four51oc
 
-PW: four51jen0! 
+PW: four51oc
 
 Navigate to the Four51 OrderCloud category. 
 
