@@ -21,7 +21,7 @@ Add a dependency for `OrderCloud-SlideOutNav` to the Four51.app module in the `j
 
 
 ##Usage
-#### 1. Add custom user fields using the naming convention 'SlideOutNav[#]' and assign the user fields to the Company
+#### 1. Add custom user fields using the naming convention 'SlideOutNav[#]' and assign the user fields to the Company or Group
 
 * You can add up to 12 images depending on image dimensions
 * Keep all your images the same dimensions or at a minimum the same width
