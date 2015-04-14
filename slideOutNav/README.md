@@ -5,7 +5,7 @@ A visual example is available at: https://jenras.four51ordercloud.com/HD/
 Login: four51jen, PW: four51jen0! 
 
 ##Setup
-1. Add module file to your project.
+#### 1. Add module file to your project.
 
 Add the `slideOutNav.js` file to your project.
 
@@ -15,7 +15,7 @@ If you are using file overrides, create a new file override named `lib/oc/slideO
 
 Be sure to reference the JS file in the `index.html` file
 
-2. Load the module into the application.
+#### 2. Load the module into the application.
 
 Add a dependency for `OrderCloud-SlideOutNav` to the Four51.app module in the `js/app.js` file.
 
