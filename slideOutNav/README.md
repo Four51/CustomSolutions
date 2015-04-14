@@ -45,7 +45,7 @@ Where you want the navigation item to appear, add the below line within the navi
 Below the ending `</header>` tag, add the `<slideoutnav />` directive. 
 
 #### 4. CSS updates
-The color styles are located within the module directive. Color changes should be made in the module. 
+The moduel CSS is located within the module directive. Any css changes should be made in the module. 
 
 ```
 <style>
