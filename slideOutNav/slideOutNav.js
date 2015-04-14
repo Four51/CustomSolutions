@@ -45,9 +45,8 @@ function slideOutNavTemplate() {
 
 SlideOutNavCtrl.$inject = ['$scope','User'];
 function SlideOutNavCtrl($scope, User) {
-
-    $scope.slideOutNavItems = [];
     User.get(function(user) {
+        $scope.slideOutNavItems = [];
         angular.forEach(user.CustomFields, function(f) {
             if (f.Name.indexOf('slideOutNav') > -1) {
                 var l = {
