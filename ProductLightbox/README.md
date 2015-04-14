@@ -27,7 +27,7 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
 
 ##Usage 
 #### 1. Create Static Specs for your images.
-* The static spec group name **MUST** be named **__LightboxImages__**.
+* The static spec group name **MUST** be named **_LightboxImages_**.
 
 #### 1a. Variable Product Usage
 * For variable products, name each static spec to correspond with the variable spec value. For example, if your variable spec is Color, then each static spec image name should match each color value.
