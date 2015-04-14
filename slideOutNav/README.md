@@ -12,7 +12,6 @@ Add the `slideOutNav.js` file to your project.
 If you are using a repository, add this file to the /lib/oc directory.
 
 If you are using file overrides, create a new file override named `lib/oc/slideOutNav.js` and add this file as the content for that file.
->**Note** The color styles are managed in the module. 
 
 Be sure to reference the JS file in the `index.html` file
 
