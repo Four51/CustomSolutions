@@ -42,5 +42,3 @@ Where you want the navigation item to appear, add the below line within the navi
 
 #### 3. Update partials/controls/nav.html - add the directive
 Below the ending `</header>` tag, add the `<slideoutnav />` directive. 
-
-#### 4. Inject the module `OrderCloud-SlideOutNav` into js/app.js
