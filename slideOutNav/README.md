@@ -12,6 +12,7 @@ Add the `slideOutNav.js` file to your project.
 If you are using a repository, add this file to the /lib/oc directory.
 
 If you are using file overrides, create a new file override named `lib/oc/slideOutNav.js` and add this file as the content for that file.
+>**Note** The color styles are managed in the module. 
 
 Be sure to reference the JS file in the `index.html` file
 
@@ -42,3 +43,16 @@ Where you want the navigation item to appear, add the below line within the navi
 
 #### 3. Update partials/controls/nav.html - add the directive
 Below the ending `</header>` tag, add the `<slideoutnav />` directive. 
+
+#### 4. CSS updates
+The color styles are located within the module directive. Color changes should be made in the module. 
+
+```
+<style>
+.slideout-nav { border:1px solid #d1d2d4; background-color:#d1d2d4; border-radius:1px; border-right:0; position:fixed; top:70px; right:-300px; width:300px; padding:10px 10px 20px 20px; z-index:1040; transition:all 300ms ease-in-out; -webkit-transition:all 300ms ease-in-out; }
+.slideout-nav .header { height:40px; border-bottom:1px solid #ccc; color:#c21c22; font-size:24px; text-transform:uppercase; font-weight:bold; margin-bottom: 30px; }
+.slideout-nav.showNav { right:0; transition:all 300ms ease-in-out; -webkit-transition:all 300ms ease-in-out; }
+.slideout-nav .row { min-height:60px; }
+.slideout-nav img { float:left; padding:0 20px; max-width:95%; height:auto; }
+</style>
+```
