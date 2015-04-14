@@ -1,8 +1,8 @@
 #SlideOut Nav for OrderCloud
 
 This module provides the user the ability to create a navigation item that will initiate a slide out panel.
+
 A visual example is available at: https://jenras.four51ordercloud.com/HD/
-Login: four51jen, PW: four51jen0! 
 
 ##Setup
 #### 1. Add module file to your project.
