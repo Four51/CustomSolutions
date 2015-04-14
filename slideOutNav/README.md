@@ -5,13 +5,28 @@ A visual example is available at: https://jenras.four51ordercloud.com/HD/
 Login: four51jen, PW: four51jen0! 
 
 ##Setup
+1. Add module file to your project.
+
+Add the `slideOutNav.js` file to your project.
+
+If you are using a repository, add this file to the /lib/oc directory.
+
+If you are using file overrides, create a new file override named `lib/oc/slideOutNav.js` and add this file as the content for that file.
+
+Be sure to reference the JS file in the `index.html` file
+
+2. Load the module into the application.
+
+Add a dependency for `OrderCloud-SlideOutNav` to the Four51.app module in the `js/app.js` file.
+
+
+##Usage
 #### 1. Add custom user fields using the naming convention 'SlideOutNav[#]' and assign the user fields to the Company
 
 * You can add up to 12 images depending on image dimensions
 * Keep all your images the same dimensions or at a minimum the same width
 * If you plan to use 12 images, size images no larger than 250w x 50h
-
-* If your image should link to a url, enter the URL address in the _Label_ field. Otherwise, enter _none_
+* If your image should link to a url, enter the URL address in the _Label_ field. Otherwise, enter _none_ in the _Label_ field. 
 * Enter the allowed extensions (gif,jpg,jpeg,pdf,png)
 * Minimum and Maximum File Sizes are optional
 * Enter an asterisk(*) in the Upload Instructions 
