@@ -2,13 +2,13 @@
 
 This module provides the user the ability to create a gallery of lightbox images for static or variable products.
 
-A visual example is available at: https://jenras.four51ordercloud.com/HD/
+A visual example is available at: https://jenras.four51ordercloud.com/albumArt/
 
 Login: four51jen
 
 PW: four51jen0! 
 
-Navigate to the Four51 Order Cloud category and then to the water bottle product. 
+Navigate to the Four51 OrderCloud category. 
 
 ##Setup
 #### 1. Add module file to your project.
