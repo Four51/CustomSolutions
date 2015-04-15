@@ -1,5 +1,5 @@
 ##Setup
-###1. Add module file to your project.
+###1. Add module file to your project. 
 Add the **`ProductSearchInput.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
