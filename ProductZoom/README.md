@@ -1,4 +1,4 @@
-#Product Zoom for OrderCloud
+#Product Zoom for OrderCloud 
 
 This module provides the user the ability to create a hover zoom image on a product.
 
