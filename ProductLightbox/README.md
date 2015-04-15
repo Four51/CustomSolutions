@@ -21,11 +21,14 @@ Be sure to reference the JS file in the `index.html` file.
 
 Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in the `js/app.js` file.
 
-##Usage 
-#### 1. Create Static Specs for your images.
+##Usage
+#### 1. Set a default value for your variable spec selection menu (optional).
+* If you want a specific (color) to be the default image, select a default value in your variable spec selection options.
+* 
+#### 2. Create Static Specs for your images.
 * The static spec group name **MUST** be named **_LightboxImages_**.
 
-#### 1a. Variable Product Usage
+#### 2a. Variable Product Usage
 * For variable products, name each static spec to correspond with the variable spec value. For example, if your variable spec is Color, then each static spec image name should match each color value.
 * If your variable spec is something other than Color, you will need to update **Color** on line 25 as well as line 69 of the module to reflect the correct variable name.
 
@@ -33,11 +36,11 @@ line 25: ```var varSpecName = "Color";```
 
 line 69:  ```$scope.$watch('LineItem.Specs.Color.Value', function(n,o){  ```
 
-#### 1b. Static Product Usage
+#### 2b. Static Product Usage
 * For static products, name each static spec a number to control the order of the lightbox image gallery thumbnails. 
 * If you don't care about the order, name them whatever you wish.
 
-###2. Create a new Product Detail Template within the admin interface.
+###3. Create a new Product Detail Template within the admin interface.
 
 Once created, navigate to the OrderCloud 2.0 tab. Replace the entire `<div class="panel panel-default"></div>` (lines 7-33) with the following:
 
@@ -47,7 +50,7 @@ Once created, navigate to the OrderCloud 2.0 tab. Replace the entire `<div class
     </div>
 ```
 
-###3. Apply Product Detail Template to product(s).
+###4. Apply Product Detail Template to product(s).
 
 Your newly created Product Detail Template can be assigned to any products requiring the Product Lightbox.
 
