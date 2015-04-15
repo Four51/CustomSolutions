@@ -33,7 +33,7 @@ Once created, navigate to the OrderCloud 2.0 tab. Replace the `<addtoorderspecs 
 
 ###2. Apply Product Detail Template to product(s)
 
-Your newly created Product Detail Template can be assigned to any products requiring the Product Matrix. Ensure all products it is assigned to have VBOSS variants created using one or two variable selection specs.
+Your newly created Product Detail Template can be assigned to any products requiring the Product Matrix that have 1-2 variable specs. Ensure all products it is assigned to have VBOSS variants created using one or two variable selection specs.
 
 Optional Total Min and Total Max Static Specs can be created for the product. These will only be considered if the product does not have a min and/or max quantity set within the price schedule.
 Custom Static Text Specs should be created under a spec group named "Matrix". For total min quantity, name the spec "MinQty". For total max quantity, name the spec "MaxQty".
