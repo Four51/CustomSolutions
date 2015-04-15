@@ -10,13 +10,13 @@ If you are using a repository, add this file to the **`/lib/oc`** directory.
 
 If you are using file overrides, create a new file override named **`lib/oc/productMatrix.js`** and add this file as the content for that file.
 
-**Be sure to reference both of this JS file in the `index.html` file**
+**Be sure to reference the new file in the `index.html` file**
 
 ###2. Load the module into the application.
 Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the **`js/app.js`** file.
 
 ##Usage
-###1. Create a new Product Detail Template within the admin interface
+###1. Create a new Product Detail Template within the admin interface.
 
 Once created, navigate to the OrderCloud 2.0 tab. Replace the `<addtoorderspecs ng-show="allowAddToOrder"></addtoorderspecs>` and the `<div class="form-group"></div>` below it with the following:
 
@@ -31,9 +31,9 @@ Once created, navigate to the OrderCloud 2.0 tab. Replace the `<addtoorderspecs 
     <productmatrix></productmatrix>
 ```
 
-###2. Apply Product Detail Template to product(s)
+###2. Apply Product Detail Template to product(s).
 
-Your newly created Product Detail Template can be assigned to any products requiring the Product Matrix that have 1-2 variable specs. Ensure all products it is assigned to have VBOSS variants created using one or two variable selection specs.
+Your newly created Product Detail Template can be assigned to any products requiring the Product Matrix that have 1-2 variable specs. Ensure all products it is assigned to have VBOSS variants created using 1-2 variable selection specs.
 
 Optional Total Min and Total Max Static Specs can be created for the product. These will only be considered if the product does not have a min and/or max quantity set within the price schedule.
 Custom Static Text Specs should be created under a spec group named "Matrix". For total min quantity, name the spec "MinQty". For total max quantity, name the spec "MaxQty".
