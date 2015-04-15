@@ -67,11 +67,9 @@ Your newly created Product Detail Template can be assigned to any products requi
 
 #####Large - Front/back images 
 * crop left/right not top/bottom (the page will get too long) 
-* use product zoom if necessary
 
 #####Large - Multiple folds 
-* crop left to right 
-* use product zoom if necessary
+* crop left to right
 
 #####Large - Product Zoom (replaces large image)
 * For any large image with detail or multiple pages, product zoom should be considered
