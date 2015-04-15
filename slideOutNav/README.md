@@ -1,4 +1,4 @@
-#SlideOut Nav for OrderCloud
+#SlideOut Nav for OrderCloud 
 
 This module provides the user the ability to create a navigation item that will initiate a slide out panel.
 
