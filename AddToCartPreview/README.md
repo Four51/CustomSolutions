@@ -6,9 +6,9 @@ This module provides the user the ability to generate a list of multiple line it
 ###1. Add module file to your project.
 Add the **`addToCartPreview.js`** file to your project.
 
-If you are using a repository, add this file to the **`/lib`** directory.
+If you are using a repository, add this file to the **`/lib/oc`** directory.
 
-If you are using file overrides, create a new file override named **`lib/addToCartPreview.js`** and add this file as the content for that file.
+If you are using file overrides, create a new file override named **`lib/oc/addToCartPreview.js`** and add this file as the content for that file.
 
 **Be sure to reference both of this JS file in the `index.html` file**
 
@@ -40,3 +40,8 @@ with the following:
 ###2. Apply Product Detail Template to product(s)
 
 Your newly created Product Detail Template can be assigned to any products requiring the Add to Cart Preview.
+
+###3. Variable Spec Image Variations (optional) 
+
+If you wish for your Add to Cart Preview and Cart to show variable spec selection image variations (i.e. Color), in the product Variants section, "Generate Variants for the selection spec" and 
+upload an image for each variable selection option. 
