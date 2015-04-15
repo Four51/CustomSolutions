@@ -72,7 +72,6 @@ Your newly created Product Detail Template can be assigned to any products requi
 * crop left to right
 
 #####Large - Product Zoom (replaces large image)
-* For any large image with detail or multiple pages, product zoom should be considered
 * minimum of 1000w, cropped to top, no white space
 * Minimum of 72dpi
 
