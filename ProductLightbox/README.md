@@ -24,7 +24,7 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
 ##Usage
 #### 1. Set a default value for your variable spec selection menu (optional).
 * If you want a specific (color) to be the default image, select a default value in your variable spec selection options.
-* 
+
 #### 2. Create Static Specs for your images.
 * The static spec group name **MUST** be named **_LightboxImages_**.
 
