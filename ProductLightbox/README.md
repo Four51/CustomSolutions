@@ -1,4 +1,4 @@
-#Product Lightbox for OrderCloud
+#Product Lightbox for OrderCloud 
 
 This module provides the user the ability to create a gallery of lightbox images for static or variable products.
 
