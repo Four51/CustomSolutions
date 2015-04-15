@@ -2,6 +2,10 @@
 
 This module provides a matrix type layout for ordering VBOSS static products. Products utilizing this module must have VBOSS variants using one or two variable selection specs. Additional variable specs can be assigned to the product, but only one or two may be applied to the VBOSS variants. Additional specs will be displayed above the matrix layout.
 
+A visual example is available at: https://jenras.four51ordercloud.com/albumArt/
+
+Navigate to the Four51 OrderCloud category. 
+
 ##Setup
 ###1. Add module file to your project.
 Add the **`productMatrix.js`** file to your project.
