@@ -1,4 +1,4 @@
-#Product Matrix for OrderCloud
+#Product Matrix for OrderCloud 
 
 This module provides a matrix type layout for ordering VBOSS static products. Products utilizing this module must have VBOSS variants using one or two variable selection specs. Additional variable specs can be assigned to the product, but only one or two may be applied to the VBOSS variants. Additional specs will be displayed above the matrix layout.
 
