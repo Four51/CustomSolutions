@@ -53,7 +53,6 @@ Your newly created Product Detail Template can be assigned to any products requi
 ***
 ### Image Recommendations 
 
-### Images
 #####Thumbnail
 * minimum of 300w x 300h, cropped to top, no white space (1)
 * All images should retain the same aspect ratio and height (2)
