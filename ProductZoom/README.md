@@ -49,3 +49,37 @@ Your newly created Product Detail Template can be assigned to any products requi
 ###3. Apply Product Detail Template to product(s)
 
 Your newly created Product Detail Template can be assigned to any products requiring Product Zoom.
+
+***
+### Image Recommendations 
+
+### Images
+#####Thumbnail
+* minimum of 300w x 300h, cropped to top, no white space (1)
+* All images should retain the same aspect ratio and height (2)
+* Minimum of 72dpi
+
+* If a product has multiple sides, use the cover image only for the thumbnail.
+* Additional detail can be provided via the large image
+
+#####Large
+* minimum of 500w x 500h, cropped to top, no white space (1)
+* Minimum of 72dpi
+
+#####Large - Front/back images 
+* crop left/right not top/bottom (the page will get too long) 
+* use product zoom if necessary
+
+#####Large - Multiple folds 
+* crop left to right 
+* use product zoom if necessary
+
+#####Large - Product Zoom (replaces large image)
+* For any large image with detail or multiple pages, product zoom should be considered
+* minimum of 1000w, cropped to top, no white space
+* Minimum of 72dpi
+
+>**Notes**
+* (1) white space can be added via css and shouldn't be added to the image for consistency. 
+* (2) maintaining a consistent height and width for the thumbnail (i.e. category, product list views) is preferable to avoid additional css considerations. 
+
