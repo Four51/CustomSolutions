@@ -1,7 +1,7 @@
 angular.module('OrderCloud-ProductMatrix', []);
 
 angular.module('OrderCloud-ProductMatrix')
-    .filter('DefinesVariant', definesVariantFilter)
+    .filter('definesvariant', definesVariantFilter)
     .filter('orderobjectby', orderObjectByFilter)
     .factory('ProductMatrix', ProductMatrixFactory)
     .directive('productmatrix', productmatrixdirective)
@@ -40,6 +40,15 @@ function ProductMatrixFactory($resource, $451, Variant) {
             fn(data, count, s1, s2);
     }
 
+    var _getMinMaxTotalQty = function (product) {
+        if (product.StaticSpecGroups && product.StaticSpecGroups.Matrix) {
+            product.MinTotalQty = (product.StaticSpecGroups.Matrix.Specs.MinQty && product.StandardPriceSchedule.MinQuantity == 1) ? +(product.StaticSpecGroups.Matrix.Specs.MinQty.Value) : null;
+            product.MaxTotalQty = (product.StaticSpecGroups.Matrix.Specs.MaxQty && !product.StandardPriceSchedule.MaxQuantity) ? +(product.StaticSpecGroups.Matrix.Specs.MaxQty.Value) : null;
+        }
+
+        return product;
+    }
+
     var _build = function(product, order, lineItemEdit, success) {
         var specCombos = {};
         var defineVariantSpecs = {};
@@ -67,10 +76,10 @@ function ProductMatrixFactory($resource, $451, Variant) {
         }
         else if (defineVariantSpecCount == 2) {
             angular.forEach(defineVariantSpecs, function(spec) {
-                if (spec.ListOrder == 1) {
+                if (spec.DefinesVariant && !spec1Name) {
                     spec1Name = spec.Name;
                     angular.forEach(product.Specs, function(s) {
-                        if (s.ListOrder == 2) {
+                        if (s.DefinesVariant && (s.ID != spec.ID)) {
                             spec2Name = s.Name;
                             angular.forEach(spec.Options, function(option) {
                                 specCombos[option.Value] = [];
@@ -160,27 +169,43 @@ function ProductMatrixFactory($resource, $451, Variant) {
     var _validateQty = function(matrix, product, success) {
         var qtyError = "";
         var priceSchedule = product.StandardPriceSchedule;
+        var totalQty = 0;
         angular.forEach(matrix, function(group) {
             angular.forEach(group, function(variant) {
                 var qty = variant.Quantity;
+                variant.QtyError = false;
                 if (variant.Quantity) {
                     if(!$451.isPositiveInteger(qty))
                     {
                         qtyError += "<p>Please select a valid quantity for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
                     }
+                    else {
+                        totalQty += +(variant.Quantity);
+                    }
                 }
                 if(priceSchedule.MinQuantity > qty && qty != 0){
                     qtyError += "<p>Quantity must be equal or greater than " + priceSchedule.MinQuantity + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
+                    variant.QtyError = true;
                 }
                 if(priceSchedule.MaxQuantity && priceSchedule.MaxQuantity < qty){
                     qtyError += "<p>Quantity must be equal or less than " + priceSchedule.MaxQuantity + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
+                    variant.QtyError = true;
                 }
                 var qtyAvail = variant.QuantityAvailable;
                 if(qtyAvail < qty && product.AllowExceedInventory == false){
-                    qtyError = "<p>Quantity cannot exceed the Quantity Available of " +  qtyAvail + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";;
+                    qtyError = "<p>Quantity cannot exceed the Quantity Available of " +  qtyAvail + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
+                    variant.QtyError = true;
                 }
             });
         });
+
+        if (!product.RestrictedQuantity && product.MinTotalQty && totalQty < product.MinTotalQty) {
+            qtyError += "Total quantity must be equal or greater than " + product.MinTotalQty + " for " + (product.Name ? product.Name : product.ExternalID);
+        }
+
+        if (!product.RestrictedQuantity && product.MaxTotalQty && totalQty > product.MaxTotalQty) {
+            qtyError += "Total quantity must be equal or less than " + product.MaxTotalQty + " for " + (product.Name ? product.Name : product.ExternalID);
+        }
 
         _then(success, qtyError);
     }
@@ -229,6 +254,7 @@ function ProductMatrixFactory($resource, $451, Variant) {
         build: _build,
         validateQuantity: _validateQty,
         addToOrder: _addToOrder,
+        getMinMaxTotalQty: _getMinMaxTotalQty,
         backOrderValidate: _backOrderValidate
     }
 }
@@ -236,11 +262,6 @@ function ProductMatrixFactory($resource, $451, Variant) {
 function productmatrixdirective() {
     return {
         restrict: 'E',
-        scope: {
-            address : '=',
-            return: '=',
-            user: '='
-        },
         template: template,
         controller: 'productmatrixcontroller'
     };
@@ -303,6 +324,7 @@ function ProductMatrixCtrl($scope, $routeParams, $route, $location, $451, Produc
     function init(searchTerm) {
         ProductDisplayService.getProductAndVariant($routeParams.productInteropID, $routeParams.variantInteropID, function (data) {
             $scope.product = data.product;
+            ProductMatrix.getMinMaxTotalQty($scope.product);
             if ($scope.product.IsVBOSS) {
                 var lineItemEdit = null;
                 if ($scope.lineItemIndex) {
