@@ -4,23 +4,61 @@ angular.module('OrderCloud-ProductLightbox', [
 ]);
 
 angular.module('OrderCloud-ProductLightbox')
-    .directive('productlightbox', ProductLightboxDirective)
-    .controller('LightboxCtrl', ProductLightboxController)
-    .provider('Lightbox', LightboxProvider)
-    .service('ImageLoader', ImageLoaderService)
-    .directive('lightboxSrc', LightBoxSourceDirective)
+    .directive('productlightbox', productlightbox)
+    .controller('LightboxCtrl', LightboxCtrl)
+    .provider('Lightbox', Lightbox)
+    .service('ImageLoader', ImageLoader)
+    .directive('lightboxSrc', lightboxSrc)
 ;
 
-function ProductLightboxDirective() {
+function productlightbox() {
     var directive = {
         restrict: 'E',
-        template: productlightboxtemplate
+        template: template
     };
     return directive;
+
+    function template() {
+        return [
+            '<style>',
+            '.galleryThumbs {width:100%;margin:0 auto;position: relative;text-align: center;}',
+            '.galleryThumbs li {padding: 3px 5px;list-style-type: none;display:inline-block;}',
+            '.galleryThumbs li:first-child {padding-left:0;}',
+            '.galleryThumbs .img-thumbnail {border:1px solid #ccc;max-height:50px;max-width:50px;padding:0}',
+            '.galleryThumbs .active .img-thumbnail {border:1px solid #6e6e6e;}',
+            '.galleryImages li {list-style-type:none;}',
+            '.galleryImages a {display:block;}',
+            '.galleryImages a.no-click {cursor:none;pointer-events: none;}',
+            '.galleryImages .product-image-large {display:none;}',
+            '.galleryImages .active .product-image-large {display:block !important;max-height:100%;max-width:100%;position:relative;top:0;}',
+            '</style>',
+            '<div class="panel-body">',
+            '<ul class="galleryImages">',
+            '<li ng-repeat="image in LineItem.images">',
+            '<a class="hidden-xs" ng-click="openLightboxModal($index)" ng-class="{active: $index==$parent.index}">',
+            '<img ng-src="{{image.url}}" class="product-image-large img-responsive" />',
+            '</a>',
+            '<a class="no-click visible-xs" ng-class="{active: $index==$parent.index}">',
+            '<img ng-src="{{image.url}}" class="product-image-large img-responsive" />',
+            '</a>',
+            '</li>',
+            '</ul>',
+            '</div>',
+            '<div class="panel-footer">',
+            '<ul class="galleryThumbs">',
+            '<li ng-repeat="image in LineItem.images">',
+            '<a ng-click="$parent.index=$index" ng-class="{active: $index==$parent.index}">',
+            '<img ng-src="{{image.url}}" class="img-thumbnail img-responsive" />',
+            '</a>',
+            '</li>',
+            '</ul>',
+            '</div>'
+        ].join('');
+    }
 }
 
-ProductLightboxController.$inject = ['$scope', 'Lightbox'];
-function ProductLightboxController($scope, Lightbox) {
+LightboxCtrl.$inject = ['$scope', 'Lightbox'];
+function LightboxCtrl($scope, Lightbox) {
     function LightboxImageScope($scope) {
         var varSpecName = "Color";
         var specGroupName = "LightboxImages";
@@ -78,45 +116,7 @@ function ProductLightboxController($scope, Lightbox) {
     });
 }
 
-function productlightboxtemplate() {
-    return [
-        '<style>',
-        '.galleryThumbs {width:100%;margin:0 auto;position: relative;text-align: center;}',
-        '.galleryThumbs li {padding: 3px 5px;list-style-type: none;display:inline-block;}',
-        '.galleryThumbs li:first-child {padding-left:0;}',
-        '.galleryThumbs .img-thumbnail {border:1px solid #ccc;max-height:50px;max-width:50px;padding:0}',
-        '.galleryThumbs .active .img-thumbnail {border:1px solid #6e6e6e;}',
-        '.galleryImages li {list-style-type:none;}',
-        '.galleryImages a {display:block;}',
-        '.galleryImages a.no-click {cursor:none;pointer-events: none;}',
-        '.galleryImages .product-image-large {display:none;}',
-        '.galleryImages .active .product-image-large {display:block !important;max-height:100%;max-width:100%;position:relative;top:0;}',
-        '</style>',
-        '<div class="panel-body">',
-        '<ul class="galleryImages">',
-        '<li ng-repeat="image in LineItem.images">',
-        '<a class="hidden-xs" ng-click="openLightboxModal($index)" ng-class="{active: $index==$parent.index}">',
-        '<img ng-src="{{image.url}}" class="product-image-large img-responsive" />',
-        '</a>',
-        '<a class="no-click visible-xs" ng-class="{active: $index==$parent.index}">',
-        '<img ng-src="{{image.url}}" class="product-image-large img-responsive" />',
-        '</a>',
-        '</li>',
-        '</ul>',
-        '</div>',
-        '<div class="panel-footer">',
-        '<ul class="galleryThumbs">',
-        '<li ng-repeat="image in LineItem.images">',
-        '<a ng-click="$parent.index=$index" ng-class="{active: $index==$parent.index}">',
-        '<img ng-src="{{image.url}}" class="img-thumbnail img-responsive" />',
-        '</a>',
-        '</li>',
-        '</ul>',
-        '</div>'
-    ].join('');
-}
-
-function LightboxProvider() {
+function Lightbox() {
     this.getImageUrl = function (image) {
         return image.url;
     };
@@ -278,8 +278,8 @@ function imagelightboxtemplate () {
     ].join('');
 }
 
-ImageLoaderService.$inject = ['$q'];
-function ImageLoaderService ($q){
+ImageLoader.$inject = ['$q'];
+function ImageLoader ($q){
     this.load = function (url) {
         var deferred = $q.defer();
         var image = new Image();
@@ -298,8 +298,8 @@ function ImageLoaderService ($q){
     };
 }
 
-LightBoxSourceDirective.$inject = ['$window', 'ImageLoader', 'Lightbox' ];
-function LightBoxSourceDirective($window, ImageLoader, Lightbox) {
+lightboxSrc.$inject = ['$window', 'ImageLoader', 'Lightbox'];
+function lightboxSrc($window, ImageLoader, Lightbox) {
     var calculateImageDisplayDimensions = function (dimensions) {
         var w = dimensions.width;
         var h = dimensions.height;
