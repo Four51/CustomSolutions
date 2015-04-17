@@ -1,4 +1,5 @@
-#Favorite Products for OrderCloud _(In Development)_
+#Favorite Products for OrderCloud 
+#####_(In Development)_
 
 This module provides the user the ability to display a list of favorite products on their website. The directive displays a heart icon that when clicked on turns red. This will add the product ID(s) to a custom user field which can then be referenced to display Favorite Products. 
 
