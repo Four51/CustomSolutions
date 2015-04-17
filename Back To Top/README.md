@@ -29,3 +29,6 @@ On the directive these are what each of the attributes mean:
 * offsetbottom: number of pixels the button will appear from the bottom
 * offsetright: number of pixels the button will appear from the right
 * duration: amount of time the directive will take in reach the top
+
+---
+<sub><sup>Last Update: 4/17/15</sup></sub>
