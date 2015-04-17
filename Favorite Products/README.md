@@ -1,4 +1,4 @@
-#Favorite Products for OrderCloud
+#Favorite Products for OrderCloud _(In Development)_
 
 This module provides the user the ability to display a list of favorite products on their website. The directive displays a heart icon that when clicked on turns red. This will add the product ID(s) to a custom user field which can then be referenced to display Favorite Products. 
 
@@ -18,7 +18,7 @@ Add a dependency for `OrderCloud-FavoriteProducts` to the Four51.app module in t
 ###Usage
 #####1. Create a custom user field named `FavoriteProducts` and assign it to a company, group, or user.
 
-#####2. Add the directive to the product detail template and/or `partials/controls/shortProductView.html`.
+#####2. Add the directive to the product detail template ~~and/or `partials/controls/shortProductView.html`~~.
 
 ```html
     <favoriteproduct></favoriteproduct>
