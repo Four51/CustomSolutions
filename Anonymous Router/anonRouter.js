@@ -1,7 +1,6 @@
 angular.module('OrderCloud-AnonRouter', []);
 
 angular.module('OrderCloud-AnonRouter')
-
     .run(run)
     .constant('after', 'checkout')
     .constant('before', 'checkout')
