@@ -44,3 +44,5 @@ Custom Static Text Specs should be created under a spec group named "Matrix". Fo
 If the price schedule has a min or max quantity assigned, a quantity greated than/less than that value will be required for each variant within the product. However, if those values are not assigned
 and the custom static specs described above exist, the user must fill out a TOTAL quantity greater than or less than the MinQty or MaxQty.
 
+---
+<sub><sup>Last Update: 4/14/15</sup></sub>
