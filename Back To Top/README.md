@@ -18,10 +18,10 @@ Add a dependency for `OrderCloud-BackToTop` to the Four51.app module in the **`j
 ###Usage
 #####1. Add the directive to the page
 
-We recommend adding the directive to the index file underneath the last `<section>` and above the first `<script>' so that the button is available on each page.
+We recommend adding the directive to the index file underneath the last ending `</section>` tag so that the button is available on each page.
 
 ```html
-    <back-to-top offsetbottom="30" offsetright="30" duration="200"></back-to-top>
+    <backtotop offsetbottom="30" offsetright="30" duration="200"></backtotop>
 ```
 
 On the directive these are what each of the attributes mean:
