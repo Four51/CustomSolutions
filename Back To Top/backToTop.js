@@ -1,9 +1,9 @@
 angular.module('OrderCloud-BackToTop', []);
 angular.module('OrderCloud-BackToTop')
-    .directive('backToTop', backToTopDirective)
+    .directive('backtotop', backtotop)
 ;
 
-function backToTopDirective() {
+function backtotop() {
     return {
         restrict: 'E',
         scope: {
@@ -13,8 +13,8 @@ function backToTopDirective() {
             hovertext: '@'
         },
         template: template,
-        link: function(scope) {
-            $(document).ready(function(){
+        link: function (scope) {
+            $(document).ready(function () {
                 var duration = scope.duration || 800;
                 var offsetRight = scope.offsetright || 40;
                 var offsetBottom = scope.offsetbottom || 40;
@@ -27,7 +27,7 @@ function backToTopDirective() {
                 }
 
                 //Check to see if the window is top if not then display button
-                $(window).scroll(function(){
+                $(window).scroll(function () {
                     if ($(this).scrollTop() > 100) {
                         $('.scrollToTop').fadeIn();
                     } else {
@@ -36,23 +36,23 @@ function backToTopDirective() {
                 });
 
                 //Click event to scroll to top
-                $('.scrollToTop').click(function(){
-                    $('html, body').animate({scrollTop : 0}, duration);
+                $('.scrollToTop').click(function () {
+                    $('html, body').animate({scrollTop: 0}, duration);
                     return false;
                 });
 
             });
         }
     };
-}
 
-function template() {
-    return [
-        '<style>' +
-        '.scrollToTop:hover{' +
-        'text-decoration: none;' +
-        '}' +
-        '</style>' +
-        '<a href="#" title="{{hovertext}}" ng-style="myStyles" class="scrollToTop"><i class="fa fa-arrow-circle-up fa-3x"></i></a>'
-    ].join('');
+    function template() {
+        return [
+                '<style>' +
+                '.scrollToTop:hover{' +
+                'text-decoration: none;' +
+                '}' +
+                '</style>' +
+                '<a href="#" title="{{hovertext}}" ng-style="myStyles" class="scrollToTop"><i class="fa fa-arrow-circle-up fa-3x text-info"></i></a>'
+        ].join('');
+    }
 }
