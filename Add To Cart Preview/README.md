@@ -46,5 +46,5 @@ Your newly created Product Detail Template can be assigned to any products requi
 If you wish for your Add to Cart Preview and Cart to show variable spec selection image variations (i.e. Color), in the product Variants section, "Generate Variants for the selection spec" and 
 upload an image for each variable selection option. 
 
-
+---
 <sub><sup>Last Update: 4/17/15</sup></sub>
