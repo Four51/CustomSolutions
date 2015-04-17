@@ -1,6 +1,6 @@
 #Back to Top for OrderCloud
 
-This module provides the user with the ability to add a button to the bottom right of the page that will return them to the top of the page.
+This module provides the user with the ability to add a dynamically appearing arrow button to the bottom right of the page that will return them to the top of the page.
 
 ###Setup
 #####1. Add module file to your project.
@@ -16,9 +16,9 @@ If you are using file overrides, create a new file override named **`lib/oc/back
 Add a dependency for `OrderCloud-BackToTop` to the Four51.app module in the **`js/app.js`** file.
 
 ###Usage
-#####1. Add the directive to the page
+#####1. Add the directive to the index.html file
 
-We recommend adding the directive to the index file underneath the last ending `</section>` tag so that the button is available on each page.
+>**Note:** We recommend adding the directive to the index file underneath the last ending `</section>` tag so that the button is available on each page.
 
 ```html
     <backtotop offsetbottom="30" offsetright="30" duration="200"></backtotop>
