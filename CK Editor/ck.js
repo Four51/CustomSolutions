@@ -1,5 +1,5 @@
-angular.module('OrderCloud-CKEditor', []);
-angular.module('OrderCloud-CKEditor')
+angular.module('OrderCloud-CK Editor', []);
+angular.module('OrderCloud-CK Editor')
     .directive('ckEditor', ckEditorDirective)
 ;
 

@@ -1,6 +1,6 @@
-angular.module('OrderCloud-ProductZoom', []);
+angular.module('OrderCloud-Product Zoom', []);
 
-angular.module('OrderCloud-ProductZoom')
+angular.module('OrderCloud-Product Zoom')
     .directive('productzoom', productzoom)
 ;
 

@@ -1,6 +1,6 @@
-angular.module('OrderCloud-LargeAddressListSearch', []);
+angular.module('OrderCloud-Large Address List Search', []);
 
-angular.module('OrderCloud-LargeAddressListSearch')
+angular.module('OrderCloud-Large Address List Search')
 
     .factory('LargeAddress', largeaddress)
     .directive('largeaddressshipping', largeaddresssearchshipping)

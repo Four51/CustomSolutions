@@ -1071,7 +1071,7 @@
         }
 
         /*
-         Send a new transactional message through Mandrill
+         Send a new transactional message through Mandrill Email Integration
          @param {Object} params the hash of the parameters to pass to the request
          @option params {Struct} message the information on the message to send
          - html {String} the full HTML content to be sent
@@ -1115,7 +1115,7 @@
          - subaccount {String} the unique id of a subaccount for this message - must already exist or will fail with an error
          - google_analytics_domains {Array} an array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
          - google_analytics_campaign {Array|string} optional string indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.
-         - metadata {Array} metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
+         - metadata {Array} metadata an associative array of user metadata. Mandrill Email Integration will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill Email Integration search api.
          - recipient_metadata {Array} Per-recipient metadata that will override the global values specified in the metadata parameter.
          - recipient_metadata[] {Object} metadata for a single recipient
          - rcpt {String} the email address of the recipient that the metadata is associated with
@@ -1161,7 +1161,7 @@
         };
 
         /*
-         Send a new transactional message through Mandrill using a template
+         Send a new transactional message through Mandrill Email Integration using a template
          @param {Object} params the hash of the parameters to pass to the request
          @option params {String} template_name the immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.
          @option params {Array} template_content an array of template content to send.  Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
@@ -1210,7 +1210,7 @@
          - subaccount {String} the unique id of a subaccount for this message - must already exist or will fail with an error
          - google_analytics_domains {Array} an array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
          - google_analytics_campaign {Array|string} optional string indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.
-         - metadata {Array} metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
+         - metadata {Array} metadata an associative array of user metadata. Mandrill Email Integration will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill Email Integration search api.
          - recipient_metadata {Array} Per-recipient metadata that will override the global values specified in the metadata parameter.
          - recipient_metadata[] {Object} metadata for a single recipient
          - rcpt {String} the email address of the recipient that the metadata is associated with
@@ -1409,7 +1409,7 @@
         };
 
         /*
-         Take a raw MIME document for a message, and send it exactly as if it were sent through Mandrill's SMTP servers
+         Take a raw MIME document for a message, and send it exactly as if it were sent through Mandrill Email Integration's SMTP servers
          @param {Object} params the hash of the parameters to pass to the request
          @option params {String} raw_message the full MIME document of an email message
          @option params {String|null} from_email optionally define the sender address - otherwise we'll use the address found in the provided headers
@@ -1509,7 +1509,7 @@
          Reschedules a scheduled email.
          @param {Object} params the hash of the parameters to pass to the request
          @option params {String} id a scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled
-         @option params {String} send_at the new UTC timestamp when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately
+         @option params {String} send_at the new UTC timestamp when the message should sent. Mandrill Email Integration can't time travel, so if you specify a time in past the message will be sent immediately
          @param {Function} onsuccess an optional callback to execute when the API call is successfully made
          @param {Function} onerror an optional callback to execute when the API call errors out - defaults to throwing the error as an exception
          */
@@ -1691,7 +1691,7 @@
 
         /*
          Begins the warmup process for a dedicated IP. During the warmup process,
-         Mandrill will gradually increase the percentage of your mail that is sent over
+         Mandrill Email Integration will gradually increase the percentage of your mail that is sent over
          the warming-up IP, over a period of roughly 30 days. The rest of your mail
          will be sent over shared IPs or other dedicated IPs in the same pool.
          @param {Object} params the hash of the parameters to pass to the request
@@ -1962,7 +1962,7 @@
          @option params {String} id a unique identifier for the subaccount to be used in sending calls
          @option params {String} name an optional display name to further identify the subaccount
          @option params {String} notes optional extra text to associate with the subaccount
-         @option params {Integer} custom_quota an optional manual hourly quota for the subaccount. If not specified, Mandrill will manage this based on reputation
+         @option params {Integer} custom_quota an optional manual hourly quota for the subaccount. If not specified, Mandrill Email Integration will manage this based on reputation
          @param {Function} onsuccess an optional callback to execute when the API call is successfully made
          @param {Function} onerror an optional callback to execute when the API call errors out - defaults to throwing the error as an exception
          */
@@ -2017,7 +2017,7 @@
          @option params {String} id the unique identifier of the subaccount to update
          @option params {String} name an optional display name to further identify the subaccount
          @option params {String} notes optional extra text to associate with the subaccount
-         @option params {Integer} custom_quota an optional manual hourly quota for the subaccount. If not specified, Mandrill will manage this based on reputation
+         @option params {Integer} custom_quota an optional manual hourly quota for the subaccount. If not specified, Mandrill Email Integration will manage this based on reputation
          @param {Function} onsuccess an optional callback to execute when the API call is successfully made
          @param {Function} onerror an optional callback to execute when the API call errors out - defaults to throwing the error as an exception
          */
@@ -2474,9 +2474,9 @@
         /*
          Sends a verification email in order to verify ownership of a domain.
          Domain verification is an optional step to confirm ownership of a domain. Once a
-         domain has been verified in a Mandrill account, other accounts may not have their
+         domain has been verified in a Mandrill Email Integration account, other accounts may not have their
          messages signed by that domain unless they also verify the domain. This prevents
-         other Mandrill accounts from sending mail signed by your domain.
+         other Mandrill Email Integration accounts from sending mail signed by your domain.
          @param {Object} params the hash of the parameters to pass to the request
          @option params {String} domain a domain name at which you can receive email
          @option params {String} mailbox a mailbox at the domain where the verification email should be sent

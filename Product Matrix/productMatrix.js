@@ -1,6 +1,6 @@
-angular.module('OrderCloud-ProductMatrix', []);
+angular.module('OrderCloud-Product Matrix', []);
 
-angular.module('OrderCloud-ProductMatrix')
+angular.module('OrderCloud-Product Matrix')
     .directive('productmatrix', productmatrix)
     .controller('ProductMatrixCtrl', ProductMatrixCtrl)
     .factory('ProductMatrix', ProductMatrix)

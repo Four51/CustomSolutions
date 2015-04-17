@@ -1,6 +1,6 @@
-angular.module('OrderCloud-ProductReport', []);
+angular.module('OrderCloud-Product Report', []);
 
-angular.module('OrderCloud-ProductReport')
+angular.module('OrderCloud-Product Report')
 
     .factory('ProductReport', ProductReport)
     .filter('hiddenreports', hiddenReports);

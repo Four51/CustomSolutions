@@ -1,6 +1,6 @@
-angular.module('OrderCloud-AddToCartPreview', []);
+angular.module('OrderCloud-Add To Cart Preview', []);
 
-angular.module('OrderCloud-AddToCartPreview')
+angular.module('OrderCloud-Add To Cart Preview')
     .directive('addtocartpreview', addtocartpreview)
     .controller('AddToCartPreviewCtrl', AddToCartPreviewCtrl)
     .factory('AddToCartPreview', AddToCartPreview)

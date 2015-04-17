@@ -1,6 +1,6 @@
-angular.module('OrderCloud-Mandrill', []);
+angular.module('OrderCloud-Mandrill Email Integration', []);
 
-angular.module('OrderCloud-Mandrill')
+angular.module('OrderCloud-Mandrill Email Integration')
 
     .factory('Email', Email);
 
@@ -14,7 +14,7 @@ angular.module('OrderCloud-Mandrill')
             var mandrillAPIKey = ""; //Enter your API key here
             mandrill_client = new mandrill.Mandrill(mandrillAPIKey);
 
-            var template_name = ""; //Enter Mandrill Template Slug Here
+            var template_name = ""; //Enter Mandrill Email Integration Template Slug Here
 
             var template_content = [
                 {
@@ -53,7 +53,7 @@ angular.module('OrderCloud-Mandrill')
             mandrill_client.messages.sendTemplate({"template_name": template_name, "template_content": template_content, "message": message, "async": async, "ip_pool": ip_pool}, function(result) {
                 console.log(result);
             }, function(e) {
-                console.log('A Mandrill error occurred: ' + e.name + ' - ' + e.message);
+                console.log('A Mandrill Email Integration error occurred: ' + e.name + ' - ' + e.message);
             });
         }
     }
