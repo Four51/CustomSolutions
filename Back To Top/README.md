@@ -25,6 +25,7 @@ We recommend adding the directive to the index file underneath the last ending `
 ```
 
 On the directive these are what each of the attributes mean:
-    offsetbottom: number of pixels the button will appear from the bottom
-    offsetright: number of pixels the button will appear from the right
-    duration: amount of time the directive will take in reach the top
+
+* offsetbottom: number of pixels the button will appear from the bottom
+* offsetright: number of pixels the button will appear from the right
+* duration: amount of time the directive will take in reach the top
