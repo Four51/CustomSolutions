@@ -2,7 +2,7 @@
 
 This module provides the ability to redirect an anonymous user to the user admin page in order to profile themselves at any step within their catalog workflow.
 
->**Note:** This module is provided in the base application 18.9.0 CT Release and 1.3.0 SPA Release.
+>**Note:** This module is provided in the base application 18.9.0 CT Release and 1.3.0 SPA Release
 
 ###Setup
 #####1. Add module file to your project.
