@@ -48,7 +48,7 @@ function SlideOutNavCtrl($scope, User) {
     User.get(function(user) {
         $scope.slideOutNavItems = [];
         angular.forEach(user.CustomFields, function(f) {
-            if (f.Name.indexOf('slideOut Navigation') > -1) {
+            if (f.Name.indexOf('slideOutNav') > -1) {
                 var l = {
                     'imageUrl': f.File.Url,
                     'linkUrl': f.Label,
