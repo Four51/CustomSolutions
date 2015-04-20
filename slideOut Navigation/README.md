@@ -26,7 +26,7 @@ Add a dependency for `OrderCloud-SlideOutNav` to the Four51.app module in the **
 * Keep all your images the same dimensions or at a minimum the same width
 * If you plan to use 12 images, size images no larger than 250w x 50h
 * If your image should link to a url, enter the URL address in the _Label_ field. Otherwise, enter _none_ in the _Label_ field. 
-* Enter the allowed extensions <sub><sup>(gif,jpg,jpeg,pdf,png)</sup></sub>
+* Enter the allowed extensions <sub>(gif,jpg,jpeg,pdf,png)</sub>
 * Minimum and Maximum File Sizes are optional
 * Enter an asterisk(*) in the Upload Instructions 
 * Do not click the image button! (Images are easier to update without the image feature checked) 
