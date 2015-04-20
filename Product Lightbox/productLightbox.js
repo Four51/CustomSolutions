@@ -1,9 +1,9 @@
-angular.module('OrderCloud-Product Lightbox', [
+angular.module('OrderCloud-ProductLightbox', [
     'ngTouch',
     'ui.bootstrap'
 ]);
 
-angular.module('OrderCloud-Product Lightbox')
+angular.module('OrderCloud-ProductLightbox')
     .directive('productlightbox', productlightbox)
     .controller('LightboxCtrl', LightboxCtrl)
     .provider('Lightbox', Lightbox)
