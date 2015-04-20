@@ -19,7 +19,7 @@ Be sure to reference the JS file in the **`index.html`** file.
 
 #### 2. Load the module into the application.
 
-Add a dependency for **`OrderCloud-ProductLightbox`** to the Four51.app module in the  **`js/app.js`** file.
+Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in the  **`js/app.js`** file.
 
 ##Usage
 
