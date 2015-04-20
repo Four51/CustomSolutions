@@ -9,17 +9,17 @@ Navigate to the Four51 OrderCloud category.
 ##Setup
 #### 1. Add module file to your project.
 
-Add the `productLightbox.js` file to your project.
+Add the **`productLightbox.js`** file to your project.
 
-If you are using a repository, add this file to the /lib/oc directory.
+If you are using a repository, add this file to the  **`/lib/oc`** directory.
 
-If you are using file overrides, create a new file override named `lib/oc/productLightbox.js` and add this file as the content for that file.
+If you are using file overrides, create a new file override named **`lib/oc/productLightbox.js`** and add this file as the content for that file.
 
-Be sure to reference the JS file in the `index.html` file.
+Be sure to reference the JS file in the **`index.html`** file.
 
 #### 2. Load the module into the application.
 
-Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in the `js/app.js` file.
+Add a dependency for **`OrderCloud-ProductLightbox`** to the Four51.app module in the  **`js/app.js`** file.
 
 ##Usage
 
@@ -54,4 +54,4 @@ Once created, navigate to the OrderCloud 2.0 tab. Replace the entire `<div class
 Your newly created Product Detail Template can be assigned to any products requiring the Product Lightbox.
 
 ---
-<sub><sup>Last Update: 4/15/15</sup></sub>
+<sub><sup>Last Update: 4/20/15</sup></sub>
