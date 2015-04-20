@@ -6,9 +6,9 @@ This module provides an overview of how to implement Mandrill's Transactional Em
 ###1. Add mandrill.js file to your project.
 Mandrill provides a JS wrapper file, which is located within this directory as **`mandrill.js`**. 
 
-If you are using a repository for your project, add this file to the /lib directory and also to the **`index.html`** file.
+If you are using a repository for your project, add this file to the **`/lib/oc`** directory and also to the **`index.html`** file.
 
-If you are using file overrides for your project, create a new file override named **`lib/mandrill.js`**, add this file as the content for that file, then add the reference to the **`index.html`** file override.
+If you are using file overrides for your project, create a new file override named **`lib/oc/mandrill.js`**, add this file as the content for that file, then add the reference to the **`index.html`** file override.
 
 ###2. Add mandrillTemplate.js module to your project.
 **`mandrillTemplate.js`** contains an AngularJS module with an Email service, which will be used within your controller(s) in order to send a transactional email using Mandrill. 
