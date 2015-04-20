@@ -6,7 +6,7 @@ This template can be used to create additional modules for OrderCloud. It includ
 ###1. Add module file to your project.
 Add your file to your project.
 
-If you are using a repository, add this file to the **`/lib`** directory.
+If you are using a repository, add this file to the **`/lib/oc`** directory.
 
 If you are using file overrides, create a new file override and add your module as the content for that file.
 
