@@ -31,9 +31,9 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
 * (Optional) If you want a specific (color) to be the default image, select a default value in your variable spec selection options.
 * If your variable spec is something other than Color, you will need to update **Color** on line 25 as well as line 69 of the module to reflect the correct variable name.
 
-line 25: ```var varSpecName = "Color";```
+line 64: ```var varSpecName = "Color";```
 
-line 69:  ```$scope.$watch('LineItem.Specs.Color.Value', function(n,o){  ```
+line 110:  ```$scope.$watch('LineItem.Specs.Color.Value', function(n,o){  ```
 
 #### 1b. Static Product Usage
 * For static products, name each static spec a number to control the order of the lightbox image gallery thumbnails. 
