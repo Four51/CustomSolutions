@@ -63,7 +63,6 @@ function LightboxCtrl($scope, Lightbox) {
         if ($scope.LineItem.Specs && $scope.LineItem.Specs.Color) {
             var varSpecName = "Color";
         }
-        else { var varSpecName = ''; }
         var specGroupName = "LightboxImages";
 
         if ($scope.LineItem.Specs || $scope.LineItem.Product && $scope.LineItem.Product.StaticSpecGroups) {
