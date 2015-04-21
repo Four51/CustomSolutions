@@ -60,7 +60,10 @@ function productlightbox() {
 LightboxCtrl.$inject = ['$scope', 'Lightbox'];
 function LightboxCtrl($scope, Lightbox) {
     function LightboxImageScope($scope) {
-        var varSpecName = "Color";
+        if ($scope.LineItem.Specs && $scope.LineItem.Specs.Color) {
+            var varSpecName = "Color";
+        }
+        else { var varSpecName = ''; }
         var specGroupName = "LightboxImages";
 
         if ($scope.LineItem.Specs || $scope.LineItem.Product && $scope.LineItem.Product.StaticSpecGroups) {
@@ -69,8 +72,9 @@ function LightboxCtrl($scope, Lightbox) {
             var count = 0;
 
             if ($scope.LineItem.Product.StaticSpecGroups[specGroupName]) {
-                var specOption = $scope.LineItem.Specs[varSpecName].Value;
-
+                if (varSpecName) {
+                    var specOption = $scope.LineItem.Specs[varSpecName].Value;
+                }
                 angular.forEach($scope.LineItem.Product.StaticSpecGroups[specGroupName].Specs, function (staticSpecs) {
                     var image = {};
                     image.Number = count;
