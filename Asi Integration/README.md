@@ -67,4 +67,27 @@ Create a Static Spec on the Product with the following properties:
 - Value: your search criteria
 The value will be the ASI product search key used in the API call.
 
-
+###4. Map Variable Specs
+Create a Variable Spec on the Product for each ASI field you wish to map for display.  The value for the Spec Name will be returned from the API.  Create the Spec Name using any of the available parameters:
+- ID
+- Name
+- Description
+- Number
+- ImageUrl
+- ConfigId
+- Supplier.Id
+- Supplier.Name
+- Supplier.AsiNumber
+- Supplier.Phone.Work
+- Supplier.Phone.TollFree
+- Supplier.Phone.$index
+- Supplier.Rating.Rating
+- Supplier.Rating.Transactions
+- Price.Quantity
+- Price.Price
+- Price.Cost
+- Price.DiscountCode
+- Price.CurrencyCode
+- IsNew
+- IsConfirmed
+- HasVirtualSample
