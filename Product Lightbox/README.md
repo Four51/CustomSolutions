@@ -54,4 +54,4 @@ Once created, navigate to the OrderCloud 2.0 tab. Replace the entire `<div class
 Your newly created Product Detail Template can be assigned to any products requiring the Product Lightbox.
 
 ---
-<sub><sup>Last Update: 4/20/15</sup></sub>
+<sub><sup>Last Update: 4/21/15</sup></sub>
