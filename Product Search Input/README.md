@@ -1,3 +1,5 @@
+A visual example is available at: https://jenras.four51ordercloud.com/albumArt/
+
 ##Setup
 ###1. Add module file to your project. 
 Add the **`ProductSearchInput.js`** file to your project.
