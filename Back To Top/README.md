@@ -2,6 +2,8 @@
 
 This module provides the user with the ability to add a dynamically appearing arrow button to the bottom right of the page that will return them to the top of the page.
 
+A visual example is available at: https://jenras.four51ordercloud.com/albumArt/
+
 ###Setup
 #####1. Add module file to your project.
 Add the **`backToTop.js`** file to your project.
