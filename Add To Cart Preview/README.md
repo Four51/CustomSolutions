@@ -2,6 +2,8 @@
 
 This module provides the user the ability to generate a list of multiple line items for one product without leaving the product's spec form. Once all combinations have been created, the user is then able to add the list to their cart.
 
+An example can be found here: https://jenras.four51ordercloud.com/albumArt/product/28oz-h2go-bottles
+
 ##Setup
 ###1. Add module file to your project.
 Add the **`addToCartPreview.js`** file to your project.
