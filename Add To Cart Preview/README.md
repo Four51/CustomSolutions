@@ -4,7 +4,7 @@ This module provides the user the ability to generate a list of multiple line it
 
 A visual example is available at: https://jenras.four51ordercloud.com/albumArt/
 
-Navigate to the Four51 OrderCloud category. es
+Navigate to the Four51 OrderCloud category.
 
 ##Setup
 ###1. Add module file to your project.
