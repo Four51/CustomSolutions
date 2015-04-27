@@ -4,9 +4,8 @@ This module provides the user the ability to create a hover zoom image on a prod
 
 >**Note:** The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com". If using this on TEST/QA/STAGING, it will still work, but will show as an "unlicensed JetZoom Product". If a new domain needs to set up for this plugin, it can be done from Four51's Star Plugins Account.
 
-A visual example is available at: https://jenras.four51ordercloud.com/albumArt/
+A visual example is available at: https://volition.four51ordercloud.com/store/product/ProductZoom#example
 
-Navigate to the Four51 OrderCloud category. 
 
 ##Setup
 ###1. Add module file to your project.
