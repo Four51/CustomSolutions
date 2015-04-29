@@ -1,12 +1,13 @@
 angular.module('carousel', ['ngAnimate']);
 angular.module('carousel')
-    .controller('customCarouselController', customCarouselController)
-    .directive('customCarousel', CarouselDirective)
+    .directive('customCarousel', customCarousel)
+    .controller('customCarouselCtrl', customCarouselCtrl)
     .filter('intervalFilter', intervalFilter)
     .filter('carouselFilter', carouselFilter)
 ;
 
-function customCarouselController($scope, $animate, $filter) {
+customCarouselCtrl.$inject = ['$scope', '$animate', '$filter'];
+function customCarouselCtrl($scope, $animate, $filter) {
     $animate.enabled(false);
     $scope.slides = [];
     $scope.$watch('user.CustomFields', function(newVal){
@@ -15,14 +16,14 @@ function customCarouselController($scope, $animate, $filter) {
         $scope.slides = $scope.slides.concat($filter('carouselFilter')($scope.user.CustomFields, 'carouselImage'));
     });
 }
-customCarouselController.$inject = ['$scope', '$animate', '$filter'];
+customCarouselCtrl.$inject = ['$scope', '$animate', '$filter'];
 
 
-function CarouselDirective() {
+function customCarousel() {
     return {
         restrict: 'E',
         templateUrl: 'partials/controls/carousel.html',
-        controller: customCarouselController
+        controller: customCarouselCtrl
     };
 }
 
@@ -55,6 +56,3 @@ function carouselFilter() {
         return result;
     }
 }
-
-
-
