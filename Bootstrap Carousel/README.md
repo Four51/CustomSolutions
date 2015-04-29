@@ -23,27 +23,15 @@ If you are using file overrides, create a new file override named **`lib/oc/caro
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/carousel.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
 
-####2. Add the **`carousel.html`** file to your project
+Custom CSS for the carousel can be added to your custom CSS file using the .carousel class.
 
-If you are using a repository, add this file to the **`partials/controls/`** directory
+####2. Load the module into the application
 
-If you are using file overrides, create a new file override named **`partials/controls/carousel.html`** and add this file as the content by following these steps:
-
-1. Edit your 2.0 site
-2. Go to “Code Editor” tab
-3. Hit “New File Override”
-4. Name this file **`partials/controls/carousel.html`**
-5. Place raw code from carousel.html in the section below. Save.
-
-Custom CSS for the carousel can be modified and added to this file.
-
-####3. Load the module into the application
-
-Add a dependency for `carousel` to the Four51.app module in the **`js/app.js`** file.
+Add a dependency for `OrderCloud-Carousel` to the Four51.app module in the **`js/app.js`** file.
 1. In Code Editor, locate your **`js/app.js`** file; hit edit.
-2. Add **‘carousel’** into the file. Save.
+2. Add **‘OrderCloud-Carousel’** into the file. Save.
 
-####4. Placing the carousel in the application
+####3. Placing the carousel in the application
 
 Add the directive following directive wherever you would like the image carousel to appear. We recommend adding it inside the branding.html file: <custom-carousel></custom-carousel>
 
@@ -69,7 +57,7 @@ Custom image slides are created by creating a custom user field on the Admin sit
         <td>
          carouselImage1
         </td>
-        <td>File (then select the image checkbox)</td>
+        <td>File (do not check image checkbox)</td>
         <td>
             <ul>
                 <li>
@@ -108,7 +96,7 @@ Custom image slides are created by creating a custom user field on the Admin sit
         <td>
             carouselImage2, carouselImage3, etc.
         </td>
-    <td>File (then select the image checkbox)</td>
+    <td>File (do not check image checkbox)</td>
         <td>same as carouselImage1</td>
         <td>same as carouselImage1</td>
         <td>Sets subsequent slides in carousel</td>
