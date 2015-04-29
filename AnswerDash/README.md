@@ -34,6 +34,7 @@ Enter in your contact information if you want a Contact Info button to appear wi
 ###6. Add your support email.
 Provide a support email address to receive all new questions and a daily digest of new, unpublished questions.
 >**Note:** Best practice is to respond through your normal support process to customers who ask questions, then setting aside time daily to edit questions and publish generalized answers. The more Q&A you publish, the fewer tickets you'll get.
+
 ###7. Think about integrating with live chat.
 AnswerDash provides a list of integrated live chat partners that can be configured to assist your live chat agents from spending time answering the same questions over and over.  With integration, visitors can see live chat status on the AnswerDash tab.  When visitors do not find what they need in AnswerDash, they can escalate to live chat.
 
