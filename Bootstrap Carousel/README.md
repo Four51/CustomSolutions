@@ -55,26 +55,21 @@ Custom image slides are created by creating a custom user field on the Admin sit
 
 **Important!** It is recommended that all images that are uploaded for the carousel have the same dimensions and resolution. The carousel will resize itself based on the size of the container class the directive is placed in, so uploading an image that is too small could cause the image to be stretched.
 
+###Required Custom User Fields
+
 <table>
     <tr>
-        <th>Spec Name / Type</th>
+        <th>Spec Name</th>
+        <th>Spec Type</th>
         <th>Spec Label</th>
         <th>Upload Instructions</th>
-        <th>Value</th>
-        <th>Action</th>
+        <th>Description</th>
     </tr>
     <tr>
         <td>
-            <ul>
-                <li>
-                    carouselImage1.
-                </li>
-                <li>
-                    File then select checkbox for image
-                </li>
-                <li>required</li>
-            </ul>
+         carouselImage1
         </td>
+        <td>File (then select the image checkbox)</td>
         <td>
             <ul>
                 <li>
@@ -94,46 +89,40 @@ Custom image slides are created by creating a custom user field on the Admin sit
                 <li>For no text write 'none'</li>
             </ul>
         </td>
-        <td>uploaded image</td>
         <td>Sets first slide in carousel</td>
     </tr>
+    </table>
+
+###Optional Custom User Fields
+
+<table>
+    <tr>
+        <th>Spec Name</th>
+        <th>Spec Type</th>
+        <th>Spec Label</th>
+        <th>Upload Instructions</th>
+        <th>Description</th>
+    </tr>
+    <tr>
     <tr>
         <td>
-            <ul>
-                <li>
-                    carouselImage2, carouselImage3, etc.
-                </li>
-                <li>
-                    File then select checkbox for image
-                </li>
-                <li>optional</li>
-            </ul>
+            carouselImage2, carouselImage3, etc.
         </td>
-        <td>same as above</td>
-        <td>same as above</td>
-        <td>uploaded image</td>
+    <td>File (then select the image checkbox)</td>
+        <td>same as carouselImage1</td>
+        <td>same as carouselImage1</td>
         <td>Sets subsequent slides in carousel</td>
     </tr>
     <tr>
         <td>
-            <ul>
-                <li>
                     carouselInterval
-                </li>
-                <li>
-                    Text
-                </li>
-                <li>optional</li>
-            </ul>
         </td>
+        <td>Text (enter number of seconds you would like as interval in 'value' field)</td>
         <td>'none'</td>
         <td>'none'</td>
         <td>
-            <ul>
-                <li>Enter the number (in seconds) that you would like to use as an interval.</li>
-                <li>Default is 5 seconds. Setting to 0 will prevent rotation.</li>
-            </ul>
+                <li>Sets Interval for Slide rotation. Default is 5 seconds. Setting to 0 will prevent rotation.</li>
+
         </td>
-        <td>Sets a custom interval for slide rotation</td>
     </tr>
 </table>
