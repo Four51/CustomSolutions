@@ -34,13 +34,16 @@ Add a dependency for `OrderCloud-SlideOutNav` to the Four51.app module in the **
 #### 2. Update partials/controls/nav.html - add the navigation line 
 Where you want the navigation item to appear, add the below line within the navigation ul and name it accordingly. 
 ```
-<li ng-show="slideOutNavItems">
-    <a ng-click="showSlideOutNav = !showSlideOutNav">SlideOut Nav</a>
-</li>
+    <li>
+        <a ng-click="showSlideOutNav = !showSlideOutNav">
+            <i class="fa fa-folder-open-o"></i>
+            <span class="hidden-xs">Slide Out Nav</span>
+        </a>
+    </li>
 ```
 
 #### 3. Update partials/controls/nav.html - add the directive
-Below the ending `**</header>`** tag, add the `**<slideoutnav />`** directive. 
+Below the ending `**</header>`** tag, add the `**<slideoutnav></slideoutnav>`** directive. 
 
 #### 4. CSS updates
 The moduel CSS is located within the module directive. Any css changes should be made in the module. 
