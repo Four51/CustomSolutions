@@ -1,59 +1,107 @@
-#Bootstrap Carousel
+#Bootstrap Carousel for OrderCloud
 
-This module provides an overview of how to implement the Bootstrap Carousel for an OrderCloud 2.0 site.
+This module provides an overview of how to implement the Bootstrap Image Carousel on your OrderCloud 2.0 application.
+
+To learn more about this feature and see examples, visit this page. //need link
 
 ##Setup
 
-###1. Add the carousel.html and carousel.js files to your 2.0 application. 
-I would suggest placing the files like so
-  -- lib/angular/plugins/
-      -- carousel.js
-  -- partials/controls/
-      -- carousel.html
+####1. Add the carousel.js file to your project.
+
+If you are using a repository, add this file to the **`/lib/oc`** directory.
+
+If you are using file overrides, create a new file override named **`lib/oc/carousel.js`** and add this file as the content by following these steps:
+
+1. Edit your 2.0 site
+2. Go to “Code Editor” tab
+3. Hit “New File Override”
+4. Name this file **`lib/oc/carousel.js`**
+5. Place raw code from carousel.js in the section below. Save.
+
+**Important!** Be sure to reference the new/updated JS file in the index.html file by following these steps:
+
+1. In Code Editor, locate your index.html file; hit edit.
+2. Add `<script src="lib/oc/carousel.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
       
-##2. Add the pathname to your index.html file
-Inside the body tag of your index file (somewhere with all the other script tags) you need to add the paths to the javascript file you just added in step one.
-In general it will look like this:
-```html
-<script src="lib/angular/plugins/carousel/carousel.js" data-group="source"></script>
-```
-Note: If you changed the location from the suggestion in step on you need to also change the path in the carousel.js file.
-This path is found in the CarouselDirective function and it needs to look something like this
-```javascript
-templateUrl: 'your pathname here',
-```
-You the code available by default as a guide
+####2. Add the **`carousel.html`** file to your project
 
-##3. Load the module into the application
-Add a dependency for 'carousel' to the Four51.app module in the **`js/app.js`** file.
-To do this you should just add the string 'carousel' with the quotations to the large array.
+If you are using a repository, add this file to the **`partials/controls/`** directory
 
-##4. Placing the carousel where you want it in the application
-Add the directive <custom-carousel></custom-carousel> wherever you would like a carousel. We recommend adding it inside the branding.html file.
+If you are using file overrides, create a new file override named **`partials/controls/carousel.html`** and add this file as the content by following these steps:
 
-##Admin Side Setup
+1. Edit your 2.0 site
+2. Go to “Code Editor” tab
+3. Hit “New File Override”
+4. Name this file **`partials/controls/carousel.html`**
+5. Place raw code from carousel.html in the section below. Save.
 
-##Create custom slides
-Slides are created by creating a custom user field on the admin site that needs to be named 'carouselImage' followed by the number corresponding the the order you want that slide to appear.
-For example: My first slide would be called 'carouselImage1'
+Custom CSS for the carousel can be modified and added to this file.
 
-The user field needs to be of type file (in the dropdown) and the checkbox for image should be selected.
-The file uploaded should be the exact image you want to appear in the carousel. It is recommended that all images that are uploaded for the carousel have the same dimensions and resolution.
-Also the carousel will resize itself based on the size of the container class the directive is placed in, so uploading an image that is too small sould cause the image to be stretched. 
+####3. Load the module into the application
 
-##Adding links to slides
-Your input for the Label field of the user field will determine the type of link on your applicaiton.
-For an external link (clicking on the slider will cause the brower to open an new tap) include http in your url. Basically use the full url. An example would be if you wanted to link to your companies public site.
+Add a dependency for `carousel` to the Four51.app module in the **`js/app.js`** file.
+1. In Code Editor, locate your **`js/app.js`** file; hit edit.
+2. Add **‘carousel’** into the file. Save.
 
-For an internal link (clicking on the slider will navigate to somewhere within the four51 application, remove the http://store.four51.com/YourStoreName/ from the URL.
-For example linking to a product would be "product/productID" or to a catagory "catalog/catagoryID"
-For no link write 'none' (no quotation marks) into the label field.
+####4. Placing the carousel in the application
 
-##Adding text to slides
-Any text you write in the Upload Instructions box will be displayed on top of the slide
-For no text again write 'none' (no quotation marks)
+Add the directive following directive wherever you would like the image carousel to appear. We recommend adding it inside the branding.html file: <custom-carousel></custom-carousel>
 
-##Setting a custom interval for your carousel
-The default interval for the slides to switch at is 5 seconds. To change this, under custom user fields again create a new user field called 'carouselInterval'.
-This field should be a text field. Set the Default Value to the time (in seconds) you would like it to take before the carousel auto-rotates.
-Setting this to zero will prevent the slider from auto-rotating.
+##Carousel Admin Setup
+
+Adding images, links, and interval settings to your Carousel
+
+Custom image slides are created by creating a custom user field on the Admin site. The field should be named 'carouselImage' followed by the number corresponding the the order you want that slide to appear. For example: the first slide to appear in the carousel would be called ‘carouselImage1’
+
+**Important!** It is recommended that all images that are uploaded for the carousel have the same dimensions and resolution. The carousel will resize itself based on the size of the container class the directive is placed in, so uploading an image that is too small could cause the image to be stretched.
+
+<table>
+  <tr>
+    <th>Required or Optional</th>
+    <th>Spec Name</th>
+    <th>Spec Label</th>
+    <th>Upload Instructions</th>
+    <th>Spec Type</th>
+    <th>Value</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>Required</td>
+    <td>carouselImage1</td>
+   <td>
+	<ul>
+		<li>
+		If you do not wish to have your images link to other pages set the label to ’none’
+		</li>
+		<li>
+		External link: paste in full url including http	
+		</li>
+		<li>
+		Internal link: remove the http://store.four51.com/YourStoreName/ from the 			OrderCloud URL you wish to link to. For example linking to a product would be 			"product/productID" or to a category "catalog/categoryID 
+		</li>
+	</ul>
+</td>
+<td> Any text included in the Upload Instructions box will be displayed on top of the slide. For no text again write 'none' </td>
+    <td>File (then select checkbox for image)</td>
+    <td>uploaded image</td>
+    <td>Sets first slide in carousel</td>
+  </tr>
+  <tr>
+    <td>Optional</td>
+    <td>carouselImage2, carouselImage3, etc.</td>
+<td>same as above</td>
+<td>same as above</td>
+    <td>File (then select checkbox for image)</td>
+    <td>uploaded image</td>
+    <td>Sets subsequent slides in carousel</td>
+  </tr>
+<tr>
+    <td>Optional</td>
+    <td>carouselInterval</td>
+    <td>'none'</td>
+<td>'none'</td>
+    <td>Text</td>
+    <td>Enter the number (in seconds) that you would like to use as an interval. Default is 5. Setting to 0 will prevent rotation</td>
+    <td>Sets a custom interval for slide rotation</td>
+  </tr>
+  </table>
