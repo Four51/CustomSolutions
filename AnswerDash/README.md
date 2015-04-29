@@ -6,6 +6,8 @@
 
 AnswerDash is a software as a service used to provide Help Desk functionality on a website in the form of Question and Answers.  When a customer proposes a new question, your answer is captured and added to the Q&A library to help every future customer.
 
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/T9FiyG6l3cg9C" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/LuanTran3/answerdash-for-ecommerce" title="AnswerDash for E-Commerce (3 mins)" target="_blank">AnswerDash for E-Commerce (3 mins)</a> </strong> </div>
+
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/AnswerDash#example). 
 
 >**Note:** Expect to spend one hour for initial setup.  AnswerDash is free to try, and contains a variety of subscription plans.  http://www.answerdash.com/pricing 
