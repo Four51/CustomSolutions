@@ -79,7 +79,7 @@ Custom image slides are created by creating a custom user field on the Admin sit
                     External link: paste in full url including http
                 </li>
                 <li>
-                    Internal link: remove the http://store.four51.com/YourStoreName/ from the 			OrderCloud URL you wish to link to. For example linking to a product would be 			"product/productID" or to a category "catalog/categoryID
+                    Internal link: remove the http://store.four51.com/YourStoreName/ from the OrderCloud URL you wish to link to. For example linking to a product would be "product/productID" or to a category "catalog/categoryID
                 </li>
             </ul>
         </td>
@@ -91,8 +91,9 @@ Custom image slides are created by creating a custom user field on the Admin sit
         </td>
         <td>Sets first slide in carousel</td>
     </tr>
-    </table>
+</table>
 
+</br>
 ###Optional Custom User Fields
 
 <table>
@@ -103,7 +104,6 @@ Custom image slides are created by creating a custom user field on the Admin sit
         <th>Upload Instructions</th>
         <th>Description</th>
     </tr>
-    <tr>
     <tr>
         <td>
             carouselImage2, carouselImage3, etc.
@@ -121,8 +121,7 @@ Custom image slides are created by creating a custom user field on the Admin sit
         <td>'none'</td>
         <td>'none'</td>
         <td>
-                <li>Sets Interval for Slide rotation. Default is 5 seconds. Setting to 0 will prevent rotation.</li>
-
+        Sets Interval for Slide rotation. Default is 5 seconds. Setting to 0 will prevent rotation.
         </td>
     </tr>
 </table>
