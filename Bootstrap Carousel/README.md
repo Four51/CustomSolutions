@@ -22,7 +22,7 @@ If you are using file overrides, create a new file override named **`lib/oc/caro
 
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/carousel.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
-      
+
 ####2. Add the **`carousel.html`** file to your project
 
 If you are using a repository, add this file to the **`partials/controls/`** directory
@@ -47,7 +47,7 @@ Add a dependency for `carousel` to the Four51.app module in the **`js/app.js`** 
 
 Add the directive following directive wherever you would like the image carousel to appear. We recommend adding it inside the branding.html file: <custom-carousel></custom-carousel>
 
-##Carousel Admin Setup
+##Admin Setup
 
 Adding images, links, and interval settings to your Carousel
 
@@ -56,52 +56,84 @@ Custom image slides are created by creating a custom user field on the Admin sit
 **Important!** It is recommended that all images that are uploaded for the carousel have the same dimensions and resolution. The carousel will resize itself based on the size of the container class the directive is placed in, so uploading an image that is too small could cause the image to be stretched.
 
 <table>
-  <tr>
-    <th>Required or Optional</th>
-    <th>Spec Name</th>
-    <th>Spec Label</th>
-    <th>Upload Instructions</th>
-    <th>Spec Type</th>
-    <th>Value</th>
-    <th>Action</th>
-  </tr>
-  <tr>
-    <td>Required</td>
-    <td>carouselImage1</td>
-   <td>
-	<ul>
-		<li>
-		If you do not wish to have your images link to other pages set the label to ’none’
-		</li>
-		<li>
-		External link: paste in full url including http	
-		</li>
-		<li>
-		Internal link: remove the http://store.four51.com/YourStoreName/ from the 			OrderCloud URL you wish to link to. For example linking to a product would be 			"product/productID" or to a category "catalog/categoryID 
-		</li>
-	</ul>
-</td>
-<td> Any text included in the Upload Instructions box will be displayed on top of the slide. For no text again write 'none' </td>
-    <td>File (then select checkbox for image)</td>
-    <td>uploaded image</td>
-    <td>Sets first slide in carousel</td>
-  </tr>
-  <tr>
-    <td>Optional</td>
-    <td>carouselImage2, carouselImage3, etc.</td>
-<td>same as above</td>
-<td>same as above</td>
-    <td>File (then select checkbox for image)</td>
-    <td>uploaded image</td>
-    <td>Sets subsequent slides in carousel</td>
-  </tr>
-<tr>
-    <td>Optional</td>
-    <td>carouselInterval</td>
-    <td>'none'</td>
-<td>'none'</td>
-    <td>Text</td>
-    <td>Enter the number (in seconds) that you would like to use as an interval. Default is 5. Setting to 0 will prevent rotation</td>
-    <td>Sets a custom interval for slide rotation</td>
-  </tr>
-  </table>
+    <tr>
+        <th>Spec Name / Type</th>
+        <th>Spec Label</th>
+        <th>Upload Instructions</th>
+        <th>Value</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>
+                    carouselImage1.
+                </li>
+                <li>
+                    File then select checkbox for image
+                </li>
+                <li>required</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>
+                    If you do not wish to have your images link to other pages set the label to ’none’
+                </li>
+                <li>
+                    External link: paste in full url including http
+                </li>
+                <li>
+                    Internal link: remove the http://store.four51.com/YourStoreName/ from the 			OrderCloud URL you wish to link to. For example linking to a product would be 			"product/productID" or to a category "catalog/categoryID
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Any text included in the Upload Instructions box will be displayed on top of the slide.</li>
+                <li>For no text write 'none'</li>
+            </ul>
+        </td>
+        <td>uploaded image</td>
+        <td>Sets first slide in carousel</td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>
+                    carouselImage2, carouselImage3, etc.
+                </li>
+                <li>
+                    File then select checkbox for image
+                </li>
+                <li>optional</li>
+            </ul>
+        </td>
+        <td>same as above</td>
+        <td>same as above</td>
+        <td>uploaded image</td>
+        <td>Sets subsequent slides in carousel</td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>
+                    carouselInterval
+                </li>
+                <li>
+                    Text
+                </li>
+                <li>optional</li>
+            </ul>
+        </td>
+        <td>'none'</td>
+        <td>'none'</td>
+        <td>
+            <ul>
+                <li>Enter the number (in seconds) that you would like to use as an interval.</li>
+                <li>Default is 5 seconds. Setting to 0 will prevent rotation.</li>
+            </ul>
+        </td>
+        <td>Sets a custom interval for slide rotation</td>
+    </tr>
+</table>
