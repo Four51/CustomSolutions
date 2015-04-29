@@ -47,11 +47,11 @@ The moduel CSS is located within the module directive. Any css changes should be
 
 ```
 <style>
-.slideout-nav { border:1px solid #d1d2d4; background-color:#d1d2d4; border-radius:1px; border-right:0; position:fixed; top:70px; right:-300px; width:300px; padding:10px 10px 20px 20px; z-index:1040; transition:all 300ms ease-in-out; -webkit-transition:all 300ms ease-in-out; }
-.slideout-nav .header { height:40px; border-bottom:1px solid #ccc; color:#c21c22; font-size:24px; text-transform:uppercase; font-weight:bold; margin-bottom: 30px; }
-.slideout-nav.showNav { right:0; transition:all 300ms ease-in-out; -webkit-transition:all 300ms ease-in-out; }
-.slideout-nav .row { min-height:60px; }
-.slideout-nav img { float:left; padding:0 20px; max-width:95%; height:auto; }
+.slideout-nav {border:1px solid #d1d2d4; background-color:#d1d2d4; border-radius:1px; border-right:0; position:fixed; top:70px; right:-300px; width:300px; padding:10px 10px 20px 20px; z-index:1040; transition:all 300ms ease-in-out; -webkit-transition:all 300ms ease-in-out;}
+.slideout-nav .header {height:40px; border-bottom:1px solid #ccc; color:#c21c22; font-size:24px; text-transform:uppercase; font-weight:bold; margin-bottom: 30px;}
+.slideout-nav.showNav {right:0; transition:all 300ms ease-in-out; -webkit-transition:all 300ms ease-in-out;}
+.slideout-nav .row {min-height:60px;}
+.slideout-nav img {float:left; padding:0 10px; height:auto;}
 </style>
 ```
 ---
