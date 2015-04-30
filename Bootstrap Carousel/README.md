@@ -2,7 +2,7 @@
 
 This module provides an overview of how to implement the Bootstrap Image Carousel on your OrderCloud 2.0 application.
 
-To learn more about this feature and see examples, visit this page. //need link
+To learn more about this feature and see examples, visit this [page](https://mirandap.four51ordercloud.com/testbuyer/catalog).
 
 ##Setup
 
