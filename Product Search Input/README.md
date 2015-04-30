@@ -40,7 +40,7 @@ Locate the **`partials/controls/nav.html`** file in your in your 2.0 Code Editor
  - This directive creates a search icon in the top navigation which opens a search input from the top of the screen over the nav.
  - Placing this directive right before the shopping cart ul creates a search button/icon that is to the right of the shopping cart nav item.  Placing it after the shopping cart ul creates a search button/icon to the left of the shopping cart.
 
-2.) Place`<productsearchinput></productsearchinput>`  anywhere in the `partials/controls/nav.html` file.
+2.) Place**`<productsearchinput></productsearchinput>`**  anywhere in the `partials/controls/nav.html` file.
 
  - This directive will add both the search icon and blank text search box in the location you assign the code to.
 
