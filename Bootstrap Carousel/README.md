@@ -33,7 +33,7 @@ Add a dependency for `OrderCloud-Carousel` to the Four51.app module in the **`js
 
 ####3. Placing the carousel in the application
 
-Add the directive following directive wherever you would like the image carousel to appear. We recommend adding it inside the branding.html file: <custom-carousel></custom-carousel>
+Add the directive following directive wherever you would like the image carousel to appear. We recommend adding it inside the branding.html file: **`<customcarousel></customcarousel>`**
 
 ##Admin Setup
 

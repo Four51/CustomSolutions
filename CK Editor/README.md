@@ -1,4 +1,4 @@
-#CKEditor for OrderCloud
+#CKEditor for OrderCloud 
 
 This module provides an overview of how to implement CKEditor for an OrderCloud 2.0 site.
 
