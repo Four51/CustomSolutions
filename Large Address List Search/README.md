@@ -135,7 +135,7 @@ For example, if you'd only like the Address Line 1 to display for shipping addre
 ```
 
 ###7. Accomodate for changes in display of New Address button
-In **`/partials/controls/paymentSelection.html`** comment out the following code:
+Comment out ore remove the following from **`/partials/controls/paymentSelection.html`**.
 
 Line 28-32
 ```html
