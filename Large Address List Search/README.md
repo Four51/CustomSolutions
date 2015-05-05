@@ -24,7 +24,7 @@ with
 If you are using a repository for your project, add **`OrderCloud-LargeAddressListSearch`** to the array in js/app.js
 If you are using file overrides for your project, create a file override for **`/js/app.js`** and add **`OrderCloud-LargeAddressListSearch`** to the array in that file
     
-###3. Add **`largeAddressListSearch.js`** file to your project.
+###4. Add **`largeAddressListSearch.js`** file to your project.
 
 If you are using a repository for your project, add this file to the **`/lib/oc`** directory and also add that path to the **`index.html`** file.
 
@@ -32,7 +32,7 @@ If you are using file overrides for your project, create a new file override nam
 add this file as the content for that override, then add the file reference to the **`index.html`** file override.
 
 
-###4. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**
+###5. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**
 If you are adding this solution to the shipping section, comment out or remove the following sections from **`/js/directives/ordershipping.js`**:
 
 Lines 6-16
@@ -83,7 +83,7 @@ Lines 24-29
 
 These calls are removed in order to avoid excess API calls that do not need to occur.
 
-###5. Replace original address controls with new directives
+###6. Replace original address controls with new directives
 If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/controls/orderShipping.html`**:
 
 ```html
@@ -134,3 +134,14 @@ For example, if you'd only like the Address Line 1 to display for shipping addre
     typeahead="address as (address.Street1) for address in shipaddresses"
 ```
 
+###7. Accomodate for changes in display of New Address button
+In **`/partials/controls/paymentSelection.html`** comment out the following code:
+
+Line 28-32
+```html
+<button class="btn btn-info pull-right" type="button"
+        ng-hide="(billaddressform || (!addressform && (addresses | filter:{IsBilling:true}).length == 0) || !user.Permissions.contains('CreateBillToAddress'))"
+        ng-click="billaddressform = true">
+    {{('New' | r) + ' ' +  ('Address' | r) | xlat}}
+</button>
+```
