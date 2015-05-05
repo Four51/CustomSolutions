@@ -43,7 +43,7 @@ Add a dependency for **`OrderCloud-SlideOutNav`** to the Four51.app module in th
  4. Fill out the fields as followed:
 
 - **Field Name:** SlideOutNav[#]
-- **Label:** Insert the URL address if your image should link to a URL.  If not, enter _none_ in the field
+- **Label:** Insert the URL address if your image should link to a URL in a new tab.  Insert the relative URL (the string after your Application URL, ex. /store/product/tshirt) if your image should redirect within the site and not open any tabs. If you do not want the image to link to anything, enter _none_ in the field.
 - **Type:** File
 - **Required:** Do not check
 - **Display to User:** Do not check
