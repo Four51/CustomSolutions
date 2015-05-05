@@ -37,6 +37,7 @@ Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the 
  1. Locate product in catalog or create a new product
  2. Go to Variable Specs and create your Variable Specs with Spec Type Selection. 
  3. Go to Variants and Generate Variants based on Selection Specs
+ 
 >**Note:** Multiple Variable Specs may be applied to the product, but only one or two may be applied to the VBOSS variants to create the matrix
 
 ###2. Create a new Product Detail Template within the admin interface.
