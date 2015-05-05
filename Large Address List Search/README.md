@@ -1,4 +1,4 @@
-#Large Address Solution for OrderCloud
+#Large Address List Search for OrderCloud
 
 This is an overview of how to implement the Large Address List Search solution for an OrderCloud 2.0 site. 
 This solution can be used if a buyer site has more than 100 shipping and/or billing addresses. 
@@ -6,7 +6,7 @@ Since the API limits results to 100, a site that has more shipping/billing addre
 This solution allows the user to search for their desired address from the large list, without obtaining all of those addresses before hand.
 
 ##Setup
-This module utilizes UI Bootstrap 0.10. We recommend replacing the application default script with the script provided with this module to avoid errors due to UI Bootstrap bug. 
+This module utilizes UI Bootstrap 0.10. We recommend replacing the application default script with the script provided here to avoid errors due to a UI Bootstrap bug. 
 
 ###1. Replace the UI Boostrap script **`ui-bootstrap-tpls-0.10.0.js`** in your project. 
 If you are using a repository, add this file to the **`/lib/angular_ui`** directory.
@@ -33,7 +33,9 @@ add this file as the content for that override, then add the file reference to t
 
 
 ###4. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**
-If you are adding this solution to the shipping section, comment out or remove the following from **`/js/directives/ordershipping.js`**:
+If you are adding this solution to the shipping section, comment out or remove the following sections from **`/js/directives/ordershipping.js`**:
+
+Lines 6-16
 ```javascript
     AddressList.clear();
     AddressList.shipping(function(list) {
@@ -45,7 +47,19 @@ If you are adding this solution to the shipping section, comment out or remove t
     });
 ``` 
 
+Lines 28-33
+```javascript
+    AddressList.shipping(function(list) {
+        $scope.shipaddresses = list;
+        if ($scope.isEditforApproval) {
+            $scope.shipaddresses.push($scope.currentOrder.ShipAddress);
+        }
+    });
+``` 
+
 If you are adding this solution to the billing section, comment out or remove the following from **`/js/directives/orderbilling.js`**:
+
+Lines 6-16
 ```javascript
     AddressList.clear();
     AddressList.billing(function(list) {
@@ -54,6 +68,16 @@ If you are adding this solution to the billing section, comment out or remove th
         if (!AddressList.contains($scope.currentOrder.BillAddress))
             $scope.billaddresses.push($scope.currentOrder.BillAddress);
     }
+    });
+``` 
+
+Lines 24-29
+```javascript
+    AddressList.billing(function(list) {
+        $scope.billaddresses = list;
+        if ($scope.isEditforApproval) {
+            $scope.billaddresses.push($scope.currentOrder.BillAddress);
+        }
     });
 ``` 
 
