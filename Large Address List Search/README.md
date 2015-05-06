@@ -84,7 +84,7 @@ Lines 24-29
     });
 ``` 
 
-**> These calls are removed in order to avoid excess API calls that do not need to occur.**
+> **These calls are removed in order to avoid excess API calls that do not need to occur.**
 
 ###6. Replace original address controls with new directives. 
 
