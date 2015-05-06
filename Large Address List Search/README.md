@@ -104,7 +104,7 @@ If you are adding this solution to the shipping section, comment out or remove t
 </div>
 ```
 
-and replace it with:
+and replace it with ...
 
 ```html
 <largeshipaddresssearch></largeshipaddresssearch>
