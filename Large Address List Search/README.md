@@ -10,15 +10,15 @@ This module utilizes UI Bootstrap 0.10.0. We recommend replacing the application
 
 ###1. Replace the UI Boostrap script **`ui-bootstrap-tpls-0.10.0.js`** in your project. 
 If you are using a repository, add this file to the **`/lib/angular_ui`** directory.
-If you are using file overrides, create a new file override named **`lib/angular_ui/ui-bootstrap-tpls-0.10.0.js`**.
 
+If you are using file overrides, create a new file override named **`lib/angular_ui/ui-bootstrap-tpls-0.10.0.js`**.
 
 ###2. Replace the UI Boostrap script reference in the index.html file.
 In **`index.html`** replace ...
 
 ```<script src="lib/angular_ui/ui-bootstrap-tpls-0.10.0.min.js" data-group="resources"></script>```
 
-with 
+with ...
 
 ```<script src="lib/angular_ui/ui-bootstrap-tpls-0.10.0.js" data-group="resources"></script>```
 
