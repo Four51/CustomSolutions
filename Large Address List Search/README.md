@@ -2,8 +2,10 @@
 
 This is an overview of how to implement the Large Address List Search solution for an OrderCloud 2.0 site. 
 This solution can be used if a buyer site has more than 100 shipping and/or billing addresses. 
-Since the API limits results to 100, a site that has more shipping/billing addresses than this will not see their entire list. 
-This solution allows the user to search for a desired address from the large list, without obtaining all addresses before hand.
+Since the API limits results to 100, a site that has more shipping/billing addresses than this will not see their entire list. This solution allows the user to search for a desired address from the large list, without obtaining all addresses before hand.
+
+>**Important**
+This solution is currently only setup for single address, not multiple address shipping. 
 
 ##Setup
 This module utilizes UI Bootstrap 0.10.0. We recommend replacing the application default script with the script provided here to avoid errors due to a UI Bootstrap bug. 
