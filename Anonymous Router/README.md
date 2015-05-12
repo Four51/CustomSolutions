@@ -44,7 +44,7 @@ For the **`after`** constant, enter the route string for where to redirect the u
 
 ###2. Update UserEdit Controller
 
-First, add the script below to the very top of the **`js/controllers/userEditController.js`** file if it is not there already.   The OrderCloud Storefront application will have this by default, but it is possible a file override has been created, or a custom repository was created before this update was made.
+First, add the script below to the very top of the **`js/controllers/userEditCtrl.js`** file if it is not there already.   The OrderCloud Storefront application will have this by default, but it is possible a file override has been created, or a custom repository was created before this update was made.
 
 ```javascript
     var _AnonRouter;
