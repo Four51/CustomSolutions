@@ -4,6 +4,8 @@ This module provides the ability to redirect an anonymous user to the user admin
 
 >**Note:** This module is provided in the base application 18.9.0 CT Release and 1.3.0 SPA Release.  Your site may already have the code installed for Anonymous Router.
 
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/AnonymousRouter).
+
 ##Setup
 ###1. Add module file to your project.
 Add the **`anonRouter.js`** file to your project.
