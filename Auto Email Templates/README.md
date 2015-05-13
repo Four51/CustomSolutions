@@ -2,6 +2,7 @@
 
 This module provides HTML templates for the Auto Emails sent from your OrderCloud application.
 
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/AutoEmailTemplates).
 
 ##Setup
 
