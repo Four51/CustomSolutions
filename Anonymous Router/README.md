@@ -82,3 +82,42 @@ For example:
         }
     );
 ```
+###3. Create your Template User
+
+ 1. On the admin page of your buyer site, got to Users > New User.
+ 2. Fill out the required fields for your template user. 
+	 - Name can be something simple such as *Template User*
+	 - Email should be a generic company email
+	 - Username must be unique, such as *TemplateUserCompanyName*
+	 - Make sure to check the Active and Terms & Conditions checkbox
+ 3. Set up all of the properties you would like associated with your template user (addresses, cost centers, categories, varients, permissions, user groups, order fields, and user fields). 
+ 
+ > **Important!** Under permissions > Miscellaneous, make sure to check **View Self Admin** for the template user. 
+
+###4. Assign your Template User to your Application
+
+ 1. Edit your 2.0 site
+ 2. Under Properties > Guest Checkout User click "load users..."
+ 3. Select the Template User that your just created and Save. 
+
+___
+##Additional Information
+
+If you use the file override method for changes, and you override the index.html file, it is important that you update the following code to make this solution work. 
+
+On the index.html file, remove these lines of code:
+
+```
+<base href="/YourPathNameHere/"/>
+<script>var four51IsAnonUser = false;</script>
+```
+
+>**Note:** The first line is the relative path to the store.  The second line controls the anonymous user. 
+
+
+and replace with these lines of code:
+
+```
+<!--baseTagToken-->
+<!--headscriptToken-->
+```
