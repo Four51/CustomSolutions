@@ -4,10 +4,10 @@
 
 ####**Membership Benefits**
 
- - Complimentary 1 hour introduction to the Library for you and your team, or support while you set-up your first solution
- - Access to code for a number of supplemental 2.0 solutions and features that can be applied to your sites however you see fit
- - Trialed and tested step-by-step  instructions for all solutions and features
- - First notice of new solutions added to the library
+ - A complimentary introduction to Library navigation
+ - Access to code for a number of supplemental 2.0 solutions and features that can be applied to any site
+ - Tried and tested step-by-step  instructions for all solutions and features
+ - First notice of new solutions added to the Library
  - Code updates if improvements are made to solutions
 
 
