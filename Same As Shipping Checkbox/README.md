@@ -36,4 +36,4 @@ Comment out ore remove the following from **`/partials/controls/paymentSelection
         ng-click="billaddressform = true">
     {{('New' | r) + ' ' +  ('Address' | r) | xlat}}
 </button>
-``
+```
