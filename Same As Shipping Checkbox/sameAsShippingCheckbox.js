@@ -16,7 +16,6 @@ function sameasshipaddresscheckbox() {
     function template() {
         return [
             '<div ng-hide="billaddressform">',
-            //'<div>',
             '<div class="checkbox">',
             '<label>',
             '<input name="sameAsShipping" type="checkbox" ng-model="copyShipAddress" ng-change="resetBilling()" ng-disabled="!orderShipAddress.ID" />{{\'Same as Shipping Address\' | r | xlat}}</label>',
@@ -28,19 +27,17 @@ function sameasshipaddresscheckbox() {
     }
 }
 
-SameAsShippingCheckboxCtrl.$inject = ['$scope', '$rootScope', 'Order', 'Shipper', 'Address'];
-function SameAsShippingCheckboxCtrl($scope, $rootScope, Order, Shipper, Address) {
+SameAsShippingCheckboxCtrl.$inject = ['$scope', '$rootScope'];
+function SameAsShippingCheckboxCtrl($scope, $rootScope) {
     $scope.copyShipAddress = false;
 
     $scope.resetBilling = function() {
         if ($scope.copyShipAddress == true) {
-            $scope.selectedBillAddress = $scope.orderShipAddress; //large address list search
             $scope.BillAddress = $scope.orderShipAddress;
             $scope.BillAddressID = $scope.currentOrder.ShipAddressID;
             $scope.currentOrder.BillAddressID = $scope.currentOrder.ShipAddressID;
         }
         if ($scope.copyShipAddress == false) {
-            $scope.selectedBillAddress = '';  //large address list search
             $scope.BillAddress = '';
             $scope.BillAddressID = '';
             $scope.currentOrder.BillAddressID = '';
@@ -48,7 +45,7 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope, Order, Shipper, Address)
     };
 
     $scope.$watch('currentOrder.ShipAddressID', function(newValue) {
-        if (newValue) {
+        if (newValue || newValue == null) {
             // broadcast that the ship address changed
             $rootScope.$broadcast('shipChange');
         }
@@ -60,15 +57,9 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope, Order, Shipper, Address)
         }
     });
 
-    //large address list search
-    $scope.$watch('BillAddress.AddressName', function(newValue) {
-        if ($scope.ShipAddress && newValue != $scope.ShipAddress.AddressName) {
-            $scope.copyShipAddress = false;
-        }
-    });
 
     $scope.$on('shipChange', function() {
-        $scope.selectedBillAddress = ''; // large address list search
+        $scope.copyShipAddress = false;
         $scope.BillAddress = null;
         $scope.BillAddressID = '';
         $scope.currentOrder.BillAddressID = '';
