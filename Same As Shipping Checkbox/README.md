@@ -8,7 +8,7 @@ This is an overview of how to implement the Same as Shipping Checkbox solution f
 ###1. Inject **`OrderCloud-SameAsShippingCheckbox`** into your application.
 If you are using a repository for your project, add **`OrderCloud-SameAsShippingCheckbox`** to the array in **`js/app.js`**.
 
-If you are using file overrides for your project, create a file override for **`/js/app.js`** and add **`OrderCloud-SameAsShippingCheckbox`** to the array in that file.
+If you are using file overrides for your project, create a file override for **`js/app.js`** and add **`OrderCloud-SameAsShippingCheckbox`** to the array in that file.
     
 ###2. Add **`sameAsShippingCheckbox.js`** file to your project.
 
