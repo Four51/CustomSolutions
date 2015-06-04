@@ -63,6 +63,5 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope) {
         $scope.BillAddress = null;
         $scope.BillAddressID = '';
         $scope.currentOrder.BillAddressID = '';
-        $scope.copyShipAddress = false;
     });
 }
