@@ -26,3 +26,15 @@ add this file as the content for that override, then add the file reference to t
 </div>
 <sameasshipaddresscheckbox></sameasshipaddresscheckbox>
 ```
+
+###4. Accomodate for changes in display of New Address button.
+Comment out ore remove the following from **`/partials/controls/paymentSelection.html`**.
+
+Line 28-32
+```html
+<button class="btn btn-info pull-right" type="button"
+        ng-hide="(billaddressform || (!addressform && (addresses | filter:{IsBilling:true}).length == 0) || !user.Permissions.contains('CreateBillToAddress'))"
+        ng-click="billaddressform = true">
+    {{('New' | r) + ' ' +  ('Address' | r) | xlat}}
+</button>
+``
