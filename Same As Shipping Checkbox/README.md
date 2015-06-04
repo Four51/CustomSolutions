@@ -18,10 +18,11 @@ If you are using file overrides for your project, create a new file override nam
 add this file as the content for that override, then add the file reference to the **`index.html`** file override.
 
 
-###3. In **`/partials/controls/orderBilling.html`**, add the `<sameasshipaddresscheckbox></sameasshipaddresscheckbox>` directive right below the following div>
+###3. In **`/partials/controls/orderBilling.html`**, add the directive below the **`<billingmessage />`** div. 
 
 ```html
 <div>
   <billingmessage />
 </div>
+<sameasshipaddresscheckbox></sameasshipaddresscheckbox>
 ```
