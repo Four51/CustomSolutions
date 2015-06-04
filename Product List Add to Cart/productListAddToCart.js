@@ -36,8 +36,8 @@ function productlistaddtocart() {
     }
 }
 
-ProductListAddToCartCtrl.$inject = ['$routeParams', '$scope', 'ProductDisplayService', 'Order', 'User'];
-function ProductListAddToCartCtrl($routeParams, $scope, ProductDisplayService, Order, User) {
+ProductListAddToCartCtrl.$inject = ['$scope', 'Order', 'User'];
+function ProductListAddToCartCtrl($scope, Order, User) {
 
     $scope.allowAddToOrderInProductList = $scope.allowAddToOrder && $scope.LineItem.Product.Type != 'VariableText' && $scope.LineItem.Product.SpecCount == 0;
     $scope.addToOrder = function(){
