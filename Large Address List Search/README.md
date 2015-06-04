@@ -139,15 +139,3 @@ For example, if you'd only like the Address Line 1 to display for shipping addre
 ```html
     typeahead="address as (address.Street1) for address in shipaddresses"
 ```
-
-###7. Accomodate for changes in display of New Address button.
-Comment out ore remove the following from **`/partials/controls/paymentSelection.html`**.
-
-Line 28-32
-```html
-<button class="btn btn-info pull-right" type="button"
-        ng-hide="(billaddressform || (!addressform && (addresses | filter:{IsBilling:true}).length == 0) || !user.Permissions.contains('CreateBillToAddress'))"
-        ng-click="billaddressform = true">
-    {{('New' | r) + ' ' +  ('Address' | r) | xlat}}
-</button>
-```
