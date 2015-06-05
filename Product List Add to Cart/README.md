@@ -8,17 +8,17 @@ This solution is applied and works for static products only.
 ###1. Inject **`OrderCloud-ProductListAddToCart`** into your application.
 If you are using a repository for your project, add **`OrderCloud-ProductListAddToCart`** to the array in **`js/app.js`**.
 
-If you are using file overrides for your project, create a file override for **`/js/app.js`** and add **`OrderCloud-ProductListAddToCart`** to the array in that file.
+If you are using file overrides for your project, create a file override for **`js/app.js`** and add **`OrderCloud-ProductListAddToCart`** to the array in that file.
     
 ###2. Add **`productListAddToCart.js`** file to your project.
 
 If you are using a repository for your project, add this file to the **`/lib/oc`** directory and also add that path to the **`index.html`** file.
 
-If you are using file overrides for your project, create a new file override named **`/lib/oc/productListAddToCart.js`**, 
+If you are using file overrides for your project, create a new file override named **`lib/oc/productListAddToCart.js`**, 
 add this file as the content for that override, then add the file reference to the **`index.html`** file override.
 
 
-###3. In **`/partials/controls/shortProductView.html`**, add the directive below the Price Schedule **`<section>`** as shown below. 
+###3. In **`partials/controls/shortProductView.html`**, add the directive below the Price Schedule **`<section>`** as shown below. 
 
 ```html
 <section class="hidden-xs hidden-sm panel-body">
