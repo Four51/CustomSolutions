@@ -36,17 +36,17 @@ function customcarousel() {
     }
 }
 
+customCarouselCtrl.$inject = ['$scope', '$animate', '$filter'];
 function customCarouselCtrl($scope, $animate, $filter) {
     $animate.enabled(false);
     $scope.slides = [];
     $scope.$watch('user.CustomFields', function(newVal){
         if (!newVal) return;
+        $scope.slides = []; //reset the slide counter
         $scope.myInterval = ($filter('intervalFilter')($scope.user.CustomFields, 'interval') * 1000) || 5000;
         $scope.slides = $scope.slides.concat($filter('carouselFilter')($scope.user.CustomFields, 'carouselImage'));
     });
 }
-customCarouselCtrl.$inject = ['$scope', '$animate', '$filter'];
-
 
 function intervalFilter() {
     return function (fields, name) {
@@ -69,8 +69,9 @@ function carouselFilter() {
                     image: field.File.Url,
                     link: field.Label
                 };
-                if (slide.link.toUpperCase().indexOf("NONE") > -1)
+                if (slide.link.toUpperCase().indexOf("NONE") > -1) {
                     slide.link = null;
+                }
                 result.push(slide);
             }
         });
