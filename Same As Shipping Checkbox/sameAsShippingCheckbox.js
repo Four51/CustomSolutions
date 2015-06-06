@@ -16,12 +16,11 @@ function sameasshipaddresscheckbox() {
     function template() {
         return [
             '<div ng-hide="billaddressform">',
-            '<div class="checkbox">',
-            '<label>',
-            '<input name="sameAsShipping" type="checkbox" ng-model="copyShipAddress" ng-change="resetBilling()" ng-disabled="!orderShipAddress.ID" />{{\'Same as Shipping Address\' | r | xlat}}</label>',
-            '<button class="btn btn-info pull-right" type="button" ng-hide="(!user.Permissions.contains(\'CreateBillToAddress\'))" ng-click="billaddressform = true" ng-disabled="copyShipAddress">{{(\'New\' | r) + \' \' +  (\'Address\' | r) | xlat}}',
-            '</button>',
-            '</div>',
+                '<div class="checkbox">',
+                    '<input name="sameAsShipping" type="checkbox" ng-model="copyShipAddress" ng-change="resetBilling()" ng-disabled="!orderShipAddress.ID" />{{\'Same as Shipping Address\' | r | xlat}}</label>',
+                    '<button class="btn btn-info pull-right" type="button" ng-hide="(!user.Permissions.contains(\'CreateBillToAddress\'))" ng-click="billaddressform = true" ng-disabled="copyShipAddress">{{(\'New\' | r) + \' \' +  (\'Address\' | r) | xlat}}',
+                    '</button>',
+                '</div>',
             '</div>'
         ].join('');
     }
