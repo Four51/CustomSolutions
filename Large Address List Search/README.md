@@ -44,15 +44,15 @@ If you are using a repository, add this file to the **`/lib/oc`** directory.
 If you are using file overrides, create a new file override named **`lib/oc/largeAddressListSearch.js`** and add this file as the content by following these steps:
 
  1. Edit your 2.0 site
- 2. Go to “Code Editor” tab
- 3. Hit “New File Override”
+ 2. Go to “Code Editor�? tab
+ 3. Hit “New File Override�?
  4. Name this file `lib/oc/largeAddressListSearch.js`
  5. Place raw code in the section below. Save.
 
 **Important!** Be sure to reference the new/updated JS file in the **`index.html`** file by following these steps:
 
  1. In Code Editor, locate your `index.html` file, hit edit.
- 2. Add **`<script src="lib/oc/largeAddressListSearch.js" data-group="resources"></script>`** in the section with “lib/oc” files. Save.
+ 2. Add **`<script src="lib/oc/largeAddressListSearch.js" data-group="resources"></script>`** in the section with “lib/oc�? files. Save.
 
 ###3. Load the module into your application.
 Add a dependency for  **`OrderCloud-LargeAddressListSearch`** to the Four51.app module in the **`js/app.js`** file by following these steps: 
@@ -167,8 +167,8 @@ and replace it with ...
 <largebilladdresssearch></largebilladdresssearch>
 ```
 
-##Usage
 
+>**Note**
 If you would like to change what displays within the typeahead dropdown when searching for addresses, adjust the "as" portion of the typeahead attribute on the directive's template HTML (found in the **`largeAddressListSearch.js`** module file). 
 
 >For example, if you'd only like the Address Line 1 to display for shipping addresses, the typeahead attribute would read:
@@ -177,7 +177,7 @@ If you would like to change what displays within the typeahead dropdown when sea
     typeahead="address as (address.Street1) for address in shipaddresses"
 ```
 
-###7. Additional updates for the Order Shipping section
+###6. Additional updates for the Order Shipping section
 
 If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
 
@@ -203,7 +203,7 @@ and replace it with ...
 <div ng-show="shipaddressform == false || (user.Permissions.contains('CreateShipToAddress'))" ng-hide="shipaddressform == true">
 ```
 
-###8. Additional updates for the Order Billing section
+###7. Additional updates for the Order Billing section
 
 If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
 
