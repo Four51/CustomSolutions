@@ -5,7 +5,7 @@ This solution can be used if a buyer site has more than 100 shipping and/or bill
 Since the API limits results to 100, a site that has more shipping/billing addresses than this will not see their entire list. This solution allows the user to search for a desired address from the large list, without obtaining all addresses before hand.
 
 >**Important**
-This solution is currently only setup for single address, not multiple address shipping. 
+This solution is currently only setup for single address and will not work correctly for buyers with 'Ship to Multiple Addresses' permission. 
 
 ##Setup
 This module utilizes UI Bootstrap 0.10.0. We recommend replacing the application default script with the script provided here to avoid errors due to a UI Bootstrap bug. 
@@ -138,4 +138,82 @@ For example, if you'd only like the Address Line 1 to display for shipping addre
 
 ```html
     typeahead="address as (address.Street1) for address in shipaddresses"
+```
+
+###7. Additional updates for the Order Shipping section
+
+If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+
+```html
+<div ng-show="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
+```
+
+and replace it with ...
+
+```html
+<div ng-hide="shipaddressform == false || (user.Permissions.contains('CreateShipToAddress'))" ng-show="shipaddressform == true">
+```
+
+Also comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+
+```html
+<div ng-hide="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
+```
+
+and replace it with ...
+
+```html
+<div ng-show="shipaddressform == false || (user.Permissions.contains('CreateShipToAddress'))" ng-hide="shipaddressform == true">
+```
+
+###8. Additional updates for the Order Billing section
+
+If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
+
+```html
+<div ng-show="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
+```
+
+and replace it with ...
+
+```html
+<div ng-hide="billaddressform == false || (user.Permissions.contains('CreateBillToAddress'))" ng-show="billaddressform == true">
+```
+
+Also comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+
+```html
+<div ng-hide="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
+```
+
+and replace it with ...
+
+```html
+<div ng-show="billaddressform == false || (user.Permissions.contains('CreateBillToAddress'))" ng-hide="billaddressform == true">
+```
+
+###8. Additional updates for field validation
+
+If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/checkOutView.html`** ...
+
+```html
+<li ng-if="cart_shipping.shippingAddress.$invalid">{{'Please choose a ' + ('Shipping' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
+```
+
+and replace it with ...
+
+```html
+<li ng-if="!currentOrder.ShipAddressID">{{'Please enter a ' + ('Shipping' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
+```
+
+If you are adding this solution to the billing section, comment out or remove the following from **`/partials/checkOutView.html`** ...
+
+```html
+<li ng-if="cart_billing.billingAddress.$invalid">{{'Please choose a ' + ('Billing' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
+```
+
+and replace it with ...
+
+```html
+<li ng-if="!BillAddressID">{{'Please enter a ' + ('Billing' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
 ```

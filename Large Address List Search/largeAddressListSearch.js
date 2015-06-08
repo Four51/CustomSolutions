@@ -21,16 +21,17 @@ function largeshipaddresssearch() {
             '<style>',
             '.largeaddress .dropdown-menu  { background-color:#fff;}',
             '.largeaddress .dropdown-menu .active > a {background-color:#000 !important; color:#fff;}',
+            '.count {float;left; color:#000; position:relative;left: 10px; margin:0; padding:0;}',
             '</style>',
-            '<div class="row largeaddress">',
+            '<div class="row largeaddress view-form-icon">',
             '<div class="col-xs-12">',
-            '<div class="view-form-icon">',
+            '<label class="required">{{("Shipping" | r) + " " + ("Address" | r) | xlat}}',
+            '<span class="count" ng-show="showTip">( Start typing to find your address )</span>',
+            '<span class="count" ng-show="showResult">No addresses found!</span>',
+            '</label>',
             '<div class="form-group">',
-            '<label class="required">{{("Shipping" | r) + " " + ("Address" | r) | xlat}}</label>',
-                '<input class="form-control" type="text" ng-model="ShipAddress" ng-change="searchShipAddresses(ShipAddress)" typeahead-min-length="3" required' +
-                ' typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \' \' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in shipaddresses | filter:$viewValue | limitTo:10" />',
+            '<input class="form-control" type="text" ng-model="ShipAddress" required ng-change="searchShipAddresses(ShipAddress)" typeahead-min-length="3" typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \' \' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in shipaddresses | filter:$viewValue | limitTo:10" />',
             '<i class="fa fa-map-marker"></i>',
-            '</div>',
             '</div>',
             '</div>',
             '</div>'
@@ -40,6 +41,11 @@ function largeshipaddresssearch() {
 
 LargeShipAddressSearchCtrl.$inject = ['$scope', 'LargeAddressList', 'Address'];
 function LargeShipAddressSearchCtrl($scope, LargeAddressList, Address) {
+
+    $scope.shipAddressCount = null;
+    $scope.showTip = true;
+    $scope.showResult = false;
+
     $scope.shipaddresses = [' ']; //this sets shipaddresses to something while we wait for the search so we don't have to modify existing ng-show/hide(s) for address form / ship method
     $scope.shipaddressform = false;
 
@@ -47,6 +53,8 @@ function LargeShipAddressSearchCtrl($scope, LargeAddressList, Address) {
         if (!newValue || !newValue.ID) {
             $scope.orderShipAddress = {};
             $scope.currentOrder.ShipAddressID = null;
+            $scope.showTip = true;
+            $scope.showResult = false;
         }
         else {
             $scope.orderShipAddress = newValue;
@@ -76,6 +84,7 @@ function LargeShipAddressSearchCtrl($scope, LargeAddressList, Address) {
                 $scope.ShipAddress = address;
             }
         });
+
     });
 
     $scope.searchShipAddresses = function(searchTerm) {
@@ -85,7 +94,12 @@ function LargeShipAddressSearchCtrl($scope, LargeAddressList, Address) {
                 $scope.shipaddresses = list;
                 $scope.shipAddressCount = count; // we will use count to add a filter for the user
                 if (count === 0) {
-                    $scope.$viewValue = 'no matches';
+                    $scope.showTip = false;
+                    $scope.showResult = true;
+                }
+                else {
+                    $scope.showTip = true;
+                    $scope.showResult = false;
                 }
             });
         }
@@ -111,16 +125,17 @@ function largebilladdresssearch() {
             '<style>',
             '.largeaddress .dropdown-menu  { background-color:#fff;}',
             '.largeaddress .dropdown-menu .active > a {background-color:#000 !important; color:#fff;}',
+            '.count {float;left; color:#000; position:relative;left: 10px; margin:0; padding:0;}',
             '</style>',
-            '<div class="row largeaddress">',
+            '<div class="row largeaddress view-form-icon" ng-show="!copyShipAddress">',
             '<div class="col-xs-12">',
-            '<div class="view-form-icon">',
+            '<label class="required">{{("Billing" | r) + " " + ("Address" | r) | xlat}}',
+            '<span class="count" ng-show="showBillTip">( Start typing to find your address )</span>',
+            '<span class="count" ng-show="showBillResult">No addresses found!</span>',
+            ' </label>',
             '<div class="form-group">',
-            '<label class="required">{{("Billing" | r) + " " + ("Address" | r) | xlat}}</label>',
-                '<input class="form-control" type="text" ng-model="selectedBillAddress" ng-change="searchBillAddresses(selectedBillAddress)" typeahead-min-length="3" required ' +
-                'typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \' \' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in billaddresses | filter:$viewValue | limitTo:10" />',
+            '<input class="form-control" type="text" ng-model="BillAddress" required ng-change="searchBillAddresses(BillAddress)" typeahead-min-length="3" typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \' \' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in billaddresses | filter:$viewValue | limitTo:10" />',
             '<i class="fa fa-map-marker"></i>',
-            '</div>',
             '</div>',
             '</div>',
             '</div>'
@@ -130,27 +145,35 @@ function largebilladdresssearch() {
 
 LargeBillAddressSearchCtrl.$inject = ['$scope', 'LargeAddressList', 'Address'];
 function LargeBillAddressSearchCtrl($scope, LargeAddressList, Address) {
-    $scope.billaddressform = false;
 
-    $scope.$watch('selectedBillAddress', function(newValue) {
+
+    $scope.billaddresses = [' '];
+    $scope.billaddressform = false;
+    $scope.billAddressCount = null;
+    $scope.showBillTip = true;
+    $scope.showBillResult = false;
+
+    $scope.$watch('BillAddress', function(newValue) {
+
         if (!newValue || !newValue.ID) {
-            $scope.BillAddress = [];
+            $scope.BillAddressID = null;
+            $scope.currentOrder.BillAddressID = null;
+            $scope.showBillTip = true;
+            $scope.showBillResult = false;
         }
         else {
-            $scope.orderBillAddress = newValue;
-            $scope.currentOrder.BillAddress = newValue;
-            $scope.currentOrder.BillAddressID = newValue.ID;
-            if ($scope.user.Permissions.contains('EditBillToName') && !newValue.IsCustEditable) {
-                $scope.currentOrder.BillFirstName = newValue.FirstName;
-                $scope.currentOrder.BillLastName = newValue.LastName;
+            if ($scope.currentOrder) {
+                $scope.currentOrder.BillAddress = newValue;
+                $scope.currentOrder.BillAddressID = newValue.ID;
+                $scope.BillAddressID = newValue.ID;
+                $scope.BillAddress = newValue;
             }
-            $scope.BillAddressID = newValue.ID;
-            $scope.BillAddress = newValue;
+
         }
         //account for New Address
         $scope.$on('event:AddressSaved', function(event, address) {
             if (address.IsBilling) {
-                $scope.selectedBillAddress = address;
+                $scope.BillAddress = address;
             }
         });
     });
@@ -158,11 +181,17 @@ function LargeBillAddressSearchCtrl($scope, LargeAddressList, Address) {
     $scope.searchBillAddresses = function(searchTerm) {
         if (searchTerm && searchTerm.length > 2) {
             $scope.billaddresses = [' '];
+            $scope.billAddressCount = null;
             LargeAddressList.queryBilling(searchTerm, function(list, count) {
                 $scope.billaddresses = list;
                 $scope.billAddressCount = count; // we will use count to add a filter for the user
                 if (count === 0) {
-                    $scope.$viewValue = 'no matches';
+                    $scope.showBillTip = false;
+                    $scope.showBillResult = true;
+                }
+                else {
+                    $scope.showBillTip = true;
+                    $scope.showBillResult = false;
                 }
             });
         }
@@ -173,6 +202,7 @@ function LargeBillAddressSearchCtrl($scope, LargeAddressList, Address) {
             $scope.BillAddress = add;
         });
     }
+
 }
 
 LargeAddressList.$inject = ['$resource', '$451'];
