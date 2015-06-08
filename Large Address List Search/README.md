@@ -1,22 +1,33 @@
+
 #Large Address List Search for OrderCloud
 
-This is an overview of how to implement the Large Address List Search solution for an OrderCloud 2.0 site. 
-This solution can be used if a buyer site has more than 100 shipping and/or billing addresses. 
-Since the API limits results to 100, a site that has more shipping/billing addresses than this will not see their entire list. This solution allows the user to search for a desired address from the large list, without obtaining all addresses before hand.
+This solution allows a user to search for a desired address from a large list, without obtaining all addresses before hand.  Because the API limits results to 100, a site that has more shipping/billing addresses than this will not see their entire list, henceforth, this solution can be used if a buyer site has more than 100 shipping and/or billing addresses.  
 
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/LargeAddressListSearch). 
 >**Important**
 This solution is currently only setup for single address, not multiple address shipping. 
 
 ##Setup
 This module utilizes UI Bootstrap 0.10.0. We recommend replacing the application default script with the script provided here to avoid errors due to a UI Bootstrap bug. 
 
-###1. Replace the UI Boostrap script **`ui-bootstrap-tpls-0.10.0.js`** in your project. 
+###1. Replace the UI Bootstrap module file in your project
+
+Replace UI Boostrap script **`ui-bootstrap-tpls-0.10.0.min.js`** in your project. 
+
 If you are using a repository, add this file to the **`/lib/angular_ui`** directory.
 
-If you are using file overrides, create a new file override named **`lib/angular_ui/ui-bootstrap-tpls-0.10.0.js`**.
+If you are using file overrides, create a new file override named **`lib/angular_ui/ui-bootstrap-tpls-0.10.0.js`** and add this file as the content by following these steps:
 
-###2. Replace the UI Boostrap script reference in the index.html file.
-In **`index.html`** replace ...
+ 1. Edit your 2.0 site
+ 2. Go to "Code Editor" tab
+ 3. Hit "New File Override"
+ 4. Name this file **`lib/angular_ui/ui-bootstrap-tpls-0.10.0.js`**
+ 5. Place raw code in the section below. Save. 
+
+**Important!** Be sure to replace the new/updated UI Bootstrap script in the **`index.html`** file by following these steps:
+
+ 1. In Code Editor, locate your `index.html` file, hit edit.
+ 2. Replace:
 
 ```<script src="lib/angular_ui/ui-bootstrap-tpls-0.10.0.min.js" data-group="resources"></script>```
 
@@ -24,59 +35,82 @@ with ...
 
 ```<script src="lib/angular_ui/ui-bootstrap-tpls-0.10.0.js" data-group="resources"></script>```
 
-###3. Inject **`OrderCloud-LargeAddressListSearch`** into your application.
-If you are using a repository for your project, add **`OrderCloud-LargeAddressListSearch`** to the array in **`js/app.js`**.
+###2. Add Large Address Module file to your project
 
-If you are using file overrides for your project, create a file override for **`/js/app.js`** and add **`OrderCloud-LargeAddressListSearch`** to the array in that file.
-    
-###4. Add **`largeAddressListSearch.js`** file to your project.
+Add the **`largeAddressListSearch.js`** file to your project.
 
-If you are using a repository for your project, add this file to the **`/lib/oc`** directory and also add that path to the **`index.html`** file.
+If you are using a repository, add this file to the **`/lib/oc`** directory.
 
-If you are using file overrides for your project, create a new file override named **`/lib/oc/largeAddressListSearch.js`**, 
-add this file as the content for that override, then add the file reference to the **`index.html`** file override.
+If you are using file overrides, create a new file override named **`lib/oc/largeAddressListSearch.js`** and add this file as the content by following these steps:
 
+ 1. Edit your 2.0 site
+ 2. Go to “Code Editor” tab
+ 3. Hit “New File Override”
+ 4. Name this file `lib/oc/largeAddressListSearch.js`
+ 5. Place raw code in the section below. Save.
 
-###5. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**.
-If you are adding this solution to the shipping section, comment out or remove the following sections from **`/js/directives/ordershipping.js`** ...
+**Important!** Be sure to reference the new/updated JS file in the **`index.html`** file by following these steps:
 
-Lines 6-16
+ 1. In Code Editor, locate your `index.html` file, hit edit.
+ 2. Add **`<script src="lib/oc/largeAddressListSearch.js" data-group="resources"></script>`** in the section with “lib/oc” files. Save.
+
+###3. Load the module into your application.
+Add a dependency for  **`OrderCloud-LargeAddressListSearch`** to the Four51.app module in the **`js/app.js`** file by following these steps: 
+
+ 1. In Code Editor, locate your **`js/app.js`** file, hit edit.
+ 2. Add **'OrderCloud-LargeAddressListSearch'** into the file. Save
+
+ 
+
+###4. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**.
+
+> **Note:** These calls are removed in order to avoid excess API calls that do not need to occur.
+
+If you are adding this solution to the shipping section, comment out or remove the following sections from **`/js/directives/ordershipping.js`** 
+
 ```javascript
-    AddressList.clear();
-    AddressList.shipping(function(list) {
-        $scope.shipaddresses = list;
-        if ($scope.isEditforApproval) {
-            if (!AddressList.contains($scope.currentOrder.ShipAddress))
-                $scope.shipaddresses.push($scope.currentOrder.ShipAddress);
-        }
-    });
+    	AddressList.clear();
+		AddressList.shipping(function(list) {
+				$scope.shipaddresses = list;
+                if (list.length == 1 && !$scope.currentOrder.ShipAddressID) {
+                    $scope.currentOrder.ShipAddressID = list[0].ID;
+                }
+				if ($scope.isEditforApproval) {
+					if (!AddressList.contains($scope.currentOrder.ShipAddress))
+					$scope.shipaddresses.push($scope.currentOrder.ShipAddress);
+				}
+			});
 ``` 
 
-Lines 28-33
+and...
 ```javascript
     AddressList.shipping(function(list) {
         $scope.shipaddresses = list;
         if ($scope.isEditforApproval) {
             $scope.shipaddresses.push($scope.currentOrder.ShipAddress);
+            $scope.shipaddresses.push($scope.currentOrder.BillAddress);
         }
     });
 ``` 
 
-If you are adding this solution to the billing section, comment out or remove the following from **`/js/directives/orderbilling.js`** ...
+If you are adding this solution to the billing section, comment out or remove the following from **`/js/directives/orderbilling.js`** 
 
-Lines 6-16
 ```javascript
-    AddressList.clear();
-    AddressList.billing(function(list) {
-    $scope.billaddresses = list;
-    if ($scope.isEditforApproval) {
-        if (!AddressList.contains($scope.currentOrder.BillAddress))
-            $scope.billaddresses.push($scope.currentOrder.BillAddress);
-    }
-    });
+	AddressList.clear();
+	AddressList.billing(function(list) {
+		$scope.billaddresses = list;
+        if (list.length == 1 && !$scope.currentOrder.BillAddressID) {
+           $scope.currentOrder.BillAddressID = list[0].ID;
+        }
+		if ($scope.isEditforApproval) {
+			if (!AddressList.contains($scope.currentOrder.BillAddress))
+				$scope.billaddresses.push($scope.currentOrder.BillAddress);
+		}
+	});
 ``` 
 
-Lines 24-29
+and...
+
 ```javascript
     AddressList.billing(function(list) {
         $scope.billaddresses = list;
@@ -86,9 +120,9 @@ Lines 24-29
     });
 ``` 
 
-> **These calls are removed in order to avoid excess API calls that do not need to occur.**
 
-###6. Replace original address controls with new directives. 
+
+###5. Replace original address controls with new directives. 
 
 If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
 
@@ -133,8 +167,11 @@ and replace it with ...
 <largebilladdresssearch></largebilladdresssearch>
 ```
 
-If you would like to change what displays within the typeahead dropdown when searching for addresses, adjust the "as" portion of the typeahead attribute on the directive's template HTML. 
-For example, if you'd only like the Address Line 1 to display for shipping addresses, the typeahead attribute would read:
+##Usage
+
+If you would like to change what displays within the typeahead dropdown when searching for addresses, adjust the "as" portion of the typeahead attribute on the directive's template HTML (found in the **`largeAddressListSearch.js`** module file). 
+
+>For example, if you'd only like the Address Line 1 to display for shipping addresses, the typeahead attribute would read:
 
 ```html
     typeahead="address as (address.Street1) for address in shipaddresses"
