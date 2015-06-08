@@ -44,23 +44,21 @@ If you are using a repository, add this file to the **`/lib/oc`** directory.
 If you are using file overrides, create a new file override named **`lib/oc/largeAddressListSearch.js`** and add this file as the content by following these steps:
 
  1. Edit your 2.0 site
- 2. Go to â€œCode Editorâ€? tab
- 3. Hit â€œNew File Overrideâ€?
+ 2. Go to "Code Editor" tab
+ 3. Hit "New File Override"
  4. Name this file `lib/oc/largeAddressListSearch.js`
  5. Place raw code in the section below. Save.
 
 **Important!** Be sure to reference the new/updated JS file in the **`index.html`** file by following these steps:
 
  1. In Code Editor, locate your `index.html` file, hit edit.
- 2. Add **`<script src="lib/oc/largeAddressListSearch.js" data-group="resources"></script>`** in the section with â€œlib/ocâ€? files. Save.
+ 2. Add **`<script src="lib/oc/largeAddressListSearch.js" data-group="resources"></script>`** in the section with **`lib/oc`**  files. Save.
 
 ###3. Load the module into your application.
 Add a dependency for  **`OrderCloud-LargeAddressListSearch`** to the Four51.app module in the **`js/app.js`** file by following these steps: 
 
  1. In Code Editor, locate your **`js/app.js`** file, hit edit.
  2. Add **'OrderCloud-LargeAddressListSearch'** into the file. Save
-
- 
 
 ###4. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**.
 
