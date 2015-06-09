@@ -48,7 +48,7 @@ Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the 
     with the ProductMatrix code (step 4. below), otherwise create a new
     Product Detail Template. You can name the new template whatever is
     appropriate for you.
- 4. On your new Product Detail Template, replace the `<addtoorderspecs ng-show="allowAddToOrder"></addtoorderspecs>` and the `<div class="form-group"></div>` below it with the following:
+ 4. On your new Product Detail Template, replace the `<addtoorderspecs ng-show="allowAddToOrder"></addtoorderspecs>` and the entire `<div class="form-group"></div>` section below it (approximately 25 lines of code) with the following:
 
 ```html
     <div id="451_list_vspec">
