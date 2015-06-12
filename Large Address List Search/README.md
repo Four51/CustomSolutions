@@ -1,11 +1,13 @@
-
 #Large Address List Search for OrderCloud
 
 This solution allows a user to search for a desired address from a large list, without obtaining all addresses before hand.  Because the API limits results to 100, a site that has more shipping/billing addresses than this will not see their entire list, henceforth, this solution can be used if a buyer site has more than 100 shipping and/or billing addresses.  
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/LargeAddressListSearch). 
->**Important**
-This solution is currently only setup for single address and will not work correctly for buyers with 'Ship to Multiple Addresses' permission. 
+
+>**Important:** 
+ - This solution is currently only setup for single address, not multiple address shipping
+ - This solution cannot be easily combined with Same as Shipping Checkbox Solution.  If you want these two solutions together, please contact the Four51 support team.
+
 
 ##Setup
 This module utilizes UI Bootstrap 0.10.0. We recommend replacing the application default script with the script provided here to avoid errors due to a UI Bootstrap bug. 
@@ -44,21 +46,23 @@ If you are using a repository, add this file to the **`/lib/oc`** directory.
 If you are using file overrides, create a new file override named **`lib/oc/largeAddressListSearch.js`** and add this file as the content by following these steps:
 
  1. Edit your 2.0 site
- 2. Go to "Code Editor" tab
- 3. Hit "New File Override"
+ 2. Go to “Code Editor” tab
+ 3. Hit “New File Override”
  4. Name this file `lib/oc/largeAddressListSearch.js`
  5. Place raw code in the section below. Save.
 
 **Important!** Be sure to reference the new/updated JS file in the **`index.html`** file by following these steps:
 
  1. In Code Editor, locate your `index.html` file, hit edit.
- 2. Add **`<script src="lib/oc/largeAddressListSearch.js" data-group="resources"></script>`** in the section with **`lib/oc`**  files. Save.
+ 2. Add **`<script src="lib/oc/largeAddressListSearch.js" data-group="resources"></script>`** in the section with “lib/oc” files. Save.
 
 ###3. Load the module into your application.
 Add a dependency for  **`OrderCloud-LargeAddressListSearch`** to the Four51.app module in the **`js/app.js`** file by following these steps: 
 
  1. In Code Editor, locate your **`js/app.js`** file, hit edit.
  2. Add **'OrderCloud-LargeAddressListSearch'** into the file. Save
+
+ 
 
 ###4. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**.
 
@@ -120,9 +124,10 @@ and...
 
 
 
-###5. Replace original address controls with new directives. 
+###5. Steps for adding this solution to the Shipping Section
+####Updating the **`/partials/controls/orderShipping.html`** file
 
-If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+a.) Comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
 
 ```html
 <div ng-show="shipaddresses" ng-class="{'view-form-select': !currentOrder.ShipAddressID, '': currentOrder.ShipAddressID }">
@@ -142,9 +147,37 @@ and replace it with ...
 
 ```html
 <largeshipaddresssearch></largeshipaddresssearch>
+``` 
+
+b.) Comment out or remove the following from **`/partials/controls/orderShipping.html`**
+
+```html
+<div ng-show="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
 ```
 
-If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
+and replace it with ...
+
+```html
+<div ng-hide="shipaddressform == false || (user.Permissions.contains('CreateShipToAddress'))" ng-show="shipaddressform == true">
+```
+
+
+c.) Also comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+
+```html
+<div ng-hide="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
+```
+
+and replace it with ...
+
+```html
+<div ng-show="shipaddressform == false || (user.Permissions.contains('CreateShipToAddress'))" ng-hide="shipaddressform == true">
+```
+
+###6. Steps for adding this solution to the Billing Section
+####Updating the **`/partials/controls/orderBilling.html`** file
+
+a.) If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
 
 ```html
 <div class="view-form-icon" ng-show="billaddresses.length > 0">
@@ -165,45 +198,7 @@ and replace it with ...
 <largebilladdresssearch></largebilladdresssearch>
 ```
 
-
->**Note**
-If you would like to change what displays within the typeahead dropdown when searching for addresses, adjust the "as" portion of the typeahead attribute on the directive's template HTML (found in the **`largeAddressListSearch.js`** module file). 
-
->For example, if you'd only like the Address Line 1 to display for shipping addresses, the typeahead attribute would read:
-
-```html
-    typeahead="address as (address.Street1) for address in shipaddresses"
-```
-
-###6. Additional updates for the Order Shipping section
-
-If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
-
-```html
-<div ng-show="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
-```
-
-and replace it with ...
-
-```html
-<div ng-hide="shipaddressform == false || (user.Permissions.contains('CreateShipToAddress'))" ng-show="shipaddressform == true">
-```
-
-Also comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
-
-```html
-<div ng-hide="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
-```
-
-and replace it with ...
-
-```html
-<div ng-show="shipaddressform == false || (user.Permissions.contains('CreateShipToAddress'))" ng-hide="shipaddressform == true">
-```
-
-###7. Additional updates for the Order Billing section
-
-If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
+b.) If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** 
 
 ```html
 <div ng-show="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
@@ -215,7 +210,7 @@ and replace it with ...
 <div ng-hide="billaddressform == false || (user.Permissions.contains('CreateBillToAddress'))" ng-show="billaddressform == true">
 ```
 
-Also comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+c.) Also comment out or remove the following from **`/partials/controls/orderBilling.html`** 
 
 ```html
 <div ng-hide="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
@@ -227,7 +222,10 @@ and replace it with ...
 <div ng-show="billaddressform == false || (user.Permissions.contains('CreateBillToAddress'))" ng-hide="billaddressform == true">
 ```
 
-###8. Additional updates for field validation
+>**Note:** Follow both steps 5. and 6. if you are applying this solution to both the Shipping and Billing address
+
+
+###7. Additional updates for field validation
 
 If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/checkOutView.html`** ...
 
@@ -251,4 +249,14 @@ and replace it with ...
 
 ```html
 <li ng-if="!BillAddressID">{{'Please enter a ' + ('Billing' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
+```
+
+##Usage
+
+If you would like to change what displays within the typeahead dropdown when searching for addresses, adjust the "as" portion of the typeahead attribute on the directive's template HTML (found in the **`largeAddressListSearch.js`** module file). 
+
+>For example, if you'd only like the Address Line 1 to display for shipping addresses, the typeahead attribute would read:
+
+```html
+    typeahead="address as (address.Street1) for address in shipaddresses"
 ```
