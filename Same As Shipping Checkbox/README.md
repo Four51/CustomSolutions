@@ -5,10 +5,11 @@ This solution creates a checkbox on the billing section of the checkout flow tha
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/SameAsShippingCheckbox).  
 
+**Important:** This solution cannot be easily combined with Large Address List Search Solution.  If you want these two solutions together, please contact the Four51 support team.
 
 ##Setup
 
-###1. Add the Same as Shipping Checkbox Module file to your project
+###1. Add the Same as Shipping Checkbox module file to your project
 
 Add the **`sameAsShippingCheckbox.js`** file to your project.
 
