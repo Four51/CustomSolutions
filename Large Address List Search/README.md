@@ -4,7 +4,7 @@ This solution allows a user to search for a desired address from a large list, w
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/LargeAddressListSearch). 
 
->**Important:** 
+**Important:** 
  - This solution is currently only setup for single address, not multiple address shipping
  - This solution cannot be easily combined with Same as Shipping Checkbox Solution.  If you want these two solutions together, please contact the Four51 support team.
 
@@ -177,7 +177,7 @@ and replace it with ...
 ###6. Steps for adding this solution to the Billing Section
 ####Updating the **`/partials/controls/orderBilling.html`** file
 
-a.) If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
+a.) Comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
 
 ```html
 <div class="view-form-icon" ng-show="billaddresses.length > 0">
@@ -198,7 +198,7 @@ and replace it with ...
 <largebilladdresssearch></largebilladdresssearch>
 ```
 
-b.) If you are adding this solution to the billing section, comment out or remove the following from **`/partials/controls/orderBilling.html`** 
+b.) Comment out or remove the following from **`/partials/controls/orderBilling.html`** 
 
 ```html
 <div ng-show="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
