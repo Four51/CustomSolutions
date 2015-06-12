@@ -15,7 +15,7 @@ Add the **`sameAsShippingCheckbox.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
 
-If you are using file overrides, create a new file override named **`/lib/oc/sameAsShippingCheckbox.js`** and add this file as the content by following these steps:
+If you are using file overrides, create a new file override named **`lib/oc/sameAsShippingCheckbox.js`** and add this file as the content by following these steps:
 
  1. Edit your 2.0 site
  2. Go to “Code Editor” tab
