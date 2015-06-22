@@ -1,5 +1,5 @@
 
-#Same as Shipping Checkbox for OrderCloud
+#Same as Shipping Checkbox for OrderCloud 
 
 This solution creates a checkbox on the billing section of the checkout flow that allows a user to check indicating the billing address is the same as the shipping address that was previously selected. 
 

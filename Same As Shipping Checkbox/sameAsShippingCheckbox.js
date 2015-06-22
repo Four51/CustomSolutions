@@ -1,4 +1,4 @@
-angular.module('OrderCloud-SameAsShippingCheckbox', []);
+angular.module('OrderCloud-SameAsShippingCheckbox', []); 
 
 angular.module('OrderCloud-SameAsShippingCheckbox')
     .directive('sameasshipaddresscheckbox', sameasshipaddresscheckbox)
