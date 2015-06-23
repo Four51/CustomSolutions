@@ -50,7 +50,7 @@ The code should look like this:
 
 
 ###4. Accommodate for changes in display of the New Address button.
-Comment out or remove the following from **`/partials/controls/paymentSelection.html`**.
+Comment out or remove the following from **`/partials/controls/paymentSelection.html`**
 
 ```html
 <button class="btn btn-info pull-right" type="button"
