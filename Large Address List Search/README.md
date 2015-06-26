@@ -127,7 +127,7 @@ and...
 ###5. Steps for adding this solution to the Shipping Section
 ####Updating the **`/partials/controls/orderShipping.html`** file
 
-a.) Comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+a.) Comment out or remove the following from **`/partials/controls/orderShipping.html`** 
 
 ```html
 <div ng-show="shipaddresses" ng-class="{'view-form-select': !currentOrder.ShipAddressID, '': currentOrder.ShipAddressID }">
