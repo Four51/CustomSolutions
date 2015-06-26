@@ -1,0 +1,105 @@
+<style>
+    .well {text-align:center !important;}
+    .panel-category-list .well {margin: -1px 2px 2px 1px; padding: 0; min-height:340px; text-align: center; border:0;}
+    .panel-category-list .well a {display: block; text-align: center; text-decoration: none; margin:0;}
+    .panel-category-list .well a .empty {border-color: #dddddd; min-height:150px;}
+    .panel-category-list a img {margin: 0 auto; max-height: 150px; padding: 20px 0; }
+    .category-wrapper .category {width:20%; float:left;}
+    .category-wrapper span a.angle {padding:0; position:relative; top:60px;}
+    .panel-category-list .well.showSubs {border:3px solid #ccc; border-bottom:0; margin-top:-4px;  z-index:101; min-height: 340px;  padding: 0; text-align: center;}
+    .subcategories {height:200px; z-index:100; position:relative; background-color:#fff; border:3px solid #ccc; top:100%; margin:-8px 0 -200px 1px; width:99.75%;}
+    .subcategories li {float:left; margin:5px; text-align:center;}
+    .subcategories li a {text-decoration:none; font-size:0.9em; padding:0.25em }
+</style>
+<div class="panel" ng-show="currentCategory.SubCategories.length">
+    <div class="panel-category-list">
+        <loadingindicator ng-show="categoryLoadingIndicator" title="{{'Please wait while we fetch all categories' | r | xlat}}" />
+        <div class="nav 451_lbl_subcatlist" ng-init="showAngle = false;">
+
+            <!--.category-wrapper-->
+            <div class="category-wrapper category-row-1">
+                <div class="category" ng-repeat="c in currentCategory.SubCategories.slice(0,5)">
+                    <div class="well" ng-mouseenter="showAngle = true" ng-mouseleave="showAngle = false" ng-class="{'showSubs': showSubs && c.InteropID == cat.InteropID, '': !showSubs}">
+                        <a ng-href="catalog/{{c.InteropID}}">
+                            <figure ng-show="c.Image.URL">
+                                <img ng-src="{{c.Image.URL}}"/>
+                            </figure>
+                            <div class="empty" ng-show="!c.Image.URL">
+                                <span class="fa empty"><i class="fa fa-camera"></i></span>
+                            </div>
+                            <h5 ng-bind-html="c.Name" />
+                        </a>
+                        <span ng-show="c.SubCategories">
+                            <a class="angle" ng-click="showSubcategories(c, 'category-row-1')">
+                                <span ng-class="{'ng-hide': !showAngle, 'ng-show': showAngle, 'hidden': showSubs}">
+                                    Show <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+                             <a ng-show="c.InteropID == cat.InteropID" class="angle" ng-click="hideSubcategories()">
+                                <span ng-class="{'ng-hide': !showSubs, 'ng-show': showSubs}">
+                                    Hide <i class="fa fa-angle-up"></i>
+                                </span>
+                             </a>
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div ng-show="row == 'category-row-1' || row != 'category-row-2'">
+                    <div ng-class="{'ng-hide': !showSubs, 'ng-show subcategories col-xs-12': showSubs}">
+                        <ul>
+                            <li ng-repeat="category in cat.SubCategories">
+                                <a href="{{category.Name}}">
+                                    <img src="http://placehold.it/150x150" />
+                                    {{category.Name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--.category-wrapper-->
+
+            <!--.category-wrapper-->
+            <div class="category-wrapper category-row-2">
+                <div class="category" ng-repeat="c in currentCategory.SubCategories.slice(5,10)">
+                    <div class="well" ng-mouseenter="showAngle = true" ng-mouseleave="showAngle = false" ng-class="{'showSubs': showSubs && c.InteropID == cat.InteropID, '': !showSubs}">
+                        <a ng-href="catalog/{{c.InteropID}}">
+                            <figure ng-show="c.Image.URL">
+                                <img ng-src="{{c.Image.URL}}"/>
+                            </figure>
+                            <div class="empty" ng-show="!c.Image.URL">
+                                <span class="fa empty"><i class="fa fa-camera"></i></span>
+                            </div>
+                            <h5 ng-bind-html="c.Name" />
+                        </a>
+                        <span ng-show="c.SubCategories">
+                            <a class="angle" ng-click="showSubcategories(c, 'category-row-2')">
+                                <span ng-class="{'ng-hide': !showAngle, 'ng-show': showAngle, 'hidden': showSubs}">
+                                    Show <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+                             <a ng-show="c.InteropID == cat.InteropID" class="angle" ng-click="hideSubcategories()">
+                                <span ng-class="{'ng-hide': !showSubs, 'ng-show': showSubs}">
+                                    Hide <i class="fa fa-angle-up"></i>
+                                </span>
+                             </a>
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div ng-show="row == 'category-row-2' || row != 'category-row-1'">
+                    <div ng-class="{'ng-hide': !showSubs, 'ng-show subcategories col-xs-12': showSubs}">
+                        <ul>
+                            <li ng-repeat="category in cat.SubCategories">
+                                <a href="{{category.Name}}">
+                                    <img src="http://placehold.it/150x150" />
+                                    {{category.Name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--.category-wrapper-->
+
+        </div>
+    </div>
+</div>
