@@ -1,4 +1,4 @@
-angular.module('OrderCloud-SameAsShippingCheckbox', []); 
+angular.module('OrderCloud-SameAsShippingCheckbox', []);
 
 angular.module('OrderCloud-SameAsShippingCheckbox')
     .directive('sameasshipaddresscheckbox', sameasshipaddresscheckbox)
@@ -16,11 +16,11 @@ function sameasshipaddresscheckbox() {
     function template() {
         return [
             '<div ng-hide="billaddressform">',
-                '<div class="checkbox">',
-                    '<input name="sameAsShipping" type="checkbox" ng-model="copyShipAddress" ng-change="resetBilling()" ng-disabled="!orderShipAddress.ID" />{{\'Same as Shipping Address\' | r | xlat}}</label>',
-                    '<button class="btn btn-info pull-right" type="button" ng-hide="(!user.Permissions.contains(\'CreateBillToAddress\'))" ng-click="billaddressform = true" ng-disabled="copyShipAddress">{{(\'New\' | r) + \' \' +  (\'Address\' | r) | xlat}}',
-                    '</button>',
-                '</div>',
+            '<div class="checkbox">',
+            '<input name="sameAsShipping" type="checkbox" ng-model="copyShipAddress" ng-change="resetBilling()" ng-disabled="!orderShipAddress.ID" />{{\'Same as Shipping Address\' | r | xlat}}</label>',
+            '<button class="btn btn-info pull-right" type="button" ng-hide="(!user.Permissions.contains(\'CreateBillToAddress\'))" ng-click="billaddressform = true" ng-disabled="copyShipAddress">{{(\'New\' | r) + \' \' +  (\'Address\' | r) | xlat}}',
+            '</button>',
+            '</div>',
             '</div>'
         ].join('');
     }
@@ -35,6 +35,8 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope) {
             $scope.BillAddress = $scope.orderShipAddress;
             $scope.BillAddressID = $scope.currentOrder.ShipAddressID;
             $scope.currentOrder.BillAddressID = $scope.currentOrder.ShipAddressID;
+            $scope.BillAddress.IsBilling = true;
+            $scope.billaddresses.push($scope.BillAddress);
         }
         if ($scope.copyShipAddress == false) {
             $scope.BillAddress = '';
@@ -55,7 +57,6 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope) {
             $scope.copyShipAddress = false;
         }
     });
-
 
     $scope.$on('shipChange', function() {
         $scope.copyShipAddress = false;
