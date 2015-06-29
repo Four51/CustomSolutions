@@ -1,12 +1,12 @@
 #Bootstrap Carousel for OrderCloud
 
-This module provides an overview of how to implement the Bootstrap Image Carousel on your OrderCloud 2.0 application.
+This module allows you to place rotating images in your site. 
 
-To learn more about this feature and see examples, visit this [page](https://mirandap.four51ordercloud.com/testbuyer/catalog).
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/BootstrapCarousel).
 
 ##Setup
 
-####1. Add the carousel.js file to your project.
+####1. Add module file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
 
@@ -21,9 +21,7 @@ If you are using file overrides, create a new file override named **`lib/oc/caro
 **Important!** Be sure to reference the new/updated JS file in the index.html file by following these steps:
 
 1. In Code Editor, locate your index.html file; hit edit.
-2. Add `<script src="lib/oc/carousel.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
-
-Custom CSS for the carousel can be added to your custom CSS file using the .carousel class.
+2. Add `<script src="lib/oc/carousel.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
 ####2. Load the module into the application
 
@@ -33,83 +31,62 @@ Add a dependency for `OrderCloud-Carousel` to the Four51.app module in the **`js
 
 ####3. Placing the carousel in the application
 
-Add the directive following directive wherever you would like the image carousel to appear. We recommend adding it inside the branding.html file: **`<customcarousel></customcarousel>`**
+Add the directive  **`<customcarousel></customcarousel>`** wherever you would like the image carousel to appear. If you would like it at the top of your store homepage, add it inside the **`partials/branding.html`**  file like the example below.
+```html
+<section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
+    <div class="container">
+    <customcarousel></customcarousel>
+        <h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
+            <a ng-click="refreshUser()" href="catalog">
+	            <img ng-src="{{user.Company.LogoUrl}}" />
+            </a>
+            <span>{{user.Company.Name}}</span>
+            <homemessage />
+        </h2>
+    </div>
+</section>
+```
 
-##Admin Setup
+> **Tip:** Remove **`<img ng-src="{{user.Company.LogoUrl}}" />`** and/or **`<span>{{user.Company.Name}}</span>`**  if you want to remove your logo or company name from the site, and just show the banner. 
 
-Adding images, links, and interval settings to your Carousel
+##Usage
 
-Custom image slides are created by creating a custom user field on the Admin site. The field should be named 'carouselImage' followed by the number corresponding the the order you want that slide to appear. For example: the first slide to appear in the carousel would be called ‘carouselImage1’
+#### 1. Add custom user fields and assign the user fields to the Company or Group
 
-**Important!** It is recommended that all images that are uploaded for the carousel have the same dimensions and resolution. The carousel will resize itself based on the size of the container class the directive is placed in, so uploading an image that is too small could cause the image to be stretched.
+ 1. Go to the Company or Group that you would like to add the carousel too
+ 2. Go to User Fields
+ 3. Click New Custom User Field (or search if you need to update an existing field)
+ 4. Fill out the fields as followed:
 
-###Required Custom User Fields
+####Required Custom User Fields
+- **Field Name:** carouselImage1 (or subsequent number)
+- **Label:** Insert the URL address if your image should link to a URL in a new tab.  Insert the relative URL (the string after your Application URL, ex. /store/product/tshirt) if your image should redirect within the site and not open any tabs. If you do not want the image to link to anything, enter _none_ in the field.
+- **Type:** File
+- **Required:** Do not check
+- **Display to User:** Do not check
+- **Allowed Extensions:** Enter _(gif, jpg, jpeg, pdf, png)_
+- **Minimum and Maximum File Sizes:** These fields are optional
+- **Upload Instructions:** Text included here will be displayed on top of the slide. If you do not want any text, enter _none_. 
+- **Default file:** Upload your file
+- **Image?:** Do not check this (images are easier to update without the image feature checked)
 
-<table>
-    <tr>
-        <th>Spec Name</th>
-        <th>Spec Type</th>
-        <th>Spec Label</th>
-        <th>Upload Instructions</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>
-         carouselImage1
-        </td>
-        <td>File (do not check image checkbox)</td>
-        <td>
-            <ul>
-                <li>
-                    If you do not wish to have your images link to other pages set the label to ’none’
-                </li>
-                <li>
-                    External link: paste in full url including http
-                </li>
-                <li>
-                    Internal link: remove the http://store.four51.com/YourStoreName/ from the OrderCloud URL you wish to link to. For example linking to a product would be "product/productID" or to a category "catalog/categoryID
-                </li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li>Any text included in the Upload Instructions box will be displayed on top of the slide.</li>
-                <li>For no text write 'none'</li>
-            </ul>
-        </td>
-        <td>Sets first slide in carousel</td>
-    </tr>
-</table>
+####Optional Custom User Field for setting interval length
+- **Field Name:** carouselInterval  (this determines at what intervals your slides rotate)
+- **Label:** Enter _none_ in the field.
+- **Type:** Text
+- **Required:** Do not check
+- **Default Value:** Enter the number of seconds you would like the slides to rotate to (i.e. 1, 2, or 3)
+- **Lines, Width, Max Length:** These fields are optional
+- **Masked Input:** Leave Blank
 
-</br>
-###Optional Custom User Fields
+>**Important!** Make sure your Custom User Fields are activated for the Company/Group you added them to.  You can check-mark each User Field and hit the Update button to activate them.  
 
-<table>
-    <tr>
-        <th>Spec Name</th>
-        <th>Spec Type</th>
-        <th>Spec Label</th>
-        <th>Upload Instructions</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>
-            carouselImage2, carouselImage3, etc.
-        </td>
-    <td>File (do not check image checkbox)</td>
-        <td>same as carouselImage1</td>
-        <td>same as carouselImage1</td>
-        <td>Sets subsequent slides in carousel</td>
-    </tr>
-    <tr>
-        <td>
-                    carouselInterval
-        </td>
-        <td>Text (enter number of seconds you would like as interval in 'value' field)</td>
-        <td>'none'</td>
-        <td>'none'</td>
-        <td>
-        Sets Interval for Slide rotation. Default is 5 seconds. Setting to 0 will prevent rotation.
-        </td>
-    </tr>
-</table>
+
+
+#####Additional information:
+
+  - Keep all your images the same dimensions otherwise the page will shift between image transitions.
+  - The default interval length is 5 seconds.  If you enter 0 for interval length, it will prevent rotation. 
+
+
+Custom CSS for the carousel can be added to your custom CSS file using the .carousel class.
