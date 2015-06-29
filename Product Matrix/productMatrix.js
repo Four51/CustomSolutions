@@ -1,4 +1,4 @@
-angular.module('OrderCloud-ProductMatrix', []);
+angular.module('OrderCloud-ProductMatrix', []); 
 
 angular.module('OrderCloud-ProductMatrix')
     .directive('productmatrix', productmatrix)
