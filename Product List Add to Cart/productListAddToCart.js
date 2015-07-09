@@ -1,7 +1,3 @@
-/**
- * Created by mirandaposthumus on 6/26/15.
- */
-
 angular.module('OrderCloud-ProductListAddToCart', []);
 
 angular.module('OrderCloud-ProductListAddToCart')
