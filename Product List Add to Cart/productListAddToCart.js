@@ -1,3 +1,7 @@
+/**
+ * Created by mirandaposthumus on 6/26/15.
+ */
+
 angular.module('OrderCloud-ProductListAddToCart', []);
 
 angular.module('OrderCloud-ProductListAddToCart')
@@ -15,22 +19,22 @@ function productlistaddtocart() {
 
     function template() {
         return [
-            '<form name="addToOrderForm" ng-submit="addToOrder()">',
-            '<div class="view-form-icon" ng-show="allowAddToOrderInProductList">',
-            '<div class="row">',
-            '<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">',
-            '<label class="required">{{\'Quantity\' | r | xlat}}</label>',
-            '<quantityfield required="true" calculated="calcVariantLineItems" lineitem="LineItem" class="quantity"/>',
+            '<form name="addToOrderForm"" ng-submit="addToOrder()">',
+                '<div class="view-form-icon" ng-show="allowAddToOrderInProductList">',
+                    '<div class="row" style="padding-bottom: 5px;">',
+                        '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">',
+                            '<label class="required">{{\'Quantity\' | r | xlat}}</label>',
+                            '<quantityfield required="true" calculated="calcVariantLineItems" lineitem="LineItem" class="quantity"/>',
+                        '</div>',
+                        '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">',
+                            '<button style="height:52px; padding: 1px; white-space: normal;" class="btn btn-default btn-block btn-md text-center" type="submit" ng-disabled="addToOrderForm.$invalid">',
+                                '<loadingindicator  ng-show="displayLoadingIndicator" />',
+                                '<i ng-show="lineItemErrors.length > 0" style="width: 20px;" class="fa fa-warning"></i>',
+                            'Add to Cart',
+                            '</button>',
+                        '</div>',
+                    '</div>',
                 '</div>',
-                '<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">',
-                '<button style="height:52px;" class="btn btn-default btn-block btn-md" type="submit" ng-disabled="addToOrderForm.$invalid">',
-                '<loadingindicator  ng-show="displayLoadingIndicator" />',
-                '<i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>',
-                'Add To Cart',
-            '</button>',
-            '</div>',
-            '</div>',
-            '</div>',
             '</form>'
         ].join('');
     }
