@@ -23,7 +23,7 @@ function productlistaddtocart() {
                             '<quantityfield required="true" calculated="calcVariantLineItems" lineitem="LineItem" class="quantity"/>',
                         '</div>',
                         '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">',
-                            '<button style="height:52px; padding: 1px; white-space: normal;" class="btn btn-default btn-block btn-md text-center" type="submit" ng-disabled="addToOrderForm.$invalid">',
+                            '<button style="height:52px; padding: 1px; white-space: normal;" class="btn btn-success btn-block btn-md text-center" type="submit" ng-disabled="addToOrderForm.$invalid">',
                                 '<loadingindicator  ng-show="displayLoadingIndicator" />',
                                 '<i ng-show="lineItemErrors.length > 0" style="width: 20px;" class="fa fa-warning"></i>',
                             'Add to Cart',
