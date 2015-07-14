@@ -6,7 +6,7 @@ This is a module that sends a modal message to the user for information you may 
 
 Add the four51Modal.js file to your project.
 If you are using a repository add this file to the /lib/oc directory.
-If you are using file overrides, create a nwe file override named **`lib/oc/four51Modal.js'** and add this file as the content for that file. 
+If you are using file overrides, create a new file override named **`lib/oc/four51Modal.js'** and add this file as the content for that file. 
 Be sure to reference the JS file in the index.html file. '<script src="lib/oc/four51Modal.js" data-group="resources"></script>'
 
 #####2. Load the module into the application.
