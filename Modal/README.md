@@ -31,7 +31,7 @@ Make access to the modal functionality
 
 ####3. Add your controller with 'ng-controller'
 
-Initiate your controller by adding ng-controller="ModalCtrl" to the starting div of the element you wish to have a modal appear from. In this example, I added it to a button on the '/catalog' page.
+Initiate your controller by adding ng-controller="ModalCtrl" to the starting div of the element you wish to have a modal appear from. In this example, I added it to a link on the '/branding' page.
 
  for more general information on ngController: https://docs.angularjs.org/api/ng/directive/ngController
 
