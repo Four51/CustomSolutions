@@ -36,7 +36,7 @@ Add a dependency for  **`OrderCloud-SameAsShippingCheckbox`** to the Four51.app 
 
 ###3. Add the Same As Shipping Checkbox directive
 
- 1. Locate the   **`/partials/controls/orderBilling.html`** file
+ 1. Locate the   **`partials/controls/orderBilling.html`** file
  2. Add **`<sameasshipaddresscheckbox></sameasshipaddresscheckbox>`** after the   **`<billingmessage />`** div tag.
 
 The code should look like this:
@@ -50,7 +50,7 @@ The code should look like this:
 
 
 ###4. Accommodate for changes in display of the New Address button.
-Comment out or remove the following from **`/partials/controls/paymentSelection.html`**
+Comment out or remove the following from **`partials/controls/paymentSelection.html`**
 
 ```html
 <button class="btn btn-info pull-right" type="button"
