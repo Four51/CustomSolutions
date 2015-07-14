@@ -33,7 +33,7 @@ Add a dependency for `OrderCloud-ProductListAddToCart` to the Four51.app module 
 
 ###1. Add the Product List Add To Cart directive
 
-Determine which Product List Template you are using.  This is found in the admin of your OrderCloud 2.0 site, then the Product List tab.  Based on your template number, follow the instructions below. 
+Determine which Product List Template you are using, or choose a Product List Template.  The templates are found in the admin of your OrderCloud 2.0 site under the Product List tab.  Once you have selected your template number or determined what template your site uses follow the instructions below.
 
 ####For template # 1
 
@@ -89,7 +89,7 @@ In **`partials/controls/shortProductViewInline.html`**, add the directive **`<pr
 
 ####For template # 8, 9, and 10
 
-In **`partials/controls/shortProductViewMinimal.html`**, add the directive **`<productlistaddtocart></productlistaddtocart>`** after the final **`<a class>`** tag as shown below. 
+In **`partials/controls/shortProductViewMinimal.html`**, add the directive **`<productlistaddtocart></productlistaddtocart>`** after the last **`</div>`** tag as shown below. 
 
 ```html
 <div>
@@ -109,9 +109,8 @@ In **`partials/controls/shortProductViewMinimal.html`**, add the directive **`<p
             </div>
             <br/>
             <a class=""btn btn-default btn-block"" href=""product/{{LineItem.Product.InteropID}}"">{{('View' | r) + ' ' + ('Product' | r) | xlat}}</a>
-   <productlistaddtocart></productlistaddtocart>    
  </div>
     </div>
 </div>
-
+<productlistaddtocart></productlistaddtocart>
 ```
