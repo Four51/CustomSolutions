@@ -9,7 +9,7 @@ If you are using a repository add this file to the /lib/oc directory.
 If you are using file overrides, create a new file override named **`lib/oc/four51Modal.js'** and add this file as the content for that file. 
 Be sure to reference the JS file in the index.html file.
 ```html
-<script src="lib/oc/four51Modal.js" data-group="resources"></script>#
+<script src="lib/oc/four51Modal.js" data-group="resources"></script>
 ```
 
 
