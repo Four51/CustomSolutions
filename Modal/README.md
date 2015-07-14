@@ -8,6 +8,21 @@ Add the four51Modal.js file to your project.
 If you are using a repository add this file to the /lib/oc directory.
 If you are using file overrides, create a new file override named **`lib/oc/four51Modal.js'** and add this file as the content for that file. 
 Be sure to reference the JS file in the index.html file.
+```html
+<section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
+    <div class="container">
+    <customcarousel></customcarousel>
+        <h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
+            <a ng-click="refreshUser()" href="catalog">
+	            <img ng-src="{{user.Company.LogoUrl}}" />
+            </a>
+            <span>{{user.Company.Name}}</span>
+            <homemessage />
+        </h2>
+    </div>
+</section>#
+```
+
 '''html
 <script src="lib/oc/four51Modal.js" data-group="resources"></script>#
 '''
