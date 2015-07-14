@@ -1,0 +1,18 @@
+<!--This is the modal content that appears when the link is clicked -->
+<section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
+    <div class="container">
+        <h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
+            <a ng-click="refreshUser()" href="catalog">
+                <img ng-src="{{user.Company.LogoUrl}}" />
+            </a>
+            <span>{{user.Company.Name}}</span>
+            <homemessage />
+        </h2>
+        <!--This is where the controller and link with the function are placed in this demo-->
+        <div class="pull-right" ng-controller="ModalCtrl">
+            <a ng-click="showModal()"><h5>What's This?</h5></a>
+        </div>
+        <!-- end -->
+    </div>
+</section>
+<!--end-->
