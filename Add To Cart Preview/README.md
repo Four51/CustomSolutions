@@ -66,3 +66,18 @@ with the following:
 ###3. Apply Product Detail Template to product(s)
 
 Using Product Properties, assign your new/updated Product Detail Template to any products requiring the Add to Cart Preview feature.
+
+
+##Additional Information
+
+A Total Min and Total Max functionality can be set on the product and it's variants using a Static Spec
+
+ - If the price schedule for the product has a min or max quantity assigned, a quantity greater than/less than that value will be required for each variant within the product.
+ - If Total Min and Total Max thresholds are desired on the product on a non-variant basis, then you will need to create a Custom Static Text Spec.
+
+Use these specs to set-up your Static Spec table:
+<table><tr><th>Static Spec Group Name</th><th>Static Spec Name</th><th>Static Spec Type</th><th>Value</th></tr><tr><td>listPreview</td><td>MinQty</td><td>Text</td><td># representing minimum quantity</td></tr><tr><td>listPreview</td><td>MaxQty</td><td>Text</td><td># representing maximum quantity</td></tr></table>
+**Tip:** Make these specs non-visible to customer
+
+Now the customer must fill out a TOTAL quantity across all variants greater than or less than the MinQty or Max Qty.
+
