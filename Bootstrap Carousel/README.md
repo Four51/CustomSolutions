@@ -35,8 +35,8 @@ Add a dependency for `OrderCloud-Carousel` to the Four51.app module in the **`js
 Add the directive  **`<customcarousel></customcarousel>`** wherever you would like the image carousel to appear. If you would like it at the top of your store homepage, add it inside the **`partials/branding.html`**  file like the example below.
 ```html
 <section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
-    <div class="container">
     <customcarousel></customcarousel>
+    <div class="container">
         <h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
             <a ng-click="refreshUser()" href="catalog">
 	            <img ng-src="{{user.Company.LogoUrl}}" />
@@ -88,6 +88,5 @@ Add the directive  **`<customcarousel></customcarousel>`** wherever you would li
 
   - Keep all your images the same dimensions otherwise the page will shift between image transitions.
   - The default interval length is 5 seconds.  If you enter 0 for interval length, it will prevent rotation. 
-
-
-Custom CSS for the carousel can be added to your custom CSS file using the .carousel class.
+  - Recommended image size for creating a banner across your homepage is 1500px width.  Height can be variable, but we suggest between 300-500px. 
+  - Custom CSS for the carousel can be added to your custom CSS file using the .carousel class.
