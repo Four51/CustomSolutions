@@ -56,7 +56,7 @@ function addtocartpreview() {
             '<div>',
             '<p ng-if="lineitem.Product.MinTotalQty"><span class="text-info">Minimum Total Order Quantity: </span>{{lineitem.Product.MinTotalQty}}</p>',
             '<p ng-if="lineitem.Product.MaxTotalQty"><span class="text-info">Maximum Total Order Quantity: </span>{{lineitem.Product.MaxTotalQty}}</p>',
-            '<div class="row alert alert-danger" ng-show="lineitem.entryError" ng-bind-html="lineitem.entryError"></div>',
+            '<div class="row alert alert-danger fadeOut" ng-show="lineitem.entryError" ng-bind-html="lineitem.entryError"></div>',
             '</div>',
             '<div class="row">',
             '<div ng-show="list.length > 0">',
@@ -142,12 +142,15 @@ function AddToCartPreviewCtrl($scope, $location, AddToCartPreview, $timeout) {
         }, 5000)
     });
 
+
+
     //action functions
     $scope.saveVariant = function(lineitem) {
         $scope.hideErrors(lineitem);
         $scope.verifyNewEntry(lineitem, $scope.list);
         if (!lineitem.entryError) {
             AddToCartPreview.add(lineitem, $scope.list, function(list) {
+                console.log("startme");
                 AddToCartPreview.adjustForPriceBreaks(list, function (list) {
                     $scope.list = list;
                 })
@@ -323,6 +326,10 @@ function AddToCartPreview(User, Order) {
 
     var _adjustForPriceBreaks = function (list, success) {
         if (list[0] && !list[0].PriceSchedule.UseCumulativeQuantity) {
+            console.log("you broke me");
+            angular.forEach(list, function (listobj) {
+                priceBreak(listobj, listobj.Quantity)
+            });
             _then(success, list);
         }
         else {
@@ -354,8 +361,9 @@ function AddToCartPreview(User, Order) {
         }
         var priceBreaks = item.PriceSchedule.PriceBreaks;
         for (var b = 0; b < item.PriceSchedule.PriceBreaks.length; b++) {
-
+            console.log('hitter');
             if (b === item.PriceSchedule.PriceBreaks.length - 1 || quantity >= priceBreaks[b].Quantity && quantity < priceBreaks[b + 1].Quantity) {
+                console.log("hit");
                 item.UnitPrice = item.Markup ? item.Markup + item.PriceSchedule.PriceBreaks[b].Price : item.PriceSchedule.PriceBreaks[b].Price;
                 break
             }
