@@ -1,4 +1,4 @@
-angular.module('OrderCloud-AddToCartPreview', []);
+angular.module('OrderCloud-AddToCartPreview', []); 
 
 angular.module('OrderCloud-AddToCartPreview')
     .directive('addtocartpreview', addtocartpreview)
