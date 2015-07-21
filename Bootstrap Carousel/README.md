@@ -1,4 +1,4 @@
-#Bootstrap Carousel for OrderCloud
+#Bootstrap Carousel for OrderCloud 
 
 This module allows you to place rotating images in your site. 
 

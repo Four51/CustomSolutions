@@ -1,4 +1,4 @@
-angular.module('OrderCloud-Carousel', ['ngAnimate']);
+angular.module('OrderCloud-Carousel', ['ngAnimate']); 
 
 angular.module('OrderCloud-Carousel')
     .directive('customcarousel', customcarousel)
