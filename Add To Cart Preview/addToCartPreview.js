@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 angular.module('OrderCloud-AddToCartPreview', []);  
+=======
+angular.module('OrderCloud-AddToCartPreview', []); 
+>>>>>>> a23e922... pack Add To Cart Preview for copy to master [bug fixes]
 
 angular.module('OrderCloud-AddToCartPreview')
     .directive('addtocartpreview', addtocartpreview)
