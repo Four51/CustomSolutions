@@ -1,4 +1,4 @@
-#Product List View Add to Cart for OrderCloud
+#Product List View Add to Cart for OrderCloud 
 
 This module provides the user with the ability to add a product to their cart from the Product List page instead of the Product Detail page. 
 
