@@ -1,8 +1,8 @@
-#Product List View Add to Cart for OrderCloud 
+#Product List Add to Cart for OrderCloud 
 
 This module provides the user with the ability to add a product to their cart from the Product List page instead of the Product Detail page. 
 
-To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductListViewAddtoCart).
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductListAddtoCart).
 
 ##Setup
 ###1. Add module file to your project.
