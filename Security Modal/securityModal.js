@@ -61,14 +61,14 @@ function SecurityModalCtrl($scope, $modal, $log) {
                 ' before submitting any confidential information. Click <a href="//seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=WWW.FOUR51.COM&lang=en" target="_blank">here</a> ' +
                 'to view our authenticity and site status.',
                 '</p>',
-                '<p>',
+                '<span style="display:none;">',
                 '<a onmousedown="return v_mDown();" tabindex="-1" href="//seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=WWW.FOUR51.COM&lang=en" target="VRSN_Splash">',
                 '<img oncontextmenu="return false;" ' +
                 'alt="Click to Verify - This site has chosen a VeriSign SSL Certificate to improve Web site security" ' +
                 'src="https://seal.verisign.com/getseal?at=0&&sealid=2&dn=WWW.FOUR51.COM&aff=VeriSignCACenter&lang=en" name="seal" border="true" />',
                 '</a>',
-                '<div style="display: none;"><img src="https://extended-validation-ssl.verisign.com/dot_clear.gif"></div>',
-                '</p>',
+                '<span><img src="https://extended-validation-ssl.verisign.com/dot_clear.gif"></span>',
+                '</span>',
                 '<h4>Secure Transactions</h4>',
                 '<p>',
                 'When a bankcard is used over the Internet, consumers want assurance that their account information is safe. That is why Visa instituted the Cardholder Information Security ' +
