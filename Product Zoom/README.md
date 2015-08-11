@@ -4,7 +4,6 @@ This module provides the user the ability to create a hover zoom image on a prod
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductZoom#example). 
 
->**Note:** The current plugin code will only be officially "licensed" when using the domain "four51ordercloud.com".  If your site uses a custom domain, please contact your Account Manager so they can set-up the domain with Four51's Star Plugins Account.
 
 ##Setup
 ###1. Add module file to your project.
