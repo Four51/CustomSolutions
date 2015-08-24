@@ -1,4 +1,4 @@
-angular.module('OrderCloud-CategoryCollapse', []);
+angular.module('OrderCloud-CategoryCollapse', []); 
 
 angular.module('OrderCloud-CategoryCollapse')
     .directive('categorycollapse', categorycollapse)

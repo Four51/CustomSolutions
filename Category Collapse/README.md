@@ -1,4 +1,4 @@
-#Category Collapse for OrderCloud
+#Category Collapse for OrderCloud 
 
 This module provides the user the ability to see a collapsed category tree view.
 
