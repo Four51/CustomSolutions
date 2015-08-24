@@ -45,6 +45,7 @@ function customCarouselCtrl($scope, $animate, $filter) {
         $scope.slides = []; //reset the slide counter
         $scope.myInterval = ($filter('intervalFilter')($scope.user.CustomFields, 'interval') * 1000) || 5000;
         $scope.slides = $scope.slides.concat($filter('carouselFilter')($scope.user.CustomFields, 'carouselImage'));
+        $scope.slides[0].active = true;
     });
 }
 
