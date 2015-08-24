@@ -1,4 +1,4 @@
-#MiniCart for OrderCloud
+#MiniCart for OrderCloud 
 
 This module contains a mini cart add-on which provides a small version of a user's shopping cart to appear upon mouse-over of the cart icon in the nav. 
 

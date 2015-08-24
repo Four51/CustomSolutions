@@ -1,4 +1,4 @@
-angular.module('OrderCloud-Minicart', []);
+angular.module('OrderCloud-Minicart', []); 
 
 angular.module('OrderCloud-Minicart')
     .directive('minicart', minicart)
