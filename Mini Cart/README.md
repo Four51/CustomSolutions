@@ -33,7 +33,7 @@ Add a dependency for `OrderCloud-Minicart` to the Four51.app module in the **`js
 ##Usage
 
 
-###1. Add the minicart directive to your site
+####1. Add the minicart directive to your site
 
 The `<minicart></minicart>` directive can be used anywhere in the app.  One location we recommend is in the **`partials/controls/nav.html`**  file with an overwrite to the default cart icon.  This will place the mini cart in  your top navigation bar where the default cart icon is. 
 
@@ -61,6 +61,6 @@ with
 </ul>
 ```
 
-###2. Customize the Mini Cart with CSS
+####2. Customize the Mini Cart with CSS
 
 The module CSS is located within the Mini Cart module (minicart.js file).  Any css changes should be made inside the module. 
