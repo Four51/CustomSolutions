@@ -24,7 +24,8 @@ If you are using file overrides, create a new file override named **`lib/oc/mini
 
 ####2. Load the module into the application
 
-Add a dependency for `OrderCloud-Minicart` to the Four51.app module in the **`js/app.js`** file.
+Add a dependency for `OrderCloud-Minicart` to the Four51.app module in the **`js/app.js`** file by following these steps:
+
 1. In Code Editor, locate your **`js/app.js`** file; hit edit.
 2. Add **‘OrderCloud-Minicart’** into the file. Save.
 
