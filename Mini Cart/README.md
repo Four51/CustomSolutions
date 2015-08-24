@@ -1,34 +1,65 @@
-#MiniCart Directive
+#MiniCart for OrderCloud
 
+This module contains a mini cart add-on which provides a small version of a user's shopping cart to appear upon mouse-over of the cart icon in the nav. 
+
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/MiniCart)
 ##Setup
 
-###1. Add minicart.js module to your project.
-**`minicart.js`** contains as AngularJS module with a directive and controller to run the minicart add-on.
-We recommend adding this file under the lib folder under the app directory.
-Add the following script tag to you index.html file inside the body tag:
+####1. Add MiniCart module file to your project.
+
+If you are using a repository, add this file to the **`/lib/oc`** directory.
+
+If you are using file overrides, create a new file override named **`lib/oc/minicart.js`** and add this file as the content by following these steps:
+
+1. Edit your 2.0 site
+2. Go to “Code Editor” tab
+3. Hit “New File Override”
+4. Name this file **`lib/oc/minicart.js`**
+5. Place raw code from minicart.js in the section below. Save.
+
+**Important!** Be sure to reference the new/updated JS file in the index.html file by following these steps:
+
+1. In Code Editor, locate your index.html file; hit edit.
+2. Add `<script src="lib/oc/minicart.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
+
+####2. Load the module into the application
+
+Add a dependency for `OrderCloud-Minicart` to the Four51.app module in the **`js/app.js`** file.
+1. In Code Editor, locate your **`js/app.js`** file; hit edit.
+2. Add **‘OrderCloud-Minicart’** into the file. Save.
+
+
+##Usage
+
+
+###1. Add the minicart directive to your site
+
+The `<minicart></minicart>` directive can be used anywhere in the app.  One location we recommend is in the **`partials/controls/nav.html`**  file with an overwrite to the default cart icon.  This will place the mini cart in  your top navigation bar where the default cart icon is. 
+
+To place it in this location, locate the `partials/controls/nav.html` file.
+
+Replace:
 ```html
-<script src="lib/oc/minicart.js" data-group="resources"></script>
+
+<ul class="nav navbar-nav pull-right">
+	<li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
+		<a id="451qa_cart_link" ng-show="(cartCount && cartCount > 0) && user.CurrentOrderID" class="cart" href="cart">
+			<span ng-bind="cartCount" class="badge"></span>
+			<i class="fa fa-shopping-cart"></i>
+			<i class="fa fa-caret-down"></i>
+		</a>
+	</li>
+</ul>
 ```
-And add the 'minicart' module as a dependency in your **`app.js`** file
 
+with
 
-###2. Adding the directive to your project
-The `<minicart></minicart>` directive can be used anywhere in the app.
-One example we recommend is in the nav html file like so, with an overwrite to the default cart icon:
 ```html
-<ul class="pull-right hidden-xs hidden-sm">
-      <minicart></minicart>
-  </ul>
-  <ul style="margin-bottom: 0;" class="visible-sm visible-xs nav navbar-nav pull-right">
-      <li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
-          <a id="451qa_cart_link" ng-show="cartCount && user.CurrentOrderID" class="cart" href="cart">
-              <span ng-bind="cartCount" class="badge"></span>
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-caret-down"></i>
-          </a>
-      </li>
-  </ul>
+<ul class="pull-right">
+	<minicart></minicart>
+</ul>
 ```
-This will allow for resizing on mobile screens
 
-It is expected that this directive will be customized.  It will likely not be perfect for your solution as is.
+###4. Customize the Mini Cart with CSS
+
+The module CSS is located within the Mini Cart module (minicart.js file).  Any css changes should be made inside the module. 
