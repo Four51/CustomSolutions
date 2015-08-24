@@ -61,6 +61,6 @@ with
 </ul>
 ```
 
-###4. Customize the Mini Cart with CSS
+###2. Customize the Mini Cart with CSS
 
 The module CSS is located within the Mini Cart module (minicart.js file).  Any css changes should be made inside the module. 
