@@ -1,11 +1,11 @@
 angular.module('OrderCloud-Minicart', []);
 
 angular.module('OrderCloud-Minicart')
-    .directive('minicart', minicartDirective)
-    .controller('minicartCtrl', minicartController)
+    .directive('minicart', minicart)
+    .controller('minicartCtrl', minicartCtrl)
 ;
 
-function minicartDirective() {
+function minicart() {
     return {
         restrict: 'E',
         transclude: true,
@@ -17,12 +17,12 @@ function minicartDirective() {
         return [
             '<style>',
             '.minicart { padding: 15px 15px 15px 0; float: right; cursor: pointer;color: #000000; min-width:300px; text-align:right;}',
-            '@media (max-width: 1279px) {.minicart { min-width:auto; } }',
+            '@media (max-width: 768px) {.minicart { min-width:auto; } }',
             '.text-muted {color: #000000;}',
             '.minicart .fa-shopping-cart {position: relative;top: 3px;padding-right: 5px; font-size:1.5em;}',
             '.minicart .label.label-default {border-top-right-radius: 0;border-top-left-radius: 0;border-bottom-right-radius: 0;border-bottom-left-radius: 0;background-color: #000000;}',
             '.minicart:active .minicart-detail, .minicart:focus .minicart-detail, .minicart:hover .minicart-detail {display: block;}',
-            '@media (max-width: 1279px) {.minicart:active .minicart-detail, .minicart:focus .minicart-detail, .minicart:hover .minicart-detail {min-width:260px;} }',
+            '@media (max-width: 768px) {.minicart:active .minicart-detail, .minicart:focus .minicart-detail, .minicart:hover .minicart-detail {min-width:260px;} }',
             '.minicart .minicart-detail {display: none;border-radius: 4px;-webkit-box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);padding: 10px;position: absolute;top: 100%;right: 10px;background-color: #fff;z-index: 20;}',
             '.minicart .minicart-detail .fa-caret-up {position: absolute;top: -18px;right: 10px;color: #fff;}',
             '.minicart .minicart-detail .row:not(.lineitem-row) {padding: 10px 0;}',
@@ -36,7 +36,6 @@ function minicartDirective() {
             '.minicart .minicart-detail .more {min-height:30px;}',
             '.minicart .minicart-detail .more a {float:right;font-size:85%; color:#000;}',
             '</style>',
-            //'<div ng-show="currentOrder && cartCount" ng-hide="isActive([\'cart\', \'checkout\'])">',
             '<div ng-show="currentOrder && cartCount">',
             '    <div class="minicart">',
             '        <i class="fa fa-shopping-cart"></i> <span class="label label-default">{{cartCount + \' ITEM(S)\'}}</span> <span class="hidden-xs"> - {{currentOrder.Total | currency }}</span> <i class="fa fa-caret-down text-muted"></i>',
@@ -109,39 +108,8 @@ function minicartDirective() {
     }
 }
 
-minicartController.$inject = ['$scope', '$location', 'Order', 'OrderConfig', 'User'];
-function minicartController($scope, $location, Order, OrderConfig, User) {
-
-    $scope.isActive = function(path) {
-        var cur_path = $location.path().replace('/', '');
-        var result = false;
-
-        if (path instanceof Array) {
-            angular.forEach(path, function(p) {
-                if (p == cur_path && !result)
-                    result = true;
-            });
-        }
-        else {
-            if (cur_path == path)
-                result = true;
-        }
-        return result;
-    };
-    // extension of above isActive in path
-    $scope.isInPath = function(path) {
-        var cur_path = $location.path().replace('/', '');
-        var result = false;
-
-        if(cur_path.indexOf(path) > -1) {
-            result = true;
-        }
-        else {
-            result = false;
-        }
-        return result;
-    };
-
+minicartCtrl.$inject = ['$scope', '$location', 'Order', 'OrderConfig', 'User'];
+function minicartCtrl($scope, $location, Order, OrderConfig, User) {
 
     $scope.removeItem = function(item, override) {
         if (override || confirm('Are you sure you wish to remove this item from your cart?') == true) {
