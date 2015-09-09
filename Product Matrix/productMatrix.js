@@ -1,4 +1,4 @@
-angular.module('OrderCloud-ProductMatrix', []); 
+angular.module('OrderCloud-ProductMatrix', []);
 
 angular.module('OrderCloud-ProductMatrix')
     .directive('productmatrix', productmatrix)
@@ -17,7 +17,7 @@ function productmatrix() {
 
     function template() {
         return [
-            '<style>.matrix-grid > div {padding: 0px;}.matrix-grid > div > div {text-align: center;height: 50px;padding: 10px 5px;}.matrix-grid > div > div:nth-of-type(even) {background-color: #f5f5f5;}.matrix-grid > div:last-of-type > div {padding: 5px;}.matrix-grid > div:last-of-type > div input {text-align: center;}.qty-invalid{border-color: #d9534f;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);color: #ccc;}</style>',
+            '<style>.matrix-grid > div {padding: 0;}.matrix-grid > div > div {text-align: center;height: 50px;padding: 10px 5px;}.matrix-grid > div > div:nth-of-type(even) {background-color: #f5f5f5;}.matrix-grid > div:last-of-type > div {padding: 5px;}.matrix-grid > div:last-of-type > div input {text-align: center;}.qty-invalid{border-color: #d9534f;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);color: #ccc;}</style>',
             '<div>',
             '<loadingindicator ng-show="matrixLoadingIndicator" />',
             '<div ng-repeat="group in comboVariants" ng-show="specCount == 2 && (group | filter:{Show: true}).length > 0">',
@@ -56,14 +56,16 @@ function productmatrix() {
             '</div>',
             '</div>',
             '<div class="alert alert-danger" style="margin-top:20px;" ng-show="qtyError" ng-bind-html="qtyError"></div>',
-            '<button class="btn btn-success btn-block btn-lg" type="button" id="451_btn_orderadd" ng-disabled="qtyError" ng-click="addVariantsToOrder()"><loadingindicator ng-show="addToOrderIndicator" /><i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>{{addToOrderText | r}}</button>',
+            '<button class="btn btn-success btn-block btn-lg" type="button" id="451_btn_orderadd" ng-disabled="qtyError" ng-click="addVariantsToOrder()">',
+            '<loadingindicator ng-show="addToOrderIndicator" /><i ng-show="qtyError" class="fa fa-warning"></i> {{addToOrderText | r}}</button>',
             '</div>'
         ].join('');
     }
 }
 
-ProductMatrixCtrl.$inject = ['$scope', '$routeParams', '$route', '$location', '$451', 'Product', 'ProductDisplayService', 'Order', 'Variant', 'User', 'ProductMatrix'];
-function ProductMatrixCtrl($scope, $routeParams, $route, $location, $451, Product, ProductDisplayService, Order, Variant, User, ProductMatrix) {
+ProductMatrixCtrl.$inject = ['$scope', '$routeParams', '$location', 'ProductDisplayService', 'Order', 'User', 'ProductMatrix'];
+function ProductMatrixCtrl($scope, $routeParams, $location, ProductDisplayService, Order, User, ProductMatrix) {
+
     $scope.addToOrderText = "Add To Cart";
     $scope.searchTerm = null;
     $scope.currentOrder = $scope.$parent.$parent.currentOrder;
@@ -113,51 +115,65 @@ function ProductMatrixCtrl($scope, $routeParams, $route, $location, $451, Produc
             function(ex) {
                 $scope.addToOrderIndicator = false;
                 $scope.addToOrderError = ex.Message;
-                $route.reload();
+                //$route.reload();
             }
         );
     }
 
     $scope.addVariantsToOrder = function(){
-        if(!$scope.currentOrder){
-            $scope.currentOrder = {};
-            $scope.currentOrder.LineItems = [];
+
+        $scope.qtyError = "";
+        ProductMatrix.validateQuantity($scope.comboVariants, $scope.product, function (message) {
+            $scope.qtyError = message; //this shows all of the messages for each vboss variant
+        });
+
+        if ($scope.qtyError) {
+            //do nothing - error messaging is shown via validateQuantity
         }
-        if (!$scope.lineItemIndex) {
-            ProductMatrix.addToOrder($scope.comboVariants, $scope.product, function(lineItems) {
-                $scope.addToOrderIndicator = true;
-                angular.forEach(lineItems, function(li) {
-                    $scope.currentOrder.LineItems.push(li);
-                });
-                saveOrder($scope.currentOrder);
-            });
-        }
+
         else {
-            $scope.addToOrderIndicator = true;
-            if ($scope.specCount == 1) {
-                angular.forEach($scope.comboVariants, function(variant) {
-                    if (variant[0].Quantity) {
-                        $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant[0].Quantity;
-                    }
+
+            if (!$scope.currentOrder) {
+                $scope.currentOrder = {};
+                $scope.currentOrder.LineItems = [];
+            }
+
+            if (!$scope.lineItemIndex) {
+                ProductMatrix.addToOrder($scope.comboVariants, $scope.product, function (lineItems) {
+                    $scope.addToOrderIndicator = true;
+                    angular.forEach(lineItems, function (li) {
+                        $scope.currentOrder.LineItems.push(li);
+                    });
+                    saveOrder($scope.currentOrder);
                 });
-                saveOrder($scope.currentOrder);
             }
             else {
-                angular.forEach($scope.comboVariants, function(group) {
-                    angular.forEach(group, function(variant) {
-                        if (variant.Quantity) {
-                            $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant.Quantity;
+                $scope.addToOrderIndicator = true;
+                if ($scope.specCount == 1) {
+                    angular.forEach($scope.comboVariants, function (variant) {
+                        if (variant[0].Quantity) {
+                            $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant[0].Quantity;
                         }
                     });
-                });
-                saveOrder($scope.currentOrder);
+                    saveOrder($scope.currentOrder);
+                }
+                else {
+                    angular.forEach($scope.comboVariants, function (group) {
+                        angular.forEach(group, function (variant) {
+                            if (variant.Quantity) {
+                                $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant.Quantity;
+                            }
+                        });
+                    });
+                    saveOrder($scope.currentOrder);
+                }
             }
         }
     };
 }
 
-ProductMatrix.$inject = ['$resource', '$451', 'Variant'];
-function ProductMatrix($resource, $451, Variant) {
+ProductMatrix.$inject = ['$451', 'Variant'];
+function ProductMatrix($451, Variant) {
     function _then(fn, data, count, s1, s2) {
         if (angular.isFunction(fn))
             fn(data, count, s1, s2);
@@ -293,34 +309,41 @@ function ProductMatrix($resource, $451, Variant) {
         var qtyError = "";
         var priceSchedule = product.StandardPriceSchedule;
         var totalQty = 0;
-        angular.forEach(matrix, function(group) {
-            angular.forEach(group, function(variant) {
+
+
+        angular.forEach(matrix, function (group) {
+            angular.forEach(group, function (variant) {
                 var qty = variant.Quantity;
                 variant.QtyError = false;
+
                 if (variant.Quantity) {
-                    if(!$451.isPositiveInteger(qty))
-                    {
+                    if (!$451.isPositiveInteger(qty)) {
                         qtyError += "<p>Please select a valid quantity for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
                     }
                     else {
                         totalQty += +(variant.Quantity);
                     }
                 }
-                if(priceSchedule.MinQuantity > qty && qty != 0){
+                if (priceSchedule.MinQuantity > qty && qty != 0) {
                     qtyError += "<p>Quantity must be equal or greater than " + priceSchedule.MinQuantity + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
                     variant.QtyError = true;
                 }
-                if(priceSchedule.MaxQuantity && priceSchedule.MaxQuantity < qty){
+                if (priceSchedule.MaxQuantity && priceSchedule.MaxQuantity < qty) {
                     qtyError += "<p>Quantity must be equal or less than " + priceSchedule.MaxQuantity + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
                     variant.QtyError = true;
                 }
                 var qtyAvail = variant.QuantityAvailable;
-                if(qtyAvail < qty && product.AllowExceedInventory == false){
-                    qtyError = "<p>Quantity cannot exceed the Quantity Available of " +  qtyAvail + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
+                if (qtyAvail < qty && product.AllowExceedInventory == false) {
+                    qtyError = "<p>Quantity cannot exceed the Quantity Available of " + qtyAvail + " for " + variant.DisplayName[0] + " " + (variant.DisplayName[1] ? variant.DisplayName[1] : "") + "</p>";
                     variant.QtyError = true;
                 }
             });
         });
+
+        //show an error if no qty has been entered and therefore qtyChanged() has not been hit
+        if (!totalQty) {
+            qtyError += "<p>Please select a valid quantity.</p>";
+        }
 
         if (!product.RestrictedQuantity && product.MinTotalQty && totalQty < product.MinTotalQty) {
             qtyError += "Total quantity must be equal or greater than " + product.MinTotalQty + " for " + (product.Name ? product.Name : product.ExternalID);
@@ -330,7 +353,9 @@ function ProductMatrix($resource, $451, Variant) {
             qtyError += "Total quantity must be equal or less than " + product.MaxTotalQty + " for " + (product.Name ? product.Name : product.ExternalID);
         }
 
+
         _then(success, qtyError);
+
     }
 
     var _addToOrder = function(matrix, product, success) {
