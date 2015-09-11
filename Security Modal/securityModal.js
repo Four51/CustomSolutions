@@ -57,18 +57,9 @@ function SecurityModalCtrl($scope, $modal, $log) {
                 '<h3>This is a secure Internet commerce site.</h3>',
                 '<h4>Site Security</h4>',
                 '<p>',
-                'We understand that security remains a primary concern of online consumers. The VeriSign Secure Site Program allows individuals to learn more about web sites they visit' +
-                ' before submitting any confidential information. Click <a href="//seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=WWW.FOUR51.COM&lang=en" target="_blank">here</a> ' +
-                'to view our authenticity and site status.',
+                'We understand that security remains a primary concern of online consumers.',
+                'Rest assured that this sites GeoTrust&reg; True BusinessID SSL certificate lets you know that this site is trustworthy and certified from a globally trusted certificate authority.',
                 '</p>',
-                '<span style="display:none;">',
-                '<a onmousedown="return v_mDown();" tabindex="-1" href="//seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=WWW.FOUR51.COM&lang=en" target="VRSN_Splash">',
-                '<img oncontextmenu="return false;" ' +
-                'alt="Click to Verify - This site has chosen a VeriSign SSL Certificate to improve Web site security" ' +
-                'src="https://seal.verisign.com/getseal?at=0&&sealid=2&dn=WWW.FOUR51.COM&aff=VeriSignCACenter&lang=en" name="seal" border="true" />',
-                '</a>',
-                '<span><img src="https://extended-validation-ssl.verisign.com/dot_clear.gif"></span>',
-                '</span>',
                 '<h4>Secure Transactions</h4>',
                 '<p>',
                 'When a bankcard is used over the Internet, consumers want assurance that their account information is safe. That is why Visa instituted the Cardholder Information Security ' +
@@ -84,17 +75,7 @@ function SecurityModalCtrl($scope, $modal, $log) {
             ].join('');
         }
 
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-
-        $scope.toggleAnimation = function () {
-            $scope.animationsEnabled = !$scope.animationsEnabled;
-        };
-
-
+    
     };
 
     var SecurityModalOpenCtrl = ['$scope', '$modalInstance', '$modal', function($scope, $modalInstance, $modal) {
