@@ -22,8 +22,8 @@ function securitymodal() {
     }
 }
 
-SecurityModalCtrl.$inject = ['$scope', '$modal', '$log'];
-function SecurityModalCtrl($scope, $modal, $log) {
+SecurityModalCtrl.$inject = ['$scope', '$modal'];
+function SecurityModalCtrl($scope, $modal) {
 
     $scope.animationsEnabled = true;
 
@@ -35,7 +35,7 @@ function SecurityModalCtrl($scope, $modal, $log) {
             backdropClick: true,
             dialogFade: false,
             keyboard: true,
-            size: size, // this needs some figuring out
+            size: size,
             template: securitymodalopen,
             controller: SecurityModalOpenCtrl
         });
@@ -75,10 +75,9 @@ function SecurityModalCtrl($scope, $modal, $log) {
             ].join('');
         }
 
-    
     };
 
-    var SecurityModalOpenCtrl = ['$scope', '$modalInstance', '$modal', function($scope, $modalInstance, $modal) {
+    var SecurityModalOpenCtrl = ['$scope', '$modalInstance', '$modal', function($scope, $modalInstance) {
 
         $scope.close = function () {
             $modalInstance.close();
