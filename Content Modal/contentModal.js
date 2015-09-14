@@ -17,7 +17,7 @@ function contentmodal() {
         return [
             '<style>',
             //this style is conditional based on nav placement and site css
-            'a, a:hover, a:focus {color:#fff; text-decoration:none;}',
+            'contentmodal a, contentmodal a:hover, contentmodal a:focus {color:#fff; text-decoration:none;}',
             '</style>',
             // update the size of the modal window within the open()
             '<a ng-click="open(500)">',
