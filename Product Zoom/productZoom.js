@@ -14,7 +14,6 @@ function productzoom() {
             '<style>' +
             '.jetzoom-lens{ border:none;width:80%;height:80%;border-radius:20px;box-shadow:0 0 10px rgba(0,0,0,.4);cursor:none }' +
             '.jetzoom-blank{ background-color:rgba(0,0,0,.01);) }' +
-            //'.jetzoom-ajax-loader{ background-image:url(images/ajax-loader.gif);width:32px;height:32px }' +
             '.jetzoom-container img:not(.jetzoom){ display:inline-block;cursor:pointer }' +
             '.jetzoom{ margin:0 auto }' +
             '</style>'+
@@ -47,7 +46,7 @@ function productzoom() {
                 };
             }, true);
 
-//            Plugin Code:
+            // Plugin Code:
             /*
              Jet Zoom Application License (JZ01-APP).
              Version 1.1 rev 1406062037
