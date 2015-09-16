@@ -36,7 +36,7 @@ function minicart() {
             '.minicart .minicart-detail .more {min-height:30px;}',
             '.minicart .minicart-detail .more a {float:right;font-size:85%; color:#000;}',
             '</style>',
-            '<div ng-show="currentOrder && cartCount">',
+            '<div ng-show="currentOrder && cartCount && !isInPath(\'order/\')">',
             '    <div class="minicart">',
             '        <i class="fa fa-shopping-cart"></i> <span class="label label-default">{{cartCount + \' ITEM(S)\'}}</span> <span class="hidden-xs"> - {{currentOrder.Total | currency }}</span> <i class="fa fa-caret-down text-muted"></i>',
             '        <div class="minicart-detail">',
@@ -152,6 +152,6 @@ function minicartCtrl($scope, $location, Order, OrderConfig, User) {
     };
 
     $scope.$on('event:orderUpdate', function(event, order){
-        $scope.currentOrder = order ? (order.Status === 'Unsubmitted' && !($location.path.indexOf('order') > -1)) ? order : null : null;
+        $scope.currentOrder = order ? (order.Status === 'Unsubmitted') ? order : null : null;
     })
-};
+}
