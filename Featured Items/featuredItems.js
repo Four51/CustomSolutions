@@ -3,7 +3,6 @@ angular.module('OrderCloud-FeaturedItems', []);
 angular.module('OrderCloud-FeaturedItems')
     .directive('featureditems', featureditems)
     .controller('FeaturedItemsCtrl', FeaturedItemsCtrl)
-    .filter('intervalFilter', intervalFilter)
     .filter('featuredItemFilter', featuredItemFilter)
 ;
 
@@ -37,8 +36,7 @@ function FeaturedItemsCtrl($scope, $filter, $location) {
     $scope.featureditems = [];
     $scope.$watch('user.CustomFields', function(newVal){
         if (!newVal) return;
-        $scope.featureditems = []; //reset the slide counter
-        //$scope.myInterval = ($filter('intervalFilter')($scope.user.CustomFields, 'interval') * 1000) || 5000;
+        $scope.featureditems = []; //reset the counter
         $scope.featureditems = $scope.featureditems.concat($filter('featuredItemFilter')($scope.user.CustomFields, 'featureditem'));
     });
 
@@ -61,24 +59,12 @@ function FeaturedItemsCtrl($scope, $filter, $location) {
     };
 }
 
-function intervalFilter() {
-    return function (fields, name) {
-        var result = null;
-        angular.forEach(fields, function(field) {
-            if(field.Name.toUpperCase().indexOf(name.toUpperCase()) > -1)
-                result = field.DefaultValue;
-        });
-        return result;
-    }
-}
-
 function featuredItemFilter() {
     return function (fields, name) {
         var result = [];
         angular.forEach(fields, function(field) {
             if(field.Name.toUpperCase().indexOf(name.toUpperCase()) > -1){
                 var featureditem = {
-                    //text: field.UploadInstructions,
                     image: field.File.Url,
                     link: field.Label
                 };
