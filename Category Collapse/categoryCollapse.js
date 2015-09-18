@@ -1,4 +1,4 @@
-angular.module('OrderCloud-CategoryCollapse', []); 
+angular.module('OrderCloud-CategoryCollapse', []);
 
 angular.module('OrderCloud-CategoryCollapse')
     .directive('categorycollapse', categorycollapse)
@@ -48,7 +48,10 @@ function collapsenode($compile) {
 
     function template() {
         return [
-            '<li class="451_cat_item" ng-class="{\'active\':  current.InteropID == node.InteropID}"><a ng-click="toggle()" ng-bind-html="node.Name"></a></li>'
+            '<li class="451_cat_item" ng-class="{\'active\':  current.InteropID == node.InteropID}">',
+            '<a ng-show="{{node.SubCategories}}" ng-click="toggle()" ng-bind-html="node.Name"></a>',
+            '<a ng-hide="{{node.SubCategories}}" ng-href="catalog/{{node.InteropID}}" ng-bind-html="node.Name"></a>',
+            '</li>'
         ].join('');
     }
 }
