@@ -1,48 +1,77 @@
 #Content Modal for OrderCloud
-This is a module that sends a modal message to the user for information you may need to convey. 
+
+This module provides a modal popup content of your choice in any location on your site. 
+
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ContentModal).
 
 ##Setup
-#####1. Add module file to your project.
 
-Add the contentModal.js file to your project.
-If you are using a repository add this file to the /lib/oc directory.
-If you are using file overrides, create a new file override named **`lib/oc/contentModal.js'** and add this file as the content for that file. 
-Be sure to reference the JS file in the index.html file.
+####1. Add module file to your project.
+
+If you are using a repository, add this file to the **`/lib/oc`** directory.
+
+If you are using file overrides, create a new file override named **`lib/oc/contentModal.js`** and add this file as the content by following these steps:
+
+1. Edit your 2.0 site
+2. Go to “Code Editor” tab
+3. Hit “New File Override”
+4. Name this file **`lib/oc/contentModal.js`**
+5. Place raw code from contentModal.js in the section below. Save.
+
+**Important!** Be sure to reference the new/updated JS file in the **`index.html`** file by following these steps:
+
+1. In Code Editor, locate your index.html file; hit edit.
+2. Add `<script src="lib/oc/contentModal.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
+
+####2. Load the module into the application
+
+Add a dependency for `OrderCloud-ContentModal` to the Four51.app module in the **`js/app.js`** file by following these steps:
+
+1. In Code Editor, locate your **`js/app.js`** file; hit edit.
+2. Add **‘OrderCloud-ContentModal’** into the file. Save.
+
+##Usage
+
+####1. Place the directive anywhere in the application
+
+Place the directive below anywhere in the application where you would like the Content Modal to appear. 
 ```html
-<script src="lib/oc/contentModal.js" data-group="resources"></script>
+<li>
+	<contentmodal></contentmodal>
+</li>
 ```
 
+To place the modal window in the top nav of your site, like in our demonstration on Volition, follow the steps below:
 
-#####2. Load the module into the application.
-Add a dependency for **`OrderCloud-ContentModal'** to the Four51.app module in the js/app.js file. 
+ - Locate the **`partials/controls/nav.html`** file. 
+ - Place the directive  **`<contentmodal></contentmodal>`** after the last nav item (pulled left), and before your shopping cart (pulled right). Your code should look something like this:
 
-##Adding Content
+ 
+```html
+...
+	<li ng-if="AppConst.debug">
+		<a href="#" ng-click="Clear()">
+			<i class="fa fa-archive"></i>
+			<span class="text-nav">Clear Cache</span>
+        </a>
+	</li>
+</ul>
+	</li>
+    <li>
+	    <contentmodal></contentmodal>
+    </li>
+</ul>
+<ul class="nav navbar-nav pull-right">
+	<li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
+	    <a id="451qa_cart_link" ng-show="(cartCount && cartCount > 0) && user.CurrentOrderID" class="cart" href="cart">
+	        <span ng-bind="cartCount" class="badge"></span>
+	        <i class="fa fa-shopping-cart"></i>
+            <i class="fa fa-caret-down"></i>
+	    </a>
+	</li>
+</ul>
+```
 
-####1.  Add an HTML file for the modal content. 
-Add the **'modalContent.html'** file to your project.
-If you are using a repository add this file to partials/
-If you are usinge file overrides, create a new file override named **'partials/modalContent.html'**
-####2. Add content to modalContent.html
+####2. Customize the content of your modal window.
 
-In the modalContent.html file provided, there is a demo paragraph and a button. Edit this to your own discretion to add more functionality to the module, or leave as is with an 'OK' button. 
-
-Now you created the modal and added the functionality that is required for it to appear. You now need to initiate this functionality in the place you see fit in the html.
-Make access to the modal functionality
-
-####3. Add your controller with 'ng-controller'
-
-Initiate your controller by adding ng-controller="ModalCtrl" to the starting div of the element you wish to have a modal appear from. In this example, I added it to a link on the '/branding' page.
-
- for more general information on ngController: https://docs.angularjs.org/api/ng/directive/ngController
-
-
-####4. Add functionality with 'ng-click'
-
-Add the functionality referenced by the controller (ModalCtrl) using ng-click="showModal()"
-for more general information on ngClick: 
-https://docs.angularjs.org/api/ng/directive/ngClick
-
-You now have a modal that conditionally appears when an element is clicked. 
-
-####5. Additional Resources
-http://getbootstrap.com/javascript/#modals
+All of the content of your modal window can be customized in the contentModal.js file. Currently, you will find Lorem Ipsum text, "Open Modal" label in the top navigation bar with an info icon, and buttons for Cancel and Close to exit out of the window. This can all be customized to your needs using basic html. 
