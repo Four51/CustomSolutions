@@ -49,15 +49,26 @@ To place the modal window in the top nav of your site, like in our demonstration
  
 ```html
 ...
-	<li ng-if="AppConst.debug">
-		<a href="#" ng-click="Clear()">
-			<i class="fa fa-archive"></i>
-			<span class="text-nav">Clear Cache</span>
-        </a>
+			<li ng-if="AppConst.debug">
+				<a href="#" ng-click="Clear()">
+					<i class="fa fa-archive"></i>
+					<span class="text-nav">Clear Cache</span>
+				</a>
+			</li>
+                </ul>
 	</li>
-    <li>
-	    <contentmodal></contentmodal>
-    </li>
+	<li>
+            <contentmodal></contentmodal>
+	</li>
+</ul>
+<ul class="nav navbar-nav pull-right">
+	<li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
+	    <a id="451qa_cart_link" ng-show="(cartCount && cartCount > 0) && user.CurrentOrderID" class="cart" href="cart">
+	        <span ng-bind="cartCount" class="badge"></span>
+	        <i class="fa fa-shopping-cart"></i>
+            <i class="fa fa-caret-down"></i>
+	    </a>
+	</li>
 </ul>
 <ul class="nav navbar-nav pull-right">
 	<li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
