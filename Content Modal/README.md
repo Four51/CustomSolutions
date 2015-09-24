@@ -55,8 +55,6 @@ To place the modal window in the top nav of your site, like in our demonstration
 			<span class="text-nav">Clear Cache</span>
         </a>
 	</li>
-</ul>
-	</li>
     <li>
 	    <contentmodal></contentmodal>
     </li>
