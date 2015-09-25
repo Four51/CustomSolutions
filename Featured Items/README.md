@@ -32,8 +32,9 @@ Add a dependency for `OrderCloud-FeaturedItems` to the Four51.app module in the 
 
 ####3. Placing the featurd items in the application
 
-Add the directive  **`<featureditems></featureditems>`** wherever you would like the featured items to appear. If you would like it at the top of your store homepage, 
-add it inside the **`partials/categoryView.html`**  file like the example below.
+Add the directive  **`<featureditems></featureditems>`** wherever you would like the featured items to appear. This example places the featured items under the branding area, parallel to the category list, and above the categories.
+
+Update the **`partials/categoryView.html`**  file like the example below.
 ```html
 <div ng-class="{'col-md-9': navStatus.visible, 'col-md-12': !navStatus.visible }">
 	<featureditems></featureditems>
