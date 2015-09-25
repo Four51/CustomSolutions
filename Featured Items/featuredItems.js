@@ -20,9 +20,10 @@ function featureditems() {
             '.featured-items { display:none; }',
             '.featured-items.active { display:block; }',
             '.featured-items li { width:25%; float:left; }',
+            '@media (max-width: 768px) { .featured-items li { width:100%; float:none; text-align:center; padding:15px 0; } } ',
             '</style>',
             '<ul class="featured-items" ng-class="{\'active\': isActive(\'catalog\')}">',
-            '<li ng-repeat="featureditem in featureditems">',
+            '<li ng-class="col-xs-3" ng-repeat="featureditem in featureditems">',
             '<a href="catalog/{{featureditem.link}}"><img src="{{featureditem.image}}" /></a>',
             '</li>',
             '</ul>'
