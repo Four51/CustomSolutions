@@ -36,7 +36,7 @@ function minicart() {
             '.minicart .minicart-detail .more {min-height:30px;}',
             '.minicart .minicart-detail .more a {float:right;font-size:85%; color:#000;}',
             '</style>',
-            '<div ng-show="currentOrder && cartCount && !isInPath(\'order/\')">',
+            '<div ng-show="currentOrder && cartCount && !isInPath(\'order/\')">', 
             '    <div class="minicart">',
             '        <i class="fa fa-shopping-cart"></i> <span class="label label-default">{{cartCount + \' ITEM(S)\'}}</span> <span class="hidden-xs"> - {{currentOrder.Total | currency }}</span> <i class="fa fa-caret-down text-muted"></i>',
             '        <div class="minicart-detail">',
