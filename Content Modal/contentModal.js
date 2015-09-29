@@ -1,4 +1,4 @@
-angular.module('OrderCloud-ContentModal', []);
+angular.module('OrderCloud-ContentModal', []); 
 
 angular.module('OrderCloud-ContentModal')
     .directive('contentmodal', contentmodal)
