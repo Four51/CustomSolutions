@@ -1,4 +1,4 @@
-angular.module('OrderCloud-SecurityModal', []);
+angular.module('OrderCloud-SecurityModal', []); 
 
 angular.module('OrderCloud-SecurityModal')
     .directive('securitymodal', securitymodal)

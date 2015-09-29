@@ -1,4 +1,4 @@
-#Security Modal for OrderCloud
+#Security Modal for OrderCloud 
 
 This module provides a modal popup for the "Concerned about Security" button in the checkout summary.
 
