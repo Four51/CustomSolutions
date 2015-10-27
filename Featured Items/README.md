@@ -15,13 +15,13 @@ If you are using file overrides, create a new file override named **`lib/oc/feat
 1. Edit your 2.0 site
 2. Go to “Code Editor” tab
 3. Hit “New File Override”
-4. Name this file **`lib/oc/featureditems.js`**
-5. Place raw code from featureditems.js in the section below. Save.
+4. Name this file **`lib/oc/featuredItems.js`**
+5. Place raw code from featuredItems.js in the section below. Save.
 
 **Important!** Be sure to reference the new/updated JS file in the index.html file by following these steps:
 
 1. In Code Editor, locate your index.html file; hit edit.
-2. Add `<script src="lib/oc/featureditems.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
+2. Add `<script src="lib/oc/featuredItems.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
 ####2. Load the module into the application
 
@@ -30,7 +30,7 @@ Add a dependency for `OrderCloud-FeaturedItems` to the Four51.app module in the 
 1. In Code Editor, locate your **`js/app.js`** file; hit edit.
 2. Add **‘OrderCloud-FeaturedItems’** into the file. Save.
 
-####3. Placing the featurd items in the application
+####3. Placing the featured items in the application
 
 Add the directive  **`<featureditems></featureditems>`** wherever you would like the featured items to appear. This example places the featured items under the branding area, parallel to the category list, and above the categories.
 
@@ -44,8 +44,6 @@ Update the **`partials/categoryView.html`**  file like the example below.
 </div>
 ```
 
-> **Tip:** 
-
 ##Usage
 
 #### 1. Add custom user fields and assign the user fields to the Company or Group
@@ -55,7 +53,7 @@ Update the **`partials/categoryView.html`**  file like the example below.
  3. Click New Custom User Field (or search if you need to update an existing field)
  4. Fill out the fields as followed:
 
-####Required Custom User Fields
+#####Required Custom User Fields
 - **Field Name:** featureditem1 (or subsequent number)
 - **Label:** Insert the URL address if your image should link to a URL in a new tab.  Insert the relative URL (the string after your Application URL, ex. /store/product/tshirt) if your image should redirect within the site and not open any tabs. If you do not want the image to link to anything, enter _none_ in the field.
 - **Type:** File
@@ -72,5 +70,5 @@ Update the **`partials/categoryView.html`**  file like the example below.
 
 #####Additional information:
 
-  - Keep all your images the same dimensions otherwise the page will shift between image transitions.
+  - Keep all your images the same dimensions otherwise the Featured Items section will not be consistent.
   - Custom CSS for the featured items can be added to your custom CSS file using the .featured-items class.
