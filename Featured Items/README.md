@@ -55,7 +55,7 @@ Update the **`partials/categoryView.html`**  file like the example below.
 
 #####Required Custom User Fields
 - **Field Name:** featureditem1 (or subsequent number)
-- **Label:** Insert the URL address if your image should link to a URL in a new tab.  Insert the relative URL (the string after your Application URL, ex. /store/product/tshirt) if your image should redirect within the site and not open any tabs. If you do not want the image to link to anything, enter _none_ in the field.
+- **Label:** Insert the relative URL (the string after your Application URL, ex. /store/product/tshirt) to redirect users within the site. If you do not want the image to link to anything, enter _none_ in the field.
 - **Type:** File
 - **Required:** Do not check
 - **Display to User:** Do not check
