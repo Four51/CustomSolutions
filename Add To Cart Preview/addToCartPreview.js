@@ -1,4 +1,4 @@
-angular.module('OrderCloud-AddToCartPreview', []);
+angular.module('OrderCloud-AddToCartPreview', []); 
 
 angular.module('OrderCloud-AddToCartPreview')
     .directive('addtocartpreview', addtocartpreview)
@@ -150,6 +150,7 @@ function AddToCartPreviewCtrl($scope, $location, AddToCartPreview, $timeout) {
         $scope.verifyNewEntry(lineitem, $scope.list);
         if (!lineitem.entryError) {
             AddToCartPreview.add(lineitem, $scope.list, function(list) {
+                console.log("startme");
                 AddToCartPreview.adjustForPriceBreaks(list, function (list) {
                     $scope.list = list;
                 })
@@ -325,6 +326,7 @@ function AddToCartPreview(User, Order) {
 
     var _adjustForPriceBreaks = function (list, success) {
         if (list[0] && !list[0].PriceSchedule.UseCumulativeQuantity) {
+            console.log("you broke me");
             angular.forEach(list, function (listobj) {
                 priceBreak(listobj, listobj.Quantity)
             });
@@ -359,7 +361,9 @@ function AddToCartPreview(User, Order) {
         }
         var priceBreaks = item.PriceSchedule.PriceBreaks;
         for (var b = 0; b < item.PriceSchedule.PriceBreaks.length; b++) {
+            console.log('hitter');
             if (b === item.PriceSchedule.PriceBreaks.length - 1 || quantity >= priceBreaks[b].Quantity && quantity < priceBreaks[b + 1].Quantity) {
+                console.log("hit");
                 item.UnitPrice = item.Markup ? item.Markup + item.PriceSchedule.PriceBreaks[b].Price : item.PriceSchedule.PriceBreaks[b].Price;
                 break
             }
@@ -370,19 +374,16 @@ function AddToCartPreview(User, Order) {
     var _add = function (item, list, success) {
         if (item.Product.IsVBOSS) {
             item.UnitPrice = item.LineTotal / item.Quantity;
-            angular.forEach(item.Specs, function(i){
-                angular.forEach(i.Options, function (option) {
-                    if (i.Value === option.Value) {
-                        if (option.Markup > 0) {
-                            item.Markup = option.Markup;
-                        }
-                        else {
-                            item.Markup = false;
-                        }
+            angular.forEach(item.Specs.Color.Options, function (option) {
+                if (item.Specs.Color.Value === option.Value) {
+                    if (option.Markup > 0) {
+                        item.Markup = option.Markup;
                     }
-                });
+                    else {
+                        item.Markup = false;
+                    }
+                }
             });
-
             item.LineTotal = item.UnitPrice * item.Quantity;
         }
         else {
