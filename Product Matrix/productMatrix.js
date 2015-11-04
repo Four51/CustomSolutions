@@ -123,46 +123,50 @@ function ProductMatrixCtrl($scope, $routeParams, $location, ProductDisplayServic
     $scope.addVariantsToOrder = function(){
 
         $scope.qtyError = "";
-
-        ProductMatrix.validateQuantity($scope.comboVariants, $scope.product, function(message) {
-            $scope.qtyError = "<p>Please select a valid quantity</p>";
-            //$scope.qtyError = message; //this shows all of the messages for each vboss variant
+        ProductMatrix.validateQuantity($scope.comboVariants, $scope.product, function (message) {
+            $scope.qtyError = message; //this shows all of the messages for each vboss variant
         });
 
-
-        if(!$scope.currentOrder){
-            $scope.currentOrder = {};
-            $scope.currentOrder.LineItems = [];
+        if ($scope.qtyError) {
+            //do nothing - error messaging is shown via validateQuantity
         }
 
-        if (!$scope.lineItemIndex) {
-            ProductMatrix.addToOrder($scope.comboVariants, $scope.product, function(lineItems) {
-                $scope.addToOrderIndicator = true;
-                angular.forEach(lineItems, function(li) {
-                    $scope.currentOrder.LineItems.push(li);
-                });
-                saveOrder($scope.currentOrder);
-            });
-        }
         else {
-            $scope.addToOrderIndicator = true;
-            if ($scope.specCount == 1) {
-                angular.forEach($scope.comboVariants, function(variant) {
-                    if (variant[0].Quantity) {
-                        $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant[0].Quantity;
-                    }
+
+            if (!$scope.currentOrder) {
+                $scope.currentOrder = {};
+                $scope.currentOrder.LineItems = [];
+            }
+
+            if (!$scope.lineItemIndex) {
+                ProductMatrix.addToOrder($scope.comboVariants, $scope.product, function (lineItems) {
+                    $scope.addToOrderIndicator = true;
+                    angular.forEach(lineItems, function (li) {
+                        $scope.currentOrder.LineItems.push(li);
+                    });
+                    saveOrder($scope.currentOrder);
                 });
-                saveOrder($scope.currentOrder);
             }
             else {
-                angular.forEach($scope.comboVariants, function(group) {
-                    angular.forEach(group, function(variant) {
-                        if (variant.Quantity) {
-                            $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant.Quantity;
+                $scope.addToOrderIndicator = true;
+                if ($scope.specCount == 1) {
+                    angular.forEach($scope.comboVariants, function (variant) {
+                        if (variant[0].Quantity) {
+                            $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant[0].Quantity;
                         }
                     });
-                });
-                saveOrder($scope.currentOrder);
+                    saveOrder($scope.currentOrder);
+                }
+                else {
+                    angular.forEach($scope.comboVariants, function (group) {
+                        angular.forEach(group, function (variant) {
+                            if (variant.Quantity) {
+                                $scope.currentOrder.LineItems[$scope.lineItemIndex].Quantity = variant.Quantity;
+                            }
+                        });
+                    });
+                    saveOrder($scope.currentOrder);
+                }
             }
         }
     };
@@ -335,6 +339,11 @@ function ProductMatrix($451, Variant) {
                 }
             });
         });
+
+        //show an error if no qty has been entered and therefore qtyChanged() has not been hit
+        if (!totalQty) {
+            qtyError += "<p>Please select a valid quantity.</p>";
+        }
 
         if (!product.RestrictedQuantity && product.MinTotalQty && totalQty < product.MinTotalQty) {
             qtyError += "Total quantity must be equal or greater than " + product.MinTotalQty + " for " + (product.Name ? product.Name : product.ExternalID);
