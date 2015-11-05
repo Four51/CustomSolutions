@@ -110,7 +110,7 @@ function addtocartpreview() {
             '</div>',
             '</div>',
             '<div class="alert alert-danger" ng-show="qtyTotalError" ng-bind-html="qtyTotalError"></div>',
-            '<button class="btn btn-success btn-lg btn-block" ng-disabled="invalidVariantQty" ng-click="addListToCart(list)">',
+            '<button class="btn btn-primary btn-lg btn-block" ng-disabled="invalidVariantQty" ng-click="addListToCart(list)">',
             '<i ng-show="addToOrderForm.$invalid" class="fa fa-warning"></i>',
             '<span>Add List to Cart </span>',
             '</button>',
@@ -310,17 +310,21 @@ function AddToCartPreview(User, Order) {
     var _validateTotalQty = function (list, success) {
         var totalQty = 0;
         var qtySubmitError = "";
-        var RestrictedQty = list[0].Product.RestrictedQuantity;
-        var minQty = list[0].Product.MinTotalQty; //Min Qty for Total order (sum of all variants)
-        var maxQty = list[0].Product.MaxTotalQty; //Max Qty for Total order (sum of all variants)
-        angular.forEach(list, function (listobj) {
-            totalQty += parseInt(listobj.Quantity);
-        });
-        qtySubmitError += !list[0].Variant ? "You cannot use this module with a completely static product" : "";
-        qtySubmitError += (!RestrictedQty && minQty && totalQty < minQty) ? "- Total quantity must be equal or greater than " + minQty + " for this order (Current Quantity: " + totalQty + ")" : "";
-        qtySubmitError += (!RestrictedQty && maxQty && totalQty > maxQty) ? qtySubmitError += "- Total quantity must be equal or less than " + maxQty + " for this order (Current Quantity: " + totalQty + ")" : "";
 
-        _then(success, qtySubmitError);
+
+        if (list[0].Product.RestrictedQuantity) {
+            var RestrictedQty = list[0].Product.RestrictedQuantity;
+            var minQty = list[0].Product.MinTotalQty; //Min Qty for Total order (sum of all variants)
+            var maxQty = list[0].Product.MaxTotalQty; //Max Qty for Total order (sum of all variants)
+            angular.forEach(list, function (listobj) {
+                totalQty += parseInt(listobj.Quantity);
+            });
+            qtySubmitError += !list[0].Variant ? "You cannot use this module with a completely static product" : "";
+            qtySubmitError += (!RestrictedQty && minQty && totalQty < minQty) ? "- Total quantity must be equal or greater than " + minQty + " for this order (Current Quantity: " + totalQty + ")" : "";
+            qtySubmitError += (!RestrictedQty && maxQty && totalQty > maxQty) ? qtySubmitError += "- Total quantity must be equal or less than " + maxQty + " for this order (Current Quantity: " + totalQty + ")" : "";
+
+            _then(success, qtySubmitError);
+        }
     };
 
     var _adjustForPriceBreaks = function (list, success) {
