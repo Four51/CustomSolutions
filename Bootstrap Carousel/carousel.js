@@ -1,4 +1,4 @@
-angular.module('OrderCloud-Carousel', ['ngAnimate']); 
+angular.module('OrderCloud-Carousel', ['ngAnimate']);
 
 angular.module('OrderCloud-Carousel')
     .directive('customcarousel', customcarousel)
@@ -45,7 +45,11 @@ function customCarouselCtrl($scope, $animate, $filter) {
         $scope.slides = []; //reset the slide counter
         $scope.myInterval = ($filter('intervalFilter')($scope.user.CustomFields, 'interval') * 1000) || 5000;
         $scope.slides = $scope.slides.concat($filter('carouselFilter')($scope.user.CustomFields, 'carouselImage'));
+<<<<<<< HEAD
         $scope.slides[0].active = true;
+=======
+        //$scope.slides[0].active = true;
+>>>>>>> 1d041cf... #27 - Bootstrap Carousel - Initialization
     });
 }
 
