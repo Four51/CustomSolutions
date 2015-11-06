@@ -27,7 +27,7 @@ function minicart() {
             '.minicart .minicart-detail .fa-caret-up {position: absolute;top: -18px;right: 10px;color: #fff;}',
             '.minicart .minicart-detail .row:not(.lineitem-row) {padding: 10px 0;}',
             '.minicart .minicart-detail .row:not(.lineitem-row):not(.top-item) {border-top: 1px dashed #ddd;}',
-            '.minicart .minicart-detail .row.lineitem-row {font-size: 0.8em;}',
+            '.minicart .minicart-detail .row.lineitem-row {font-size: 0.8em; line-height:15px; text-align:left;}',
             '.minicart .minicart-detail .row.lineitem-row i.fa-times {font-size: 1.3em;}',
             '.minicart .minicart-detail a {display: block;}',
             '.minicart .minicart-detail figure {border: 1px solid #ddd;padding: 5px;}',
