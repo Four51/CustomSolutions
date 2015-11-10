@@ -46,6 +46,21 @@ function productzoom() {
                 };
             }, true);
 
+            $scope.$watch('lineitem.Variant', function(variant){
+                if(!variant) return;
+                var options = {
+                    tintColor: $scope.lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintClr.Value,
+                    tintOpacity: $scope.lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintOpcty.Value,
+                    fadeTime: $scope.lineitem.Product.StaticSpecGroups.ProductZoom.Specs.fadeTm.Value,
+                    lensClass: "jetzoom-lens",
+                    lensProportions: "",
+                    lensAutoCircle: $scope.lineitem.Product.StaticSpecGroups.ProductZoom.Specs.autoCircle,
+                    innerZoom: $scope.lineitem.Product.StaticSpecGroups.ProductZoom.Specs.iZoom
+                };
+                var jetZoomInstance = new JetZoom($('.jetzoom'), options);
+                jetZoomInstance.loadImage(variant.LargeImageUrl, variant.LargeImageUrl);
+            }, true);
+
             // Plugin Code:
             /*
              Jet Zoom Application License (JZ01-APP).
