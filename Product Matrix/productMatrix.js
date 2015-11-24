@@ -301,6 +301,9 @@ function ProductMatrix($451, Variant) {
                     }
                     _then(success, comboVariants, defineVariantSpecCount, spec1Name, spec2Name);
                 }
+            }, function(ex){
+                //count variant even if it is not active
+                variantCount++;
             });
         }
     }
