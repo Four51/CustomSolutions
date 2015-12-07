@@ -52,3 +52,5 @@ with:
 	<hamburgernavigation />
 </section>
 ```
+
+>Note: If you have added custom items into your navigation, make sure you update those in the JS file so that the custom items will show in the Hamburger Navigation selection. 
