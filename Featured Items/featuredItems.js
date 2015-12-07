@@ -24,7 +24,7 @@ function featureditems() {
             '</style>', 
             '<ul class="featured-items" ng-class="{\'active\': isActive(\'catalog\')}">',
             '<li ng-class="col-xs-3" ng-repeat="featureditem in featureditems">',
-            '<a href="{{featureditem.link}}"><img src="{{featureditem.image}}" /></a>',
+            '<a ng-if="{{featureditem}}" href="{{featureditem.link}}"><img src="{{featureditem.image}}" /></a>',
             '</li>',
             '</ul>'
         ].join('');
@@ -37,8 +37,10 @@ function FeaturedItemsCtrl($scope, $filter, $location) {
     $scope.featureditems = [];
     $scope.$watch('user.CustomFields', function(newVal){
         if (!newVal) return;
-        $scope.featureditems = []; //reset the counter
-        $scope.featureditems = $scope.featureditems.concat($filter('featuredItemFilter')($scope.user.CustomFields, 'featureditem'));
+        if ($scope.featureditems) {
+            $scope.featureditems = []; //reset the counter
+            $scope.featureditems = $scope.featureditems.concat($filter('featuredItemFilter')($scope.user.CustomFields, 'featureditem'));
+        }
     });
 
     // from NavCtrl.js
