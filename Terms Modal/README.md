@@ -32,18 +32,20 @@ Add a dependency for `OrderCloud-TermsModal` to the Four51.app module in the **`
 
 ##Usage
 
-####1. Update the partials/controls/orderSummary.html file
+####1. Update the partials/copyrightView.html file
 
-Locate the **`partials/controls/orderSummary.html`** file.
+Locate the **`partials/controls/copyrightView.html`** file.
 
 Replace: 
 ```html
-<button class="btn btn-default" redirect="/security">
-    <span class="fa fa-info-circle"></span> {{'Concerned About Security?' | r | xlat}}
- </button>
+ <span ng-if="!(user.Permissions.contains('HideTerms'))">
+    <a class="btn btn-default btn-sm" href="conditions">
+        {{'Conditions of Use' | xlat}}
+    </a>
+</span>
 ```
 
 with:  
 ```html
-   <securitymodal></securitymodal>
+   <termsmodal></termsmodal>
 ```

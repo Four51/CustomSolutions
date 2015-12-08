@@ -15,7 +15,11 @@ function termsmodal() {
 
     function template() {
         return [
-            '<a ng-click="openTerms(500)">Terms &amp; Conditions</a>'
+            '<span ng-if="!(user.Permissions.contains(\'HideTerms\'))">',
+            '<a class="btn btn-default btn-sm" ng-click="openTerms(500)">',
+            '{{\'Conditions of Use\' | xlat}}',
+            '</a>',
+            '</span>'
         ].join('');
     }
 }
