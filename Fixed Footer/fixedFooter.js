@@ -2,6 +2,7 @@ angular.module('OrderCloud-FixedFooter', []);
 
 angular.module('OrderCloud-FixedFooter')
     .directive('fixedfooter', fixedfooter)
+    .directive('orderbuttons', orderbuttons)
     .controller('FixedFooterCtrl', FixedFooterCtrl)
 ;
 
@@ -15,16 +16,72 @@ function fixedfooter() {
 
     function template() {
         return [
-            '<footer class="fixed-footer-bottom-wrapper" ng-class="{\'active\': isInPath(\'catalog\') || isInPath(\'product\') || isInPath(\'admin\') || isInPath(\'search\') || isInPath(\'order\') || isInPath(\'address\') || isInPath(\'addresses\') || isInPath(\'contactus\') }">',
-            '<div class="fixed-footer-bottom">',
-            '<div class="col-xs-12 text-center">',
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
-            'when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-            //alternatively show date/time using moments.js
-            '{{now}}',
-            '</div>',
-            '</div>',
-            '</footer>'
+            '<style>',
+            '.fixed-footer-bottom div {color: #FFF; margin:15px 0;}',
+            '@media (max-width:767px) { .copyright-view {height: 300px !important; margin-top:25px; padding-top:0;} }',
+            '</style>',
+            '<nav class="navbar navbar-default navbar-fixed-bottom">',
+                '<div class="fixed-footer-bottom">',
+                    '<div class="col-xs-12">',
+                        '<div class="col-xs-6 pull-left text-left">',
+                        'put stuff here',
+                        '</div>',
+                        '<div class="col-xs-6 pull-right text-right">',
+                        'put stuff here too',
+                        '</div>',
+                        //alternatively show date/time using moments.js
+                        /*'<div class="col-xs-12 text-center">',
+                            '{{now}}',
+                        '</div>',*/
+                    '</div>',
+                '</div>',
+            '</nav>'
+        ].join('');
+    }
+}
+
+function orderbuttons() {
+    var directive = {
+        restrict: 'E',
+        template: template,
+        link: function(scope, element, attrs) {
+            attrs.$observe('continue', function(val) {
+                scope.continue = val == 'true' ? true : false;
+            });
+
+            attrs.$observe('view', function(val) {
+                if (val) {
+                    var view;
+                    switch (val) {
+                        case 'cart':
+                            view = 'cart'
+                            break;
+                        case 'checkout':
+                            view = 'checkout';
+                            break;
+                        default:
+                            break;
+                    }
+                    scope.view = 'partials/controls/' + (view == 'cart' ? 'cartButtons.html' : 'checkoutButtons.html');
+                }
+            });
+        }
+    };
+    return directive;
+
+    function template() {
+        return [
+            '<style>',
+            'orderbuttons {width:100%; margin:0 auto;}',
+            //'orderbuttons ul {text-align:center;}',
+            'orderbuttons li {width:25%;float:left; padding-right:10px; }',
+            'orderbuttons .btn {border-radius:0; width:100%; margin:0 5px;}',
+            'orderbuttons btn:nth-of-type(4) {margin-right:0; }',
+            '@media (max-width:767px) { orderbuttons li {width:100%; } }',
+            //'@media (max-width:767px) { orderbuttons .copyright-view {height: 300px !important; } }',
+            '@media (max-width:767px) { orderbuttons .btn {border-radius:0;width:100%; margin:5px 0; } }',
+            '</style>',
+            '<ul ng-include="view"></ul>'
         ].join('');
     }
 }

@@ -23,7 +23,7 @@ If you are using file overrides, create a new file override named **`lib/oc/fixe
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/fixedFooter.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
-####2. Load the module into the application
+####2. Load the module into the application.
 
 Add a dependency for `OrderCloud-FixedFooter` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
@@ -46,3 +46,28 @@ add:
 	<fixedfooter />
 </section>
 ```
+
+####2. Comment out the existing `<orderbuttons>` directive.
+
+Normally, the cart and checkout views have buttons fixed to the bottom. 
+With a fixed footer, we want to reposition and restyle these buttons within the module.
+
+1. In Code Editor, locate your index.html file; hit edit.
+2. Find `<script src="js/directives/orderbuttons.js" data-group="resources"></script>` at the bottom of the page and comment out. 
+
+```html
+<script src="js/directives/orderbuttons.js" data-group="resources"></script>
+```
+```
+replace: 
+```html
+<!--<script src="js/directives/orderbuttons.js" data-group="resources"></script>-->
+```
+
+####3. Add the date * time library (optional).
+
+In 1.0, a date & time can be provided in the footer. Optionally, include the moments.js library for date/time options. 
+
+1. In Code Editor, locate your index.html file; hit edit.
+2. Add `<script src="lib/moments.js" data-group="resources"></script>` in the section with “lib/” files. Save.
+
