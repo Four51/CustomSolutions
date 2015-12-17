@@ -16,7 +16,7 @@ If you are using file overrides, create a new file override named **`lib/oc/fixe
 2. Go to “Code Editor” tab
 3. Hit “New File Override”
 4. Name this file **`lib/oc/fixedFooter.js`**
-5. Place raw code from featuredItems.js in the section below. Save.
+5. Place raw code from fixedFooter.js in the section below. Save.
 
 **Important!** Be sure to reference the new/updated JS file in the index.html file by following these steps:
 
@@ -34,13 +34,14 @@ Add a dependency for `OrderCloud-FixedFooter` to the Four51.app module in the **
 
 ####1. Update the index.html file
 
-Under this section: 
+Under this section:
+find:
 ```html
 <section class="hidden-print">
     <copyright ng-if="!user.Permissions.contains('UnBrandedSite')" />
 </section>
 ```
-add: 
+add below: 
 ```html
 <section class="hidden-print">
 	<fixedfooter />
@@ -55,6 +56,7 @@ With a fixed footer, we want to reposition and restyle these buttons within the 
 1. In Code Editor, locate your index.html file; hit edit.
 2. Find `<script src="js/directives/orderbuttons.js" data-group="resources"></script>` at the bottom of the page and comment out. 
 
+find:
 ```html
 <script src="js/directives/orderbuttons.js" data-group="resources"></script>
 ```
@@ -64,9 +66,9 @@ replace:
 <!--<script src="js/directives/orderbuttons.js" data-group="resources"></script>-->
 ```
 
-####3. Add the date * time library (optional).
+####3. Optionally, add the date & time `moments.js` library.
 
-In 1.0, a date & time can be provided in the footer. Optionally, include the moments.js library for date/time options. 
+In 1.0, a date & time can be provided in the footer. Optionally, include the `moments.js` library for date/time options. 
 
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/moments.js" data-group="resources"></script>` in the section with “lib/” files. Save.
