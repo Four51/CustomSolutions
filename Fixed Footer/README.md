@@ -2,7 +2,7 @@
 
 This module allows you to place a fixed footer area in your site. 
 
-To learn more about this feature and see examples, visit this [page]().
+To learn more about this feature and see examples, visit this [page](https://jenras.four51ordercloud.com/fixedFooter/).
 
 ##Setup
 
