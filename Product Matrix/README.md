@@ -1,6 +1,6 @@
 #Product Matrix for OrderCloud  
 
-This module provides a matrix type layout for ordering Variants Based on Selection Specs (VBOSS) static products. Products utilizing this module must have VBOSS variants using _one or two variable selection specs_ (note the matrix does not work with more than two variable specs). Additional variable specs can be assigned to the product, but only one or two may be applied to the VBOSS variants. Additional specs will be displayed above the matrix layout.
+This module provides a matrix type layout for ordering Variants Based on Selection Specs (VBOSS) static products. Products utilizing this module must have VBOSS variants using **one or two variable selection specs** _(note the matrix does not work with more than two variable specs)_. Additional variable specs can be assigned to the product, but only one or two may be applied to the VBOSS variants. Additional specs will be displayed above the matrix layout.
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductMatrix).
 
