@@ -62,15 +62,6 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
 Examples of naming conventions:
 <table><tr><th>Variable Spec (Selection Spec type)</th><th>Static Spec Group Name</th><th>Static Spec Name</th><th>Static Spec Type</th><th>Value</th></tr><tr><td>Color</td><td>LightboxImages</td><td>Yellow</td><td>File</td><td>Upload yellow image</td></tr><tr><td>Color</td><td>LightboxImages</td><td>Green</td><td>File</td><td>Upload green image</td></tr></table>
 
- - **Please note**, if your variable spec is something other than Color, you will need to update ***Color*** in the module (file: **`lib/oc/productLightbox.js`**) to reflect the correct variable name.  See the lines below to edit.
-
-```if ($scope.LineItem.Specs && $scope.LineItem.Specs.Color) {```
-
- ```var varSpecName = "Color";```
-
-  ```$scope.$watch('LineItem.Specs.Color.Value', function(n,o){  ```
-
-
 ###2. Create a new Product Detail Template within the admin interface.
 
 1. Navigate to ”Product Detail Template” on the left navigation in
