@@ -52,19 +52,17 @@ with:
 ```
 
 ####2. Comment out the existing `<categorytree>` directive.
-
-Normally, the cart and checkout views have buttons fixed to the bottom. 
-With a fixed footer, we want to reposition and restyle these buttons within the module.
+We have to add an extra function to close the hamburger navigation when we click on a subcategory. 
 
 1. In Code Editor, locate your index.html file; hit edit.
 2. Find `<script src="js/directives/tree.js" data-group="resources"></script>` at the bottom of the page and comment out. 
 
-find:
+Replace:
 ```html
 <script src="js/directives/tree.js" data-group="resources"></script>
 ```
-```
-replace: 
+
+with: 
 ```html
 <!--<script src="js/directives/tree.js" data-group="resources"></script>-->
 ```
