@@ -283,8 +283,6 @@ function node($compile) {
     }
 }
 
-
-/*placeholder for additional functions if needed*/
 HamburgerNavigationCtrl.$inject = ['$location', '$scope', '$rootScope'];
 function HamburgerNavigationCtrl($location, $scope, $rootScope) {
 
@@ -293,9 +291,7 @@ function HamburgerNavigationCtrl($location, $scope, $rootScope) {
     $scope.isCollapsedSubCategory = true;
     $scope.isCollapsedAccount = true;
 
-
     $scope.retarget = function(url) {
-
         $scope.target = url;
         $location.path($scope.target);
         $rootScope.$broadcast('clicked');
@@ -307,7 +303,4 @@ function HamburgerNavigationCtrl($location, $scope, $rootScope) {
         $scope.isCollapsed = true;
         $scope.isCollapsedAccount = true;
     });
-
-
-
 }
