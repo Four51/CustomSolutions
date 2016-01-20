@@ -24,7 +24,7 @@ function featureditems() {
             '</style>', 
             '<ul class="featured-items" ng-class="{\'active\': isActive(\'catalog\')}">',
             '<li ng-class="col-xs-3" ng-repeat="featureditem in featureditems">',
-            '<a href="{{featureditem.link}}"><img src="{{featureditem.image}}" /></a>',
+            '<a href="{{featureditem.link}}"><img ng-src="{{featureditem.image}}" /></a>',
             '</li>',
             '</ul>'
         ].join('');
