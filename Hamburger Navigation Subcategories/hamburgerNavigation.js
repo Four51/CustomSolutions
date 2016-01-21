@@ -87,7 +87,7 @@ function hamburgernavigation() {
                             '</li>',
                             //cart
                             '<li class="cart" ng-class="{\'active\': isActive([\'cart\', \'checkout\'])}">',
-                            '<a ng-show="cartCount && user.CurrentOrderID" class="cart" ng-click="retarget(\'cart\')">',
+                            '<a class="cart" ng-click="retarget(\'cart\')">',
                             '<i class="fa fa-shopping-cart"></i>',
                             '<span>{{\'Cart\' | r | xlat}}</span>',
                             '<span ng-bind="cartCount" class="badge"></span>',
