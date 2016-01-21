@@ -22,8 +22,7 @@ function hamburgernavigation() {
             '<style>',
             //color changes start
             '.navbar-hamburger .main-toggle i {color:#fff;}',
-            'ul.burgers {background-color:#50acdb; margin:0; width:100%;}',
-            'ul.burgers li a:hover, ul.burgers li a:focus {background-color:#359FD5;}',
+            'ul.burgers {margin:0; width:100%;}',
             //color changes end
             'accountnavigation {display:none !important;}',
             '.navbar-hamburger .main-toggle i {font-size:1.8em; left:10px; position:relative; top:10px;}',
@@ -51,7 +50,7 @@ function hamburgernavigation() {
                 '</nav>',
                 '<div class="container">',
                     '<div class="col-xs-12 col-collapse" collapse="isCollapsed">',
-                        '<ul class="navbar-nav burgers">',
+                        '<ul class="navbar-nav navbar-default burgers">',
                             //search
                             '<li ng-class="{\'active\': isActive([\'search\'])}">',
                                 '<a ng-click="retarget(\'search\')">',
