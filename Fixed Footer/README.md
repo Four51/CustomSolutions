@@ -2,7 +2,7 @@
 
 This module allows you to place a fixed footer area in your site. 
 
-To learn more about this feature and see examples, visit this [page](https://jenras.four51ordercloud.com/fixedFooter/).
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/FixedFooter).
 
 ##Setup
 
@@ -34,42 +34,35 @@ Add a dependency for `OrderCloud-FixedFooter` to the Four51.app module in the **
 
 ####1. Update the index.html file
 
-Under this section:
-find:
+ In Code Editor, find this section in the index.html file:
 ```html
 <section class="hidden-print">
     <copyright ng-if="!user.Permissions.contains('UnBrandedSite')" />
 </section>
 ```
-add below: 
+Add this new section right below it: 
 ```html
 <section class="hidden-print">
 	<fixedfooter />
 </section>
 ```
 
+
 ####2. Comment out the existing `<orderbuttons>` directive.
 
-Normally, the cart and checkout views have buttons fixed to the bottom. 
-With a fixed footer, we want to reposition and restyle these buttons within the module.
+Normally, the cart and checkout views have buttons fixed to the bottom.  With a fixed footer, we want to reposition and restyle these buttons within the module.
 
 1. In Code Editor, locate your index.html file; hit edit.
-2. Find `<script src="js/directives/orderbuttons.js" data-group="resources"></script>` at the bottom of the page and comment out. 
+2. Find `<script src="js/directives/orderbuttons.js" data-group="source"></script>` near the bottom of the page.
+3. Either remove or comment out this script. 
 
-find:
+Example of commenting out:
 ```html
-<script src="js/directives/orderbuttons.js" data-group="resources"></script>
-```
-```
 replace: 
-```html
-<!--<script src="js/directives/orderbuttons.js" data-group="resources"></script>-->
+<script src="js/directives/orderbuttons.js" data-group="source"></script>
+
+with:
+<!--<script src="js/directives/orderbuttons.js" data-group="source"></script>-->
 ```
-
-####3. Optionally, add the date & time `moments.js` library.
-
-In 1.0, a date & time can be provided in the footer. Optionally, include the `moments.js` library for date/time options. 
-
-1. In Code Editor, locate your index.html file; hit edit.
-2. Add `<script src="lib/moments.js" data-group="resources"></script>` in the section with “lib/” files. Save.
-
+####3. Customize the Fixed Footer with CSS
+The module CSS is located within the Fixed Footer module (fixedFooter.js).  Any CSS changes should be made inside the module.  With CSS you can add text to the footer, link the social media icons to your pages, or add new icons.  A directory of icons that work seamlessly with our app can be found [here](https://fortawesome.github.io/Font-Awesome/icons/). 
