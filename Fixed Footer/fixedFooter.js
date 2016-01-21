@@ -20,6 +20,7 @@ function fixedfooter() {
             'body {margin-bottom:0;}',
             '.fixed-footer-bottom div {color: #FFF; margin:15px 0;}',
             '.fixed-footer-bottom .pull-left a {font-size:2em; margin-right:0.5em;}',
+            '.copyright-view {margin:0; padding-bottom:150px !important;}',
             '@media (max-width:767px) { .copyright-view {height: 300px !important; margin-top:25px; padding-top:0;} }',
             '</style>',
             '<nav class="navbar navbar-default navbar-fixed-bottom">',
@@ -92,9 +93,8 @@ function FixedFooterCtrl($scope, $location) {
     var d = new Date();
     $scope.year = d.getFullYear();
 
-    $scope.now = moment().format('dddd, MMMM D, YYYY h:mm a');
 
-    // from NavCtrl.js
+    /*below functions from NavCtrl.js in case navigation is used in the footer*/
     $scope.isActive = function(path) {
         var cur_path = $location.path().replace('/', '');
         var result = false;
@@ -112,7 +112,7 @@ function FixedFooterCtrl($scope, $location) {
         return result;
     };
 
-    // extension of above isActive in path
+    //extension of above isActive in path
     $scope.isInPath = function(path) {
         var cur_path = $location.path().replace('/', '');
         var result = false;
