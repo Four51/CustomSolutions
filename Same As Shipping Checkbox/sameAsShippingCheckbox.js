@@ -17,8 +17,10 @@ function sameasshipaddresscheckbox() {
         return [
             '<div ng-hide="billaddressform">',
             '<div class="checkbox">',
-            '<input name="sameAsShipping" type="checkbox" ng-model="copyShipAddress" ng-change="resetBilling()" ng-disabled="!orderShipAddress.ID" />{{\'Same as Shipping Address\' | r | xlat}}</label>',
-            '<button class="btn btn-info pull-right" type="button" ng-hide="(!user.Permissions.contains(\'CreateBillToAddress\'))" ng-click="billaddressform = true" ng-disabled="copyShipAddress">{{(\'New\' | r) + \' \' +  (\'Address\' | r) | xlat}}',
+            '<input name="sameAsShipping" type="checkbox" ng-model="copyShipAddress" ng-change="setBilling()" ng-disabled="!orderShipAddress.ID" />',
+            '{{\'Same as Shipping Address\' | r | xlat}}</label>',
+            '<button class="btn btn-info pull-right" type="button" ng-hide="(!user.Permissions.contains(\'CreateBillToAddress\'))" ng-click="billaddressform = true" ng-disabled="copyShipAddress">',
+            '{{(\'New\' | r) + \' \' +  (\'Address\' | r) | xlat}}',
             '</button>',
             '</div>',
             '</div>'
@@ -30,7 +32,7 @@ SameAsShippingCheckboxCtrl.$inject = ['$scope', '$rootScope'];
 function SameAsShippingCheckboxCtrl($scope, $rootScope) {
     $scope.copyShipAddress = false;
 
-    $scope.resetBilling = function() {
+    $scope.setBilling = function() {
         if ($scope.copyShipAddress == true) {
             $scope.BillAddress = $scope.orderShipAddress;
             $scope.BillAddressID = $scope.currentOrder.ShipAddressID;
@@ -47,7 +49,7 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope) {
 
     $scope.$watch('currentOrder.ShipAddressID', function(newValue) {
         if (newValue || newValue == null) {
-            // broadcast that the ship address changed
+            //broadcast that the ship address changed
             $rootScope.$broadcast('shipChange');
         }
     });
