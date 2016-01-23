@@ -33,44 +33,37 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope) {
     $scope.copyShipAddress = false;
 
     $scope.setBilling = function() {
-        if ($scope.copyShipAddress  ===  true) {
-            if ($scope.currentOrder && ($scope.currentOrder.BillAddressID != $scope.currentOrder.ShipAddressID)) {
-                $scope.currentOrder.BillAddressID = $scope.currentOrder.ShipAddressID;
-                $scope.BillAddress = $scope.orderShipAddress;
-                $scope.BillAddressID = $scope.currentOrder.BillAddressID;
-                $scope.BillAddress.IsBilling = true;
-
-                var addressChecker = [];
-                angular.forEach($scope.billaddresses, function(address) {
-                    addressChecker.push(address.ID);
-                });
-
-                if(addressChecker.indexOf($scope.orderShipAddress.ID) == -1){
-                    $scope.billaddresses.push($scope.orderShipAddress);
-                }
-            }
+        if ($scope.copyShipAddress == true) {
+            $scope.BillAddress = $scope.orderShipAddress;
+            $scope.BillAddressID = $scope.currentOrder.ShipAddressID;
+            $scope.currentOrder.BillAddressID = $scope.currentOrder.ShipAddressID;
+            $scope.BillAddress.IsBilling = true;
+            $scope.billaddresses.push($scope.BillAddress);
+        }
+        if ($scope.copyShipAddress == false) {
+            $scope.BillAddress = '';
+            $scope.BillAddressID = '';
+            $scope.currentOrder.BillAddressID = '';
         }
     };
 
-   $scope.$watch('currentOrder.ShipAddressID', function(newValue) {
-        if (newValue || newValue === null) {
+    $scope.$watch('currentOrder.ShipAddressID', function(newValue) {
+        if (newValue || newValue == null) {
             //broadcast that the ship address changed
             $rootScope.$broadcast('shipChange');
         }
     });
 
-    $scope.$on('shipChange',  function()  {
-        if  ($scope.currentOrder && ($scope.currentOrder.BillAddressID != $scope.currentOrder.ShipAddressID) && ($scope.copyShipAddress  ===  true)) {
-            $scope.copyShipAddress  =  false;
-            $scope.currentOrder.BillAddressID  =  '';
-            $scope.BillAddress  =  null;
-            $scope.BillAddressID  =  '';
+    $scope.$watch('currentOrder.BillAddressID', function(newValue) {
+        if ($scope.currentOrder && newValue != $scope.currentOrder.ShipAddressID) {
+            $scope.copyShipAddress = false;
         }
     });
 
-    $scope.$watch('currentOrder.BillAddressID',  function(newValue)  {
-        if  ($scope.currentOrder  &&  (newValue  !=  $scope.currentOrder.ShipAddressID)  &&  ($scope.copyShipAddress  ===  true))  {
-            $scope.copyShipAddress  =  false;
-        }
+    $scope.$on('shipChange', function() {
+        $scope.copyShipAddress = false;
+        $scope.BillAddress = null;
+        $scope.BillAddressID = '';
+        if ($scope.currentOrder) $scope.currentOrder.BillAddressID = '';
     });
 }
