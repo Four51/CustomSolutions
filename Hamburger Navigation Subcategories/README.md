@@ -1,8 +1,8 @@
-#Hamburger Navigation for OrderCloud
+#Hamburger Navigation with Subcategories for OrderCloud 
 
-This module provides the user the ability to collapse the top navigation icons into a hamburger icon when using a mobile view. 
+This is the new and improved Hamburger Navigation. This module provides the user the ability to collapse the top navigation icons into a hamburger icon when using a mobile view. This version of the module also auto-closes open categories once clicked upon. 
 
-To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/HamburgerNavigation).
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/HamburgerNavigationSubcategories).
 
 ##Setup
 
@@ -18,9 +18,9 @@ If you are using file overrides, create a new file override named **`lib/oc/hamb
 4. Name this file **`lib/oc/hamburgerNavigation.js`**
 5. Place raw code from hamburgerNavigation.js in the section below. Save.
 
-**Important!** Be sure to reference the new/updated JS file in the index.html file by following these steps:
+**Important!** Be sure to reference the new/updated JS file in the **`index.html`** file by following these steps:
 
-1. In Code Editor, locate your index.html file; hit edit.
+1. In Code Editor, locate your **`index.html`** file; hit edit.
 2. Add `<script src="lib/oc/hamburgerNavigation.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
 ####2. Load the module into the application
@@ -33,6 +33,7 @@ Add a dependency for `OrderCloud-HamburgerNavigation` to the Four51.app module i
 ##Usage
 
 ####1. Update the index.html file
+Locate the **`index.html`** file.
 
 Replace: 
 ```html
@@ -52,19 +53,23 @@ with:
 ```
 
 ####2. Comment out the existing `<categorytree>` directive.
-We have to add an extra function to close the hamburger navigation when we click on a subcategory. 
+Now add an extra function to close the hamburger navigation when a subcategory is clicked upon. 
 
-1. In Code Editor, locate your index.html file; hit edit.
-2. Find `<script src="js/directives/tree.js" data-group="resources"></script>` at the bottom of the page and comment out. 
+1. In Code Editor, locate your **`index.html`** file; hit edit.
+2. Find `<script src="js/directives/tree.js" data-group="source"></script>` at the bottom of the page and comment out. 
 
-Replace:
+Example of commenting out: 
+
 ```html
-<script src="js/directives/tree.js" data-group="resources"></script>
-```
+Replace:
+<script src="js/directives/tree.js" data-group="source"></script>
 
 with: 
-```html
-<!--<script src="js/directives/tree.js" data-group="resources"></script>-->
+<!--<script src="js/directives/tree.js" data-group="source"></script>-->
 ```
+
+
+####3. Customize the Hamburger Navigation with CSS
+The module CSS is located within the Hamburger Navigation module (hamburgerNavigation.js).  Any CSS changes should be made inside the module. 
 
 >Note: If you have added custom items into your navigation, make sure you update those in the JS file so that the custom items will show in the Hamburger Navigation selection. 
