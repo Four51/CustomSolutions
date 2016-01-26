@@ -18,9 +18,9 @@ If you are using file overrides, create a new file override named **`lib/oc/fixe
 4. Name this file **`lib/oc/fixedFooter.js`**
 5. Place raw code from fixedFooter.js in the section below. Save.
 
-**Important!** Be sure to reference the new/updated JS file in the index.html file by following these steps:
+**Important!** Be sure to reference the new/updated JS file in the **`index.html`** file by following these steps:
 
-1. In Code Editor, locate your index.html file; hit edit.
+1. In Code Editor, locate your **`index.html`** file; hit edit.
 2. Add `<script src="lib/oc/fixedFooter.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
 ####2. Load the module into the application.
