@@ -1,4 +1,4 @@
-angular.module('OrderCloud-HamburgerNavigation', []);
+angular.module('OrderCloud-HamburgerNavigation', []); 
 
 angular.module('OrderCloud-HamburgerNavigation')
     .directive('hamburgernavigation', hamburgernavigation)
