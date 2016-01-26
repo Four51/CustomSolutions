@@ -1,4 +1,4 @@
-#Fixed Footer for OrderCloud  
+#Fixed Footer for OrderCloud
 
 This module allows you to place a fixed footer area in your site. 
 

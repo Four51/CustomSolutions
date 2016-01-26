@@ -93,7 +93,6 @@ function FixedFooterCtrl($scope, $location) {
     var d = new Date();
     $scope.year = d.getFullYear();
 
-
     /*below functions from NavCtrl.js in case navigation is used in the footer*/
     $scope.isActive = function(path) {
         var cur_path = $location.path().replace('/', '');
@@ -125,5 +124,4 @@ function FixedFooterCtrl($scope, $location) {
         }
         return result;
     };
-
 }
