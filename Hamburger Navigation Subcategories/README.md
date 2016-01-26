@@ -33,7 +33,7 @@ Add a dependency for `OrderCloud-HamburgerNavigation` to the Four51.app module i
 ##Usage
 
 ####1. Update the index.html file
-In Code Editor, locate the **`index.html`** file:
+In Code Editor, locate the **`index.html`** file.
 
 Replace: 
 ```html
