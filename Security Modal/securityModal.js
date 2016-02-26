@@ -15,7 +15,7 @@ function securitymodal() {
 
     function template() {
         return [
-            '<a class="btn btn-default" ng-click="open(500)">',
+            '<a class="btn btn-default" ng-click="openSecurity(500)">',
             '<span class="fa fa-info-circle"></span> {{\'Concerned About Security?\' | r | xlat}}',
             '</a>'
         ].join('');
@@ -27,7 +27,7 @@ function SecurityModalCtrl($scope, $modal) {
 
     $scope.animationsEnabled = true;
 
-    $scope.open = function (size) {
+    $scope.openSecurity = function (size) {
 
         var modalInstance = $modal.open({
             animation: $scope.animationsEnabled,
@@ -48,7 +48,7 @@ function SecurityModalCtrl($scope, $modal) {
                 '.modal-wrapper {width:100%; margin:0 auto; padding:20px;}',
                 '</style>',
                 '<div class="modal-header" class="col-xs-12 row pull-right">',
-                '<a class="pull-right close" ng-click="close()">',
+                '<a class="pull-right close" ng-click="closeSecurity()">',
                 '<i class="fa fa-times"></i>',
                 '</a>',
                 '</div>',
@@ -58,7 +58,7 @@ function SecurityModalCtrl($scope, $modal) {
                 '<h4>Site Security</h4>',
                 '<p>',
                 'We understand that security remains a primary concern of online consumers.',
-                'Rest assured that this sites GeoTrust&reg; True BusinessID SSL certificate lets you know that this site is trustworthy and certified from a globally trusted certificate authority.',
+                'Rest assured that this sites SSL certificate lets you know that this site is trustworthy and certified from a globally trusted certificate authority.',
                 '</p>',
                 '<h4>Secure Transactions</h4>',
                 '<p>',
@@ -79,7 +79,7 @@ function SecurityModalCtrl($scope, $modal) {
 
     var SecurityModalOpenCtrl = ['$scope', '$modalInstance', '$modal', function($scope, $modalInstance) {
 
-        $scope.close = function () {
+        $scope.closeSecurity = function () {
             $modalInstance.close();
         };
 
