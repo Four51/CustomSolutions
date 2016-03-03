@@ -1,8 +1,8 @@
 #Category Modal for OrderCloud 
 
-This module provides the user the ability to provide a Category modal popup in the navigation.
+This module provides the user the ability to add a Category link in the top navigation, which opens a modal window listing the categories once clicked upon.
 
-To learn more about this feature and see examples, visit this [page]().
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/CategoryModal).
 
 ##Setup
 
@@ -28,10 +28,32 @@ If you are using file overrides, create a new file override named **`lib/oc/cate
 Add a dependency for `OrderCloud-CategoryModal` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
 1. In Code Editor, locate your **`js/app.js`** file; hit edit.
-2. Add **‘OrderCloud-CategoryCollapse’** into the file. Save.
+2. Add **‘OrderCloud-CategoryModal’** into the file. Save.
 
 ##Usage
 
-####1. Update the partials/controls/nav.html file
+####1. Place the directive in the application
 
-Add: ` <li><categorymodal></categorymodal></li>`
+ 1. In Code Editor, locate the **partials/controls/nav.html** file.
+ 2. Place the below code where you would like the "Category" link to appear in the top nav.  
+
+```html
+<li>
+<categorymodal></categorymodal>
+</li>
+```
+
+For your reference, we have placed it directly after this section (after the home link):
+
+```html
+<li class="products" ng-class="{'active': isInPath('catalog') || isInPath('product') || isInPath('cart/default') || isInPath('search')}">
+	<a id="451qa_home_link" ng-show="Four51User.isAuthenticated()" href="catalog">
+		<i class="fa fa-home"></i>
+		<span class="hidden-xs">{{'Products' | rc | xlat}}</span>
+	</a>
+</li>
+```
+
+####2. Customize the modal window.
+
+The color, text style, and size can all be customized in the categoryModal.js file. You can also add a coordinating icon in the navigation using the icon selection found in the  [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) library.  This can all be customized to your needs using basic html. 
