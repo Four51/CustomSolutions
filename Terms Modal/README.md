@@ -1,8 +1,9 @@
+
 #Terms Modal for OrderCloud 
 
-This module provides a modal popup for the "Terms &amp; Conditions" button in the general footer area.
+This module provides a modal pop-up for the "Terms &amp; Conditions" button in the general footer area.
 
-To learn more about this feature and see examples, visit this [page].
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/TermsModal).
 
 ##Setup
 
@@ -23,7 +24,7 @@ If you are using file overrides, create a new file override named **`lib/oc/term
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/termsModal.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
-####2. Load the module into the application
+####2. Load the module into the application.
 
 Add a dependency for `OrderCloud-TermsModal` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
@@ -32,11 +33,10 @@ Add a dependency for `OrderCloud-TermsModal` to the Four51.app module in the **`
 
 ##Usage
 
-####1. Update the partials/copyrightView.html file
+####1. Place the directive into the application.
 
-Locate the **`partials/controls/copyrightView.html`** file.
-
-Replace: 
+ 1. In Code Editor, locate the **`partials/copyrightView.html`** file
+ 2. Replace: 
 ```html
  <span ng-if="!(user.Permissions.contains('HideTerms'))">
     <a class="btn btn-default btn-sm" href="conditions">
@@ -49,3 +49,6 @@ with:
 ```html
    <termsmodal></termsmodal>
 ```
+####2. Customize the modal window.
+
+The color, text, style, and size can all be customized in the termsModal.js file using basic html. 
