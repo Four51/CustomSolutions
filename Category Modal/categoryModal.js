@@ -23,7 +23,7 @@ function categorymodal() {
             '<a ng-click="openCategory(500)">',
             // replace the *Open Modal* below with your link name
             '<i class="fa fa-shopping-bag"></i>',
-            '<span class="hidden-xs"> {{\'CATEGORIES\' | r | xlat}}</span>',
+            '<span class="hidden-xs"> {{\'Categories\' | r | xlat}}</span>',
             '</a>'
         ].join('');
     }
