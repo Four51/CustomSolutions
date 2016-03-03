@@ -17,13 +17,13 @@ function categorymodal() {
         return [
             '<style>',
             //this style is conditional based on nav placement and site css
-            'categorymodal a, categorymodal a:hover, categorymodal a:focus {color:#fff; text-decoration:none;}',
+            //'categorymodal a, categorymodal a:hover, categorymodal a:focus {color:#fff; text-decoration:none;}',
             '</style>',
             // update the size of the modal window within the open()
             '<a ng-click="openCategory(500)">',
-            // replace the *Open Modal* below with your link name
+            // update fontawesome for the shopping bag icon
             '<i class="fa fa-shopping-bag"></i>',
-            '<span class="hidden-xs"> {{\'Categories\' | r | xlat}}</span>',
+            '<span class="hidden-xs">{{\'Categories\' | r | xlat}}</span>',
             '</a>'
         ].join('');
     }
@@ -70,7 +70,7 @@ function CategoryModalCtrl($scope, $modal, $log) {
                 '.modal-body a {color:#FFFFFF; }',
                 '</style>',
                 '<div class="modal-header navbar-default" class="col-xs-12 row pull-right">',
-                '<h5 class="modal-title">SELECT A CATEGORY</h5>',
+                '<h5 class="modal-title text-primary">SELECT A CATEGORY</h5>',
                 '<a class="pull-right close" ng-click="closeCategory()">',
                 '<i class="fa fa-times"></i>',
                 '</a>',
