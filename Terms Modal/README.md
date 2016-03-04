@@ -51,4 +51,4 @@ with:
 ```
 ####2. Customize the modal window.
 
-The color, text, style, and size can all be customized in the termsModal.js file using basic html. 
+The color, text, style, and size can all be customized in the termsModal.js file using basic html and css. 
