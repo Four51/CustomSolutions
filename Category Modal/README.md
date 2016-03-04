@@ -56,4 +56,9 @@ For your reference, we have placed it directly after this section (after the hom
 
 ####2. Customize the modal window.
 
-The color, text style, and size can all be customized in the categoryModal.js file. You can also add a coordinating icon in the navigation using the icon selection found in the  [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) library.  This can all be customized to your needs using basic html. 
+The color, text style, and size can all be customized in the categoryModal.js file. You can also add a coordinating icon in the navigation using the icon selection found in the  [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) library.  This can all be customized to your needs using basic html and css. 
+
+> **Note:** to use the newer version of Font Awesome icons, paste the link below into your index.html file in the **`<head>`** section after the css.
+> ```html
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+``` 
