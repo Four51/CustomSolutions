@@ -1,4 +1,4 @@
-#Category Modal for OrderCloud 
+#Category Modal for OrderCloud
 
 This module provides the user the ability to add a Category link in the top navigation, which opens a modal window listing the categories once clicked upon.
 

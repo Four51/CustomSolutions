@@ -1,4 +1,4 @@
-angular.module('OrderCloud-CategoryModal', []);
+angular.module('OrderCloud-CategoryModal', []); 
 
 angular.module('OrderCloud-CategoryModal')
     .directive('categorymodal', categorymodal)
