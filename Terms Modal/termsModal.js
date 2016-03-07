@@ -1,4 +1,4 @@
-angular.module('OrderCloud-TermsModal', []);
+angular.module('OrderCloud-TermsModal', []); 
 
 angular.module('OrderCloud-TermsModal')
     .directive('termsmodal', termsmodal)

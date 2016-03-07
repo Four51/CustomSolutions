@@ -1,5 +1,5 @@
 
-#Terms Modal for OrderCloud 
+#Terms Modal for OrderCloud  
 
 This module provides a modal pop-up for the "Terms &amp; Conditions" button in the general footer area.
 
