@@ -41,7 +41,7 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
  1. Locate product in catalog or create a new product
  2. Go to Static Specs
  3. Create a Custom Static Spec Group named **LightboxImages** (name must match exactly) with the following specs:
-<table><tr><th>Static Spec Group Name</th><th>Static Spec Name</th><th>Static Spec Type</th><th>Value</th></tr><tr><td>LightboxImages</td><td>1</td><td>File</td><td>Upload 1st preferred image</td></tr><tr><td>LightboxImages</td><td>2</td><td>File</td><td>Upload 2nd preferred image</td></tr></table>
+<table><tr><th>Static Spec Group Name</th><th>Static Spec Name</th><th>Static Spec Type</th><th>Value</th></tr><tr><td>LightboxImages</td><td>1</td><td>File</td><td>Upload 1st preferred image</td><td>Uncheck visible to User checkbox</td></tr><tr><td>LightboxImages</td><td>2</td><td>File</td><td>Upload 2nd preferred image</td><td>Uncheck visible to User checkbox</td></tr></table>
 
  - Name each static spec a number to control the order of the lightbox image gallery thumbnails.
  - If image order is not important to you, name each static spec whatever you wish.
@@ -60,7 +60,7 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
  7. Create a Static Spec Name with images for all of your Variable Spec values.  All images need to be the same size
 
 Examples of naming conventions:
-<table><tr><th>Variable Spec (Selection Spec type)</th><th>Static Spec Group Name</th><th>Static Spec Name</th><th>Static Spec Type</th><th>Value</th></tr><tr><td>Color</td><td>LightboxImages</td><td>Yellow</td><td>File</td><td>Upload yellow image</td></tr><tr><td>Color</td><td>LightboxImages</td><td>Green</td><td>File</td><td>Upload green image</td></tr></table>
+<table><tr><th>Variable Spec (Selection Spec type)</th><th>Static Spec Group Name</th><th>Static Spec Name</th><th>Static Spec Type</th><th>Value</th></tr><tr><td>Color</td><td>LightboxImages</td><td>Yellow</td><td>File</td><td>Upload yellow image</td><td>Uncheck visible to User checkbox</td></tr><tr><td>Color</td><td>LightboxImages</td><td>Green</td><td>File</td><td>Upload green image</td><td>Uncheck visible to User checkbox</td></tr></table>
 
 ###2. Create a new Product Detail Template within the admin interface.
 
