@@ -1,7 +1,7 @@
 #Checkout Item Summary for OrderCloud 
 
-This module provides the user the ability to add a collapsible item list to the Checkout Summary. 
-To learn more about this feature and see examples, visit this [page](https://jenRas.Four51OrderCloud.com/checkoutItemSummary).
+This module provides the user the ability to add a collapsible item list to the Checkout Summary section on the final checkout page. 
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/CheckoutItemSummary).
 
 ##Setup
 
