@@ -3,11 +3,8 @@
 This module provides an overview of how to implement Mandrill's Transactional Email Service for an OrderCloud 2.0 site.
 
 ###Requirements
-#####1. A Mandrill account. Sign up at: https://www.mandrill.com/
+#####1. A Mailchimp and integrated Mandrill account. Sign up at: https://www.mailchimp.com/
 The buyer requesting the solution will need to create their own account.
-For internal testing and demo purposes, use the below credentials. 
-
-Login: jrasmussen@four51.com, PW: four51demo
 
 ###Setup
 #####1. Add mandrill.js file to your project.
