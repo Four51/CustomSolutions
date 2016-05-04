@@ -57,8 +57,8 @@ function productlightbox() {
     }
 }
 
-LightboxCtrl.$inject = ['$scope', 'Lightbox'];
-function LightboxCtrl($scope, Lightbox) {
+LightboxCtrl.$inject = ['$scope', 'Lightbox', 'Security'];
+function LightboxCtrl($scope, Lightbox, Security) {
     function LightboxImageScope($scope) {
         if ($scope.LineItem.Specs && $scope.LineItem.Specs.Color) {
             var varSpecName = "Color";
@@ -77,7 +77,10 @@ function LightboxCtrl($scope, Lightbox) {
                 angular.forEach($scope.LineItem.Product.StaticSpecGroups[specGroupName].Specs, function (staticSpecs) {
                     var image = {};
                     image.Number = count;
-                    image.url = staticSpecs.FileURL;
+                    if (image.path && image.path.indexOf('auth') == -1) {
+                        image.url = image.path + "&auth=" + Security.auth();
+                    }
+                    else { image.url = image.path; }
                     image.Selected = false;
                     image.Name = staticSpecs.Name;
                     var staticSpec = staticSpecs.Name; // this assumes that the name will match the variable spec value
