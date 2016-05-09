@@ -22,7 +22,7 @@ function breadcrumbs() {
             '.breadcrumb a{color: #333333;}',
             '.breadcrumbs li:last-child a{font-weight:bold;}',
             '</style>',
-            '<div class="breadcrumbs" ng-show="breadcrumbs">',
+            '<div class="breadcrumbs">',
             '<ul class="breadcrumb">',
             '<li ng-repeat="crumb in breadcrumbs">',
             '<a ng-href="{{crumb.link}}">{{crumb.name}}</a>',
@@ -33,12 +33,21 @@ function breadcrumbs() {
     }
 }
 
-BreadcrumbsCtrl.$inject = ['$scope','$cookieStore'];
-function BreadcrumbsCtrl($scope, $cookieStore) {
+BreadcrumbsCtrl.$inject = ['$scope','$cookieStore', '$location'];
+function BreadcrumbsCtrl($scope, $cookieStore, $location) {
 
     $scope.linkedTree = {};
     $scope.breadcrumbs = [];
     $cookieStore.put("breadCookie", $scope.breadcrumbs);
+
+    //clear the breadcrumb on search
+    $scope.$on('$locationChangeSuccess', function() {
+        var cur_path = $location.path().replace('/', '');
+        //console.log(cur_path);
+        if(cur_path.indexOf('search') > -1) {
+            $cookieStore.remove("breadCookie");
+        }
+    });
 
     $scope.$watch('currentCategory', function(newVal) {
         if (!newVal) return;
