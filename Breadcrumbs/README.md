@@ -2,9 +2,11 @@
 
 This solution produces a breadcrumb of categories and sub categories as users navigate through the category tree.
 
+To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/Breadcrumbs).
+
 ##Setup
 
-###1. Add the Breadcrumbs module file to your project
+###1. Add the module file to your project
 
 Add the **`breadcrumbs.js`** file to your project.
 
@@ -29,21 +31,13 @@ Add a dependency for  **`OrderCloud-Breadcrumbs`** to the Four51.app module in t
  1. In Code Editor, locate your **`js/app.js`** file, hit edit.
  2. Add **'OrderCloud-Breadcrumbs'** into the file. Save
 
-###3. Update the product.js file
 
-Update the **`product.js`** file.
+##Usage
+###1. Update the product.js file
+Locate the  **`js/directives/product.js`** file and comment out the below section:
 
-If you are using a repository, update the **`/js/directives/product.js`** file.
 
-If you are using file overrides, create a new file override for **`js/directives/product.js`** and comment out the below section:
-
- 1. Edit your 2.0 site
- 2. Go to “Code Editor” tab
- 3. Hit “New File Override”
- 4. Name this file `js/directives/product.js`
- 5. Comment out the directive listed below and save.
-
- ```javascript
+```html
  four51.app.directive('productnav', function() {
 	var obj = {
 		scope: {
@@ -58,10 +52,11 @@ If you are using file overrides, create a new file override for **`js/directives
 });
 ```
 
-###4. Add the 'breadcrumbs' directive
+
+###2. Add the 'breadcrumbs' directive
 
  1. In Code Editor, locate your `partials/categoryView.html` file, hit edit.
- 2. Add the breadcrumbs directive as shown below in the “partials/categoryView.html” file. Save.
+ 2. Add the breadcrumbs directive in the `<nav id="451qa_nav_hdr" class="nav">` section.  Reference the code below for where to place the directive `<breadcrumbs></breadcrumbs>`.
 
 ```html
     <nav id="451qa_nav_hdr" class="nav">
