@@ -49,7 +49,11 @@ function SameAsShippingCheckboxCtrl($scope, $rootScope) {
                     $scope.billaddresses.push($scope.orderShipAddress);
                 }
             }
-
+        }
+        else {
+            $scope.currentOrder.BillAddressID  =  '';
+            $scope.BillAddress  =  null;
+            $scope.BillAddressID  =  '';
         }
     };
 
