@@ -104,7 +104,7 @@ Tip: make these specs non-visible to the customer
 with the following:
 
 ```html
-    <productzoom lineitem="LineItem"></productzoom>
+    <productzoom lineitem="LineItem" kit="Kit.KitParent"></productzoom>
 ```
 
 ###3. Apply Product Detail Template to product(s)
