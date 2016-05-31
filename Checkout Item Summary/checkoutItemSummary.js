@@ -1,4 +1,4 @@
-angular.module('OrderCloud-CheckoutItemSummary', []);
+angular.module('OrderCloud-CheckoutItemSummary', []); 
 
 angular.module('OrderCloud-CheckoutItemSummary')
     .directive('checkoutitemsummary', checkoutitemsummary)
