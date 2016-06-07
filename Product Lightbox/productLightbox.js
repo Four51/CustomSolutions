@@ -1,7 +1,7 @@
 angular.module('OrderCloud-ProductLightbox', [
     'ngTouch',
     'ui.bootstrap'
-]); 
+]);
 
 angular.module('OrderCloud-ProductLightbox')
     .directive('productlightbox', productlightbox)
@@ -34,21 +34,21 @@ function productlightbox() {
             '</style>',
             '<div class="panel-body">',
             '<ul class="galleryImages">',
-            '<li ng-repeat="image in LineItem.images" ng-if="image">',
+            '<li ng-repeat="image in LineItem.images">',
             '<a class="hidden-xs" ng-click="openLightboxModal($index)" ng-class="{active: $index==$parent.index}">',
-            '<img ng-if="image.url" ng-src="{{image.url}}" class="product-image-large img-responsive" />',
+            '<img ng-src="{{image.url}}" class="product-image-large img-responsive" />',
             '</a>',
             '<a class="no-click visible-xs" ng-class="{active: $index==$parent.index}">',
-            '<img ng-if="image.url" ng-src="{{image.url}}" class="product-image-large img-responsive" />',
+            '<img ng-src="{{image.url}}" class="product-image-large img-responsive" />',
             '</a>',
             '</li>',
             '</ul>',
             '</div>',
             '<div class="panel-footer">',
             '<ul class="galleryThumbs">',
-            '<li ng-repeat="image in LineItem.images" ng-if="image">',
+            '<li ng-repeat="image in LineItem.images">',
             '<a ng-click="$parent.index=$index" ng-class="{active: $index==$parent.index}">',
-            '<img ng-if="image.url" ng-src="{{image.url}}" class="img-thumbnail img-responsive" />',
+            '<img ng-src="{{image.url}}" class="img-thumbnail img-responsive" />',
             '</a>',
             '</li>',
             '</ul>',
@@ -57,8 +57,8 @@ function productlightbox() {
     }
 }
 
-LightboxCtrl.$inject = ['$scope', 'Lightbox', 'Security'];
-function LightboxCtrl($scope, Lightbox, Security) {
+LightboxCtrl.$inject = ['$scope', 'Lightbox'];
+function LightboxCtrl($scope, Lightbox) {
     function LightboxImageScope($scope) {
         if ($scope.LineItem.Specs && $scope.LineItem.Specs.Color) {
             var varSpecName = "Color";
@@ -77,10 +77,7 @@ function LightboxCtrl($scope, Lightbox, Security) {
                 angular.forEach($scope.LineItem.Product.StaticSpecGroups[specGroupName].Specs, function (staticSpecs) {
                     var image = {};
                     image.Number = count;
-                    if (image.path && image.path.indexOf('auth') == -1) {
-                        image.url = image.path + "&auth=" + Security.auth();
-                    }
-                    else { image.url = image.path; }
+                    image.url = staticSpecs.FileURL;
                     image.Selected = false;
                     image.Name = staticSpecs.Name;
                     var staticSpec = staticSpecs.Name; // this assumes that the name will match the variable spec value
@@ -243,7 +240,7 @@ function Lightbox() {
                     break;
             }
             if (method !== null && ['input', 'textarea'].indexOf(
-                event.target.tagName.toLowerCase()) === -1) {
+                    event.target.tagName.toLowerCase()) === -1) {
                 // the view doesn't update without a manual digest
                 $timeout(function () {
                     Lightbox[method]();
@@ -262,8 +259,8 @@ function imagelightboxtemplate () {
         '.lightbox-nav {position: relative;margin-bottom: 12px;text-align: center;font-size: 0;}',
         '.lightbox-nav .btn-group {vertical-align: top;}',
         '.lightbox-image-container {position: relative;text-align: center;}',
-            '.lightbox-image-caption {position: absolute;top: 0;left: 0;margin: 0.5em 0.9em;color: #000;font-size: 1.5em;font-weight: bold;text-align: left;' +
-            'text-shadow: 0.1em 0.1em 0.2em rgba(255, 255, 255, 0.5);}',
+        '.lightbox-image-caption {position: absolute;top: 0;left: 0;margin: 0.5em 0.9em;color: #000;font-size: 1.5em;font-weight: bold;text-align: left;' +
+        'text-shadow: 0.1em 0.1em 0.2em rgba(255, 255, 255, 0.5);}',
         '.lightbox-image-caption span {padding:0.1em 0; background-color: rgba(255, 255, 255, 0.75);box-shadow: 0.4em 0 0 rgba(255, 255, 255, 0.75),-0.4em 0 0 rgba(255, 255, 255, 0.75);}',
         '</style>',
         '<div class="modal-body" ng-swipe-left="Lightbox.nextImage()" ng-swipe-right="Lightbox.prevImage()">',
