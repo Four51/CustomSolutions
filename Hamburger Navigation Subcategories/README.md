@@ -53,8 +53,6 @@ with:
 ```
 
 ####2. Comment out the existing `<categorytree>` directive.
-Now add an extra function to close the hamburger navigation when a subcategory is clicked upon. 
-
 1. In Code Editor, locate your **`index.html`** file; hit edit.
 2. Find `<script src="js/directives/tree.js" data-group="source"></script>` at the bottom of the page and comment out. 
 
