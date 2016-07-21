@@ -61,7 +61,7 @@ function ContentModalCtrl($scope, $modal) {
                 '.modal-header a.close {margin:0;padding:0;position:absolute;top:8px;right:10px;font-size:1.5em;color:#000;}',
                 '.modal-body {width:100%; margin:0 auto; padding:10px 25px;}',
                 '</style>',
-                '<div class="modal-header" class="col-xs-12 row pull-right">',
+                '<div class="modal-header">',
                 //Optional title in top header
                 '<h5 class="modal-title text-primary">Title</h5>',
                 //Optional close (x) in top header
