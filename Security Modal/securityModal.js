@@ -47,7 +47,7 @@ function SecurityModalCtrl($scope, $modal) {
                 '.modal-header a {margin:0;padding:0;position:absolute;top:8px;right:10px;font-size:1.5em;color:#000;}',
                 '.modal-wrapper {width:100%; margin:0 auto; padding:20px;}',
                 '</style>',
-                '<div class="modal-header" class="col-xs-12 row pull-right">',
+                '<div class="modal-header">',
                 '<a class="pull-right close" ng-click="closeSecurity()">',
                 '<i class="fa fa-times"></i>',
                 '</a>',
