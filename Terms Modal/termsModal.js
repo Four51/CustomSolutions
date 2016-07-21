@@ -51,7 +51,7 @@ function TermsModalCtrl($scope, $modal) {
                 '.modal-wrapper h3 {margin-bottom:10px;}',
                 '.modal-wrapper li span {text-decoration:underline;}',
                 '</style>',
-                '<div class="modal-header" class="col-xs-12 row pull-right">',
+                '<div class="modal-header">',
                 '<a class="pull-right close" ng-click="closeTerms()">',
                 '<i class="fa fa-times"></i>',
                 '</a>',
