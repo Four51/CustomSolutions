@@ -69,7 +69,7 @@ function CategoryModalCtrl($scope, $modal, $log) {
                 '.modal-body ul li ul li {text-indent:10px; padding:5px 0 0 0}',
                 '.modal-body a {color:#FFFFFF; }',
                 '</style>',
-                '<div class="modal-header navbar-default" class="col-xs-12 row pull-right">',
+                '<div class="modal-header navbar-default">',
                 '<h5 class="modal-title text-primary">SELECT A CATEGORY</h5>',
                 '<a class="pull-right close" ng-click="closeCategory()">',
                 '<i class="fa fa-times"></i>',
