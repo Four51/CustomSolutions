@@ -69,10 +69,10 @@ function LargeShipAddressSearchCtrl($scope, LargeAddressList, Address) {
                 });
             }
             if (newValue) {
-                if ($scope.user.Permissions.contains('EditShipToName') && !add.IsCustEditable) {
+                if ($scope.user.Permissions.contains('EditShipToName') && !newValue.IsCustEditable) {
                     angular.forEach($scope.currentOrder.LineItems, function(item) {
-                        item.ShipFirstName = add.FirstName;
-                        item.ShipLastName = add.LastName;
+                        item.ShipFirstName = newValue.FirstName;
+                        item.ShipLastName = newValue.LastName;
                     });
                 }
                 $scope.setShipAddressAtOrderLevel();
