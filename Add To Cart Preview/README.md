@@ -1,4 +1,4 @@
-#Add to Cart Preview for OrderCloud  
+#Add to Cart Preview for Four51 Storefront
 
 This module provides the user the ability to generate a list of multiple line items for one product without leaving the product's spec form. Once all combinations have been created, the user is then able to add the list to their cart.
 
@@ -42,7 +42,7 @@ Add a dependency for **`OrderCloud-AddToCartPreview`** to the Four51.app module 
 ###2. Create a new Product Detail Template within the admin interface
 
  1. Navigate to ”Product Detail Template” on the left Navigation in Order Cloud Admin.
- 2. Go to the OrderCloud 2.0 tab
+ 2. Go to the Storefront 2.0 tab
  3. If a custom Product Detail Template is assigned to the product, modify that template with the Add to Cart Preview code (step 4. below), otherwise create new Product Detail Template. You can name the new template whatever is appropriate for you.  
  4. On your new Product Detail Template replace this section: 
 
