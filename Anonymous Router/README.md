@@ -1,10 +1,10 @@
-#Anonymous Router for OrderCloud
+#Anonymous Router for Four51 Storefront
 
 This module provides the ability to redirect an anonymous user to the user admin page in order to profile themselves at any step within their catalog workflow.
 
 >**Note:** This module is provided in the base application 18.9.0 CT Release and 1.3.0 SPA Release.  Your site may already have the code installed for Anonymous Router.
 
-To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/AnonymousRouter).
+To learn more about this feature and see examples, visit this [page](https://volition.four51.com/store/product/AnonymousRouter).
 
 ##Setup
 ###1. Add module file to your project.
@@ -44,7 +44,7 @@ For the **`after`** constant, enter the route string for where to redirect the u
 
 ###2. Update UserEdit Controller
 
-First, add the script below to the very top of the **`js/controllers/userEditCtrl.js`** file if it is not there already.   The OrderCloud Storefront application will have this by default, but it is possible a file override has been created, or a custom repository was created before this update was made.
+First, add the script below to the very top of the **`js/controllers/userEditCtrl.js`** file if it is not there already.   The Four51 Storefront application will have this by default, but it is possible a file override has been created, or a custom repository was created before this update was made.
 
 ```javascript
     var _AnonRouter;
