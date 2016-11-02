@@ -12,7 +12,7 @@
 
 
 ####**Getting Started**
-Start by browsing the various OrderCloud Solutions on the Volition demo site, found [here](https://volition.four51ordercloud.com/store/catalog/OrderCloudSolutions).  Once you have viewed examples and identified a solution to implement, hit the ***Code It*** button and continue to GitHub.  You now have access to our Custom Solutions GitHub repository which hosts the code and instructions for you to get started.  
+Start by browsing the various Four51 Storefront Solutions on the Volition demo site, found [here](https://volition.four51ordercloud.com/store/catalog/OrderCloudSolutions).  Once you have viewed examples and identified a solution to implement, hit the ***Code It*** button and continue to GitHub.  You now have access to our Custom Solutions GitHub repository which hosts the code and instructions for you to get started.  
 
 ####**Tips**
 
