@@ -1,4 +1,4 @@
-#Hamburger Navigation for OrderCloud 
+#Hamburger Navigation for Four51 Storefront 
 
 This module provides the user the ability to collapse the top navigation icons into a hamburger icon when using a mobile view. 
 
