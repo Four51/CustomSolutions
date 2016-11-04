@@ -1,4 +1,4 @@
-#Hamburger Navigation with Subcategories for OrderCloud 
+#Hamburger Navigation with Subcategories for Four51 Storefront 
 
 This is the new and improved Hamburger Navigation. This module provides the user the ability to collapse the top navigation icons into a hamburger icon when using a mobile view. This version of the module also auto-closes open categories once clicked upon. 
 
