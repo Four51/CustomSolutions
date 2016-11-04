@@ -1,4 +1,4 @@
-#Product Matrix for OrderCloud  
+#Product Matrix for Four51 Storefront  
 
 This module provides a matrix type layout for ordering Variants Based on Selection Specs (VBOSS) static products. Products utilizing this module must have VBOSS variants using **one or two variable selection specs** _(note the matrix does not work with more than two variable specs)_. Additional variable specs can be assigned to the product, but only one or two may be applied to the VBOSS variants. Additional specs will be displayed above the matrix layout.
 
@@ -43,7 +43,7 @@ Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the 
 ###2. Create a new Product Detail Template within the admin interface.
 
  1. Navigate to ”Product Detail Template” on the left navigation in Order Cloud Admin 
- 2. Go to the OrderCloud 2.0 tab
+ 2. Go to the Four51 Storefront 2.0 tab
  3. If a custom Product Detail Template is assigned to the product, modify that template
     with the ProductMatrix code (step 4. below), otherwise create a new
     Product Detail Template. You can name the new template whatever is
