@@ -1,6 +1,6 @@
-#AngularJS Module Template for OrderCloud
+#AngularJS Module Template for Four51 Storefront
 
-This template can be used to create additional modules for OrderCloud. It includes an example service (factory), controller, directive, $templateCache, and config.
+This template can be used to create additional modules for Four51 Storefront. It includes an example service (factory), controller, directive, $templateCache, and config.
 
 ##Setup
 ###1. Add module file to your project.
