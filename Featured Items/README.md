@@ -1,4 +1,4 @@
-#Featured Items for OrderCloud  
+#Featured Items for Four51 Storefront  
 
 This module allows you to place a featured items area in your site. 
 
