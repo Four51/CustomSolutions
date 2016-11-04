@@ -1,4 +1,4 @@
-#Content Modal for OrderCloud  
+#Content Modal for Four51 Storefront  
 
 This module provides a modal popup content of your choice in any location on your site. 
 
