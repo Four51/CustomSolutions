@@ -1,4 +1,4 @@
-#Product Search Input
+#Product Search Input for Four51 Storefront
 
 This module creates a search icon or search bar in the top navigation of a site so that the ability to search is always available, regardless of what page the shopper is on. 
 
