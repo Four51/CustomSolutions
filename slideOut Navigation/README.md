@@ -1,4 +1,4 @@
-#SlideOut Nav for OrderCloud 
+#SlideOut Nav for Four51 Storefront 
 
 This module provides the user the ability to create a navigation item that will initiate a slide out panel.
 
