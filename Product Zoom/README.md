@@ -1,4 +1,4 @@
-#Product Zoom for OrderCloud
+#Product Zoom for Four51 Storefront
 
 This module provides the user the ability to create a hover zoom image on a product. 
 
@@ -89,8 +89,8 @@ Tip: make these specs non-visible to the customer
 ###2. Create a new Product Detail Template within the admin interface
 
  1. Navigate to ”Product Detail Template” on the left navigation in
-    Order Cloud Admin. 
- 2. Go to the OrderCloud 2.0 tab
+    Four51 Storefront Admin. 
+ 2. Go to the Four51 Storefront 2.0 tab
  3. If a custom Product Detail Template is assigned to the product, modify that template
     with the ProductZoom code (step 4. below), otherwise create new
     Product Detail Template. You can name the new template whatever is
