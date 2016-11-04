@@ -1,4 +1,4 @@
-#Fixed Footer for OrderCloud
+#Fixed Footer for Four51 Storefront
 
 This module allows you to place a fixed footer area in your site. 
 
