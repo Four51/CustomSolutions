@@ -1,4 +1,4 @@
-#Category Modal for OrderCloud
+#Category Modal for Four51 Storefront
 
 This module provides the user the ability to add a Category link in the top navigation, which opens a modal window listing the categories once clicked upon.
 
@@ -56,7 +56,7 @@ For your reference, we have placed it directly after this section (after the hom
 
 ####2. Customize the modal window.
 
-The color, text style, and size can all be customized in the categoryModal.js file. You can also add a coordinating icon in the navigation using the icon selection found in the  [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) library.  This can all be customized to your needs using basic html and css. 
+The color, text style, and size can all be customized in the categoryModal.js file. You can also add a coordinating icon in the navigation using the icon selection found in the  [Font Awesome](http://fontawesome.github.io/Font-Awesome/icons/) library.  This can all be customized to your needs using basic html and css. 
 
 > **Note:** to use the newer version of Font Awesome icons, paste the link below into your index.html file in the **`<head>`** section after the css.
 > ```html
