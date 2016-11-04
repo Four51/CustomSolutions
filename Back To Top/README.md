@@ -1,4 +1,4 @@
-#Back to Top for OrderCloud
+#Back to Top for Four51 Storefront
 
 This module provides the user with the ability to add a dynamically appearing arrow button to the bottom right of the page that will return them to the top of the page when clicked.
 
