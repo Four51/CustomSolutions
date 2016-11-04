@@ -1,4 +1,4 @@
-#Product Lightbox for OrderCloud
+#Product Lightbox for Four51 Storefront
 
 This module provides the user the ability to create a gallery of lightbox images for static or variable products.
 
