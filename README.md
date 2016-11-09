@@ -5,7 +5,7 @@
 ####**Membership Benefits**
 
  - A comprehensive introduction to Library navigation
- - Access to code for a number of supplemental 2.0 solutions and features that can be applied to any site
+ - Access to code for a number of supplemental Storefront solutions and features that can be applied to any site
  - Tried and tested step-by-step  instructions for all solutions and features
  - First notice of new solutions added to the Library
  - Code updates if improvements are made to solutions
