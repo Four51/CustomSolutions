@@ -1,6 +1,8 @@
 #Add to Cart Preview for Four51 Storefront
 
-This module provides the user the ability to generate a list of multiple line items for one product without leaving the product's spec form. Once all combinations have been created, the user is then able to add the list to their cart.
+This module is intended for use on [VBOSS]http://four51public.force.com/Articles/articles/Informational/Variants-Based-on-Selection-Specs/?q=VBOSS&l=en_US&fs=Search&pn=1) products only.  It will not work with any other product type.
+
+This module provides the user the ability to generate a list of multiple line items for one VBOSS product without leaving the product's spec form. Once all combinations have been created, the user is then able to add the list to their cart.
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/AddToCartPreview).
 
