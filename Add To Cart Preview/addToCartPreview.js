@@ -374,7 +374,7 @@ function AddToCartPreview(User, Order) {
                 angular.forEach(i.Options, function (option) {
                     if (i.Value === option.Value) {
                         if (option.Markup > 0) {
-                            item.Markup = option.Markup;
+                            item.Markup += option.Markup;
                         }
                         else {
                             item.Markup = false;
