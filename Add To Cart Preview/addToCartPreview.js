@@ -370,14 +370,12 @@ function AddToCartPreview(User, Order) {
     var _add = function (item, list, success) {
         if (item.Product.IsVBOSS) {
             item.UnitPrice = item.LineTotal / item.Quantity;
+            item.Markup = false;
             angular.forEach(item.Specs, function(i){
                 angular.forEach(i.Options, function (option) {
                     if (i.Value === option.Value) {
                         if (option.Markup > 0) {
                             item.Markup += option.Markup;
-                        }
-                        else {
-                            item.Markup = false;
                         }
                     }
                 });
