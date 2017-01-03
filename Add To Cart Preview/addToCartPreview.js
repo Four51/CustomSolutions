@@ -377,9 +377,7 @@ function AddToCartPreview(User, Order) {
                             item.Markup += option.Markup;
                         }
                         else {
-                            if(!item.Markup){
-                                item.Markup = false;
-                            }
+                            item.Markup = false;
                         }
                     }
                 });
