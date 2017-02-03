@@ -64,11 +64,11 @@ Add a dependency for  **`OrderCloud-LargeAddressListSearch`** to the Four51.app 
 
  
 
-###4. Remove AddressList API calls in **`/js/directives/ordershipping.js`** and/or **`/js/directives/orderbilling.js`**.
+###4. Remove AddressList API calls in **`js/directives/ordershipping.js`** and/or **`js/directives/orderbilling.js`**.
 
 > **Note:** These calls are removed in order to avoid excess API calls that do not need to occur.
 
-If you are adding this solution to the shipping section, comment out or remove the following sections from **`/js/directives/ordershipping.js`** 
+If you are adding this solution to the shipping section, comment out or remove the following sections from **`js/directives/ordershipping.js`** 
 
 ```javascript
     	AddressList.clear();
@@ -95,7 +95,7 @@ and...
     });
 ``` 
 
-If you are adding this solution to the billing section, comment out or remove the following from **`/js/directives/orderbilling.js`** 
+If you are adding this solution to the billing section, comment out or remove the following from **`js/directives/orderbilling.js`** 
 
 ```javascript
 	AddressList.clear();
@@ -125,9 +125,9 @@ and...
 
 
 ###5. Steps for adding this solution to the Shipping Section
-####Updating the **`/partials/controls/orderShipping.html`** file
+####Updating the **`partials/controls/orderShipping.html`** file
 
-a.) Comment out or remove the following from **`/partials/controls/orderShipping.html`** 
+a.) Comment out or remove the following from **`partials/controls/orderShipping.html`** 
 
 ```html
 <div ng-show="shipaddresses" ng-class="{'view-form-select': !currentOrder.ShipAddressID, '': currentOrder.ShipAddressID }">
@@ -149,7 +149,7 @@ and replace it with ...
 <largeshipaddresssearch></largeshipaddresssearch>
 ``` 
 
-b.) Comment out or remove the following from **`/partials/controls/orderShipping.html`**
+b.) Comment out or remove the following from **`partials/controls/orderShipping.html`**
 
 ```html
 <div ng-show="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
@@ -162,7 +162,7 @@ and replace it with ...
 ```
 
 
-c.) Also comment out or remove the following from **`/partials/controls/orderShipping.html`** ...
+c.) Also comment out or remove the following from **`partials/controls/orderShipping.html`** ...
 
 ```html
 <div ng-hide="shipaddressform || (shipaddresses.length == 0 && user.Permissions.contains('CreateShipToAddress'))">
@@ -175,9 +175,9 @@ and replace it with ...
 ```
 
 ###6. Steps for adding this solution to the Billing Section
-####Updating the **`/partials/controls/orderBilling.html`** file
+####Updating the **`partials/controls/orderBilling.html`** file
 
-a.) Comment out or remove the following from **`/partials/controls/orderBilling.html`** ...
+a.) Comment out or remove the following from **`partials/controls/orderBilling.html`** ...
 
 ```html
 <div class="view-form-icon" ng-show="billaddresses.length > 0">
@@ -198,7 +198,7 @@ and replace it with ...
 <largebilladdresssearch></largebilladdresssearch>
 ```
 
-b.) Comment out or remove the following from **`/partials/controls/orderBilling.html`** 
+b.) Comment out or remove the following from **`partials/controls/orderBilling.html`** 
 
 ```html
 <div ng-show="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
@@ -210,7 +210,7 @@ and replace it with ...
 <div ng-hide="billaddressform == false || (user.Permissions.contains('CreateBillToAddress'))" ng-show="billaddressform == true">
 ```
 
-c.) Also comment out or remove the following from **`/partials/controls/orderBilling.html`** 
+c.) Also comment out or remove the following from **`partials/controls/orderBilling.html`** 
 
 ```html
 <div ng-hide="billaddressform || (billaddresses.length == 0 && user.Permissions.contains('CreateBillToAddress'))">
@@ -227,7 +227,7 @@ and replace it with ...
 
 ###7. Additional updates for field validation
 
-If you are adding this solution to the shipping section, comment out or remove the following from **`/partials/checkOutView.html`** ...
+If you are adding this solution to the shipping section, comment out or remove the following from **`partials/checkOutView.html`** ...
 
 ```html
 <li ng-if="cart_shipping.shippingAddress.$invalid">{{'Please choose a ' + ('Shipping' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
@@ -239,7 +239,7 @@ and replace it with ...
 <li ng-if="!currentOrder.ShipAddressID">{{'Please enter a ' + ('Shipping' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
 ```
 
-If you are adding this solution to the billing section, comment out or remove the following from **`/partials/checkOutView.html`** ...
+If you are adding this solution to the billing section, comment out or remove the following from **`partials/checkOutView.html`** ...
 
 ```html
 <li ng-if="cart_billing.billingAddress.$invalid">{{'Please choose a ' + ('Billing' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
@@ -248,7 +248,53 @@ If you are adding this solution to the billing section, comment out or remove th
 and replace it with ...
 
 ```html
-<li ng-if="!BillAddressID">{{'Please enter a ' + ('Billing' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
+<li ng-if="!currentOrder.BillAddressID">{{'Please enter a ' + ('Billing' | rl) + ' ' + ('Address' | rl) | xlat}}</li>
+```
+
+Update the **`partials/controls/checkoutButtons.html`** file to disable the Submit button if no Shipping and/or Billing Address ID exists on the order.
+
+If you are adding this solution to the shipping section, comment out or remove the following from **`partials/controls/checkoutButtons.html`** ...
+
+```html
+<button class="btn"
+        ng-class="{'btn-warning': cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked, 'btn-success': !cart_shipping.$invalid && !cart_order.$invalid && !cart_billing.$invalid || !submitClicked }"
+        ng-click="submitOrder()" ng-disabled="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked">
+    <i ng-show="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked" class="fa fa-warning"></i>
+    <span>{{('Submit' | r) + ' ' + ('Order' | r) | xlat}}</span>
+</button>
+```
+
+and replace it with ...
+
+```html
+<button class="btn"
+        ng-class="{'btn-warning': cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked || !currentOrder.ShipAddressID, 'btn-success': !cart_shipping.$invalid && !cart_order.$invalid && !cart_billing.$invalid || !submitClicked || currentOrder.ShipAddressID }"
+        ng-click="submitOrder()" ng-disabled="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked || !currentOrder.ShipAddressID">
+    <i ng-show="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked || !currentOrder.ShipAddressID" class="fa fa-warning"></i>
+    <span>{{('Submit' | r) + ' ' + ('Order' | r) | xlat}}</span>
+</button>
+```
+
+If you are adding this solution to the shipping and billing sections, comment out or remove the following from **`partials/controls/checkoutButtons.html`** ...
+
+```html
+<button class="btn"
+        ng-class="{'btn-warning': cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked, 'btn-success': !cart_shipping.$invalid && !cart_order.$invalid && !cart_billing.$invalid || !submitClicked }"
+        ng-click="submitOrder()" ng-disabled="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked">
+    <i ng-show="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked" class="fa fa-warning"></i>
+    <span>{{('Submit' | r) + ' ' + ('Order' | r) | xlat}}</span>
+</button>
+```
+
+and replace it with ...
+
+```html
+<button class="btn"
+        ng-class="{'btn-warning': cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked || !currentOrder.ShipAddressID || !currentOrder.BillAddressID, 'btn-success': !cart_shipping.$invalid && !cart_order.$invalid && !cart_billing.$invalid || !submitClicked || currentOrder.ShipAddressID || currentOrder.BillAddressID }"
+        ng-click="submitOrder()" ng-disabled="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked || !currentOrder.ShipAddressID || !currentOrder.BillAddressID">
+    <i ng-show="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked || !currentOrder.ShipAddressID || !currentOrder.BillAddressID" class="fa fa-warning"></i>
+    <span>{{('Submit' | r) + ' ' + ('Order' | r) | xlat}}</span>
+</button>
 ```
 
 ##Usage
