@@ -65,14 +65,16 @@ function BreadcrumbsCtrl($scope, $cookieStore, $location) {
         $scope.linkedTree.InteropID = 'catalog';
         $scope.linkedTree.Parent = null;
         $scope.linkedTree.SubCategories = $scope.tree;
-        linkTree($scope.linkedTree.SubCategories, $scope.linkedTree);
+        var parentNode = angular.copy($scope.linkedTree);
+        linkTree($scope.linkedTree.SubCategories, parentNode);
     }
 
     function linkTree(currentNodes, parentNode) {
         if (currentNodes) {
             angular.forEach(currentNodes, function(node) {
                 node.Parent = parentNode;
-                linkTree(node.SubCategories, node);
+                var nodeParent = angular.copy(node);
+                linkTree(node.SubCategories, nodeParent);
             });
         }
     }
