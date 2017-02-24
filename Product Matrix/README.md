@@ -51,14 +51,7 @@ Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the 
  4. On your new Product Detail Template, replace the `<addtoorderspecs ng-show="allowAddToOrder"></addtoorderspecs>` and the entire `<div class="form-group"></div>` section below it (approximately 25 lines of code) with the following:
 
 ```html
-    <div id="451_list_vspec">
-        <div class="form-group" ng-repeat="s in LineItem.Specs | definesvariant | onproperty:[{Property: 'CanSetForLineItem', Value: true}]">
-            <customfilefield customfield="s" ng-if="s.ControlType == 'File'"></customfilefield>
-            <customtextfield customfield="s" ng-if="s.ControlType == 'Text'"></customtextfield>
-            <customselectionfield change="specChanged" customfield="s" ng-if="s.ControlType == 'Selection'"></customselectionfield>
-        </div>
-    </div>
-    <productmatrix></productmatrix>
+    <productmatrix matrixitem="LineItem"></productmatrix>
 ```
 
 ###2. Apply Product Detail Template to product(s).
