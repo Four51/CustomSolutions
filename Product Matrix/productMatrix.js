@@ -11,6 +11,9 @@ angular.module('OrderCloud-ProductMatrix')
 function productmatrix() {
     return {
         restrict: 'E',
+        scope:{
+            matrixitem: '='
+        },
         template: template,
         controller: 'ProductMatrixCtrl'
     };
@@ -18,6 +21,12 @@ function productmatrix() {
     function template() {
         return [
             '<style>.matrix-grid > div {padding: 0;}.matrix-grid > div > div {text-align: center;height: 50px;padding: 10px 5px;}.matrix-grid > div > div:nth-of-type(even) {background-color: #f5f5f5;}.matrix-grid > div:last-of-type > div {padding: 5px;}.matrix-grid > div:last-of-type > div input {text-align: center;}.qty-invalid{border-color: #d9534f;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);color: #ccc;}</style>',
+            '<form name="matrixSpecForm" novalidate="">',
+            '<div class="form-group" ng-repeat="s in product.Specs | definesvariant | onproperty:[{Property: \'CanSetForLineItem\', Value: true}]">',
+				'<customfilefield customfield="s" ng-if="s.ControlType == \'File\'"></customfilefield>',
+				'<customtextfield customfield="s" ng-if="s.ControlType == \'Text\'"></customtextfield>',
+				'<customselectionfield change="specChanged" customfield="s" ng-if="s.ControlType == \'Selection\'"></customselectionfield>',
+			'</div>',
             '<div>',
             '<loadingindicator ng-show="matrixLoadingIndicator" />',
             '<div ng-repeat="group in comboVariants" ng-show="specCount == 2 && (group | filter:{Show: true}).length > 0">',
@@ -56,9 +65,10 @@ function productmatrix() {
             '</div>',
             '</div>',
             '<div class="alert alert-danger" style="margin-top:20px;" ng-show="qtyError" ng-bind-html="qtyError"></div>',
-            '<button class="btn btn-success btn-block btn-lg" type="button" id="451_btn_orderadd" ng-disabled="qtyError" ng-click="addVariantsToOrder()">',
+            '<button class="btn btn-success btn-block btn-lg" type="button" id="451_btn_orderadd" ng-disabled="qtyError || matrixSpecForm.$invalid" ng-click="addVariantsToOrder()">',
             '<loadingindicator ng-show="addToOrderIndicator" /><i ng-show="qtyError" class="fa fa-warning"></i> {{addToOrderText | r}}</button>',
-            '</div>'
+            '</div>',
+            '</form>'
         ].join('');
     }
 }
@@ -67,30 +77,35 @@ ProductMatrixCtrl.$inject = ['$scope', '$routeParams', '$location', 'ProductDisp
 function ProductMatrixCtrl($scope, $routeParams, $location, ProductDisplayService, Order, User, ProductMatrix) {
 
     $scope.addToOrderText = "Add To Cart";
-    $scope.searchTerm = null;
     $scope.currentOrder = $scope.$parent.$parent.currentOrder;
 
     $scope.lineItemIndex = $routeParams.lineItemIndex;
 
-    function init(searchTerm) {
-        ProductDisplayService.getProductAndVariant($routeParams.productInteropID, $routeParams.variantInteropID, function (data) {
-            $scope.product = data.product;
-            ProductMatrix.getMinMaxTotalQty($scope.product);
-            if ($scope.product.IsVBOSS) {
-                var lineItemEdit = null;
-                if ($scope.lineItemIndex) {
-                    lineItemEdit = $scope.currentOrder.LineItems[$scope.lineItemIndex];
-                }
-                ProductMatrix.build($scope.product, $scope.currentOrder, lineItemEdit, function(matrix, specCount, spec1Name, spec2Name) {
-                    $scope.specCount = specCount;
-                    $scope.spec1Name = spec1Name;
-                    $scope.spec2Name = spec2Name;
-                    $scope.comboVariants = matrix;
-                });
+    function init() {
+        $scope.product = $scope.matrixitem.Product;
+        if ($scope.product.IsVBOSS) {
+            var lineItemEdit = null;
+            if ($scope.lineItemIndex) {
+                lineItemEdit = $scope.currentOrder.LineItems[$scope.lineItemIndex];
+                $scope.product = lineItemEdit.Product;
+                $scope.product.Specs = lineItemEdit.Specs;
+                ProductMatrix.getMinMaxTotalQty($scope.product);
             }
-        }, 1, 100, searchTerm);
+            else{
+                ProductMatrix.getMinMaxTotalQty($scope.product);
+            }
+            ProductMatrix.build($scope.product, $scope.currentOrder, lineItemEdit, function(matrix, specCount, spec1Name, spec2Name) {
+                $scope.specCount = specCount;
+                $scope.spec1Name = spec1Name;
+                $scope.spec2Name = spec2Name;
+                $scope.comboVariants = matrix;
+            });
+        }
     }
-    init($scope.searchTerm);
+    $scope.$watch('matrixitem.Product',function(val){
+        if(!val)return;
+        init();
+    });
 
     $scope.qtyChanged = function() {
         $scope.qtyError = "";
@@ -369,7 +384,9 @@ function ProductMatrix($451, Variant) {
                     var liSpecs = {};
                     for (var spec in product.Specs) {
                         liSpecs[spec] = angular.copy(product.Specs[spec]);
-                        liSpecs[spec].Value = item.tempSpecs[spec] ? item.tempSpecs[spec].Value : null;
+                        if(!liSpecs[spec].Value){
+                            liSpecs[spec].Value = item.tempSpecs[spec] ? item.tempSpecs[spec].Value : null;   
+                        }
                     }
                     var li = {
                         "PriceSchedule":product.StandardPriceSchedule,
