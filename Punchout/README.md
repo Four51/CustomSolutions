@@ -1,6 +1,6 @@
 #Punchout File Overrides for Storefront
 
-This repo will provide all the files to update the base Storefront 2.0 application.  The file overrides provided will not solve the issue regarding running a 2.0 application in a frame as typically done with an Ariba Punchout.  If you are updating an existing app, care must be taken to make sure that you do not undo your own customizations and you will need to do a code review to merge the punchout code into your custom code.
+This repo provides all the files to update the base Storefront 2.0 application to support a punchout in Chrome, Firefox and Edge.  The file overrides provided do not solve the issue of running a 2.0 application in a frame in Internet Explorer or Safari, as typically done with an Ariba Punchout, .  If you are updating an existing app, care must be taken to make sure that you do not undo your own customizations and you will need to do a code review to merge the punchout code into your custom code.
 
 ##Setup
 ####1. Add the service to your project.
