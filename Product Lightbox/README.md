@@ -1,10 +1,10 @@
-#Product Lightbox for Four51 Storefront
+# Product Lightbox for Four51 Storefront
 
 This module provides the user the ability to create a gallery of lightbox images for static or variable products.
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductLightbox).
 
-##Setup
+## Setup
 #### 1. Add module file to your project.
 
 Add the **`productLightbox.js`** file to your project.
@@ -32,7 +32,7 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
  2.  Add **‘OrderCloud-ProductLightbox’** into the file. Save.
 
 
-##Usage
+## Usage
 
 #### 1. Create Static Specs for your images.
 
@@ -62,7 +62,7 @@ Add a dependency for `OrderCloud-ProductLightbox` to the Four51.app module in th
 Examples of naming conventions:
 <table><tr><th>Variable Spec (Selection Spec type)</th><th>Static Spec Group Name</th><th>Static Spec Name</th><th>Static Spec Type</th><th>Value</th></tr><tr><td>Color</td><td>LightboxImages</td><td>Yellow</td><td>File</td><td>Upload yellow image</td><td>Uncheck visible to User checkbox</td></tr><tr><td>Color</td><td>LightboxImages</td><td>Green</td><td>File</td><td>Upload green image</td><td>Uncheck visible to User checkbox</td></tr></table>
 
-###2. Create a new Product Detail Template within the admin interface.
+### 2. Create a new Product Detail Template within the admin interface.
 
 1. Navigate to ”Product Detail Template” on the left navigation in
     Order Cloud Admin 
@@ -79,6 +79,6 @@ Examples of naming conventions:
     </div>
 ```
 
-###3. Apply Product Detail Template to product(s).
+### 3. Apply Product Detail Template to product(s).
 
 Using Product Properties, assign your new/updated Product Detail Template to any products requiring the Product Lightbox feature
