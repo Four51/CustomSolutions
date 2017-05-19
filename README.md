@@ -1,8 +1,8 @@
-#Welcome to the Custom Solutions Library!
+# Welcome to the Custom Solutions Library!
 
-####Thank you for joining Four51’s Custom Solutions Library!  Four51 has done the work for you by coding, testing, and executing a number of solutions that can benefit your stores.  With your membership, the power to customize and enhance your site is in your hands!  
+#### Thank you for joining Four51’s Custom Solutions Library!  Four51 has done the work for you by coding, testing, and executing a number of solutions that can benefit your stores.  With your membership, the power to customize and enhance your site is in your hands!  
 
-####**Membership Benefits**
+#### **Membership Benefits**
 
  - A comprehensive introduction to Library navigation
  - Access to code for a number of supplemental Storefront solutions and features that can be applied to any site
@@ -11,10 +11,10 @@
  - Code updates if improvements are made to solutions
 
 
-####**Getting Started**
+#### **Getting Started**
 Start by browsing the various Four51 Storefront Solutions on the Volition demo site, found [here](https://volition.four51ordercloud.com/store/catalog/OrderCloudSolutions).  Once you have viewed examples and identified a solution to implement, hit the ***Code It*** button and continue to GitHub.  You now have access to our Custom Solutions GitHub repository which hosts the code and instructions for you to get started.  
 
-####**Tips**
+#### **Tips**
 
  - Nearly all solutions include a README.md file and a module file. The README provides step-by-step instructions for implementation.  The module file will often be a .js file and will contain the code for the solution.  When the README references the “module”, it is referring to the code.
  - You can access the raw code by opening the module and hitting the “Raw” button in the upper right corner.
