@@ -1,12 +1,12 @@
-#Hamburger Navigation for Four51 Storefront 
+# Hamburger Navigation for Four51 Storefront 
 
 This module provides the user the ability to collapse the top navigation icons into a hamburger icon when using a mobile view. 
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/HamburgerNavigation).
 
-##Setup
+## Setup
 
-####1. Add module file to your project.
+#### 1. Add module file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
 
@@ -23,16 +23,16 @@ If you are using file overrides, create a new file override named **`lib/oc/hamb
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/hamburgerNavigation.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
-####2. Load the module into the application
+#### 2. Load the module into the application
 
 Add a dependency for `OrderCloud-HamburgerNavigation` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
 1. In Code Editor, locate your **`js/app.js`** file; hit edit.
 2. Add **‘OrderCloud-HamburgerNavigation’** into the file. Save.
 
-##Usage
+## Usage
 
-####1. Update the index.html file
+#### 1. Update the index.html file
 
 Replace: 
 ```html
