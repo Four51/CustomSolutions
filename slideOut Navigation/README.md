@@ -1,10 +1,10 @@
-#SlideOut Nav for Four51 Storefront 
+# SlideOut Nav for Four51 Storefront 
 
 This module provides the user the ability to create a navigation item that will initiate a slide out panel.
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/slideOutNavigation).
 
-##Setup
+## Setup
 #### 1. Add module file to your project.
 
 Add the **`slideOutNav.js`** file to your project.
@@ -34,7 +34,7 @@ Add a dependency for **`OrderCloud-SlideOutNav`** to the Four51.app module in th
  2. Add **‘OrderCloud-SlideOutNav’** into the file. Save.
 
 
-##Usage
+## Usage
 #### 1. Add custom user fields and assign the user fields to the Company or Group
 
  1. Go to the Company or Group that you would like to add the slideOut Nav too
@@ -55,7 +55,7 @@ Add a dependency for **`OrderCloud-SlideOutNav`** to the Four51.app module in th
 
 >**Note:** Make sure your Custom User Fields are activated for the Company/Group you added them to.  You can check-mark each User Field and hit the Update button to activate them.  
 
-#####Image information:
+##### Image information:
 
  - You can add up to 12 images depending on image dimensions
  - Keep all your images the same dimensions or at a minimum the same width
