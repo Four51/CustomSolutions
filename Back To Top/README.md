@@ -1,11 +1,11 @@
-#Back to Top for Four51 Storefront
+# Back to Top for Four51 Storefront
 
 This module provides the user with the ability to add a dynamically appearing arrow button to the bottom right of the page that will return them to the top of the page when clicked.
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/BackToTop).
 
-##Setup
-###1. Add module file to your project.
+## Setup
+### 1. Add module file to your project.
 Add the **`backToTop.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
@@ -23,15 +23,15 @@ If you are using file overrides, create a new file override named **`lib/oc/back
  1. In Code Editor, locate your index.html file, hit edit. 
  2. Add `<script src="lib/oc/backToTop.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
 
-###2. Load the module into the application.
+### 2. Load the module into the application.
 Add a dependency for `OrderCloud-BackToTop` to the Four51.app module in the **`js/app.js`** file by following these steps. 
 
  1. In Code Editor, locate your **`js/app.js`** file, hit edit. 
  2. Add **‘OrderCloud-BackToTop’** into the file. Save.
 
 
-##Usage
-###1. Add the directive to the index.html file
+## Usage
+### 1. Add the directive to the index.html file
 
 Place this tag in the **`index.html`** file: 
 ```html
