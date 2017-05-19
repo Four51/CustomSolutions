@@ -1,12 +1,12 @@
-#Featured Items for Four51 Storefront  
+# Featured Items for Four51 Storefront  
 
 This module allows you to place a featured items area in your site. 
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/FeaturedItems).
 
-##Setup
+## Setup
 
-####1. Add module file to your project.
+#### 1. Add module file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
 
@@ -23,14 +23,14 @@ If you are using file overrides, create a new file override named **`lib/oc/feat
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/featuredItems.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
-####2. Load the module into the application
+#### 2. Load the module into the application
 
 Add a dependency for `OrderCloud-FeaturedItems` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
 1. In Code Editor, locate your **`js/app.js`** file; hit edit.
 2. Add **‘OrderCloud-FeaturedItems’** into the file. Save.
 
-####3. Placing the featured items in the application
+#### 3. Placing the featured items in the application
 
 Add the directive  **`<featureditems></featureditems>`** wherever you would like the featured items to appear. This example places the featured items under the branding area, parallel to the category list, and above the categories.
 
@@ -44,7 +44,7 @@ Update the **`partials/categoryView.html`**  file like the example below.
 </div>
 ```
 
-##Usage
+## Usage
 
 #### 1. Add custom user fields and assign the user fields to the Company or Group
 
@@ -53,7 +53,7 @@ Update the **`partials/categoryView.html`**  file like the example below.
  3. Click New Custom User Field (or search if you need to update an existing field)
  4. Fill out the fields as followed:
 
-#####Required Custom User Fields
+##### Required Custom User Fields
 - **Field Name:** featureditem1 (or subsequent number)
 - **Label:** Insert the relative URL (the string after your Application URL, ex. /store/product/tshirt) to redirect users within the site. If you do not want the image to link to anything, enter _none_ in the field.
 - **Type:** File
@@ -68,7 +68,7 @@ Update the **`partials/categoryView.html`**  file like the example below.
 >**Important!** Make sure your Custom User Fields are activated for the Company/Group you added them to.  You can check-mark each User Field and hit the Update button to activate them.  
 
 
-#####Additional information:
+##### Additional information:
 
   - Keep all your images the same dimensions otherwise the Featured Items section will not be consistent.
   - Custom CSS for the featured items can be added to your custom CSS file using the .featured-items class.
