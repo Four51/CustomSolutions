@@ -29,7 +29,7 @@ If you are using file overrides, create a new file override named **`sitedownSpl
     <script type="text/javascript">
         { window.location.replace("sitedownSplashPage.html"); }
     </script> 
-    <!-- site down script end -->
+<!-- site down script end -->
 ```
 
 
