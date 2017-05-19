@@ -1,4 +1,4 @@
-#Anonymous Router for Four51 Storefront
+# Anonymous Router for Four51 Storefront
 
 This module provides the ability to redirect an anonymous user to the user admin page in order to profile themselves at any step within their catalog workflow.
 
@@ -6,8 +6,8 @@ This module provides the ability to redirect an anonymous user to the user admin
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51.com/store/product/AnonymousRouter).
 
-##Setup
-###1. Add module file to your project.
+## Setup
+### 1. Add module file to your project.
 Add the **`anonRouter.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
@@ -25,14 +25,14 @@ If you are using file overrides, create a new file override named **`lib/oc/anon
  1. In Code Editor, locate your index.html file; hit edit.
  2. Add `<script src="lib/oc/anonRouter.js" data-group="resources"></script>`  in the section with “lib/oc” files. Save.
 
-###2. Load the module into the application.
+### 2. Load the module into the application.
 Add a dependency for `OrderCloud-AnonRouter` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
  1. In Code Editor, locate your **`js/app.js`** file; hit edit.
  2. Add **‘OrderCloud-AnonRouter’** into the file. Save.
 
-##Usage
-###1. Configure your before and after constants within the **`OrderCloud-AnonRouter`** module
+## Usage
+### 1. Configure your before and after constants within the **`OrderCloud-AnonRouter`** module
 
 There are two constants defined within the module: **`before`** and **`after`**. These constants serve to tell the module when to redirect the anonymous user to the user admin page and where they should be directed after creating a user profile.
 
@@ -42,7 +42,7 @@ For the **`after`** constant, enter the route string for where to redirect the u
 
 >**Note:** If you attempt to send the user to 'checkout' and they do not have an order open, the user will be directed to the 'catalog' route.
 
-###2. Update UserEdit Controller
+### 2. Update UserEdit Controller
 
 First, add the script below to the very top of the **`js/controllers/userEditCtrl.js`** file if it is not there already.   The Four51 Storefront application will have this by default, but it is possible a file override has been created, or a custom repository was created before this update was made.
 
@@ -82,7 +82,7 @@ For example:
         }
     );
 ```
-###3. Create your Template User
+### 3. Create your Template User
 
  1. On the admin page of your buyer site, got to Users > New User.
  2. Fill out the required fields for your template user. 
@@ -94,14 +94,14 @@ For example:
  
  > **Important!** Under permissions > Miscellaneous, make sure to check **View Self Admin** for the template user. 
 
-###4. Assign your Template User to your Application
+### 4. Assign your Template User to your Application
 
  1. Edit your 2.0 site
  2. Under Properties > Guest Checkout User click "load users..."
  3. Select the Template User that your just created and Save. 
 
 ___
-##Additional Information
+## Additional Information
 
 If you use the file override method for changes, and you override the index.html file, it is important that you update the following code to make this solution work. 
 
