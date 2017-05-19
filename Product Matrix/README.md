@@ -1,11 +1,11 @@
-#Product Matrix for Four51 Storefront  
+# Product Matrix for Four51 Storefront  
 
 This module provides a matrix type layout for ordering Variants Based on Selection Specs (VBOSS) static products. Products utilizing this module must have VBOSS variants using **one or two variable selection specs** _(note the matrix does not work with more than two variable specs)_. Additional variable specs can be assigned to the product, but only one or two may be applied to the VBOSS variants. Additional specs will be displayed above the matrix layout.
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductMatrix).
 
-##Setup
-###1. Add module file to your project.
+## Setup
+### 1. Add module file to your project.
 Add the **`productMatrix.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
@@ -24,15 +24,15 @@ If you are using file overrides, create a new file override named **`lib/oc/prod
  2. Add `<script src="lib/oc/productMatrix.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
 
 
-###2. Load the module into the application.
+### 2. Load the module into the application.
 Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
  1. In Code Editor, locate your **`js/app.js`** file, hit edit. 
  2. Add **‘OrderCloud-ProductMatrix’** into the file. Save.
 
 
-##Usage
-###1. Set-up your product
+## Usage
+### 1. Set-up your product
 
  1. Locate product in catalog or create a new product
  2. Go to Variable Specs and create your Variable Specs with Spec Type Selection. 
@@ -40,7 +40,7 @@ Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the 
  
 >**Note:** Multiple Variable Specs may be applied to the product, but only one or two may be applied to the VBOSS variants to create the matrix
 
-###2. Create a new Product Detail Template within the admin interface.
+### 2. Create a new Product Detail Template within the admin interface.
 
  1. Navigate to ”Product Detail Template” on the left navigation in Order Cloud Admin 
  2. Go to the Four51 Storefront 2.0 tab
@@ -54,11 +54,11 @@ Add a dependency for `OrderCloud-ProductMatrix` to the Four51.app module in the 
     <productmatrix matrixitem="LineItem"></productmatrix>
 ```
 
-###2. Apply Product Detail Template to product(s).
+### 2. Apply Product Detail Template to product(s).
 
 Using Product Properties, assign your new/updated Product Detail Template to any products requiring the Product Matrix that have 1-2 variable specs.
 
-##Additional Information
+## Additional Information
 
 A Total Min and Total Max functionality can be set on the product and it's variants using a Static Spec
 
