@@ -1,4 +1,4 @@
-#Add to Cart Preview for Four51 Storefront
+# Add to Cart Preview for Four51 Storefront
 
 This module is intended for use on [VBOSS](http://four51public.force.com/Articles/articles/Informational/Variants-Based-on-Selection-Specs/?q=VBOSS&l=en_US&fs=Search&pn=1) products only.  It will not work with any other product type.
 
@@ -6,8 +6,8 @@ This module provides the user the ability to generate a list of multiple line it
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/AddToCartPreview).
 
-##Setup
-###1. Add module file to your project.
+## Setup
+### 1. Add module file to your project.
 Add the **`addToCartPreview.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
@@ -25,15 +25,15 @@ If you are using file overrides, create a new file override named **`lib/oc/addT
  1. In Code Editor, locate your `index.html` file, hit edit. 
  2. Add **`<script src="lib/oc/addToCartPreview.js" data-group="resources"></script>`** in the section with “lib/oc” files.  Save.
 
-###2. Load the module into the application.
+### 2. Load the module into the application.
 Add a dependency for **`OrderCloud-AddToCartPreview`** to the Four51.app module in the **`js/app.js`** file by following these steps:
 
  1. In Code Editor, locate your **`js/app.js file`**, hit edit. 
  2. Add **‘OrderCloud-AddToCartPreview’** into the file.  Save
 
-##Usage
+## Usage
 
-###1. Set-up your product
+### 1. Set-up your product
 
  1. Locate product in catalog or create a new product
  2. Go to Variable Specs and create your Variable Specs with Spec Type Selection.
@@ -41,7 +41,7 @@ Add a dependency for **`OrderCloud-AddToCartPreview`** to the Four51.app module 
 
  >Note: Multiple Variable Specs may be applied to the product to create the Add to Cart Preview. Make sure to upload an image for each variable if you would like to show the image variations. 
 
-###2. Create a new Product Detail Template within the admin interface
+### 2. Create a new Product Detail Template within the admin interface
 
  1. Navigate to ”Product Detail Template” on the left Navigation in Order Cloud Admin.
  2. Go to the Storefront 2.0 tab
@@ -65,12 +65,12 @@ with the following:
     <addtocartpreview lineitem="LineItem" errors="lineItemErrors" user="user"></addtocartpreview>
 ```
 
-###3. Apply Product Detail Template to product(s)
+### 3. Apply Product Detail Template to product(s)
 
 Using Product Properties, assign your new/updated Product Detail Template to any products requiring the Add to Cart Preview feature.
 
 
-##Additional Information
+## Additional Information
 
 A Total Min and Total Max functionality can be set on the product and it's variants using a Static Spec
 
