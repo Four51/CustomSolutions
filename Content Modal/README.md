@@ -1,12 +1,12 @@
-#Content Modal for Four51 Storefront  
+# Content Modal for Four51 Storefront  
 
 This module provides a modal popup content of your choice in any location on your site. 
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ContentModal).
 
-##Setup
+## Setup
 
-####1. Add module file to your project.
+#### 1. Add module file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
 
@@ -23,16 +23,16 @@ If you are using file overrides, create a new file override named **`lib/oc/cont
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/contentModal.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
-####2. Load the module into the application
+#### 2. Load the module into the application
 
 Add a dependency for `OrderCloud-ContentModal` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
 1. In Code Editor, locate your **`js/app.js`** file; hit edit.
 2. Add **‘OrderCloud-ContentModal’** into the file. Save.
 
-##Usage
+## Usage
 
-####1. Place the directive anywhere in the application
+#### 1. Place the directive anywhere in the application
 
 Place the directive below anywhere in the application where you would like the Content Modal to appear. 
 ```html
@@ -81,6 +81,6 @@ To place the modal window in the top nav of your site, like in our demonstration
 </ul>
 ```
 
-####2. Customize the content of your modal window.
+#### 2. Customize the content of your modal window.
 
 All of the content of your modal window can be customized in the contentModal.js file. Currently, you will find Lorem Ipsum text, "Open Modal" label in the top navigation bar with an info icon, and buttons for Cancel and Close to exit out of the window. This can all be customized to your needs using basic html. 
