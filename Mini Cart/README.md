@@ -1,11 +1,11 @@
-#MiniCart for Four51 Storefront 
+# MiniCart for Four51 Storefront 
 
 This module contains a mini cart add-on which provides a small version of a user's shopping cart to appear upon mouse-over of the cart icon in the nav. 
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/MiniCart)
-##Setup
+## Setup
 
-####1. Add MiniCart module file to your project.
+#### 1. Add MiniCart module file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
 
@@ -22,7 +22,7 @@ If you are using file overrides, create a new file override named **`lib/oc/mini
 1. In Code Editor, locate your index.html file; hit edit.
 2. Add `<script src="lib/oc/minicart.js" data-group="resources"></script>` in the section with “lib/oc” files. Save.
 
-####2. Load the module into the application
+#### 2. Load the module into the application
 
 Add a dependency for `OrderCloud-Minicart` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
@@ -30,10 +30,10 @@ Add a dependency for `OrderCloud-Minicart` to the Four51.app module in the **`js
 2. Add **‘OrderCloud-Minicart’** into the file. Save.
 
 
-##Usage
+## Usage
 
 
-####1. Add the minicart directive to your site
+#### 1. Add the minicart directive to your site
 
 The `<minicart></minicart>` directive can be used anywhere in the app.  One location we recommend is in the **`partials/controls/nav.html`**  file with an overwrite to the default cart icon.  This will place the mini cart in  your top navigation bar where the default cart icon is. 
 
@@ -61,6 +61,6 @@ with
 </ul>
 ```
 
-####2. Customize the Mini Cart with CSS
+#### 2. Customize the Mini Cart with CSS
 
 The module CSS is located within the Mini Cart module (minicart.js file).  Any css changes should be made inside the module. 
