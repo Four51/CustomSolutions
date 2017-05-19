@@ -1,11 +1,11 @@
-#Product List Add to Cart for Four51 Storefront 
+# Product List Add to Cart for Four51 Storefront 
 
 This module provides the user with the ability to add a product to their cart from the Product List page instead of the Product Detail page. 
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductListAddtoCart).
 
-##Setup
-###1. Add module file to your project.
+## Setup
+### 1. Add module file to your project.
 Add the **`productListAddToCart.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
@@ -23,19 +23,19 @@ If you are using file overrides, create a new file override named **`lib/oc/prod
  1. In Code Editor, locate your index.html file, hit edit. 
  2. Add `<script src="lib/oc/productListAddToCart.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
 
-###2. Load the module into the application.
+### 2. Load the module into the application.
 Add a dependency for `OrderCloud-ProductListAddToCart` to the Four51.app module in the **`js/app.js`** file by following these steps. 
 
  1. In Code Editor, locate your **`js/app.js`** file, hit edit. 
  2. Add **‘OrderCloud-ProductListAddToCart’** into the file. Save.
 
-##Usage
+## Usage
 
-###1. Add the Product List Add To Cart directive
+### 1. Add the Product List Add To Cart directive
 
 Determine which Product List Template you are using, or choose a Product List Template.  The templates are found in the admin of your OrderCloud 2.0 site under the Product List tab.  Once you have selected your template number or determined what template your site uses follow the instructions below.
 
-####For template # 1
+#### For template # 1
 
 In **`partials/controls/shortProductView.html`**, add the directive **`<productlistaddtocart></productlistaddtocart>`** below the Price Schedule **`<section>`** as shown below. 
 
@@ -57,9 +57,9 @@ In **`partials/controls/shortProductView.html`**, add the directive **`<productl
 <productlistaddtocart></productlistaddtocart>
 ```
 
-####For template # 2, 3, 4, and 5 this solution is not available
+#### For template # 2, 3, 4, and 5 this solution is not available
 
-####For template # 6 & 7
+#### For template # 6 & 7
 
 In **`partials/controls/shortProductViewInline.html`**, add the directive **`<productlistaddtocart></productlistaddtocart>`** after the last **`</div>`** tag as shown below. 
 
@@ -87,7 +87,7 @@ In **`partials/controls/shortProductViewInline.html`**, add the directive **`<pr
 <productlistaddtocart></productlistaddtocart>
 ```
 
-####For template # 8, 9, and 10
+#### For template # 8, 9, and 10
 
 In **`partials/controls/shortProductViewMinimal.html`**, add the directive **`<productlistaddtocart></productlistaddtocart>`** after the last **`</div>`** tag as shown below. 
 
