@@ -1,12 +1,12 @@
-#Product Zoom for Four51 Storefront
+# Product Zoom for Four51 Storefront
 
 This module provides the user the ability to create a hover zoom image on a product. 
 
 To learn more about this feature and see examples, visit this [page](https://volition.four51ordercloud.com/store/product/ProductZoom#example). 
 
 
-##Setup
-###1. Add module file to your project.
+## Setup
+### 1. Add module file to your project.
 Add the **`productZoom.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
@@ -25,14 +25,14 @@ If you are using file overrides, create a new file override named **`lib/oc/prod
 2. Add `<script src="lib/oc/productZoom.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
 
 
-###2. Load the module into the application.
+### 2. Load the module into the application.
 Add a dependency for `OrderCloud-ProductZoom` to the Four51.app module in the **`js/app.js`** file by following these steps. 
 
  1. In Code Editor, locate your **`js/app.js`** file; hit edit. 
  2.  Add **‘OrderCloud-ProductZoom’** into the file. Save.
 
-##Usage
-###1. Create a Static Spec Group for the products with Product Zoom
+## Usage
+### 1. Create a Static Spec Group for the products with Product Zoom
 
  1. Locate the product in your catalog or create a new product 
  2. Go to Static Specs
@@ -86,7 +86,7 @@ Tip: make these specs non-visible to the customer
   </tr>
 </table>
 
-###2. Create a new Product Detail Template within the admin interface
+### 2. Create a new Product Detail Template within the admin interface
 
  1. Navigate to ”Product Detail Template” on the left navigation in
     Four51 Storefront Admin. 
@@ -107,7 +107,7 @@ with the following:
     <productzoom lineitem="LineItem" kit="Kit.KitParent"></productzoom>
 ```
 
-###3. Apply Product Detail Template to product(s)
+### 3. Apply Product Detail Template to product(s)
 
 Using Product Properties, assign your new/updated Product Detail Template to any products requiring the Product Zoom feature
 
@@ -115,7 +115,7 @@ Using Product Properties, assign your new/updated Product Detail Template to any
 ----------
 
 
-##Additional Information
+## Additional Information
 
  * All ProductZoom products need to have an image loaded for both the Large image and the Thumbnail image. The Large image must be a larger size from the Thumbnail image since it enables the zoom. Please see the Image Recommendations below. 
  * If you would like other style customizations, you can do this with CSS.  The default values are listed below. 
@@ -131,13 +131,13 @@ Using Product Properties, assign your new/updated Product Detail Template to any
 ```
 
 #### Image Recommendations
-#####Thumbnail
+##### Thumbnail
 * minimum of 300w x 300h, cropped to top, no white space (1)
 * All images should retain the same aspect ratio and height (2)
 * Minimum of 72dpi
 * If a product has multiple sides, use the cover image only for the thumbnail
 
-#####Large Image for Product Zoom
+##### Large Image for Product Zoom
 * Minimum of 1000w, cropped to top, no white space
 * Minimum of 72dpi
 
