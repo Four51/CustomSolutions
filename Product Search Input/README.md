@@ -1,11 +1,11 @@
-#Product Search Input for Four51 Storefront
+# Product Search Input for Four51 Storefront
 
 This module creates a search icon or search bar in the top navigation of a site so that the ability to search is always available, regardless of what page the shopper is on. 
 
 To learn more about this feature and see examples, visit this [page.](https://volition.four51ordercloud.com/store/product/ProductSearchInput)
 
-##Setup
-###1. Add module file to your project. 
+## Setup
+### 1. Add module file to your project. 
 Add the **`ProductSearchInput.js`** file to your project.
 
 If you are using a repository, add this file to the **`/lib/oc`** directory.
@@ -24,14 +24,14 @@ If you are using file overrides, create a new file override named **`lib/oc/Prod
  2. Add `<script src="lib/oc/ProductSearchInput.js" data-group="resources"></script>` in the section with “lib/oc” files. Save
 
 
-###2. Load the module into the application.
+### 2. Load the module into the application.
 Add a dependency for `OrderCloud-ProductSearchInput` to the Four51.app module in the **`js/app.js`** file by following these steps:
 
  1. In Code Editor, locate your **`js/app.js`** file, hit edit. 
  2. Add **‘OrderCloud-ProductSearchInput’** into the file. Save.
 
 
-###3. Begin using the directives as you see fit!
+### 3. Begin using the directives as you see fit!
 
 Locate the **`partials/controls/nav.html`** file in your in your 2.0 Code Editor.  There are two different directives that you can add to your site to create different search functions. You can choose whether you want to use one function or both functions. 
 
