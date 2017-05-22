@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Site Down for Scheduled Maintenance</title>
+        <style>
+            video#bgvid {
+            position: fixed; right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto; 
+            z-index: -100;
+            background: url(https://raw.githubusercontent.com/Four51/Four51StorefrontWiki/master/app_offline/blank.png) no-repeat;
+            background-size: cover;
+            }
+            video { display: block; }
+            H1{
+            font-family: Arial;
+            text-align:center;
+            color: #2b334a;
+            font-weight:bold;
+            }
+            p{
+			font-family: Arial;
+            text-align:center;
+            text-shadow: 4px 4px 6px #ffffff;
+            font-size: 20px;
+            color: #2b334a;
+            }
+        </style>
+        <!--[if lt IE 9]>
+        <script>
+            document.createElement('video');
+        </script>
+        <![endif]-->
+    </head>
+    <body>
+        <video id="bgvid" loop autoplay poster="blank.png">
+            <source src="https://raw.githubusercontent.com/Four51/Four51StorefrontWiki/master/app_offline/saddayrainyday.ogv" type="video/ogv" />
+            <source src="https://raw.githubusercontent.com/Four51/Four51StorefrontWiki/master/app_offline/saddayrainyday.webm" type="video/webm" />
+            <source src="https://raw.githubusercontent.com/Four51/Four51StorefrontWiki/master/app_offline/saddayrainyday.mp4" type="video/mp4" />
+        </video>
+        <h1>Scheduled Maintenance</h1>
+        <p>
+            This site is temporarily unavailable.
+        </p>
+    </body>
+</html>
