@@ -431,7 +431,7 @@ function definesvariant() {
     return function(value) {
         var output = [];
         angular.forEach(value, function(s) {
-            if (s.DefinesVariant == false || s.ControlType == 'Text')
+            if (s.DefinesVariant == false || s.ControlType == 'Text' || s.ControlType == 'File')
                 output.push(s);
         });
         return output;
