@@ -1,4 +1,8 @@
-four51.app.factory('Punchout', ['$resource', '$451', '$http', '$cookieStore', function($resource, $451, $http, $cookieStore) {
+four51.app.factory('Punchout', ['$resource', '$451', '$http', '$cookieStore', 'Error', function($resource, $451, $http, $cookieStore, Error) {
+    function _then(fn, data) {
+        if (angular.isFunction(fn))
+            fn(data);
+    }
 
     var _punchoutSession = $cookieStore.get('punchoutSession.' + $451.apiName);
 
@@ -13,8 +17,20 @@ four51.app.factory('Punchout', ['$resource', '$451', '$http', '$cookieStore', fu
             });
     }
 
+    var _save = function(id, success, error){
+        $resource($451.api('order/punchout/:id'), {'id': id}, { submitpunchout: { method: 'PUT'}}).submitpunchout().$promise.then(
+            function() {
+                _then(success);
+            },
+            function(ex) {
+                error(Error.format(ex));
+            }
+        );
+    };
+
     return {
         getForm: _getForm,
-        punchoutSession: _punchoutSession
+        punchoutSession: _punchoutSession,
+        save: _save
     }
 }]);

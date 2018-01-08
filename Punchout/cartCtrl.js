@@ -6,13 +6,18 @@ function ($scope, $routeParams, $location, $451, Order, OrderConfig, User, Punch
 	}
 	$scope.submitPunchoutOrder = function () {
 		$scope.saveChanges(function (data) {
-			Punchout.getForm(function (form) {
-				$scope.punchoutForm = form;
-				$timeout(function () {
-					$window.document.getElementById('punchoutForm').submit();
-				}, 10);
-			}, function (err) {
-			})
+			Punchout.save($scope.currentOrder.ID, function(){
+				Punchout.getForm(function (form) {
+					$scope.punchoutForm = form;
+					$timeout(function () {
+						$window.document.getElementById('punchoutForm').submit();
+					}, 10);
+				},function (err) {
+					$scope.errorMessage = err.Message;
+				});
+			},function(ex){
+				$scope.errorMessage = ex.Message;
+			});
 		}, true);
 	};
 	
