@@ -104,7 +104,7 @@ function ContentModalCtrl($scope, $modal) {
 
     };
 
-    var ContentModalOpenCtrl = ['$scope', '$modalInstance', '$modal', function($scope, $modalInstance, $modal, item) {
+    var ContentModalOpenCtrl = ['$scope', '$modalInstance', '$modal', 'item', function($scope, $modalInstance, $modal, item) {
 
         $scope.item = item; // this is the item passed in from the ContentModalCtrl resolve
 
