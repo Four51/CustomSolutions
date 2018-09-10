@@ -10,6 +10,7 @@ function ($scope, $routeParams, $location, $451, Order, OrderConfig, User, Punch
 				Punchout.getForm(function (form) {
 					$scope.punchoutForm = form;
 					$timeout(function () {
+						store.remove('punchoutconfig');
 						$window.document.getElementById('punchoutForm').submit();
 					}, 10);
 				},function (err) {
