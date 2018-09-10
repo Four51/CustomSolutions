@@ -32,15 +32,19 @@ function ($scope, $route, $location, Punchout, $451, User, Order, Security, Orde
                 $scope.user.Culture.DateFormat = XLATService.getCurrentLanguage(user.CultureUI, user.Culture.Name)[2];
                 
                 //Punchout
-                angular.forEach($scope.user.Permissions,function(permission){
-					if(permission == "PunchoutUser"){
-						$scope.PunchoutUser = true;
-
-						if($scope.PunchoutSession && $scope.PunchoutSession.PunchOutOperation == 'Edit') $location.path('cart');
-						else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingCategory) $location.path('catalog/' + $scope.PunchoutSession.PunchoutLandingCategory);
-						else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingProduct) $location.path('product/' + $scope.PunchoutSession.PunchoutLandingProduct);
-					}
-				});
+                var punchoutConfigured = store.get('punchoutconfig');
+                if(!punchoutConfigured){
+                	angular.forEach($scope.user.Permissions,function(permission){
+	                    if(permission == "PunchoutUser"){
+	                        $scope.PunchoutUser = true;
+	 
+	                        if($scope.PunchoutSession && $scope.PunchoutSession.PunchOutOperation == 'Edit') $location.path('cart');
+	                        else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingCategory) $location.path('catalog/' + $scope.PunchoutSession.PunchoutLandingCategory);
+	                        else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingProduct) $location.path('product/' + $scope.PunchoutSession.PunchoutLandingProduct);
+	                        store.set('punchoutconfig','true');
+	                    }
+	                });
+                }
 				
 	            if (!$scope.user.TermsAccepted)
 		            $location.path('conditions');
