@@ -57,8 +57,9 @@ function productzoom() {
                     lensAutoCircle: $scope.lineitem.Product.StaticSpecGroups.ProductZoom.Specs.autoCircle,
                     innerZoom: $scope.lineitem.Product.StaticSpecGroups.ProductZoom.Specs.iZoom
                 };
+                var imageURL = variant.PreviewUrl ? variant.PreviewUrl : variant.LargeImageUrl;
                 var jetZoomInstance = new JetZoom($('.jetzoom'), options);
-                jetZoomInstance.loadImage(variant.LargeImageUrl, variant.LargeImageUrl);
+                jetZoomInstance.loadImage(imageURL, imageURL);
             }, true);
 
             // Plugin Code:
