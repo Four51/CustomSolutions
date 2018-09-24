@@ -18,7 +18,7 @@ function productzoom() {
             '.jetzoom{ margin:0 auto }' +
             '</style>'+
             '<div>'+
-            '<img class="jetzoom img-responsive"/>'+
+            '<img class="jetzoom img-responsive" imageonload/>'+
             '</div>',
         link: function($scope) {
             $scope.$watch('lineitem', function(lineitem){
