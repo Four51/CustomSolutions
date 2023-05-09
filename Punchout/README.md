@@ -49,3 +49,13 @@ If you are using file overrides, create a new file override named **`partials/ca
  3. Hit “New File Override”
  4. Name this file `partials/cartView.html`
  5. Place raw code in the section below. Save.
+
+### 5. Add the **`partials/controls/nav.html`** file to your project.
+
+If you are using file overrides, create a new file override named **`partials/controls/nav.html`** and add this file as the content by following these steps:
+
+ 1. Edit your 2.0 site
+ 2. Go to “Code Editor” tab
+ 3. Hit “New File Override”
+ 4. Name this file `partials/controls/nav.html`
+ 5. Place raw code in the section below. Save.
