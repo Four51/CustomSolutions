@@ -11,11 +11,11 @@ If you are using a repository, add this file to the **`/js/services`** directory
 
 If you are using file overrides, create a new file override named **`js/services/googleAnalytics.js`** and add this file as the content by following these steps:
 
-Edit your 2.0 site
-Go to “Code Editor” tab
-Hit “New File Override”
-Name this file js/services/googleAnalytics.js
-Place raw code in the section below. Save.
+1. Edit your 2.0 site
+2. Go to “Code Editor” tab
+3. Hit “New File Override”
+4. Name this file js/services/googleAnalytics.js
+5. Place raw code in the section below. Save.
 
 ## Usage
 ### 1. Update the Google Analytics Key for the Buyer in Storefront Admin
