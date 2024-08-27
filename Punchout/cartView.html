@@ -224,7 +224,7 @@
                         </button>
                     </li>
                     <li>
-                        <button class="btn" ng-class="{'btn-warning': cart.$invalid, 'btn-success': !cart.$invalid }" ng-click="submitPunchoutOrder()" ng-disabled="cart.$invalid">
+                        <button class="btn" ng-class="{'btn-warning': cart.$invalid || submitClicked, 'btn-success': !cart.$invalid || !submitClicked }" ng-click="submitPunchoutOrder()" ng-disabled="cart.$invalid || submitClicked">
                             <i ng-show="cart.$invalid" class="fa fa-warning"></i>
                             <span>{{'Submit' | r | xlat}} {{window.outerWidth}}</span>
                         </button>
