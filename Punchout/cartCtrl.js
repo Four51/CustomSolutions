@@ -5,6 +5,7 @@ function ($scope, $routeParams, $location, $451, Order, OrderConfig, User, Punch
 		$scope.punchouturl = $sce.trustAsResourceUrl(Punchout.punchoutSession.PunchOutPostURL);
 	}
 	$scope.submitPunchoutOrder = function () {
+	    $scope.submitClicked = true;
 		$scope.saveChanges(function (data) {
 			Punchout.save($scope.currentOrder.ID, function(){
 				Punchout.getForm(function (form) {
@@ -15,9 +16,11 @@ function ($scope, $routeParams, $location, $451, Order, OrderConfig, User, Punch
 					}, 10);
 				},function (err) {
 					$scope.errorMessage = err.Message;
+					$scope.submitClicked = false;
 				});
 			},function(ex){
 				$scope.errorMessage = ex.Message;
+				$scope.submitClicked = false;
 			});
 		}, true);
 	};
