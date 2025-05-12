@@ -9,9 +9,8 @@ function ($scope, $rootScope, $location, User, Address, Resources) {
         $scope.originalAddress = this.address;
         Address.validate(this.address,
             function(address) {
-                this.address = $scope.originalAddress;
                 if(address.address){
-                    $scope.validatedAddress = angular.copy(this.address);
+                    $scope.validatedAddress = angular.copy($scope.originalAddress);
                     $scope.validatedAddress.Street1 = address.address.streetAddress;
                     $scope.validatedAddress.Street2 = address.address.secondaryAddress;
                     $scope.validatedAddress.City = address.address.city;
@@ -34,6 +33,7 @@ function ($scope, $rootScope, $location, User, Address, Resources) {
                     $scope.objectExists = true;
             }
         );
+        this.address = $scope.originalAddress;
     };
 
     // Function to select an address
@@ -43,18 +43,18 @@ function ($scope, $rootScope, $location, User, Address, Resources) {
     };
 
     $scope.save = function() {
-        $scope.objectExists = false;
+	    $scope.objectExists = false;
         if(!this.address.State){
             this.address.State  =  '';
         }
         Address.save(this.address,
-            function(address) {
+	        function(address) {
                 $rootScope.$broadcast('event:AddressSaved', address);
                 $scope.showModal = false; // Close modal
                 $location.path($scope.return);
             },
-            function(ex) {
-                if (ex.Code.is('ObjectExistsException')){
+	        function(ex) {
+	            if (ex.Code.is('ObjectExistsException')){
                     $scope.objectExists = true;
                     $scope.showModal = false; // Close modal
                 }
